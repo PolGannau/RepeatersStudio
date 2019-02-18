@@ -1,3 +1,3 @@
-#Repeaters Studio
+# Repeaters Studio
 
-[webpage]: (https://polgannau.github.io/RepeatersStudio/)
+[webpage](https://polgannau.github.io/RepeatersStudio/)
