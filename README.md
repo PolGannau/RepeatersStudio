@@ -23,7 +23,7 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-**Webpage**: [https://polgannau.github.io/RepeatersStudio/]
+**[webpage]**(https://polgannau.github.io/RepeatersStudio/)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
