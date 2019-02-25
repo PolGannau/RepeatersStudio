@@ -4,7 +4,7 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 
 
 
-## Group Members
+## Team Members
 
 * Pol Gannau
 > https://github.com/PolGannau
