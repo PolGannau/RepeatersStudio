@@ -91,8 +91,8 @@ int main(int argv, char *argc[])
 			player = loadTexture("../Game/cat.png");
 			shoot = loadTexture("../Game/fullcounter.png");
 			enemy = loadTexture("../Game/enemy.png");
-			bgMusic = Mix_LoadMUS("../Game/bgMusic.ogg");
-			fullcounterFx = Mix_LoadWAV("../Game/fullcounterFx.ogg");
+			bgMusic = Mix_LoadMUS("bgMusic.ogg");
+			fullcounterFx = Mix_LoadWAV("fullcounterFx.ogg");
 			Mix_VolumeChunk(fullcounterFx, volum);
 			
 			Mix_PlayMusic(bgMusic, 1);
@@ -175,7 +175,8 @@ int main(int argv, char *argc[])
 								(bullet[i]->y >= enemies[j]->y) && (bullet[i]->y <= (enemies[j]->y + enemies[j]->h)) || enemies[j]->x < 0)
 							{
 								enemies[j]->x = WINDOW_WIDTH + 50;
-								enemies[j]->y = rand() % (WINDOW_HEIGHT - 50);
+								enemies[j]->y = (rand() % WINDOW_HEIGHT);
+								if (enemies[j]->y >= WINDOW_HEIGHT - 50)enemies[j]->y -= 100;
 							}
 						}
 					}
