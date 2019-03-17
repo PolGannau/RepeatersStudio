@@ -31,3 +31,22 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 [Repeaters Studio's Github](https://github.com/PolGannau/RepeatersStudio/)
 
 
+## Sources
+
+* Character sprites:
+> http://mugenguild.com/forum/topics/street-fighter-ii-sprites-176539.0.html
+
+* Sprite order reference:
+> https://www.spriters-resource.com/snes/supersf2/
+
+* Voicelines:
+> https://www.sounds-resource.com/arcade/streetfighteriicps1/sound/210/
+
+* SFX:
+> https://www.sounds-resource.com/arcade/streetfighteriicps1/sound/211/
+
+* Soundtrack:
+> https://www.zophar.net/music/nintendo-snes-spc/street-fighter-ii/
+
+* Attack frames and hitboxes:
+> http://wiki.shoryuken.com/Street_Fighter_2:_The_World_Warrior#Characters
