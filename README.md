@@ -2,7 +2,7 @@
 
 Repository dedicated to the project releases from the Project 1 subject from GDDV (CITM, UPC).
 
-
+In this subject we will be replicating the famous arcade game which catapulted the whole fighting game scene, **Street Fighter II: The World Warrior**.
 
 ## Team Members
 
