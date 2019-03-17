@@ -31,7 +31,7 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 [Repeaters Studio's Github](https://github.com/PolGannau/RepeatersStudio/)
 
 
-## Sources
+## Sources & Bibliography
 
 * Character sprites:
 > http://mugenguild.com/forum/topics/street-fighter-ii-sprites-176539.0.html
@@ -53,3 +53,15 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 
 * Character quotes:
 > https://gamefaqs.gamespot.com/snes/588700-street-fighter-ii/faqs/42724
+
+* Character and game lore:
+> https://streetfighter.fandom.com/wiki/Category:Street_Fighter_II_Characters
+
+* Button and Joystick images/Character moveset info:
+> https://videojuegos.fandom.com/es/wiki/Wikitrucos:Street_Fighter_II:_The_World_Warrior/Controles
+
+* Concept Art:
+> https://www.fightersgeneration.com/games/sf2.html
+
+* Stages images:
+> https://street-fighter-sprites.fandom.com/wiki/Street_Fighter_II:_The_World_Warrior
