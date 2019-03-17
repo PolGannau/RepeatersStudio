@@ -50,3 +50,6 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 
 * Attack frames and hitboxes:
 > http://wiki.shoryuken.com/Street_Fighter_2:_The_World_Warrior#Characters
+
+* Character quotes:
+> https://gamefaqs.gamespot.com/snes/588700-street-fighter-ii/faqs/42724
