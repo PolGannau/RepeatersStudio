@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "ModuleWindow.h"
-//#include "ModuleRender.h"
+#include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 //#include "ModuleSceneSpace.h"
@@ -16,7 +16,7 @@ Application::Application()
 {
 	int i = 0;
 	modules[i++] = window = new ModuleWindow();
-	//modules[i++] = render = new ModuleRender();
+	modules[i++] = render = new ModuleRender();
 	modules[i++] = input = new ModuleInput();
 	//modules[i++] = textures = new ModuleTextures();
 	//modules[i++] = fonts = new ModuleFonts();
@@ -28,7 +28,6 @@ Application::Application()
 	//modules[i++] = collision = new ModuleCollision();
 	modules[i++] = fade = new ModuleFadeToBlack();
 }
-
 Application::~Application()
 {
 	for (int i = NUM_MODULES - 1; i >= 0; --i)
