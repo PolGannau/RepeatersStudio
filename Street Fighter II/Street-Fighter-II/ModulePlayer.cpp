@@ -3,7 +3,7 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 //#include "ModuleParticles.h"
-//#include "ModuleRender.h"
+#include "ModuleRender.h"
 //#include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 //#include "ModuleFonts.h"
@@ -38,8 +38,8 @@ bool ModulePlayer::Start()
 	font_score = App->fonts->Load("fonts/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
 
 
-
-	return true;*/
+	*/
+	return true;
 }
 
 // Unload assets
@@ -51,14 +51,14 @@ bool ModulePlayer::CleanUp()
 	App->fonts->UnLoad(font_score);
 	if (col)
 		col->to_delete = true;
-
-	return true;*/
+		*/
+	return true;
 }
 
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-
+	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)

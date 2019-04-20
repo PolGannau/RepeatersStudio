@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleFadeToBlack.h"
-//#include "ModuleRender.h"
+#include "ModuleRender.h"
 #include "../SDL/include/SDL_render.h"
 #include "../SDL/include/SDL_timer.h"
 
