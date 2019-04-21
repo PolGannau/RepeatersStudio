@@ -29,7 +29,9 @@ public:
 	Animation idle;
 	Animation forward;
 	Animation backward;
-	Animation jump;
+	Animation njump;
+	Animation fjump;
+	Animation bjump;
 	Animation punch;
 	Animation kick;
 	Animation hadoken;
