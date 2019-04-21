@@ -27,8 +27,14 @@ public:
 	uint score = 0;
 	Animation* current_animation = nullptr;
 	Animation idle;
-	Animation up;
-	Animation down;
+	Animation forward;
+	Animation backward;
+	Animation jump;
+	Animation punch;
+	Animation kick;
+	Animation hadoken;
+	Animation shoryuken;
+	Animation tatsumaki;
 	iPoint position;
 	Collider* col;
 	bool destroyed = false;
