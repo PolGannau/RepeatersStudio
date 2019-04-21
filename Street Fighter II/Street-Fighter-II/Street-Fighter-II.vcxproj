@@ -129,11 +129,15 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="ModuleCollision.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModulePlayer2.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
+    <ClCompile Include="ModuleRyuStage.cpp" />
+    <ClCompile Include="ModuleSceneEnd.cpp" />
+    <ClCompile Include="ModuleSceneIntro.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
   </ItemGroup>
@@ -144,11 +148,15 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleAudio.h" />
+    <ClInclude Include="ModuleCollision.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="ModuleRender.h" />
+    <ClInclude Include="ModuleRyuStage.h" />
+    <ClInclude Include="ModuleSceneEnd.h" />
+    <ClInclude Include="ModuleSceneIntro.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="p2Point.h" />

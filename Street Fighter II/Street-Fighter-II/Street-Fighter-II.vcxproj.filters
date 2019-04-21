@@ -51,6 +51,18 @@
     <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleSceneIntro.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRyuStage.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleSceneEnd.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollision.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModuleAudio.h">
@@ -96,6 +108,18 @@
       <Filter>Archivos de código fuente</Filter>
     </ClInclude>
     <ClInclude Include="ModulePlayer2.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleSceneIntro.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRyuStage.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleSceneEnd.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollision.h">
       <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
