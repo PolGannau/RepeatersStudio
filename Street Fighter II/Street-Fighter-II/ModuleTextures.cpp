@@ -6,7 +6,7 @@
 
 #include "../SDL/include/SDL.h"
 #include "../SDL_Image/include/SDL_image.h"
-#pragma comment( lib, "SDL_image/libx86/SDL2_image.lib" )
+#pragma comment( lib, "../SDL_image/libx86/SDL2_image.lib" )
 
 ModuleTextures::ModuleTextures() : Module()
 {
