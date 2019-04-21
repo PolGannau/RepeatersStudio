@@ -4,7 +4,7 @@
 #include "ModuleInput.h"
 //#include "ModuleParticles.h"
 #include "ModuleRender.h"
-//#include "ModuleCollision.h"
+#include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 //#include "ModuleFonts.h"
 #include "ModulePlayer.h"

@@ -4,8 +4,8 @@
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 //#include "ModuleSceneSpace.h"
-//#include "ModuleSceneIntro.h"
-//#include "ModuleCollision.h"
+#include "ModuleSceneIntro.h"
+#include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 //#include "ModuleParticles.h"
@@ -18,14 +18,14 @@ Application::Application()
 	modules[i++] = window = new ModuleWindow();
 	modules[i++] = render = new ModuleRender();
 	modules[i++] = input = new ModuleInput();
-	//modules[i++] = textures = new ModuleTextures();
+	modules[i++] = textures = new ModuleTextures();
 	//modules[i++] = fonts = new ModuleFonts();
-	//modules[i++] = scene_intro = new ModuleSceneIntro();
+	modules[i++] = scene_intro = new ModuleSceneIntro();
 	//modules[i++] = scene_space = new ModuleSceneSpace();
 	//modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = player = new ModulePlayer();
 	//modules[i++] = particles = new ModuleParticles();
-	//modules[i++] = collision = new ModuleCollision();
+	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = fade = new ModuleFadeToBlack();
 }
 Application::~Application()
