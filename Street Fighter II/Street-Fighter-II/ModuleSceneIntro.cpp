@@ -18,7 +18,7 @@ bool ModuleSceneIntro::Start()
 {
 	LOG("Loading space intro");
 
-	background = App->textures->Load("rtype/intro.png");
+	//background = App->textures->Load("Assets/title.png");
 
 	App->render->camera.x = App->render->camera.y = 0;
 
@@ -30,7 +30,7 @@ bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading space scene");
 
-	App->textures->Unload(background);
+	//App->textures->Unload(background);
 
 	return true;
 }
@@ -38,12 +38,12 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
-	App->render->Blit(background, 0, 0, NULL);
+	/*App->render->Blit(background, 0, 0, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->scene_space);
-	}
+	}*/
 
 	return UPDATE_CONTINUE;
 }
