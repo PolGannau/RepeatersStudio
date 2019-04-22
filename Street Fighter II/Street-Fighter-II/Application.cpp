@@ -3,7 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-//#include "ModuleSceneSpace.h"
+#include "ModuleRyuStage.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
@@ -21,7 +21,7 @@ Application::Application()
 	modules[i++] = textures = new ModuleTextures();
 	//modules[i++] = fonts = new ModuleFonts();
 	modules[i++] = scene_intro = new ModuleSceneIntro();
-	//modules[i++] = scene_space = new ModuleSceneSpace();
+	modules[i++] = ryu_stage = new ModuleRyuStage();
 	//modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = player = new ModulePlayer();
 	//modules[i++] = particles = new ModuleParticles();
