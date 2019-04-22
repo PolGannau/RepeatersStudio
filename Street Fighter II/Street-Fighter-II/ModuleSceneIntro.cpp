@@ -18,7 +18,7 @@ bool ModuleSceneIntro::Start()
 {
 	LOG("Loading space intro");
 
-	background = App->textures->Load("Assets/title.png");
+	background = App->textures->Load("Assets/Images/Ui/title.png");
 
 	App->render->camera.x = App->render->camera.y = 0;
 
@@ -42,7 +42,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->scene_space);
+		App->fade->FadeToBlack(this, (Module*)App->ryu_stage);
 	}
 
 	return UPDATE_CONTINUE;
