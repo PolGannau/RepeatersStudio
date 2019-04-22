@@ -17,20 +17,20 @@ ModulePlayer::ModulePlayer()
 	position.y = 220;
 
 	// idle animation (arcade sprite sheet)
-	idle.PushBack({ 133, 649, 60, 89 });
-	idle.PushBack({ 206, 739, 59, 90 });
-	idle.PushBack({ 441, 830, 58, 92 });
-	idle.PushBack({ 161, 923, 55, 93 });
+	idle.PushBack({ 68, 646, 60, 89 });
+	idle.PushBack({ 118, 736, 59, 90 });
+	idle.PushBack({ 424, 827, 58, 92 });
+	idle.PushBack({ 147, 919, 55, 93 });
 	//idle.PushBack({ 366, 12, 60, 92 });
-	idle.speed = 0.2f;
+	idle.speed = 0.18f;
 
 	// walk forward animation (arcade sprite sheet)
-	forward.PushBack({ 568, 476, 53, 83 });
-	forward.PushBack({ 776, 560, 60, 88 });
-	forward.PushBack({ 722, 830, 64, 92 });
-	forward.PushBack({ 593, 649, 63, 90 });
-	forward.PushBack({ 0, 830, 54, 91 });
-	forward.PushBack({ 368, 649, 50, 89 });
+	forward.PushBack({ 546, 474, 53, 83 });
+	forward.PushBack({ 786, 558, 60, 88 });
+	forward.PushBack({ 844, 827, 64, 92 });
+	forward.PushBack({ 853, 646, 63, 90 });
+	forward.PushBack({ 195, 827, 54, 91 });
+	forward.PushBack({ 376, 646, 50, 89 });
 	forward.speed = 0.1f;
 
 	// walk backwards animation
@@ -101,7 +101,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("../Game/Assets/Images/Characters/ryuSprites.png");
+	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
 	return ret;
 }
 
