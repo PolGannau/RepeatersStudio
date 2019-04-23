@@ -90,6 +90,7 @@ ModulePlayer::ModulePlayer()
 	shoryuken.PushBack({ 511, 560, 71, 87 });
 	shoryuken.speed = 0.1f;*/
 
+	
 
 }
 
@@ -102,6 +103,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
+	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER, this);
 	return ret;
 }
 
@@ -135,23 +137,26 @@ update_status ModulePlayer::Update()
 			Bkick = false;
 		}
 	}
-	else current_animation = &idle;
-	int speed = 1;
+	else
+	{
+		current_animation = &idle;
+		int speed = 1;
 
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
-	{
-		current_animation = &forward;
-		position.x += speed;
-	}
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
-	{
-		current_animation = &backward;
-		position.x -= speed;
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W] == 1)
-	{
-		current_animation = &njump;
-		position.y -= speed;
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
+		{
+			current_animation = &forward;
+			position.x += speed;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
+		{
+			current_animation = &backward;
+			position.x -= speed;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
+		{
+			current_animation = &njump;
+			position.y -= speed;
+		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_E] == 1)
 	{
