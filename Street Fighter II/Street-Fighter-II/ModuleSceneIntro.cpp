@@ -16,7 +16,7 @@ ModuleSceneIntro::~ModuleSceneIntro()
 // Load assets
 bool ModuleSceneIntro::Start()
 {
-	LOG("Loading space intro");
+	LOG("Loading Ryu Stage");
 
 	background = App->textures->Load("Assets/Images/Ui/title.png");
 
@@ -28,7 +28,7 @@ bool ModuleSceneIntro::Start()
 // UnLoad assets
 bool ModuleSceneIntro::CleanUp()
 {
-	LOG("Unloading space scene");
+	LOG("Unloading Ryu Stage");
 
 	App->textures->Unload(background);
 
