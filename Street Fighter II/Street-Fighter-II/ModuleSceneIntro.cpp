@@ -16,11 +16,11 @@ ModuleSceneIntro::~ModuleSceneIntro()
 // Load assets
 bool ModuleSceneIntro::Start()
 {
-	LOG("Loading Ryu Stage");
+	LOG("Loading Intro Scene");
 
 	background = App->textures->Load("Assets/Images/Ui/title.png");
-
-	App->render->camera.x = App->render->camera.y = 0;
+	
+	//App->render->camera.x = App->render->camera.y = 0;
 
 	return true;
 }
@@ -28,7 +28,7 @@ bool ModuleSceneIntro::Start()
 // UnLoad assets
 bool ModuleSceneIntro::CleanUp()
 {
-	LOG("Unloading Ryu Stage");
+	LOG("Unloading Intro Scene");
 
 	App->textures->Unload(background);
 

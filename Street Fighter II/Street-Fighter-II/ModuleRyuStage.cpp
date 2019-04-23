@@ -16,7 +16,7 @@ ModuleRyuStage::~ModuleRyuStage()
 // Load assets
 bool ModuleRyuStage::Start()
 {
-	LOG("Loading space scene");
+	LOG("Loading Ryu Stage");
 
 	background = App->textures->Load("Assets/Images/Ui/capcom logo.png");
 	//hud = App->textures->Load("rtype/hud.png");
@@ -38,7 +38,7 @@ bool ModuleRyuStage::Start()
 // UnLoad assets
 bool ModuleRyuStage::CleanUp()
 {
-	LOG("Unloading space scene");
+	LOG("Unloading Ryu Stage");
 
 	App->textures->Unload(background);
 
