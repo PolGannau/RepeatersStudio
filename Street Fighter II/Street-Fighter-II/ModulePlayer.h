@@ -37,9 +37,12 @@ public:
 	Animation hadoken;
 	Animation shoryuken;
 	Animation tatsumaki;
+
 	iPoint position;
 	Collider* col;
 	bool destroyed = false;
+	bool Bpunch = false;
+	bool Bkick = false;
 };
 
 #endif

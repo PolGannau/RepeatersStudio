@@ -45,12 +45,12 @@ ModulePlayer::ModulePlayer()
 	// punch animation
 	punch.PushBack({ 131, 827, 64, 91 });
 	punch.PushBack({ 861, 736, 92, 91 });
-	punch.speed = 0.1f;
+	punch.speed = 0.2f;
 
 	// kick animation
 	kick.PushBack({ 358, 827, 66, 92 });
 	kick.PushBack({ 747, 919, 114, 94 });
-	kick.speed = 0.1f;
+	kick.speed = 0.2f;
 
 	// neutral jump animation
 	njump.PushBack({ 844, 1108, 56, 104 });
@@ -118,8 +118,24 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	Animation* current_animation = &idle;
-
+	
+	if (Bpunch) 
+	{
+		current_animation = &punch;
+		if (current_animation->Finished()) {
+			current_animation->Reset();
+			Bpunch = false;
+		}
+	}
+	else if (Bkick)
+	{
+		current_animation = &kick;
+		if (current_animation->Finished()) {
+			current_animation->Reset();
+			Bkick = false;
+		}
+	}
+	else current_animation = &idle;
 	int speed = 1;
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
@@ -136,6 +152,14 @@ update_status ModulePlayer::Update()
 	{
 		current_animation = &njump;
 		position.y -= speed;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_E] == 1)
+	{
+		Bpunch = true;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_Q] == 1)
+	{
+		Bkick = true;
 	}
 
 	// Draw everything --------------------------------------
