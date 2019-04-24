@@ -109,7 +109,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
-	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER, this);
+	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER_BODY, this);
 	return ret;
 }
 
