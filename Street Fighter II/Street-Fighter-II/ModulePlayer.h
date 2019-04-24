@@ -29,7 +29,8 @@ public:
 	Animation idle;
 	Animation forward;
 	Animation backward;
-	Animation njump;
+	Animation njumpup;
+	Animation njumpdown;
 	Animation fjump;
 	Animation bjump;
 	Animation punch;
@@ -44,6 +45,8 @@ public:
 	bool Bpunch = false;
 	bool Bkick = false;
 	bool Bhadoken = false;
+	bool Bnjumpup = false;
+	bool Bnjumpdown = false;
 };
 
 #endif

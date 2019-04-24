@@ -53,13 +53,15 @@ ModulePlayer::ModulePlayer()
 	kick.speed = 0.2f;
 
 	// neutral jump animation
-	njump.PushBack({ 844, 1108, 56, 104 });
-	njump.PushBack({ 542, 646, 50, 89 });
-	njump.PushBack({ 827, 319, 54, 77 });
-	njump.PushBack({ 315, 243, 48, 70 });
-	njump.PushBack({ 592, 646, 48, 89 });
-	njump.PushBack({ 252, 1212, 55, 109 });
-	njump.speed = 0.1f;
+	njumpup.PushBack({ 844, 1108, 56, 104 });
+	njumpup.PushBack({ 542, 646, 50, 89 });
+	njumpup.PushBack({ 827, 319, 54, 77 });
+	njumpup.speed = 0.05f;
+
+	njumpdown.PushBack({ 315, 243, 48, 70 });
+	njumpdown.PushBack({ 592, 646, 48, 89 });
+	njumpdown.PushBack({ 252, 1212, 55, 109 });
+	njumpdown.speed = 0.1f;
 
 	//forward jump animation
 	fjump.PushBack({ 252, 1212, 55, 109 });
@@ -130,15 +132,18 @@ update_status ModulePlayer::Update()
 	if (Bpunch) 
 	{
 		current_animation = &punch;
-		if (current_animation->Finished()) {
+		if (current_animation->Finished()) 
+		{
 			current_animation->Reset();
 			Bpunch = false;
+		
 		}
 	}
 	else if (Bkick)
 	{
 		current_animation = &kick;
-		if (current_animation->Finished()) {
+		if (current_animation->Finished()) 
+		{
 			current_animation->Reset();
 			Bkick = false;
 		}
@@ -146,9 +151,26 @@ update_status ModulePlayer::Update()
 	else if (Bhadoken)
 	{
 		current_animation = &hadokenRyu;
-		if (current_animation->Finished()) {
+		if (current_animation->Finished()) 
+		{
 			current_animation->Reset();
 			Bhadoken = false;
+		}
+	}
+	else if (Bnjumpup)
+	{
+		current_animation = &njumpup;
+		if (current_animation->Finished()) 
+		{
+			Bnjumpup = false;
+			if (!Bnjumpup)
+			{
+				Bnjumpdown = true;
+				if (Bnjumpdown)
+				{
+					current_animation = &njumpdown;
+				}
+			}
 		}
 	}
 	else
@@ -168,8 +190,8 @@ update_status ModulePlayer::Update()
 		}
 		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
 		{
-			current_animation = &njump;
-			position.y -= speed;
+			Bnjumpup = true;
+			//position.y -= speed;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_E] == 1)
