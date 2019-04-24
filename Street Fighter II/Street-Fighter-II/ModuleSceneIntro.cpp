@@ -46,8 +46,7 @@ update_status ModuleSceneIntro::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->ryu_stage);
-		App->player->Enable();
-		App->ryu_stage->Enable();
+	
 	}
 
 	return UPDATE_CONTINUE;
