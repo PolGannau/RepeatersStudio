@@ -3,6 +3,8 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
+#include "ModuleRyuStage.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneIntro.h"
 
@@ -19,7 +21,8 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro Scene");
 
 	background = App->textures->Load("Assets/Images/Ui/title.png");
-	
+	App->player->Disable();
+	App->ryu_stage->Disable();
 	//App->render->camera.x = App->render->camera.y = 0;
 
 	return true;
@@ -43,6 +46,8 @@ update_status ModuleSceneIntro::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->ryu_stage);
+		App->player->Enable();
+		App->ryu_stage->Enable();
 	}
 
 	return UPDATE_CONTINUE;
