@@ -15,13 +15,16 @@ ModuleParticles::ModuleParticles()
 		active[i] = nullptr;
 
 	/*animation for hadoken to be implemented here*/
-	hadoken.anim.PushBack({ 546, 474, 53, 83 });
-	hadoken.anim.PushBack({ 789, 558, 60, 88 });
-	hadoken.anim.PushBack({ 844, 827, 64, 92 });
-	hadoken.anim.PushBack({ 853, 646, 63, 90 });
-	hadoken.anim.PushBack({ 195, 827, 54, 91 });
-	hadoken.anim.PushBack({ 379, 646, 50, 89 });
-	hadoken.anim.speed = 0.1f;
+	//projectile
+	hadokenParticle.anim.PushBack({ 1261, 19, 56, 28 });
+	hadokenParticle.anim.PushBack({ 1318, 17, 43, 32 });
+	//on collision
+	hadokenParticle.anim.PushBack({ 1362, 23, 26, 20 });
+	hadokenParticle.anim.PushBack({ 1389, 20, 15, 25 });
+	hadokenParticle.anim.PushBack({ 1405, 19, 28, 28 });
+	hadokenParticle.anim.PushBack({ 1434, 16, 32, 32 });
+	hadokenParticle.anim.speed = 0.1f;
+	hadokenParticle.speed.x = 1;
 }
 
 ModuleParticles::~ModuleParticles()

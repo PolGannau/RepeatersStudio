@@ -34,6 +34,7 @@ public:
 	Animation bjump;
 	Animation punch;
 	Animation kick;
+	Animation hadokenRyu;
 	Animation shoryuken;
 	Animation tatsumaki;
 
@@ -42,6 +43,7 @@ public:
 	bool destroyed = false;
 	bool Bpunch = false;
 	bool Bkick = false;
+	bool Bhadoken = false;
 };
 
 #endif

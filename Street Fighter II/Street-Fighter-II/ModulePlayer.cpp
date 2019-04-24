@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
-//#include "ModuleParticles.h"
+#include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
@@ -90,7 +90,13 @@ ModulePlayer::ModulePlayer()
 	shoryuken.PushBack({ 511, 560, 71, 87 });
 	shoryuken.speed = 0.1f;*/
 
-	
+	//hadoken animation
+	hadokenRyu.PushBack({ 321,736,74,90 });
+	hadokenRyu.PushBack({ 864,474,85, 84 });
+	hadokenRyu.PushBack({ 314,474,90,83 });
+	hadokenRyu.PushBack({ 190,396,106,77 });
+	hadokenRyu.PushBack({ 190,396,106,77 });
+	hadokenRyu.speed = 0.15f;
 
 }
 
@@ -137,6 +143,14 @@ update_status ModulePlayer::Update()
 			Bkick = false;
 		}
 	}
+	else if (Bhadoken)
+	{
+		current_animation = &hadokenRyu;
+		if (current_animation->Finished()) {
+			current_animation->Reset();
+			Bhadoken = false;
+		}
+	}
 	else
 	{
 		current_animation = &idle;
@@ -166,6 +180,12 @@ update_status ModulePlayer::Update()
 	{
 		Bkick = true;
 	}
+	if (App->input->keyboard[SDL_SCANCODE_R] == 1)
+	{
+		Bhadoken = true;
+		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_PLAYER_SHOT);
+	}
+
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
