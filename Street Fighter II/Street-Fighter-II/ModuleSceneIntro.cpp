@@ -7,6 +7,7 @@
 #include "ModuleRyuStage.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneIntro.h"
+#include "ModuleAudio.h"
 
 
 ModuleSceneIntro::ModuleSceneIntro()
@@ -23,6 +24,9 @@ bool ModuleSceneIntro::Start()
 	background = App->textures->Load("Assets/Images/Ui/title.png");
 	App->player->Disable();
 	App->ryu_stage->Disable();
+
+	//intro_mus = App->audio->LoadMus("../Audio/02 The World Warrior.ogg");
+	//App->audio->PlayMus(intro_mus);
 	//App->render->camera.x = App->render->camera.y = 0;
 
 	return true;
@@ -34,6 +38,7 @@ bool ModuleSceneIntro::CleanUp()
 	LOG("Unloading Intro Scene");
 
 	App->textures->Unload(background);
+	//App->audio->UnloadMus(intro_mus);
 
 	return true;
 }
@@ -46,7 +51,7 @@ update_status ModuleSceneIntro::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->ryu_stage);
-	
+		//App->audio->FadeMus(600);
 	}
 
 	return UPDATE_CONTINUE;

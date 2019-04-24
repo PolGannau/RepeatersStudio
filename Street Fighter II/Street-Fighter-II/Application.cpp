@@ -8,6 +8,7 @@
 #include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleAudio.h"
 //#include "ModuleParticles.h"
 //#include "ModuleEnemies.h"
 //#include "ModuleFonts.h"
@@ -27,7 +28,9 @@ Application::Application()
 	//modules[i++] = particles = new ModuleParticles();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = fade = new ModuleFadeToBlack();
+	//modules[i++] = audio = new ModuleAudio();
 }
+
 Application::~Application()
 {
 	for (int i = NUM_MODULES - 1; i >= 0; --i)
