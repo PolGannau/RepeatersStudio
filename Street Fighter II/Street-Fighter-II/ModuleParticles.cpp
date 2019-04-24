@@ -1,6 +1,7 @@
 #include <math.h>
 #include "Globals.h"
 #include "Application.h"
+#include "Animation.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
@@ -14,6 +15,13 @@ ModuleParticles::ModuleParticles()
 		active[i] = nullptr;
 
 	/*animation for hadoken to be implemented here*/
+	hadoken.anim.PushBack({ 546, 474, 53, 83 });
+	hadoken.anim.PushBack({ 789, 558, 60, 88 });
+	hadoken.anim.PushBack({ 844, 827, 64, 92 });
+	hadoken.anim.PushBack({ 853, 646, 63, 90 });
+	hadoken.anim.PushBack({ 195, 827, 54, 91 });
+	hadoken.anim.PushBack({ 379, 646, 50, 89 });
+	hadoken.anim.speed = 0.1f;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -23,7 +31,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("rtype/particles.png");
+	graphics = App->textures->Load("../Game/Assets/Images/Particles/hadoken.png");
 
 	return true;
 }

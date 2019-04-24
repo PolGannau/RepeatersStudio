@@ -34,7 +34,6 @@ public:
 	Animation bjump;
 	Animation punch;
 	Animation kick;
-	Animation hadoken;
 	Animation shoryuken;
 	Animation tatsumaki;
 
