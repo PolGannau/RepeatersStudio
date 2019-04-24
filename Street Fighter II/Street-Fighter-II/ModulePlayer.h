@@ -27,10 +27,13 @@ public:
 	uint score = 0;
 	Animation* current_animation = nullptr;
 	Animation idle;
+	Animation idlec;
 	Animation forward;
 	Animation backward;
-	Animation njumpup;
-	Animation njumpdown;
+	Animation crouching;
+	Animation standing;
+	Animation njump;
+	//Animation njumpdown;
 	Animation fjump;
 	Animation bjump;
 	Animation punch;
@@ -45,8 +48,12 @@ public:
 	bool Bpunch = false;
 	bool Bkick = false;
 	bool Bhadoken = false;
-	bool Bnjumpup = false;
-	bool Bnjumpdown = false;
+	bool Bnjump = false;
+	bool Bfjump = false;
+	bool Bbjump = false;
+	bool Bcrouch = false;
+	bool Bstand = false;
+	//bool Bnjumpdown = false;
 };
 
 #endif
