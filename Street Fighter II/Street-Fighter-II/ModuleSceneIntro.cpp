@@ -25,8 +25,8 @@ bool ModuleSceneIntro::Start()
 	App->player->Disable();
 	App->ryu_stage->Disable();
 
-	//intro_mus = App->audio->LoadMus("../Audio/02 The World Warrior.ogg");
-	//App->audio->PlayMus(intro_mus);
+	intro_mus = App->audio->LoadMusic("../Audio/02 The World Warrior.ogg");
+	App->audio->PlayMusic(intro_mus);
 	//App->render->camera.x = App->render->camera.y = 0;
 
 	return true;
