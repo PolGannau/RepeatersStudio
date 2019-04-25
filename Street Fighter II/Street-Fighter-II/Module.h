@@ -3,6 +3,8 @@
 
 #include "Globals.h"
 
+#include "../SDL_Mixer/include/SDL_mixer.h"
+
 struct Collider;
 
 class Module

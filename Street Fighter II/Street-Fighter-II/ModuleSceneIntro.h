@@ -4,7 +4,6 @@
 #include "Module.h"
 
 struct SDL_Texture;
-struct Mix_Music;
 
 class ModuleSceneIntro : public Module
 {
