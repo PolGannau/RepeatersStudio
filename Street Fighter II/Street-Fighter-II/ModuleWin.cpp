@@ -15,9 +15,8 @@ bool ModuleWin::Start()
 {
 	LOG("loading Win Scene");
 	//We create a rect to put the winner texture in it.
-	texture = App->textures->Load("Assets/Images/Ui/UiSprites-1.png");
-	winner_rect = { 265, 1157, 265, 354 };
-	
+	texture_winner = App->textures->Load("Assets/Images/Ui/Portraits/ryu.png");
+	texture_loser = App->textures->Load("Assets/Images/Ui/Portraits/dmgryu.png";)
 
 	return false;
 }
@@ -27,7 +26,7 @@ update_status ModuleWin::Update()
 	if (update_status::UPDATE_ERROR)
 		LOG("Could not update Win Scene");
 
-	App->render->Blit(texture, 128, 56, winner_rect, 1.0F, true);
+	App->render->Blit(texture_winner, 50, 50, NULL);
 	return update_status();
 }
 

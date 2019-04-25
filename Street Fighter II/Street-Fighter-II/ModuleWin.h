@@ -19,9 +19,8 @@ public:
 
 	SDL_Texture* background = nullptr;
 	uint fx = 0;
-	SDL_Texture* texture = nullptr;
-	SDL_Rect* winner_rect;
-	SDL_Rect* loser_rect;
+	SDL_Texture* texture_winner = nullptr;
+	SDL_Texture* texture_loser = nullptr;
 };
 
 #endif // !__MODULEWIM_H__
