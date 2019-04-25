@@ -17,7 +17,7 @@ public:
 
 public:
 
-	SDL_Texture* background = nullptr;
+	SDL_Texture* texture_text = nullptr;
 	uint fx = 0;
 	SDL_Texture* texture_winner = nullptr;
 	SDL_Texture* texture_loser = nullptr;
