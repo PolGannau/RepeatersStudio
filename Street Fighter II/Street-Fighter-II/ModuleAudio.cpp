@@ -1,157 +1,157 @@
-#include "ModuleAudio.h"
 #include "Application.h"
+#include "ModuleAudio.h"
 #include "../SDL_Mixer/include/SDL_mixer.h"
-#pragma comment ( lib, "../SDL_mixer/libx86/SDL2_mixer.lib")
 
+#pragma comment(lib, "../SDL_mixer/libx86/SDL2_mixer.lib")
 
 ModuleAudio::ModuleAudio()
 {
-	for (int i = 0; i < MAX_MUSICS; ++i) {
-		musics[i] = nullptr;
-	}
-	for (int i = 0; i < MAX_CHUNKS; ++i) {
-		chunks[i] = nullptr;
-	}
+	for (uint i = 0; i < MAX_MUSIC; ++i)
+		songs[i] = nullptr;
+
+	for (uint i = 0; i < MAX_FX; ++i)
+		sound_effects[i] = nullptr;
+
 }
 
-ModuleAudio::~ModuleAudio()
-{
-}
+ModuleAudio::~ModuleAudio() {}
 
 bool ModuleAudio::Init()
 {
-	LOG("Init Audio library");
 	bool ret = true;
 
-	int flags = MIX_INIT_OGG;
-	int init = Mix_Init(flags);
+	LOG("Init Audio Module .........");
 
-	if ((init & flags) != flags)
+	if (Mix_Init(MIX_INIT_OGG) < 0)
 	{
-		LOG("Could not initialize Audio lib. Mix_Init: %s", Mix_GetError());
+		LOG("Audio Module can't be initialized: %s/n", Mix_GetError());
 		ret = false;
 	}
-
-	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 2049);
+	else
+	{
+		if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1024) < 0)
+		{
+			LOG("Audio Module can't open: %s/n", Mix_GetError());
+			ret = false;
+		}
+	}
 	return ret;
 }
 
 bool ModuleAudio::CleanUp()
 {
-	Mix_Quit();
-	Mix_CloseAudio();
-	return false;
-}
+	LOG("Cleaning Audio Module ............")
 
-Mix_Music* ModuleAudio::LoadMus(const char * path)
-{
-	Mix_Music* music = NULL;
-	music = Mix_LoadMUS(path);
-
-	if (music == NULL)
-	{
-		LOG("Could not load music with path: %s. Mus_Load: %s", path, Mix_GetError());
-	}
-	else
-	{
-		bool room = false;
-		for (int i = 0; i < MAX_MUSICS; ++i)
+		for (uint i = 0; i < MAX_MUSIC; ++i)
 		{
-			if (musics[i] == nullptr)
+			if (songs[i] != nullptr)
 			{
-				musics[i] = music;
-				room = true;
+				Mix_FreeMusic(songs[i]);
+				songs[i] = nullptr;
 				break;
 			}
 		}
-		if (room == false)
-			LOG("Music buffer overflow")
+
+	for (uint i = 0; i < MAX_FX; ++i)
+	{
+		if (sound_effects[i] != nullptr)
+		{
+			Mix_FreeChunk(sound_effects[i]);
+			sound_effects[i] = nullptr;
+			break;
+		}
 	}
+
+	Mix_CloseAudio();
+	Mix_Quit();
+
+	return true;
+}
+
+void ModuleAudio::PlayMusic(Mix_Music * music_to_play, int repetitions)
+{
+	Mix_PlayMusic(music_to_play, repetitions);
+	Mix_VolumeMusic(MIX_MAX_VOLUME / 3);
+}
+
+void ModuleAudio::PlaySoundEffect(Mix_Chunk * effect_to_play)
+{
+	Mix_PlayChannel(-1, effect_to_play, 0);
+}
+
+Mix_Music * const ModuleAudio::LoadMusic(const char * path)
+{
+	Mix_Music* music = nullptr;
+
+	music = Mix_LoadMUS(path);
+
+	if (music == nullptr)
+	{
+		LOG("couldn't load song with path: %s. Error: %s", path, Mix_GetError());
+	}
+
+	else
+	{
+		for (int last = 0; last < MAX_MUSIC; ++last)
+		{
+			if (songs[last] == nullptr)
+			{
+				songs[last] = music;
+				break;
+			}
+		}
+	}
+
 	return music;
 }
 
-void ModuleAudio::PlayMus(Mix_Music* mus)
+Mix_Chunk * const ModuleAudio::LoadEffect(const char * path)
 {
-	Mix_PlayMusic(mus, -1);
-}
+	Mix_Chunk* effect = nullptr;
 
-bool ModuleAudio::UnloadMus(Mix_Music* mus)
-{
-	bool ret = false;
-	if (mus != nullptr) {
-		for (int i = 0; i < MAX_MUSICS; ++i)
-		{
-			if (musics[i] == mus)
-			{
-				Mix_FreeMusic(musics[i]);
-				musics[i] = nullptr;
-				ret = true;
-				LOG("Could unload the music properly");
-				break;
-			}
-		}
-	}
+	effect = Mix_LoadWAV(path);
 
-	return ret;
-}
-
-void ModuleAudio::FadeMus(int time)
-{
-	Mix_FadeOutMusic(time);
-}
-
-Mix_Chunk * ModuleAudio::LoadChunk(const char * path)
-{
-
-	Mix_Chunk* chunk = NULL;
-	chunk = Mix_LoadWAV(path);
-
-	if (chunk == NULL)
+	if (effect == nullptr)
 	{
-		LOG("Could not load chunk with path: %s. Mus_Load: %s", path, Mix_GetError());
+		LOG("Could not load sound effect with path: %s. Error: %s", path, Mix_GetError());
 	}
+
 	else
 	{
-		bool room = false;
-		for (int i = 0; i < MAX_CHUNKS; ++i)
+		for (int last = 0; last < MAX_FX; ++last)
 		{
-			if (chunks[i] == nullptr)
+			if (sound_effects[last] == nullptr)
 			{
-				chunks[i] = chunk;
-				room = true;
-				break;
-			}
-		}
-		if (room == false)
-			LOG("Chunks buffer overflow")
-	}
-	return chunk;
-
-}
-
-void ModuleAudio::PlayChunk(Mix_Chunk * chunk, int times)
-{
-	Mix_PlayChannel(-1, chunk, times - 1);
-}
-
-bool ModuleAudio::UnloadChunk(Mix_Chunk* chunk)
-{
-	bool ret = false;
-	if (chunk != nullptr) {
-		for (int i = 0; i < MAX_MUSICS; ++i)
-		{
-			if (chunks[i] == chunk)
-			{
-				Mix_FreeChunk(chunks[i]);
-				chunks[i] = nullptr;
-				ret = true;
-				LOG("Could unload the chunk properly");
+				sound_effects[last] = effect;
 				break;
 			}
 		}
 	}
-	if (ret = false) LOG("The chunk passed to unload is empty");
+	return effect;
+}
 
-	return ret;
+void ModuleAudio::UnloadMusic(Mix_Music * music)
+{
+	for (uint i = 0; i < MAX_MUSIC; ++i)
+	{
+		if (songs[i] == music)
+		{
+			Mix_FreeMusic(music);
+			songs[i] = nullptr;
+			break;
+		}
+	}
+}
 
+void ModuleAudio::UnloadSoundEffects(Mix_Chunk * effect)
+{
+	for (uint i = 0; i < MAX_FX; ++i)
+	{
+		if (sound_effects[i] == effect)
+		{
+			Mix_FreeChunk(effect);
+			sound_effects[i] = nullptr;
+			break;
+		}
+	}
 }

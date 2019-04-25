@@ -1,40 +1,36 @@
 #ifndef __MODULEAUDIO_H__
-#define __MODULEAUDO_H__
+#define __MODULEAUDIO_H__
 
 #include "Module.h"
 #include "Globals.h"
+#include "../SDL_Mixer/include/SDL_mixer.h"
 
-#define MAX_MUSICS 5
-#define MAX_CHUNKS 20
+#define MAX_MUSIC 25
+#define MAX_FX 25
 
-struct Mix_Music;
-struct Mix_Chunk;
-
-class ModuleAudio : public Module {
-
+class ModuleAudio :public Module
+{
 public:
 	ModuleAudio();
 	~ModuleAudio();
 
 	bool Init();
+
 	bool CleanUp();
 
-	Mix_Music* LoadMus(const char* path);
-	void PlayMus(Mix_Music* mus);
-	bool UnloadMus(Mix_Music* mus);
-	void FadeMus(int time);
+	void PlayMusic(Mix_Music* music_to_play, int repetitions = -1);
+	void PlaySoundEffect(Mix_Chunk* effect_to_play);
 
-	Mix_Chunk* LoadChunk(const char* path);
-	void PlayChunk(Mix_Chunk* chunk, int times);
-	bool UnloadChunk(Mix_Chunk* chunk);
+	Mix_Music* const LoadMusic(const char* path);
+	Mix_Chunk* const LoadEffect(const char* path);
 
+	void UnloadMusic(Mix_Music* music);
+	void UnloadSoundEffects(Mix_Chunk* effect);
 public:
 
-	Mix_Music* musics[MAX_MUSICS];
-	int last_music = 0;
-	Mix_Chunk* chunks[MAX_CHUNKS];
-	int last_chunk = 0;
+	Mix_Music * songs[MAX_MUSIC];
 
+	Mix_Chunk* sound_effects[MAX_FX];
 };
 
-#endif //_MODULEAUDIO_H__
+#endif // !__MODULEAUDIO_H__

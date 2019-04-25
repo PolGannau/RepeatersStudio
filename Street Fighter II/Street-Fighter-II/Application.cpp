@@ -9,7 +9,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleAudio.h"
-//#include "ModuleParticles.h"
+#include "ModuleParticles.h"
 //#include "ModuleEnemies.h"
 //#include "ModuleFonts.h"
 
@@ -25,10 +25,10 @@ Application::Application()
 	modules[i++] = ryu_stage = new ModuleRyuStage();
 	//modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = player = new ModulePlayer();
-	//modules[i++] = particles = new ModuleParticles();
+	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = fade = new ModuleFadeToBlack();
-	//modules[i++] = audio = new ModuleAudio();
+	modules[i++] = audio = new ModuleAudio();
 }
 
 Application::~Application()
@@ -43,8 +43,9 @@ bool Application::Init()
 
 	// Deactivate modules here ----
 	//scene_space->Disable();
+	ryu_stage->Disable();
 	player->Disable();
-	//collision->Disable();
+	collision->Disable();
 	//enemies->Disable();
 	// ----------------------------
 
