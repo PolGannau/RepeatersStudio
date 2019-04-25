@@ -5,6 +5,7 @@
 #include "ModulePlayer.h"
 #include "ModuleCollision.h"
 #include "ModuleRyuStage.h"
+#include "ModuleAudio.h"
 //#include "ModuleParticles.h"
 
 ModuleRyuStage::ModuleRyuStage()

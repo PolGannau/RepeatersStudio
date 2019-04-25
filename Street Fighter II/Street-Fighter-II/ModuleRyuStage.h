@@ -19,6 +19,7 @@ public:
 
 	SDL_Texture* background = nullptr;
 	SDL_Texture* hud = nullptr;
+	Mix_Music* ryu_stage_music = nullptr;
 	//SDL_Texture* stars = nullptr;
 };
 
