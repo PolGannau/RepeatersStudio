@@ -54,9 +54,9 @@ public:
 	bool Bcrouch = false;
 	bool Bstand = false;
 
-	Mix_Chunk* punch = nullptr;
-	Mix_Chunk* kick = nullptr;
-	Mix_Chunk* hadoken = nullptr;
+	Mix_Chunk* FXpunch = nullptr;
+	Mix_Chunk* FXkick = nullptr;
+	Mix_Chunk* FXhadoken = nullptr;
 	//bool Bnjumpdown = false;
 };
 
