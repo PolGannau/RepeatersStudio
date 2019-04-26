@@ -17,7 +17,10 @@ public:
 
 public:
 
-	SDL_Texture* background = nullptr;
+	SDL_Texture* texture_winner = nullptr;
+	SDL_Texture* texture_loser = nullptr;
+	SDL_Texture* texture_text = nullptr;
 	uint fx = 0;
+	uint audio = 0;
 };
 #endif // !__MODULELOSE_H__
