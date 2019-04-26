@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
+#include "ModuleSceneIntro.h"
 #include "ModulePlayer2.h"
 #include "ModuleRyuStage.h"
 
@@ -29,6 +30,8 @@ bool ModuleWin::Start()
 	texture_loser = App->textures->Load("Assets/Images/Ui/Portraits/dmgryu.png");
 	texture_text = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
 
+	//text_rect={}
+
 	return true;
 }
 
@@ -42,6 +45,8 @@ update_status ModuleWin::Update()
 	//blit the images of the fighters (winner and loser)
 	App->render->Blit(texture_winner, 50, 50, NULL);
 	App->render->Blit(texture_loser, 100, 100, NULL);
+
+	//App->render->Blit(texture_text, 50,200, texture_rect, NULL);
 
 
 	//to exit the scene Space must be pressed

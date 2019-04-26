@@ -19,21 +19,16 @@ bool ModuleRyuStage::Start()
 {
 	LOG("Loading Ryu Stage");
 
-	background = App->textures->Load("Assets/Images/Ui/capcom logo.png");
-	//hud = App->textures->Load("rtype/hud.png");
+	background = App->textures->Load("Assets/Images/Stages/Stages.png");
+	hud = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
+
+
 
 	App->player->Enable();
-	//App->particles->Enable();
 	App->collision->Enable();
-	//App->enemies->Enable();
 
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
 	App->audio->PlayMusic(ryu_stage_music);
-	// Colliders ---
-	/*App->collision->AddCollider({ 0, 224, 3930, 16 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 1375, 0, 111, 96 }, COLLIDER_WALL);
-	App->collision->AddCollider({ 1375, 145, 111, 96 }, COLLIDER_WALL);
-	*/
 
 	return true;
 }
@@ -45,7 +40,6 @@ bool ModuleRyuStage::CleanUp()
 
 	App->textures->Unload(background);
 	App->collision->Disable();
-	//App->particles->Disable();
 	App->player->Disable();
 	App->audio->UnloadMusic(ryu_stage_music);
 
@@ -57,7 +51,6 @@ bool ModuleRyuStage::CleanUp()
 update_status ModuleRyuStage::Update()
 {
 	App->render->Blit(background, 0, 0, NULL);
-	//App->render->Blit(hud, 0, 240, NULL, 0.0f, false);
 
 	return UPDATE_CONTINUE;
 }

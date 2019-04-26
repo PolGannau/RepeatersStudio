@@ -19,8 +19,11 @@ public:
 
 	SDL_Texture* background = nullptr;
 	SDL_Texture* hud = nullptr;
+
+	SDL_Rect* lifebar1_rect;
+	SDL_Rect* lifebar2_rect;
+
 	Mix_Music* ryu_stage_music = nullptr;
-	//SDL_Texture* stars = nullptr;
 };
 
 #endif // __MODULESCENESPACE_H__
