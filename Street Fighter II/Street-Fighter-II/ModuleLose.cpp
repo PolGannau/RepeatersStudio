@@ -46,7 +46,7 @@ update_status ModuleLose::Update()
 	if (SDL_SCANCODE_SPACE)
 		App->fade->FadeToBlack(App->module_lose, App->scene_intro);
 
-	return update_status::UPDATE_CONTINUE;
+	return UPDATE_CONTINUE;
 }
 
 bool ModuleLose::CleanUp()

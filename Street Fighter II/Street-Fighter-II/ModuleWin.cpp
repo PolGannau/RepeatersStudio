@@ -55,7 +55,7 @@ update_status ModuleWin::Update()
 
 
 
-	return update_status::UPDATE_CONTINUE;
+	return UPDATE_CONTINUE;
 }
 
 bool ModuleWin::CleanUp()

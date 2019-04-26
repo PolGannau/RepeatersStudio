@@ -6,7 +6,7 @@
 #include "ModuleCollision.h"
 #include "ModuleRyuStage.h"
 #include "ModuleAudio.h"
-//#include "ModuleParticles.h"
+
 
 ModuleRyuStage::ModuleRyuStage()
 {}
@@ -22,7 +22,8 @@ bool ModuleRyuStage::Start()
 	background = App->textures->Load("Assets/Images/Stages/Stages.png");
 	hud = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
 
-
+	//lifebar1_rect = {};
+	//lifebar2_rect = {};
 
 	App->player->Enable();
 	App->collision->Enable();
