@@ -7,6 +7,7 @@
 
 struct SDL_Texture;
 struct Collider;
+struct Mix_Chunk;
 
 class ModulePlayer : public Module
 {
@@ -54,9 +55,9 @@ public:
 	bool Bcrouch = false;
 	bool Bstand = false;
 
-	Mix_Chunk* punch = nullptr;
-	Mix_Chunk* kick = nullptr;
-	Mix_Chunk* hadoken = nullptr;
+	//Mix_Chunk* punch = nullptr;
+	//Mix_Chunk* kick = nullptr;
+	//Mix_Chunk* hadoken = nullptr;
 	//bool Bnjumpdown = false;
 };
 
