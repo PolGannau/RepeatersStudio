@@ -21,8 +21,6 @@ public:
 	SDL_Texture* texture_loser = nullptr;
 	SDL_Texture* texture_text = nullptr;
 	SDL_Rect text_rect;
-	uint fx = 0;
-	uint audio = 0;
 	Mix_Music* loose_music = nullptr;
 };
 #endif // !__MODULELOSE_H__

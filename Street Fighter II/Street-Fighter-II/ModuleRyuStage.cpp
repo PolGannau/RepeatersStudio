@@ -67,17 +67,20 @@ bool ModuleRyuStage::CleanUp()
 // Update: draw background
 update_status ModuleRyuStage::Update()
 {
-	App->render->Blit(background_texture, 0, 0, &background_rect, NULL);
-	App->render->Blit(background_texture, 230, 60, &temple_mini, NULL);
-	App->render->Blit(background_texture, 0, 0, &roof_brown, NULL);
+	//blit the stage itself
+	App->render->Blit(background_texture, 0, 0, &background_rect, 0.3F);
+	App->render->Blit(background_texture, 230, 60, &temple_mini, 0.5F);
+	App->render->Blit(background_texture, 0, 0, &roof_brown, 1.0F);
 	App->render->Blit(background_texture, 0, 0, &floor, NULL);
 	App->render->Blit(background_texture, 50, 100, &sign, NULL);
 
+	//blit the health bars
 	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
 	App->render->Blit(hud, 27, 10, &lifebar1_rect2, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 28, 10, &lifebar2_rect1, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect2.w - 28, 10, &lifebar2_rect2, NULL);
 
+	//blit the K.O
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
 
