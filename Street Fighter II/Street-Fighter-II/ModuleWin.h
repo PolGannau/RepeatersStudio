@@ -21,6 +21,7 @@ public:
 	SDL_Texture* texture_winner = nullptr;
 	SDL_Texture* texture_loser = nullptr;
 	SDL_Rect text_rect;
+	SDL_Rect winner_rect;
 	uint fx = 0;
 	uint music = 0;
 };

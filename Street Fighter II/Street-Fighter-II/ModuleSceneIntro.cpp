@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleRyuStage.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneIntro.h"
@@ -25,6 +26,7 @@ bool ModuleSceneIntro::Start()
 
 	background = App->textures->Load("Assets/Images/Ui/title.png");
 	App->player->Disable();
+	App->player2->Disable();
 	App->ryu_stage->Disable();
 	App->module_lose->Disable();
 	App->module_win->Disable();

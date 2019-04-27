@@ -3,6 +3,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleCollision.h"
 #include "ModuleRyuStage.h"
 #include "ModuleAudio.h"
@@ -35,8 +36,10 @@ bool ModuleRyuStage::Start()
 	roof_brown = { 1477,10,504,212 };
 	floor = { 44,298,622,237 };
 	temple_mini = { 764,478,104,57 };
+	sign = { 984,281,35,103 };
 
 	App->player->Enable();
+	App->player2->Enable();
 	App->collision->Enable();
 
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
@@ -66,7 +69,7 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(background_texture, 230, 60, &temple_mini, NULL);
 	App->render->Blit(background_texture, 0, 0, &roof_brown, NULL);
 	App->render->Blit(background_texture, 0, 0, &floor, NULL);
-
+	App->render->Blit(background_texture, 50, 100, &sign, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(App->ryu_stage, App->module_lose);

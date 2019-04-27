@@ -24,6 +24,7 @@ bool ModuleWin::Start()
 	
 	//Disable player and stage
 	App->player->Disable();
+	App->player2->Disable();
 	App->ryu_stage->Disable();
 
 	//We create a rect to put the winner texture in it.
