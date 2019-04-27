@@ -20,8 +20,10 @@ public:
 	SDL_Texture* background = nullptr;
 	SDL_Texture* hud = nullptr;
 
-	SDL_Rect* lifebar1_rect;
-	SDL_Rect* lifebar2_rect;
+	SDL_Rect* lifebar1_rect1;
+	SDL_Rect* lifebar2_rect1;
+	SDL_Rect* lifebar1_rect2;
+	SDL_Rect* lifebar2_rect2;
 
 	Mix_Music* ryu_stage_music = nullptr;
 };

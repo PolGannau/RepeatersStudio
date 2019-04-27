@@ -22,8 +22,10 @@ bool ModuleRyuStage::Start()
 	background = App->textures->Load("Assets/Images/Stages/Stages.png");
 	hud = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
 
-	//lifebar1_rect = {};
-	//lifebar2_rect = {};
+	//lifebar1_rect2 = {0,164,331,39}
+	//lifebar2_rect2 = {0,164,331,39}
+	//lifebar1_rect1={948,125,331,39}
+	//lifebar2_rect2={948,125,331,39}
 
 	App->player->Enable();
 	App->collision->Enable();
