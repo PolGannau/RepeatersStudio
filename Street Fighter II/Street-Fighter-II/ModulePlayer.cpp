@@ -29,10 +29,10 @@ ModulePlayer::ModulePlayer()
 	idlec.speed = 0.1f;
 
 	// walk forward animation (arcade sprite sheet)
-	forward.PushBack({ 546, 474, 53, 83 });
-	forward.PushBack({ 789, 558, 60, 88 });
+	forward.PushBack({ 547, 474, 52, 83 });
+	forward.PushBack({ 790, 558, 59, 88 });
 	forward.PushBack({ 844, 827, 64, 92 });
-	forward.PushBack({ 853, 646, 63, 90 });
+	forward.PushBack({ 854, 646, 63, 90 });
 	forward.PushBack({ 195, 827, 54, 91 });
 	forward.PushBack({ 379, 646, 50, 89 });
 	forward.speed = 0.1f;
@@ -96,14 +96,14 @@ ModulePlayer::ModulePlayer()
 	kick.PushBack({ 358, 827, 66, 92 });
 	kick.PushBack({ 358, 827, 66, 92 });
 	kick.PushBack({ 358, 827, 66, 92 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
-	kick.PushBack({ 747, 919, 114, 94 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
+	kick.PushBack({ 747, 919, 114, 93 });
 	kick.PushBack({ 358, 827, 66, 92 });
 	kick.PushBack({ 358, 827, 66, 92 });
 	kick.PushBack({ 358, 827, 66, 92 });
