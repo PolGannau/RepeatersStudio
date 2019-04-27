@@ -23,5 +23,6 @@ public:
 	SDL_Rect text_rect;
 	uint fx = 0;
 	uint audio = 0;
+	Mix_Music* loose_music = nullptr;
 };
 #endif // !__MODULELOSE_H__

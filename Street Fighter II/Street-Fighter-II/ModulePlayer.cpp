@@ -8,6 +8,7 @@
 #include "ModuleFadeToBlack.h"
 //#include "ModuleFonts.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 #include<stdio.h>
 
@@ -193,6 +194,10 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
+	/*kickfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/GeneralAttacks/Hit Short.wav");
+	punchfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/GeneralAttacks/Kick.wav");
+	hadokenfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/Ryu/Hadouken.wav");*/
+
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
 	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER_BODY, this);
 	return ret;
