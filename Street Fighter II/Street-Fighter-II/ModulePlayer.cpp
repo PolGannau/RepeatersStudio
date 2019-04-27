@@ -6,6 +6,7 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer2.h"
 //#include "ModuleFonts.h"
 #include "ModulePlayer.h"
 #include "ModuleAudio.h"
@@ -200,6 +201,10 @@ bool ModulePlayer::Start()
 	punchfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/GeneralAttacks/Kick.wav");*/
 	hadokenfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/Ryu/Hadouken.wav");
 
+	coll_head = App->collision->AddCollider({ position.x + 26,position.y,20,20 }, COLLIDER_PLAYER_BODY, this);
+	coll_body = App->collision->AddCollider({ position.x,position.y + 20,35,55 }, COLLIDER_PLAYER_BODY, this);
+	coll_legs = App->collision->AddCollider({ position.x,position.y,52,30 }, COLLIDER_PLAYER_BODY, this);
+
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
 	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER_BODY, this);
 	return ret;
@@ -371,10 +376,44 @@ update_status ModulePlayer::Update()
 		Bcpunch = true;
 	}
 
-	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	// Collisions
+	if (current_animation == &idle)
+	{
+		coll_head->rect.x = position.x + 26;
+		coll_head->rect.y = position.y - r.h;
+		coll_body->rect.x = position.x + 5;
+		coll_body->rect.y = position.y - r.h + 5;
+		coll_legs->rect.x = position.x;
+		coll_legs->rect.y = position.y - r.h + 60;
+	}
+	else if (current_animation == &forward)
+	{
+		coll_head->rect.x = position.x + 26;
+		coll_head->rect.y = position.y - r.h;
+		coll_body->rect.x = position.x + 10;
+		coll_body->rect.y = position.y - r.h + 5;
+		coll_legs->rect.x = position.x - 4;
+		coll_legs->rect.y = position.y - r.h + 60;
+	}
+	else if (current_animation == &backward)
+	{
+		coll_head->rect.x = position.x + 26;
+		coll_head->rect.y = position.y - r.h;
+		coll_body->rect.x = position.x + 10;
+		coll_body->rect.y = position.y - r.h + 5;
+		coll_legs->rect.x = position.x;
+		coll_legs->rect.y = position.y - r.h + 60;
+	}
+
+	// Draw everything--------------------------------------
+
+	if (App->player2->position.x <= position.x)
+		App->render->Blit(graphics, position.x, position.y - r.h, &r, 1.0F, true, true);
+	else if (App->player2->position.x > position.x)
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+
 
 	return UPDATE_CONTINUE;
 }

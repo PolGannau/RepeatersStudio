@@ -6,6 +6,7 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
 //#include "ModuleFonts.h"
 #include "ModulePlayer2.h"
 #include "ModuleAudio.h"
@@ -373,8 +374,10 @@ update_status ModulePlayer2::Update()
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
-
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	if (App->player->position.x <= position.x)
+		App->render->Blit(graphics, position.x, position.y - r.h, &r, 1.0F, true, true);
+	else if (App->player->position.x > position.x)
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 
 	return UPDATE_CONTINUE;
 }

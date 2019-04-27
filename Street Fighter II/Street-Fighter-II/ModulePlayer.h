@@ -47,7 +47,10 @@ public:
 	Animation tatsumaki;
 
 	iPoint position;
-	Collider* col;
+	Collider* coll_head = nullptr;
+	Collider* coll_body = nullptr;
+	Collider* coll_legs = nullptr;
+	Collider* coll_attack = nullptr;
 	bool destroyed = false;
 	bool Bpunch = false;
 	bool Bcpunch = false;
