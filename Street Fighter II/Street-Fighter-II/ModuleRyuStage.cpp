@@ -73,10 +73,10 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(background_texture, 0, 0, &floor, NULL);
 	App->render->Blit(background_texture, 50, 100, &sign, NULL);
 
-	App->render->Blit(hud, 25, 10, &lifebar1_rect1, NULL);
-	App->render->Blit(hud, 25, 10, &lifebar1_rect2, NULL);
-	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 26, 10, &lifebar2_rect1, NULL);
-	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect2.w - 26, 10, &lifebar2_rect2, NULL);
+	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
+	App->render->Blit(hud, 27, 10, &lifebar1_rect2, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 28, 10, &lifebar2_rect1, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect2.w - 28, 10, &lifebar2_rect2, NULL);
 
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
