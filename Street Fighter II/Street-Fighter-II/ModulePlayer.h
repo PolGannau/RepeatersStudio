@@ -37,7 +37,11 @@ public:
 	Animation fjump;
 	Animation bjump;
 	Animation punch;
+	Animation cpunch;
+	Animation jpunch;
 	Animation kick;
+	Animation ckick;
+	Animation jkick;
 	Animation hadokenRyu;
 	Animation shoryuken;
 	Animation tatsumaki;
@@ -46,7 +50,11 @@ public:
 	Collider* col;
 	bool destroyed = false;
 	bool Bpunch = false;
+	bool Bcpunch = false;
 	bool Bkick = false;
+	bool Bjpunch = false;
+	bool Bjkick = false;
+	bool Bckick = false;
 	bool Bhadoken = false;
 	bool Bnjump = false;
 	bool Bfjump = false;

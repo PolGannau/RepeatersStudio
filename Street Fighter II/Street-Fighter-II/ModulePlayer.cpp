@@ -25,7 +25,7 @@ ModulePlayer::ModulePlayer()
 	idle.speed = 0.1f;
 
 	//idle crouch aniamtion
-	idlec.PushBack({ 66,11,61,61 });
+	idlec.PushBack({ 66,111,61,61 });
 	idlec.speed = 0.1f;
 
 	// walk forward animation (arcade sprite sheet)
@@ -60,6 +60,35 @@ ModulePlayer::ModulePlayer()
 	punch.PushBack({ 68, 646, 60, 89 });//recovery frame
 	punch.speed = 1.0f;
 
+	//crouching punch animation
+	cpunch.PushBack({ 390,111,69,61 });//prep
+	cpunch.PushBack({ 390,111,69,61 });//prep
+	cpunch.PushBack({ 459,111,95,61 });//hit
+	cpunch.PushBack({ 459,111,95,61 });//hit
+	cpunch.PushBack({ 459,111,95,61 });//hit
+	cpunch.PushBack({ 459,111,95,61 });//hit
+	cpunch.PushBack({ 390,111,69,61 });//recover
+	cpunch.PushBack({ 390,111,69,61 });//recover
+	cpunch.PushBack({ 390,111,69,61 });//recover
+	cpunch.PushBack({ 390,111,69,61 });//recover
+	cpunch.PushBack({ 66,111,61,61 });//idle
+	cpunch.speed = 0.1f;
+
+	//air punch
+	jpunch.PushBack({ 906,174,52,69 });//prep
+	jpunch.PushBack({ 906,174,52,69 });//prep
+	jpunch.PushBack({ 486,243,81,71 });//hit, repeat until ground
+	jpunch.speed = 0.1f;
+
+	//air kick
+	jkick.PushBack({ 871,243, 59,76 });//prep
+	jkick.PushBack({ 871,243, 59,76 });//prep
+	jkick.PushBack({ 757, 243,55,73 });//prep2
+	jkick.PushBack({ 757, 243,55,73 });//prep2
+	jkick.PushBack({ 757, 243,55,73 });//prep2
+	jkick.PushBack({ 772, 174,77,67 });//hit, repeat until ground
+	jkick.speed = 0.1f;
+
 	// kick animation
 	kick.PushBack({ 131, 827, 64, 91 });//idle
 	kick.PushBack({ 131, 827, 64, 91 });//idle
@@ -81,6 +110,20 @@ ModulePlayer::ModulePlayer()
 	kick.PushBack({ 358, 827, 66, 92 });
 	kick.PushBack({ 131, 827, 64, 91 });//idle
 	kick.speed = 1.0f;
+
+	//crouching kick animation
+	ckick.PushBack({447,174,70,64});//prep
+	ckick.PushBack({ 447,174,70,64 });//prep
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 447,174,70,64 });//prep
+	ckick.PushBack({ 447,174,70,64 });//prep
+	ckick.PushBack({447,174,70,64});//prep
+	ckick.PushBack({ 447,174,70,64 });//prep
+	ckick.PushBack({ 66,111,61,61 });//idle
+	ckick.speed = 0.1f;
 
 	// neutral jump animation
 	njump.PushBack({ 844, 1108, 56, 104 });
@@ -114,7 +157,7 @@ ModulePlayer::ModulePlayer()
 	//crouch animation
 	crouching.PushBack({ 811,474,53,83 });
 	crouching.PushBack({ 74,243,57,69 });
-	crouching.PushBack({ 66,11,61,61 });
+	crouching.PushBack({ 66,111,61,61 });
 	crouching.speed = 0.1f;
 
 	//stand up animation
@@ -186,6 +229,44 @@ update_status ModulePlayer::Update()
 		{
 			current_animation->Reset();
 			Bkick = false;
+		}
+	}
+	else if (Bjpunch)
+	{
+		current_animation = &jpunch;
+		if (current_animation->Finished())
+		{
+			current_animation->Reset();
+			Bjpunch = false;
+
+		}
+	}
+	else if (Bjkick)
+	{
+		current_animation = &jkick;
+		if (current_animation->Finished())
+		{
+			current_animation->Reset();
+			Bjkick = false;
+		}
+	}
+	else if (Bcpunch)
+	{
+		current_animation = &cpunch;
+		if (current_animation->Finished())
+		{
+			current_animation->Reset();
+			Bcpunch = false;
+
+		}
+	}
+	else if (Bckick)
+	{
+		current_animation = &ckick;
+		if (current_animation->Finished())
+		{
+			current_animation->Reset();
+			Bckick = false;
 		}
 	}
 	else if (Bhadoken)
@@ -265,7 +346,22 @@ update_status ModulePlayer::Update()
 		Bhadoken = true;
 		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_PLAYER_SHOT);
 	}
-
+	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_DOWN)
+	{
+		Bjkick = true;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
+	{
+		Bjpunch = true;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN)
+	{
+		Bckick = true;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_DOWN)
+	{
+		Bcpunch = true;
+	}
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
