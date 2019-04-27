@@ -30,6 +30,7 @@ bool ModuleRyuStage::Start()
 	background_rect = { 856,650,384,108 };
 	roof_brown = { 475,599,378,159 };
 	roof_grey = { 6,614,466,144 };
+	floor = { 1357,569,671,27 };
 
 	App->player->Enable();
 	App->collision->Enable();
@@ -59,7 +60,8 @@ update_status ModuleRyuStage::Update()
 {
 	App->render->Blit(background_texture, 0, 0, &background_rect, NULL);
 	App->render->Blit(background_texture, 10, 0, &roof_brown, NULL);
-	App->render->Blit(background_texture, 0, 0, &roof_grey, NULL);
+	App->render->Blit(background_texture, 0, 20, &roof_grey, NULL);
+	App->render->Blit(background_texture, 0, SCREEN_HEIGHT - floor.h, &floor, NULL);
 
 	return UPDATE_CONTINUE;
 }

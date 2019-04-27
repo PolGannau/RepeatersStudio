@@ -22,8 +22,10 @@ ModulePlayer::ModulePlayer()
 	idle.PushBack({ 118, 736, 59, 90 });
 	idle.PushBack({ 424, 827, 58, 92 });
 	idle.PushBack({ 147, 919, 55, 93 });
+	idle.PushBack({ 424, 827, 58, 92 });
+	idle.PushBack({ 118, 736, 59, 90 });
 	//idle.PushBack({ 366, 12, 60, 92 });
-	idle.speed = 0.17f;
+	idle.speed = 0.285f;
 
 	//idle crouch aniamtion
 	idlec.PushBack({ 66,111,61,61 });
