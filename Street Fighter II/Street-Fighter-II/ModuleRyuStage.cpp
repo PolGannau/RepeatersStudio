@@ -25,12 +25,14 @@ bool ModuleRyuStage::Start()
 	LOG("Loading Ryu Stage");
 
 	background_texture = App->textures->Load("Assets/Images/Stages/RyuStage.png");
-	hud = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
+	hud = App->textures->Load("Assets/Images/Ui/Lifebar_assets.png");
 
-	//lifebar1_rect2 = {0,164,331,39}
-	//lifebar2_rect2 = {0,164,331,39}
-	//lifebar1_rect1={948,125,331,39}
-	//lifebar2_rect2={948,125,331,39}
+	lifebar1_rect2 = { 0,0,153,17 };
+	lifebar2_rect2 = { 0,0,153,17 };
+	lifebar1_rect1 = { 0,18,153,17 };
+	lifebar2_rect1 = { 0,18,153,17 };
+	ko_white = { 34,37,26,22 };
+	ko_red = { 1,36,27,24 };
 
 	background_rect = { 49,39,1405,192 };
 	roof_brown = { 1477,10,504,212 };
@@ -70,6 +72,14 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(background_texture, 0, 0, &roof_brown, NULL);
 	App->render->Blit(background_texture, 0, 0, &floor, NULL);
 	App->render->Blit(background_texture, 50, 100, &sign, NULL);
+
+	App->render->Blit(hud, 25, 10, &lifebar1_rect1, NULL);
+	App->render->Blit(hud, 25, 10, &lifebar1_rect2, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 26, 10, &lifebar2_rect1, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect2.w - 26, 10, &lifebar2_rect2, NULL);
+
+	App->render->Blit(hud, 178, 7, &ko_red, NULL);
+	App->render->Blit(hud, 179, 8, &ko_white, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(App->ryu_stage, App->module_lose);
