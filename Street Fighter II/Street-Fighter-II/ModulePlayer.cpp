@@ -22,7 +22,7 @@ ModulePlayer::ModulePlayer()
 	idle.PushBack({ 424, 827, 58, 92 });
 	idle.PushBack({ 147, 919, 55, 93 });
 	//idle.PushBack({ 366, 12, 60, 92 });
-	idle.speed = 0.1f;
+	idle.speed = 0.17f;
 
 	//idle crouch aniamtion
 	idlec.PushBack({ 66,111,61,61 });
@@ -35,16 +35,16 @@ ModulePlayer::ModulePlayer()
 	forward.PushBack({ 854, 646, 63, 90 });
 	forward.PushBack({ 195, 827, 54, 91 });
 	forward.PushBack({ 379, 646, 50, 89 });
-	forward.speed = 0.1f;
+	forward.speed = 0.175f;
 
 	// walk backwards animation
 	backward.PushBack({ 264, 646, 57, 89 });
-	backward.PushBack({ 467, 558, 61, 87 });
-	backward.PushBack({ 640, 646, 59, 90 });
+	backward.PushBack({ 468, 558, 60, 87 });
+	backward.PushBack({ 641, 646, 58, 90 });
 	backward.PushBack({ 0, 736, 57, 90 });
 	backward.PushBack({ 395, 736, 58, 90 });
 	backward.PushBack({ 0, 827, 58, 91 });
-	backward.speed = 0.1f;
+	backward.speed = 0.175f;
 
 	// punch animation
 	punch.PushBack({ 131, 827, 64, 91 });//idle
