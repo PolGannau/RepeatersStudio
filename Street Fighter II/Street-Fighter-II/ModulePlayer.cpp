@@ -75,13 +75,13 @@ ModulePlayer::ModulePlayer()
 	cpunch.PushBack({ 390,111,69,61 });//recover
 	cpunch.PushBack({ 390,111,69,61 });//recover
 	cpunch.PushBack({ 66,111,61,61 });//idle
-	cpunch.speed = 0.1f;
+	cpunch.speed = 1.0f;
 
 	//air punch
 	jpunch.PushBack({ 906,174,52,69 });//prep
 	jpunch.PushBack({ 906,174,52,69 });//prep
 	jpunch.PushBack({ 486,243,81,71 });//hit, repeat until ground
-	jpunch.speed = 0.1f;
+	jpunch.speed = 1.0f;
 
 	//air kick
 	jkick.PushBack({ 871,243, 59,76 });//prep
@@ -90,7 +90,7 @@ ModulePlayer::ModulePlayer()
 	jkick.PushBack({ 757, 243,55,73 });//prep2
 	jkick.PushBack({ 757, 243,55,73 });//prep2
 	jkick.PushBack({ 772, 174,77,67 });//hit, repeat until ground
-	jkick.speed = 0.1f;
+	jkick.speed = 1.0f;
 
 	// kick animation
 	kick.PushBack({ 131, 827, 64, 91 });//idle
@@ -126,7 +126,7 @@ ModulePlayer::ModulePlayer()
 	ckick.PushBack({447,174,70,64});//prep
 	ckick.PushBack({ 447,174,70,64 });//prep
 	ckick.PushBack({ 66,111,61,61 });//idle
-	ckick.speed = 0.1f;
+	ckick.speed = 1.0f;
 
 	// neutral jump animation
 	njump.PushBack({ 844, 1108, 56, 104 });
@@ -184,7 +184,7 @@ ModulePlayer::ModulePlayer()
 	hadokenRyu.PushBack({ 314,474,90,83 });
 	hadokenRyu.PushBack({ 190,396,106,77 });
 	hadokenRyu.PushBack({ 190,396,106,77 });
-	hadokenRyu.speed = 0.15f;
+	hadokenRyu.speed = 0.2f;
 
 }
 
@@ -352,7 +352,7 @@ update_status ModulePlayer::Update()
 	{
 		Bhadoken = true;
 		App->audio->PlaySoundEffect(hadokenfx);
-		App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK);
+		App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK, 4);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_DOWN)
 	{
