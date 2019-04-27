@@ -45,7 +45,7 @@ update_status ModuleWin::Update()
 	//blit the images of the fighters (winner and loser)
 	App->render->Blit(texture_winner, 50, 50, NULL);
 	App->render->Blit(texture_loser, 100, 100, NULL);
-	App->render->Blit(texture_text, 50, 150, text_rect, NULL);
+	App->render->Blit(texture_text, 50, 150, &text_rect, NULL);
 
 	//App->render->Blit(texture_text, 50,200, texture_rect, NULL);
 

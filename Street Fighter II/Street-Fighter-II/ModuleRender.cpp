@@ -36,7 +36,7 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
-	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);	//Fulscreen resize function
+	//SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);	//Fulscreen resize function
 
 	return ret;
 }
