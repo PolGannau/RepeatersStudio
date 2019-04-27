@@ -31,9 +31,10 @@ bool ModuleRyuStage::Start()
 	//lifebar1_rect1={948,125,331,39}
 	//lifebar2_rect2={948,125,331,39}
 
-	background_rect = { 44,29,1405,192 };
+	background_rect = { 49,39,1405,192 };
 	roof_brown = { 1477,10,504,212 };
-	floor = { 42,298,622,237 };
+	floor = { 44,298,622,237 };
+	temple_mini = { 764,478,104,57 };
 
 	App->player->Enable();
 	App->collision->Enable();
@@ -62,6 +63,7 @@ bool ModuleRyuStage::CleanUp()
 update_status ModuleRyuStage::Update()
 {
 	App->render->Blit(background_texture, 0, 0, &background_rect, NULL);
+	App->render->Blit(background_texture, 230, 60, &temple_mini, NULL);
 	App->render->Blit(background_texture, 0, 0, &roof_brown, NULL);
 	App->render->Blit(background_texture, 0, 0, &floor, NULL);
 
