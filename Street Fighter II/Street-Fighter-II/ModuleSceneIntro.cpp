@@ -8,6 +8,8 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleAudio.h"
+#include "ModuleLose.h"
+#include "ModuleWin.h"
 
 
 ModuleSceneIntro::ModuleSceneIntro()
@@ -24,6 +26,8 @@ bool ModuleSceneIntro::Start()
 	background = App->textures->Load("Assets/Images/Ui/title.png");
 	App->player->Disable();
 	App->ryu_stage->Disable();
+	App->module_lose->Disable();
+	App->module_win->Disable();
 
 	intro_mus = App->audio->LoadMusic("Assets/Audio/Soundtrack/02 The World Warrior.ogg");
 	App->audio->PlayMusic(intro_mus);

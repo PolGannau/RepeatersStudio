@@ -46,7 +46,7 @@ update_status ModuleLose::Update()
 	App->audio->PlayMusic(loose_music);
 	App->render->Blit(texture_loser, 50, 50, NULL);
 	App->render->Blit(texture_winner, 100, 100, NULL);
-	App->render->Blit(texture_text, 50, 150, text_rect, NULL);
+	App->render->Blit(texture_text, 50, 150, &text_rect, NULL);
 
 	//to exit the lose scene Space must be pressed
 	if (SDL_SCANCODE_SPACE)
