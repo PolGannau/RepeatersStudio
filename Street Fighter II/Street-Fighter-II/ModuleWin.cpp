@@ -10,6 +10,7 @@
 #include "ModuleSceneIntro.h"
 #include "ModulePlayer2.h"
 #include "ModuleRyuStage.h"
+#include "ModuleInput.h"
 
 ModuleWin::ModuleWin()
 {}
@@ -51,7 +52,7 @@ update_status ModuleWin::Update()
 
 
 	//to exit the scene Space must be pressed
-	if (SDL_SCANCODE_SPACE)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
 		App->fade->FadeToBlack(App->module_win, App->scene_intro);
 
 

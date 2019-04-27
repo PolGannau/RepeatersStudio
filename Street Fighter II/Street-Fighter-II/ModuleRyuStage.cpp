@@ -68,6 +68,8 @@ update_status ModuleRyuStage::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(App->ryu_stage, App->module_lose);
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
+		App->fade->FadeToBlack(App->ryu_stage, App->module_win);
 
 
 	return UPDATE_CONTINUE;
