@@ -63,8 +63,8 @@ public:
 	bool Bstand = false;
 	
 	/*Mix_Chunk* kickfx = nullptr;
-	Mix_Chunk* punchfx = nullptr;
-	Mix_Chunk* hadokenfx = nullptr;*/
+	Mix_Chunk* punchfx = nullptr;*/
+	Mix_Chunk* hadokenfx = nullptr;
 	//bool Bnjumpdown = false;
 };
 

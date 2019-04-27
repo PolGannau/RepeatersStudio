@@ -197,8 +197,8 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	/*kickfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/GeneralAttacks/Hit Short.wav");
-	punchfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/GeneralAttacks/Kick.wav");
-	hadokenfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/Ryu/Hadouken.wav");*/
+	punchfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/GeneralAttacks/Kick.wav");*/
+	hadokenfx = App->audio->LoadEffect("../Game/Assets/Audio/Voice&SFX/Ryu/Hadouken.wav");
 
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
 	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER_BODY, this);
@@ -209,8 +209,8 @@ bool ModulePlayer::Start()
 bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
-
-	
+	App->audio->UnloadSoundEffects(hadokenfx);
+	App->textures->Unload(graphics);
 
 	return true;
 }
@@ -351,6 +351,7 @@ update_status ModulePlayer::Update()
 	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN)
 	{
 		Bhadoken = true;
+		App->audio->PlaySoundEffect(hadokenfx);
 		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_PLAYER_SHOT);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_DOWN)
