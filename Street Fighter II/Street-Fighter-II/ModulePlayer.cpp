@@ -352,7 +352,7 @@ update_status ModulePlayer::Update()
 	{
 		Bhadoken = true;
 		App->audio->PlaySoundEffect(hadokenfx);
-		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_DOWN)
 	{

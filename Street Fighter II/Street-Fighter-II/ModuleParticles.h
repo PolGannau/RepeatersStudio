@@ -51,6 +51,7 @@ private:
 public:
 
 	Particle hadokenParticle;
+	Particle hadokenColl;
 	
 };
 

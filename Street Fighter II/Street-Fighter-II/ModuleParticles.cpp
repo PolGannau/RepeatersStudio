@@ -18,13 +18,15 @@ ModuleParticles::ModuleParticles()
 	//projectile
 	hadokenParticle.anim.PushBack({ 1261, 19, 56, 28 });
 	hadokenParticle.anim.PushBack({ 1318, 17, 43, 32 });
+	hadokenParticle.anim.loop = true;
+	hadokenParticle.anim.speed = 1.0f;
 	//on collision
-	hadokenParticle.anim.PushBack({ 1362, 23, 26, 20 });
-	hadokenParticle.anim.PushBack({ 1389, 20, 15, 25 });
-	hadokenParticle.anim.PushBack({ 1405, 19, 28, 28 });
-	hadokenParticle.anim.PushBack({ 1434, 16, 32, 32 });
-	hadokenParticle.anim.speed = 0.1f;
-	hadokenParticle.speed.x = 1;
+	hadokenColl.anim.PushBack({ 1362, 23, 26, 20 });
+	hadokenColl.anim.PushBack({ 1389, 20, 15, 25 });
+	hadokenColl.anim.PushBack({ 1405, 19, 28, 28 });
+	hadokenColl.anim.PushBack({ 1434, 16, 32, 32 });
+	hadokenColl.anim.speed = 0.1f;
+	hadokenColl.speed.x = 1.0f;
 }
 
 ModuleParticles::~ModuleParticles()
@@ -113,7 +115,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			//AddParticle(explosion, active[i]->position.x, active[i]->position.y);
+			AddParticle(hadokenColl, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
 			break;
