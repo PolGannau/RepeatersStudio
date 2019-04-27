@@ -31,6 +31,8 @@ bool ModuleLose::Start()
 	texture_winner = App->textures->Load("Assets/Images/Ui/Portraits/ryu.png");
 	texture_text = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
 
+	text_rect = { 818,597,631,103 };
+
 	return true;
 }
 
@@ -41,6 +43,7 @@ update_status ModuleLose::Update()
 
 	App->render->Blit(texture_loser, 50, 50, NULL);
 	App->render->Blit(texture_winner, 100, 100, NULL);
+	App->render->Blit(texture_text, 50, 150, text_rect, NULL);
 
 	//to exit the lose scene Space must be pressed
 	if (SDL_SCANCODE_SPACE)
