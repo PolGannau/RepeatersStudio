@@ -23,7 +23,7 @@ bool ModuleLose::Start()
 {
 	LOG("Startin Lose Scene.......");
 	
-	loose_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/14 Continue.ogg");
+	loose_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/14 Continue....ogg");
 
 	//disable the player and stage
 	App->player->Disable();
