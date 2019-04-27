@@ -30,6 +30,8 @@ public:
 	SDL_Rect roof_brown;
 	SDL_Rect sign;
 	SDL_Rect floor;
+	SDL_Rect ko_red;
+	SDL_Rect ko_white;
 
 	Mix_Music* ryu_stage_music = nullptr;
 };
