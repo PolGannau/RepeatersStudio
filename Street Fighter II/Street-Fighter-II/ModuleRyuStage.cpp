@@ -23,7 +23,7 @@ bool ModuleRyuStage::Start()
 {
 	LOG("Loading Ryu Stage");
 
-	background_texture = App->textures->Load("Assets/Images/Stages/Stages.png");
+	background_texture = App->textures->Load("Assets/Images/Stages/RyuStage.png");
 	hud = App->textures->Load("Assets/Images/Ui/uiSprites-0.png");
 
 	//lifebar1_rect2 = {0,164,331,39}
@@ -31,10 +31,9 @@ bool ModuleRyuStage::Start()
 	//lifebar1_rect1={948,125,331,39}
 	//lifebar2_rect2={948,125,331,39}
 
-	background_rect = { 856,650,384,108 };
-	roof_brown = { 475,599,378,159 };
-	roof_grey = { 6,614,466,144 };
-	floor = { 1357,569,671,27 };
+	background_rect = { 44,29,1405,192 };
+	roof_brown = { 1477,10,504,212 };
+	floor = { 42,298,622,237 };
 
 	App->player->Enable();
 	App->collision->Enable();
@@ -63,9 +62,8 @@ bool ModuleRyuStage::CleanUp()
 update_status ModuleRyuStage::Update()
 {
 	App->render->Blit(background_texture, 0, 0, &background_rect, NULL);
-	App->render->Blit(background_texture, 10, 0, &roof_brown, NULL);
-	App->render->Blit(background_texture, 0, 20, &roof_grey, NULL);
-	App->render->Blit(background_texture, 0, roof_grey.h+10, &floor, NULL);
+	App->render->Blit(background_texture, 0, 0, &roof_brown, NULL);
+	App->render->Blit(background_texture, 0, 0, &floor, NULL);
 
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)

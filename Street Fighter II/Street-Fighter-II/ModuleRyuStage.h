@@ -27,7 +27,6 @@ public:
 
 	SDL_Rect background_rect;
 	SDL_Rect temple_mini;
-	SDL_Rect roof_grey;
 	SDL_Rect roof_brown;
 	SDL_Rect sign;
 	SDL_Rect floor;
