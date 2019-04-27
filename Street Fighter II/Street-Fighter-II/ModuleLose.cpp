@@ -49,7 +49,7 @@ update_status ModuleLose::Update()
 	App->render->Blit(texture_text, 50, 150, &text_rect, NULL);
 
 	//to exit the lose scene Space must be pressed
-	if (SDL_SCANCODE_SPACE)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
 		App->fade->FadeToBlack(App->module_lose, App->scene_intro);
 
 	return UPDATE_CONTINUE;

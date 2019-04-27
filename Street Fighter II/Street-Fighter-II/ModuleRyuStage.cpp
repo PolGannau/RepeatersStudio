@@ -6,6 +6,10 @@
 #include "ModuleCollision.h"
 #include "ModuleRyuStage.h"
 #include "ModuleAudio.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleInput.h"
+#include "ModuleLose.h"
+#include "ModuleWin.h"
 
 
 ModuleRyuStage::ModuleRyuStage()
@@ -61,7 +65,12 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(background_texture, 0, 0, &background_rect, NULL);
 	App->render->Blit(background_texture, 10, 0, &roof_brown, NULL);
 	App->render->Blit(background_texture, 0, 20, &roof_grey, NULL);
-	App->render->Blit(background_texture, 0, SCREEN_HEIGHT - floor.h, &floor, NULL);
+	App->render->Blit(background_texture, 0, roof_grey.h+10, &floor, NULL);
+
+
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
+		App->fade->FadeToBlack(App->ryu_stage, App->module_lose);
+
 
 	return UPDATE_CONTINUE;
 }
