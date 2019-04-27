@@ -184,7 +184,7 @@ ModulePlayer2::ModulePlayer2()
 	hadokenRyu.PushBack({ 314,474,90,83 });
 	hadokenRyu.PushBack({ 190,396,106,77 });
 	hadokenRyu.PushBack({ 190,396,106,77 });
-	hadokenRyu.speed = 0.15f;
+	hadokenRyu.speed = 0.2f;
 
 }
 
@@ -331,42 +331,42 @@ update_status ModulePlayer2::Update()
 		{
 			Bnjump = true;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_7] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_KP_8] == 1)
 		{
 			Bfjump = true;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_8] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_KP_7] == 1)
 		{
 			Bbjump = true;
 		}
 	}
-	if (App->input->keyboard[SDL_SCANCODE_E] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
 	{
 		Bpunch = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
 	{
 		Bkick = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_R] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN)
 	{
 		Bhadoken = true;
 		App->audio->PlaySoundEffect(hadokenfx);
-		App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK);
+		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK, 4);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_Y] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
 	{
 		Bjkick = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
 	{
 		Bjpunch = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
 	{
 		Bckick = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_0] == KEY_DOWN)
 	{
 		Bcpunch = true;
 	}
