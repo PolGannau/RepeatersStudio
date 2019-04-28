@@ -66,7 +66,10 @@ public:
 	bool Bcrouch = false;
 	bool Bstand = false;
 
-	int gravity = 2;
+	float gravity = 2;
+	int jumpheight = 120;
+	int floorheight = 622;
+	int speed = 1;
 
 	/*Mix_Chunk* kickfx = nullptr;
 	Mix_Chunk* punchfx = nullptr;*/

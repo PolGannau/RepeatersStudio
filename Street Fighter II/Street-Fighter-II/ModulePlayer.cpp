@@ -224,8 +224,17 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	//gravity for the jump
+	/*if (position.y>=floorheight)
+
+	{
+
 	position.y += gravity;
+
+	}*/
 	
+
+	//position.y += gravity;
+
 	if (coll_attack != nullptr && current_animation == &idle)coll_attack->rect.x = -100;
 
 	//controls
@@ -297,12 +306,22 @@ update_status ModulePlayer::Update()
 	}
 	else if (Bnjump)
 	{
-		current_animation = &njump;
-		if (current_animation->Finished())
+		/*current_animation = &njump;
+		position.y -= speed * 2 * gravity;
+		if (position.y <= jumpheight)
 		{
-			current_animation->Reset();
-			Bnjump = false;
+			gravity = -2;
 		}
+		else if (position.y == floorheight)
+		{
+			gravity = 2;
+			njump.Reset();
+		}
+		else if (position.y>floorheight)
+		{
+			position.y = floorheight;
+			gravity = 2;
+		}*/
 	}
 	else if (Bfjump)
 	{
@@ -325,7 +344,6 @@ update_status ModulePlayer::Update()
 	else
 	{
 		current_animation = &idle;
-		int speed = 1;
 
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && position.x + 60 < App->render->limit.x + App->render->limit.w)
 		{
