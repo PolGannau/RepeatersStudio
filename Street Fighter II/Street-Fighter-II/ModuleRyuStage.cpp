@@ -70,12 +70,12 @@ bool ModuleRyuStage::CleanUp()
 update_status ModuleRyuStage::Update()
 {
 	//camera
-	if (App->player->position.x > App->render->camera.x + SCREEN_WIDTH - 100 && App->player2->position.x > App->render->camera.x + SCREEN_WIDTH - 100 && App->render->camera.x + App->render->camera.w < 622)
+	if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 100 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 100 && App->render->limit.x + App->render->limit.w < 475)
 	{
 		App->render->camera.x += 1;
 		App->render->limit.x += 1;
 	}
-	if (App->player->position.x < App->render->camera.x + 100 && App->player2->position.x < App->render->camera.x + 100 && App->render->camera.x > 0)
+	if (App->player->position.x < App->render->limit.x + 100 && App->player2->position.x < App->render->limit.x + 100 && App->render->limit.x > 0)
 	{
 		App->render->camera.x -= 1;
 		App->render->limit.x -= 1;
