@@ -98,6 +98,12 @@ void ModuleCollision::DebugDraw()
 	if (debug == false)
 		return;
 
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)
+	{
+		matrix[COLLIDER_PLAYER_BODY][COLLIDER_ATTACK] = !matrix[COLLIDER_PLAYER_BODY][COLLIDER_ATTACK];
+		matrix[COLLIDER_ATTACK][COLLIDER_PLAYER_BODY] = !matrix[COLLIDER_ATTACK][COLLIDER_PLAYER_BODY];
+	}
+
 	Uint8 alpha = 80;
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 	{
@@ -113,7 +119,8 @@ void ModuleCollision::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
 		case COLLIDER_PLAYER_BODY: // green
-			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+			if(matrix[COLLIDER_PLAYER_BODY][COLLIDER_ATTACK])App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+			else App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, 0);
 			break;
 		case COLLIDER_ATTACK: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
