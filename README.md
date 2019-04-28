@@ -6,7 +6,9 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 
 In this subject we will be replicating the famous arcade game which catapulted the whole fighting game scene, **Street Fighter II: The World Warrior**.
 
+
 ## Game Controls
+
 
 **SPACEBAR:** Transition from Intro to Stage and from End screen to Intro.
 
@@ -14,6 +16,7 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 
 ### Player 1:
+
 
 **W:** Jump
 
@@ -29,7 +32,9 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **I:** Hadoken
 
+
 ### Player 2:
+
 
 **Upward Arrow:** Jump
 
@@ -45,14 +50,20 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **Num. Pad 6:** Hadoken
 
+
 ### Debug Funcionalities
 
+
 **F1:** Show Colliders
+
 **F4:** Go from Stage to End Screen
+
 
 ## Changes in previous versions
 
+
 ## To be Implemented
+
 
 ## Team Members
 
