@@ -8,9 +8,33 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 ## Game Controls
 
+**SPACEBAR:** Transition from Intro to Stage and from End screen to Intro.
+**ESC:** Exit the program.
+
 ### Player 1:
 
+**W:** Jump
+**A:** Move Left
+**S:** 
+**D:** Move Right
+**Y:** Punch
+**U:** Kick
+**I:** Hadoken
+
 ### Player 2:
+
+**Upward Arrow:** Jump
+**Left Arrow:** Move Left
+**Downward Arrow:**
+**Right Arrow:** Move Right
+**Num. Pad 4:** Punch
+**Num. Pad 5:** Kick
+**Num. Pad 6:** Hadoken
+
+### Debug Funcionalities
+
+**F1:** Show Colliders
+**F4:** Go from Stage to End Screen
 
 ## Changes in previous versions
 
