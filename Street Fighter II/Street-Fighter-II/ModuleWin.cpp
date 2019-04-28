@@ -12,6 +12,7 @@
 #include "ModuleRyuStage.h"
 #include "ModuleInput.h"
 #include "ModuleLose.h"
+#include "ModuleAudio.h"
 
 ModuleWin::ModuleWin()
 {}
@@ -23,6 +24,8 @@ bool ModuleWin::Start()
 {
 	LOG("loading Win Scene.........");
 	
+	music = App->audio->LoadMusic("Assets/Audio/Soundtrack/14 Continue.ogg");
+	App->audio->PlayMusic(music);
 	//Disable player and stage
 	App->player->Disable();
 	App->player2->Disable();
@@ -64,6 +67,7 @@ bool ModuleWin::CleanUp()
 	App->textures->Unload(texture_winner);
 	App->textures->Unload(texture_loser);
 	App->textures->Unload(texture_text);
+	App->audio->UnloadMusic(music);
 
 
 	return true;

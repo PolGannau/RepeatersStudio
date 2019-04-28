@@ -26,7 +26,7 @@ public:
 	SDL_Rect loser_rect;
 
 	uint fx = 0;
-	uint music = 0;
+	Mix_Music* music = nullptr;
 };
 
 #endif // !__MODULEWIM_H__
