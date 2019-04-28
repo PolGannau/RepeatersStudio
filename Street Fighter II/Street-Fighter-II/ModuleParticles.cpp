@@ -115,7 +115,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		// Always destroy particles that collide
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
-			AddParticle(hadokenColl, active[i]->position.x, active[i]->position.y);
+			//AddParticle(hadokenColl, active[i]->position.x, active[i]->position.y);
 			delete active[i];
 			active[i] = nullptr;
 			break;
@@ -140,7 +140,10 @@ Particle::Particle(const Particle& p) :
 Particle::~Particle()
 {
 	if (collider != nullptr)
+	{
 		collider->to_delete = true;
+		collider = nullptr;
+	}
 }
 
 bool Particle::Update()

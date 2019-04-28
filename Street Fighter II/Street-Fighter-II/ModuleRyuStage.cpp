@@ -11,6 +11,7 @@
 #include "ModuleInput.h"
 #include "ModuleLose.h"
 #include "ModuleWin.h"
+#include "ModuleParticles.h"
 
 
 ModuleRyuStage::ModuleRyuStage()
