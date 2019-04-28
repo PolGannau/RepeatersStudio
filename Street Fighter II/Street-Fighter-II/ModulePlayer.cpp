@@ -322,12 +322,12 @@ update_status ModulePlayer::Update()
 		current_animation = &idle;
 		int speed = 1;
 
-		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && position.x + 60 < App->render->camera.x + App->render->camera.w)
 		{
 			current_animation = &forward;
 			position.x += speed;
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT && position.x > App->render->camera.x + 1)
 		{
 			current_animation = &backward;
 			position.x -= speed;

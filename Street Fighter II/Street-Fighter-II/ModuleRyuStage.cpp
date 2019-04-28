@@ -68,7 +68,7 @@ bool ModuleRyuStage::CleanUp()
 update_status ModuleRyuStage::Update()
 {
 	//camera
-	if (App->player->position.x > App->render->camera.x + SCREEN_WIDTH-100 && App->player2->position.x > App->render->camera.x + SCREEN_WIDTH-100)App->render->camera.x += 1;
+	if (App->player->position.x > App->render->camera.x + SCREEN_WIDTH - 100 && App->player2->position.x > App->render->camera.x + SCREEN_WIDTH - 100)App->render->camera.x += 1;
 	if (App->player->position.x < App->render->camera.x + 100 && App->player2->position.x < App->render->camera.x + 100)App->render->camera.x -= 1;
 
 	//blit the stage itself
