@@ -6,6 +6,16 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 
 In this subject we will be replicating the famous arcade game which catapulted the whole fighting game scene, **Street Fighter II: The World Warrior**.
 
+## Game Controls
+
+### Player 1:
+
+### Player 2:
+
+## Changes in previous versions
+
+## To be Implemented
+
 ## Team Members
 
 * Pol Gannau
