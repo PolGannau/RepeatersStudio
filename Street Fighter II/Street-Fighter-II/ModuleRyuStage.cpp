@@ -67,7 +67,9 @@ bool ModuleRyuStage::CleanUp()
 // Update: draw background
 update_status ModuleRyuStage::Update()
 {
-	if (App->player->position.x > App->render->camera.x + SCREEN_WIDTH-200 && App->player2->position.x > App->render->camera.x + SCREEN_WIDTH-200)App->render->camera.x += 1;
+	//camera
+	if (App->player->position.x > App->render->camera.x + SCREEN_WIDTH-100 && App->player2->position.x > App->render->camera.x + SCREEN_WIDTH-100)App->render->camera.x += 1;
+	if (App->player->position.x < App->render->camera.x + 100 && App->player2->position.x < App->render->camera.x + 100)App->render->camera.x -= 1;
 
 	//blit the stage itself
 	App->render->Blit(background_texture, 0, 0, &background_rect, 0.5F);
