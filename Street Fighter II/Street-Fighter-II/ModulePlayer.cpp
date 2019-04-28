@@ -204,9 +204,9 @@ bool ModulePlayer::Start()
 	coll_head = App->collision->AddCollider({ position.x + 26,position.y,20,20 }, COLLIDER_PLAYER_BODY, this);
 	coll_body = App->collision->AddCollider({ position.x,position.y + 20,35,55 }, COLLIDER_PLAYER_BODY, this);
 	coll_legs = App->collision->AddCollider({ position.x,position.y,52,30 }, COLLIDER_PLAYER_BODY, this);
+	coll_attack = App->collision->AddCollider({ 20,20,28,20 }, COLLIDER_ATTACK, this);
 
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
-	App->collision->AddCollider({ position.x, position.y, 60, 89 }, COLLIDER_PLAYER_BODY, this);
 	return ret;
 }
 
@@ -226,6 +226,7 @@ update_status ModulePlayer::Update()
 	//gravity for the jump
 	position.y += gravity;
 	
+	if (coll_attack != nullptr && current_animation == &idle)coll_attack->rect.x = -100;
 
 	//controls
 	if (Bpunch) 
@@ -388,47 +389,95 @@ update_status ModulePlayer::Update()
 
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
-	// Collisions
-	if (current_animation == &idle)
-	{
-		coll_head->rect.x = position.x + 26;
-		coll_head->rect.y = position.y - r.h;
-		coll_body->rect.x = position.x + 5;
-		coll_body->rect.y = position.y - r.h + 5;
-		coll_legs->rect.x = position.x;
-		coll_legs->rect.y = position.y - r.h + 60;
-	}
-	else if (current_animation == &forward)
-	{
-		coll_head->rect.x = position.x + 26;
-		coll_head->rect.y = position.y - r.h;
-		coll_body->rect.x = position.x + 10;
-		coll_body->rect.y = position.y - r.h + 5;
-		coll_legs->rect.x = position.x - 4;
-		coll_legs->rect.y = position.y - r.h + 60;
-	}
-	else if (current_animation == &backward)
-	{
-		coll_head->rect.x = position.x + 26;
-		coll_head->rect.y = position.y - r.h;
-		coll_body->rect.x = position.x + 10;
-		coll_body->rect.y = position.y - r.h + 5;
-		coll_legs->rect.x = position.x;
-		coll_legs->rect.y = position.y - r.h + 60;
-	}
-
-	// Draw everything--------------------------------------
-
-	if (App->player2->position.x <= position.x)
-		App->render->Blit(graphics, position.x, position.y - r.h, &r, 1.0F, true, true);
-	else if (App->player2->position.x > position.x)
-		App->render->Blit(graphics, position.x, position.y - r.h, &r);
-
-
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	
+}
+
+void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
+{
+	if (App->player2->position.x <= position.x)
+	{
+		App->render->Blit(graphics, position.x, position.y - r.h, &r, 1.0F, true, true);
+		if (current_animation == &idle)
+		{
+			coll_head->rect.x = position.x + 14;
+			coll_head->rect.y = position.y - r.h;
+			coll_body->rect.x = position.x + 17;
+			coll_body->rect.y = position.y - r.h + 5;
+			coll_body->rect.h = 55;
+			coll_legs->rect.x = position.x + 6;
+			coll_legs->rect.y = position.y - r.h + 60;
+		}
+		else if (current_animation == &forward)
+		{
+			coll_head->rect.x = position.x + 26;
+			coll_head->rect.y = position.y - r.h;
+			coll_body->rect.x = position.x + 10;
+			coll_body->rect.y = position.y - r.h + 5;
+			coll_body->rect.h = 55;
+			coll_legs->rect.x = position.x + 8;
+			coll_legs->rect.y = position.y - r.h + 60;
+		}
+		else if (current_animation == &backward)
+		{
+			coll_head->rect.x = position.x + 26;
+			coll_head->rect.y = position.y - r.h;
+			coll_body->rect.x = position.x + 10;
+			coll_body->rect.y = position.y - r.h + 5;
+			coll_body->rect.h = 55;
+			coll_legs->rect.x = position.x;
+			coll_legs->rect.y = position.y - r.h + 60;
+		}
+	}
+	else if (App->player2->position.x > position.x)
+	{
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+
+		if (current_animation == &idle)
+		{
+			coll_head->rect.x = position.x + 26;
+			coll_head->rect.y = position.y - r.h;
+			coll_body->rect.x = position.x + 5;
+			coll_body->rect.y = position.y - r.h + 5;
+			coll_body->rect.h = 55;
+			coll_legs->rect.x = position.x;
+			coll_legs->rect.y = position.y - r.h + 60;
+		}
+		else if (current_animation == &forward)
+		{
+			coll_head->rect.x = position.x + 26;
+			coll_head->rect.y = position.y - r.h;
+			coll_body->rect.x = position.x + 10;
+			coll_body->rect.y = position.y - r.h + 5;
+			coll_body->rect.h = 55;
+			coll_legs->rect.x = position.x - 4;
+			coll_legs->rect.y = position.y - r.h + 60;
+		}
+		else if (current_animation == &backward)
+		{
+			coll_head->rect.x = position.x + 17;
+			coll_head->rect.y = position.y - r.h;
+			coll_body->rect.x = position.x + 10;
+			coll_body->rect.y = position.y - r.h + 5;
+			coll_body->rect.h = 55;
+			coll_legs->rect.x = position.x;
+			coll_legs->rect.y = position.y - r.h + 60;
+		}
+		else if (current_animation == &kick)
+		{
+			coll_head->rect.x = position.x + 14;
+			coll_head->rect.y = position.y - r.h + 2;
+			coll_body->rect.x = position.x + 24;
+			coll_body->rect.y = position.y - r.h + 20;
+			coll_body->rect.h = 75;
+			coll_legs->rect.x = position.x + 32;
+			coll_legs->rect.y = position.y - r.h + 10;
+			coll_attack->rect.x = position.x + 86;
+			coll_attack->rect.y = position.y - r.h + 2;
+		}
+	}
 }
