@@ -25,8 +25,6 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **A:** Move Left
 
-**S:** 
-
 **D:** Move Right
 
 **Y:** Punch
@@ -42,8 +40,6 @@ In this subject we will be replicating the famous arcade game which catapulted t
 **Upward Arrow:** Jump
 
 **Left Arrow:** Move Left
-
-**Downward Arrow:**
 
 **Right Arrow:** Move Right
 
