@@ -223,7 +223,11 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
+	//gravity for the jump
+	position.y += gravity;
 	
+
+	//controls
 	if (Bpunch) 
 	{
 		current_animation = &punch;
@@ -335,6 +339,10 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
 		{
 			Bnjump = true;
+			while (position.y > 150)
+			{
+				position.y -= gravity;
+			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_3] == 1)
 		{

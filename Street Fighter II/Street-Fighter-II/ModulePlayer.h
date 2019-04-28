@@ -64,7 +64,9 @@ public:
 	bool Bbjump = false;
 	bool Bcrouch = false;
 	bool Bstand = false;
-	
+
+	int gravity = 2;
+
 	/*Mix_Chunk* kickfx = nullptr;
 	Mix_Chunk* punchfx = nullptr;*/
 	Mix_Chunk* hadokenfx = nullptr;
