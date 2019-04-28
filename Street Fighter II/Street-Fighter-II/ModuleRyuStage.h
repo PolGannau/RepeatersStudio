@@ -33,6 +33,8 @@ public:
 	SDL_Rect ko_red;
 	SDL_Rect ko_white;
 
+	Collider* floor_collider;
+
 	Mix_Music* ryu_stage_music = nullptr;
 };
 
