@@ -412,7 +412,8 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	
+	if (c1->callback == App->player2&&c1->type == COLLIDER_ATTACK || c2->callback == App->player2&&c2->type == COLLIDER_ATTACK)
+		life -= 4;
 }
 
 void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)

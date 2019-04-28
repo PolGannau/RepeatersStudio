@@ -66,6 +66,8 @@ public:
 	bool Bcrouch = false;
 	bool Bstand = false;
 
+	int life = 100;
+
 	/*Mix_Chunk* kickfx = nullptr;
 	Mix_Chunk* punchfx = nullptr;*/
 	Mix_Chunk* hadokenfx = nullptr;
