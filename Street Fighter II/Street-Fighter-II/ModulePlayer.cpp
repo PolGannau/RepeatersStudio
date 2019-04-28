@@ -437,7 +437,7 @@ void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
 			coll_body->rect.h = 75;
 			coll_legs->rect.x = position.x + 30;
 			coll_legs->rect.y = position.y - r.h + 10;
-			coll_attack->rect.x = position.x;
+			coll_attack->rect.x = position.x - 4;
 			coll_attack->rect.y = position.y - r.h + 2;
 		}
 		else if (current_animation = &njump)

@@ -225,7 +225,7 @@ update_status ModulePlayer2::Update()
 {
 	if (coll_attack != nullptr && current_animation == &idle)
 	{
-		coll_attack->rect.x = -100;
+		coll_attack->rect.x = -500;
 		coll_attack->rect.x = 60;
 	}
 
@@ -394,7 +394,7 @@ update_status ModulePlayer2::Update()
 void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
 	if(c1->callback == App->player&&c1->type == COLLIDER_ATTACK || c2->callback == App->player&&c2->type == COLLIDER_ATTACK)
-		life -= 0.4F;
+		life -= 0.2F;
 }
 
 void ModulePlayer2::SetCharacterAndPaint(SDL_Rect r)
@@ -438,7 +438,7 @@ void ModulePlayer2::SetCharacterAndPaint(SDL_Rect r)
 			coll_body->rect.h = 75;
 			coll_legs->rect.x = position.x + 30;
 			coll_legs->rect.y = position.y - r.h + 10;
-			coll_attack->rect.x = position.x;
+			coll_attack->rect.x = position.x - 4;
 			coll_attack->rect.y = position.y - r.h + 2;
 		}
 		else if (current_animation = &njump)
