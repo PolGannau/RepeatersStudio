@@ -70,7 +70,7 @@ public:
 	//int jumpheight = 120;
 	//int floorheight = 622;
 	int speed = 1;
-	int life = 100;
+	float life = 100;
 
 	/*Mix_Chunk* kickfx = nullptr;
 	Mix_Chunk* punchfx = nullptr;*/

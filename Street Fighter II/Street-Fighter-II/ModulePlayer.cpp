@@ -204,7 +204,7 @@ bool ModulePlayer::Start()
 	coll_head = App->collision->AddCollider({ position.x + 26,position.y,20,20 }, COLLIDER_PLAYER_BODY, this);
 	coll_body = App->collision->AddCollider({ position.x,position.y + 20,35,55 }, COLLIDER_PLAYER_BODY, this);
 	coll_legs = App->collision->AddCollider({ position.x,position.y,52,30 }, COLLIDER_PLAYER_BODY, this);
-	coll_attack = App->collision->AddCollider({ 20,20,28,20 }, COLLIDER_ATTACK, this);
+	coll_attack = App->collision->AddCollider({ -100,20,28,20 }, COLLIDER_ATTACK, this);
 
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
 	return ret;
@@ -223,7 +223,7 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	if (coll_attack != nullptr && current_animation == &idle)coll_attack->rect.x = -100;
+	if (coll_attack != nullptr && current_animation == &idle)coll_attack->rect.x = -1000;
 
 	if (Bpunch)
 	{
@@ -389,8 +389,8 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	//if (c1->callback == App->player2&&c1->type == COLLIDER_ATTACK || c2->callback == App->player2&&c2->type == COLLIDER_ATTACK)
-		//life -= 4;
+	if (c1->callback == App->player2&&c1->type == COLLIDER_ATTACK || c2->callback == App->player2&&c2->type == COLLIDER_ATTACK)
+		life -= 0.2F;
 }
 
 void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
