@@ -61,9 +61,28 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 ## Changes in previous versions
 
+**0.1:** Added Modules for each functionality in the game. Some modules are still inoperative but will be needed later.
+
+**0.2:** Added Placeholders to Intro Scene and Ryu Stage in order to facilitate working conditions. Ryu Animations are being worked on to be ready as soon as collision boxes are implemented. Music for Intro Scene and Ryu Stage also added.
+
+**0.3:** Added Collision boxes for Player 1 module. End Scene also added with Music. Sound Effects to Hadoken added. Hp Bar UI placed but not functional. Ryu Stage Sprites placed correctly, as well as Intro Scene Image.
+
+**0.4:** Added Player 2, as well as camera movement and screen Limit Collisions.
+
+**0.5(Delivery):**
+
 
 ## To be Implemented
 
+* Intro Scene animation.
+
+* Player to be able to perform light, medium and heavy kicks and punches, as well as combos.
+
+* Timer during fights.
+
+* UI manager.
+
+* Starting menu and character selection menu.
 
 ## Team Members
 
