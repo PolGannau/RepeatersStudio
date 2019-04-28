@@ -62,7 +62,7 @@ bool ModuleRyuStage::CleanUp()
 	App->collision->Disable();
 	App->player->Disable();
 	App->audio->UnloadMusic(ryu_stage_music);
-
+	App->render->camera.x = 0;
 
 	return true;
 }
