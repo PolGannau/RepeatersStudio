@@ -451,6 +451,18 @@ void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
 			coll_legs->rect.x = position.x;
 			coll_legs->rect.y = position.y - r.h + 60;
 		}
+		else if (current_animation == &kick)
+		{
+			coll_head->rect.x = position.x + 84;
+			coll_head->rect.y = position.y - r.h + 2;
+			coll_body->rect.x = position.x + 56;
+			coll_body->rect.y = position.y - r.h + 20;
+			coll_body->rect.h = 75;
+			coll_legs->rect.x = position.x + 30;
+			coll_legs->rect.y = position.y - r.h + 10;
+			coll_attack->rect.x = position.x;
+			coll_attack->rect.y = position.y - r.h + 2;
+		}
 	}
 	else if (App->player2->position.x > position.x)
 	{

@@ -204,6 +204,7 @@ bool ModulePlayer2::Start()
 	coll_head = App->collision->AddCollider({ position.x + 26,position.y,20,20 }, COLLIDER_PLAYER_BODY, this);
 	coll_body = App->collision->AddCollider({ position.x,position.y + 20,35,55 }, COLLIDER_PLAYER_BODY, this);
 	coll_legs = App->collision->AddCollider({ position.x,position.y,52,30 }, COLLIDER_PLAYER_BODY, this);
+	coll_attack = App->collision->AddCollider({ 20,20,28,20 }, COLLIDER_ATTACK, this);
 
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
 	return ret;
@@ -222,6 +223,7 @@ bool ModulePlayer2::CleanUp()
 // Update: draw background
 update_status ModulePlayer2::Update()
 {
+	if (coll_attack != nullptr && current_animation == &idle)coll_attack->rect.x = -100;
 
 	if (Bpunch)
 	{
@@ -423,6 +425,18 @@ void ModulePlayer2::SetCharacterAndPaint(SDL_Rect r)
 			coll_legs->rect.x = position.x;
 			coll_legs->rect.y = position.y - r.h + 60;
 		}
+		else if (current_animation == &kick)
+		{
+			coll_head->rect.x = position.x + 84;
+			coll_head->rect.y = position.y - r.h + 2;
+			coll_body->rect.x = position.x + 56;
+			coll_body->rect.y = position.y - r.h + 20;
+			coll_body->rect.h = 75;
+			coll_legs->rect.x = position.x + 30;
+			coll_legs->rect.y = position.y - r.h + 10;
+			coll_attack->rect.x = position.x;
+			coll_attack->rect.y = position.y - r.h + 2;
+		}
 	}
 	else if (App->player->position.x > position.x)
 	{
@@ -454,6 +468,18 @@ void ModulePlayer2::SetCharacterAndPaint(SDL_Rect r)
 			coll_body->rect.y = position.y - r.h + 5;
 			coll_legs->rect.x = position.x;
 			coll_legs->rect.y = position.y - r.h + 60;
+		}
+		else if (current_animation == &kick)
+		{
+			coll_head->rect.x = position.x + 14;
+			coll_head->rect.y = position.y - r.h + 2;
+			coll_body->rect.x = position.x + 24;
+			coll_body->rect.y = position.y - r.h + 20;
+			coll_body->rect.h = 75;
+			coll_legs->rect.x = position.x + 32;
+			coll_legs->rect.y = position.y - r.h + 10;
+			coll_attack->rect.x = position.x + 86;
+			coll_attack->rect.y = position.y - r.h + 2;
 		}
 	}
 }
