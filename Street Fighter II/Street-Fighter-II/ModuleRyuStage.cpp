@@ -67,16 +67,18 @@ bool ModuleRyuStage::CleanUp()
 // Update: draw background
 update_status ModuleRyuStage::Update()
 {
+	if (App->player->position.x > App->render->camera.x + SCREEN_WIDTH-200 && App->player2->position.x > App->render->camera.x + SCREEN_WIDTH-200)App->render->camera.x += 1;
+
 	//blit the stage itself
-	App->render->Blit(background_texture, 0, 0, &background_rect, 0.3F);
-	App->render->Blit(background_texture, 230, 60, &temple_mini, 0.5F);
-	App->render->Blit(background_texture, 0, 0, &roof_brown, 1.0F);
-	App->render->Blit(background_texture, 0, 0, &floor, NULL);
-	App->render->Blit(background_texture, 50, 100, &sign, NULL);
+	App->render->Blit(background_texture, 0, 0, &background_rect, 0.5F);
+	App->render->Blit(background_texture, 230, 60, &temple_mini, 1.2F);
+	App->render->Blit(background_texture, 0, 0, &roof_brown, 1.3F);
+	App->render->Blit(background_texture, 0, 0, &floor, 2.5F);
+	App->render->Blit(background_texture, 50, 100, &sign, 2.5F);
 
 	//blit the health bars
-	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
-	App->render->Blit(hud, 27, 10, &lifebar1_rect2, NULL);
+	App->render->Blit(hud, 27, 10, &lifebar1_rect1, 1.0F, false, true);
+	App->render->Blit(hud, 27, 10, &lifebar1_rect2, 1.0F, false, true);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 28, 10, &lifebar2_rect1, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect2.w - 28, 10, &lifebar2_rect2, NULL);
 
