@@ -110,10 +110,11 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
-		App->fade->FadeToBlack(App->ryu_stage, App->module_lose);
+		//App->fade->FadeToBlack(App->ryu_stage, App->module_lose);
+		App->fade->FadeToBlack(this, (Module*)App->module_lose);
 	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
-		App->fade->FadeToBlack(App->ryu_stage, App->module_win);
-
+		//App->fade->FadeToBlack(App->ryu_stage, App->module_win);
+		App->fade->FadeToBlack(this, (Module*)App->module_win);
 
 	return UPDATE_CONTINUE;
 }
