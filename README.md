@@ -68,7 +68,7 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **0.4:** Added Player 2, as well as camera movement and screen Limit Collisions.
 
-**0.5(Delivery):**
+**0.5(Delivery):** Added colliders to combos. 
 
 
 ## To be Implemented
