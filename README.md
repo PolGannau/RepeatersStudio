@@ -55,7 +55,11 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **F1:** Show Colliders
 
-**F4:** Go from Stage to End Screen
+**F2:** Godmode
+
+**F3:** Go from Stage to P1 victory End Screen.
+
+**F4:** Go from Stage to P2 victory End Screen.
 
 
 ## Changes in previous versions
