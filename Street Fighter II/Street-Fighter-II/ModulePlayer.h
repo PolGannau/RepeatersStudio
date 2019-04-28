@@ -66,9 +66,9 @@ public:
 	bool Bcrouch = false;
 	bool Bstand = false;
 
-	float gravity = 2;
-	int jumpheight = 120;
-	int floorheight = 622;
+	//float gravity = 2;
+	//int jumpheight = 120;
+	//int floorheight = 622;
 	int speed = 1;
 	int life = 100;
 

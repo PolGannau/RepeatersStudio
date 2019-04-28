@@ -6,9 +6,9 @@
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
-#include "ModulePlayer2.h"
-//#include "ModuleFonts.h"
 #include "ModulePlayer.h"
+//#include "ModuleFonts.h"
+#include "ModulePlayer2.h"
 #include "ModuleAudio.h"
 
 #include<stdio.h>
@@ -76,13 +76,13 @@ ModulePlayer::ModulePlayer()
 	cpunch.PushBack({ 390,111,69,61 });//recover
 	cpunch.PushBack({ 390,111,69,61 });//recover
 	cpunch.PushBack({ 66,111,61,61 });//idle
-	cpunch.speed = 1.0f;
+	cpunch.speed = 0.1f;
 
 	//air punch
 	jpunch.PushBack({ 906,174,52,69 });//prep
 	jpunch.PushBack({ 906,174,52,69 });//prep
 	jpunch.PushBack({ 486,243,81,71 });//hit, repeat until ground
-	jpunch.speed = 1.0f;
+	jpunch.speed = 0.1f;
 
 	//air kick
 	jkick.PushBack({ 871,243, 59,76 });//prep
@@ -91,7 +91,7 @@ ModulePlayer::ModulePlayer()
 	jkick.PushBack({ 757, 243,55,73 });//prep2
 	jkick.PushBack({ 757, 243,55,73 });//prep2
 	jkick.PushBack({ 772, 174,77,67 });//hit, repeat until ground
-	jkick.speed = 1.0f;
+	jkick.speed = 0.1f;
 
 	// kick animation
 	kick.PushBack({ 131, 827, 64, 91 });//idle
@@ -116,18 +116,18 @@ ModulePlayer::ModulePlayer()
 	kick.speed = 1.0f;
 
 	//crouching kick animation
-	ckick.PushBack({447,174,70,64});//prep
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 335,174,112,64 });//hit
 	ckick.PushBack({ 447,174,70,64 });//prep
 	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({447,174,70,64});//prep
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 335,174,112,64 });//hit
+	ckick.PushBack({ 447,174,70,64 });//prep
+	ckick.PushBack({ 447,174,70,64 });//prep
+	ckick.PushBack({ 447,174,70,64 });//prep
 	ckick.PushBack({ 447,174,70,64 });//prep
 	ckick.PushBack({ 66,111,61,61 });//idle
-	ckick.speed = 1.0f;
+	ckick.speed = 0.1f;
 
 	// neutral jump animation
 	njump.PushBack({ 844, 1108, 56, 104 });
@@ -223,35 +223,22 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	//gravity for the jump
-	/*if (position.y>=floorheight)
-
-	{
-
-	position.y += gravity;
-
-	}*/
-	
-
-	//position.y += gravity;
-
 	if (coll_attack != nullptr && current_animation == &idle)coll_attack->rect.x = -100;
 
-	//controls
-	if (Bpunch) 
+	if (Bpunch)
 	{
 		current_animation = &punch;
-		if (current_animation->Finished()) 
+		if (current_animation->Finished())
 		{
 			current_animation->Reset();
 			Bpunch = false;
-		
+
 		}
 	}
 	else if (Bkick)
 	{
 		current_animation = &kick;
-		if (current_animation->Finished()) 
+		if (current_animation->Finished())
 		{
 			current_animation->Reset();
 			Bkick = false;
@@ -259,22 +246,22 @@ update_status ModulePlayer::Update()
 	}
 	/*else if (Bjpunch)
 	{
-		current_animation = &jpunch;
-		if (current_animation->Finished())
-		{
-			current_animation->Reset();
-			Bjpunch = false;
+	current_animation = &jpunch;
+	if (current_animation->Finished())
+	{
+	current_animation->Reset();
+	Bjpunch = false;
 
-		}
+	}
 	}
 	else if (Bjkick)
 	{
-		current_animation = &jkick;
-		if (current_animation->Finished())
-		{
-			current_animation->Reset();
-			Bjkick = false;
-		}
+	current_animation = &jkick;
+	if (current_animation->Finished())
+	{
+	current_animation->Reset();
+	Bjkick = false;
+	}
 	}*/
 	else if (Bcpunch)
 	{
@@ -298,7 +285,7 @@ update_status ModulePlayer::Update()
 	else if (Bhadoken)
 	{
 		current_animation = &hadokenRyu;
-		if (current_animation->Finished()) 
+		if (current_animation->Finished())
 		{
 			current_animation->Reset();
 			Bhadoken = false;
@@ -306,22 +293,12 @@ update_status ModulePlayer::Update()
 	}
 	else if (Bnjump)
 	{
-		/*current_animation = &njump;
-		position.y -= speed * 2 * gravity;
-		if (position.y <= jumpheight)
+		current_animation = &njump;
+		if (current_animation->Finished())
 		{
-			gravity = -2;
+			current_animation->Reset();
+			Bnjump = false;
 		}
-		else if (position.y == floorheight)
-		{
-			gravity = 2;
-			njump.Reset();
-		}
-		else if (position.y>floorheight)
-		{
-			position.y = floorheight;
-			gravity = 2;
-		}*/
 	}
 	else if (Bfjump)
 	{
@@ -344,26 +321,23 @@ update_status ModulePlayer::Update()
 	else
 	{
 		current_animation = &idle;
+		int speed = 1;
 
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && position.x + 60 < App->render->limit.x + App->render->limit.w)
 		{
-			if (App->player2->position.x <= position.x)current_animation = &backward;
-			if (App->player2->position.x > position.x)current_animation = &forward;
+			if (App->player->position.x <= position.x)current_animation = &forward;
+			if (App->player->position.x > position.x)current_animation = &backward;
 			position.x += speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT && position.x > App->render->limit.x + 1)
 		{
-			if (App->player2->position.x <= position.x)current_animation = &forward;
-			if (App->player2->position.x > position.x)current_animation = &backward;
+			if (App->player->position.x <= position.x)current_animation = &backward;
+			if (App->player->position.x > position.x)current_animation = &forward;
 			position.x -= speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
 		{
 			Bnjump = true;
-			while (position.y > 150)
-			{
-				position.y -= gravity;
-			}
 		}
 		if (App->input->keyboard[SDL_SCANCODE_3] == 1)
 		{
@@ -388,13 +362,13 @@ update_status ModulePlayer::Update()
 		App->audio->PlaySoundEffect(hadokenfx);
 		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK, 4);
 	}
-	/*if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN)
+	/*if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
 	{
-		Bjkick = true;
+	Bjkick = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_J] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
 	{
-		Bjpunch = true;
+	Bjpunch = true;
 	}*/
 	if (App->input->keyboard[SDL_SCANCODE_K] == KEY_DOWN)
 	{
@@ -405,7 +379,10 @@ update_status ModulePlayer::Update()
 		Bcpunch = true;
 	}
 
+	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
+
+	SetCharacterAndPaint(r);
 
 	return UPDATE_CONTINUE;
 }
