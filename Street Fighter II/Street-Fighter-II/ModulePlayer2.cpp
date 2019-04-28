@@ -320,12 +320,14 @@ update_status ModulePlayer2::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		{
-			current_animation = &forward;
+			if (App->player->position.x <= position.x)current_animation = &backward;
+			if (App->player->position.x > position.x)current_animation = &forward;
 			position.x += speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 		{
-			current_animation = &backward;
+			if (App->player->position.x <= position.x)current_animation = &forward;
+			if (App->player->position.x > position.x)current_animation = &backward;
 			position.x -= speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_UP] == 1)

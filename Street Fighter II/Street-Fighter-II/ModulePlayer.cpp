@@ -328,12 +328,14 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && position.x + 60 < App->render->camera.x + App->render->camera.w)
 		{
-			current_animation = &forward;
+			if (App->player2->position.x <= position.x)current_animation = &backward;
+			if (App->player2->position.x > position.x)current_animation = &forward;
 			position.x += speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT && position.x > App->render->camera.x + 1)
 		{
-			current_animation = &backward;
+			if (App->player2->position.x <= position.x)current_animation = &forward;
+			if (App->player2->position.x > position.x)current_animation = &backward;
 			position.x -= speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
