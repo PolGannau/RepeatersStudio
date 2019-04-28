@@ -45,6 +45,8 @@ bool ModuleRyuStage::Start()
 	App->player2->Enable();
 	App->collision->Enable();
 
+	pos_bar = 149;
+
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
 	App->audio->PlayMusic(ryu_stage_music);
 
@@ -82,8 +84,6 @@ update_status ModuleRyuStage::Update()
 		App->render->limit.x -= 1;
 	}
 
-	App->player->life -= 1;
-
 	//decresion of life
 	aux1 = lifebar1_rect2.w;
 	aux2 = lifebar2_rect2.w;
@@ -91,7 +91,7 @@ update_status ModuleRyuStage::Update()
 	lifebar2_rect2.w = 149 * App->player2->life / 100;
 	lifebar1_rect2.x = lifebar1_rect2.x + aux1 - lifebar1_rect2.w;
 	lifebar2_rect2.x = lifebar2_rect2.x + aux2 - lifebar2_rect2.w;
-
+	
 	//blit the stage itself
 	App->render->Blit(background_texture, 0, 0, &background_rect, 0.5F);
 	App->render->Blit(background_texture, 230, 60, &temple_mini, 1.2F);
@@ -103,7 +103,7 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar1_rect2.w - ko_red.w - lifebar1_rect2.w - 30, 12, &lifebar1_rect2, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 28, 10, &lifebar2_rect1, NULL);
-	App->render->Blit(hud, 29 + lifebar2_rect2.w + ko_red.w, 12, &lifebar2_rect2, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - pos_bar - 30 , 12, &lifebar2_rect2, NULL);
 
 	//blit the K.O
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
@@ -115,6 +115,10 @@ update_status ModuleRyuStage::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
 		//App->fade->FadeToBlack(App->ryu_stage, App->module_win);
 		App->fade->FadeToBlack(this, (Module*)App->module_win);
-
+	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
+	{
+		lifebar1_rect2.w = 149;
+		lifebar2_rect2.w = 149;
+	}
 	return UPDATE_CONTINUE;
 }

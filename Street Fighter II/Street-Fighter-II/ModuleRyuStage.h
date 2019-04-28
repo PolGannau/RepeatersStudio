@@ -37,6 +37,7 @@ public:
 
 	int aux1;
 	int aux2;
+	int pos_bar;
 
 	Mix_Music* ryu_stage_music = nullptr;
 };
