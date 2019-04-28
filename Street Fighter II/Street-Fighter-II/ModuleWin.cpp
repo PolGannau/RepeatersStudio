@@ -11,6 +11,7 @@
 #include "ModulePlayer2.h"
 #include "ModuleRyuStage.h"
 #include "ModuleInput.h"
+#include "ModuleLose.h"
 
 ModuleWin::ModuleWin()
 {}
@@ -28,13 +29,7 @@ bool ModuleWin::Start()
 	App->ryu_stage->Disable();
 
 	//We create a rect to put the winner texture in it.
-	texture_winner = App->textures->Load("Assets/Images/Ui/portraits1.png");
-	texture_loser = App->textures->Load("Assets/Images/Ui/portraits2.png");
-	texture_text = App->textures->Load("Assets/Images/Ui/victory_quoter_ryu.png");
-
-	winner_rect = { 69,78,263,166 };
-	loser_rect = { 69,78,263,166 };
-	text_rect = { 35,49,817,160 };
+	texture_winner = App->textures->Load("Assets/Images/Ui/winscreen.png");
 
 	return true;
 }
@@ -47,16 +42,14 @@ update_status ModuleWin::Update()
 	}
 
 	//blit the images of the fighters (winner and loser)
-	App->render->Blit(texture_winner, 0, 0, &winner_rect, NULL);
-	App->render->Blit(texture_loser, 50, 10, &loser_rect, 1.0F, true, true);
-	App->render->Blit(texture_text, 0, 0, &text_rect, NULL);
-
-	//App->render->Blit(texture_text, 50,200, texture_rect, NULL);
+	App->render->Blit(texture_winner, 0, 0, NULL);
 
 
 	//to exit the scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
 		App->fade->FadeToBlack(App->module_win, App->scene_intro);
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
+		App->fade->FadeToBlack(App->module_win, App->module_lose);
 
 
 

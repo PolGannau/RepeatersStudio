@@ -140,7 +140,6 @@
     <ClCompile Include="ModulePlayer2.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleRyuStage.cpp" />
-    <ClCompile Include="ModuleSceneEnd.cpp" />
     <ClCompile Include="ModuleSceneIntro.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWin.cpp" />
@@ -162,7 +161,6 @@
     <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleRyuStage.h" />
-    <ClInclude Include="ModuleSceneEnd.h" />
     <ClInclude Include="ModuleSceneIntro.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWin.h" />
