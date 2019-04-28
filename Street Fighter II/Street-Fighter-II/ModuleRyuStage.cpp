@@ -120,5 +120,9 @@ update_status ModuleRyuStage::Update()
 		lifebar1_rect2.w = 149;
 		lifebar2_rect2.w = 149;
 	}
+	if (App->player->life <= 0)
+		App->fade->FadeToBlack(this, App->module_lose);
+	if (App->player2->life <= 0)
+		App->fade->FadeToBlack(this, App->module_win);
 	return UPDATE_CONTINUE;
 }
