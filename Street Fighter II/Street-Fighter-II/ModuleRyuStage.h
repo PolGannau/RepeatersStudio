@@ -35,6 +35,9 @@ public:
 
 	Collider* floor_collider;
 
+	int aux1;
+	int aux2;
+
 	Mix_Music* ryu_stage_music = nullptr;
 };
 

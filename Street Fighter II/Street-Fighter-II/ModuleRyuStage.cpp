@@ -28,8 +28,8 @@ bool ModuleRyuStage::Start()
 	background_texture = App->textures->Load("Assets/Images/Stages/RyuStage.png");
 	hud = App->textures->Load("Assets/Images/Ui/Lifebar_assets.png");
 
-	lifebar1_rect2 = { 0,0,153,17 };
-	lifebar2_rect2 = { 0,0,153,17 };
+	lifebar1_rect2 = { 2,2,149,13 };
+	lifebar2_rect2 = { 2,2,149,13 };
 	lifebar1_rect1 = { 0,18,153,17 };
 	lifebar2_rect1 = { 0,18,153,17 };
 	ko_white = { 34,37,26,22 };
@@ -82,6 +82,16 @@ update_status ModuleRyuStage::Update()
 		App->render->limit.x -= 1;
 	}
 
+	App->player->life -= 1;
+
+	//decresion of life
+	aux1 = lifebar1_rect2.w;
+	aux2 = lifebar2_rect2.w;
+	lifebar1_rect2.w = 149 * App->player->life / 100;
+	lifebar2_rect2.w = 149 * App->player2->life / 100;
+	lifebar1_rect2.x = lifebar1_rect2.x + aux1 - lifebar1_rect2.w;
+	lifebar2_rect2.x = lifebar2_rect2.x + aux2 - lifebar2_rect2.w;
+
 	//blit the stage itself
 	App->render->Blit(background_texture, 0, 0, &background_rect, 0.5F);
 	App->render->Blit(background_texture, 230, 60, &temple_mini, 1.2F);
@@ -90,10 +100,10 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(background_texture, 50, 100, &sign, 2.5F);
 
 	//blit the health bars
-	App->render->Blit(hud, 27, 10, &lifebar1_rect1, 1.0F, false, true);
-	App->render->Blit(hud, 27, 10, &lifebar1_rect2, 1.0F, false, true);
+	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - lifebar1_rect2.w - ko_red.w - lifebar1_rect2.w - 30, 12, &lifebar1_rect2, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 28, 10, &lifebar2_rect1, NULL);
-	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect2.w - 28, 10, &lifebar2_rect2, NULL);
+	App->render->Blit(hud, 29 + lifebar2_rect2.w + ko_red.w, 12, &lifebar2_rect2, NULL);
 
 	//blit the K.O
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
