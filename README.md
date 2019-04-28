@@ -6,6 +6,9 @@ Repository dedicated to the project releases from the Project 1 subject from GDD
 
 In this subject we will be replicating the famous arcade game which catapulted the whole fighting game scene, **Street Fighter II: The World Warrior**.
 
+### Github link
+
+[Repeaters Studio's Github](https://github.com/PolGannau/RepeatersStudio/)
 
 ## Game Controls
 
@@ -105,10 +108,6 @@ In this subject we will be replicating the famous arcade game which catapulted t
 ### Project Wiki
 
 [Repeaters Studio's Wiki](https://github.com/PolGannau/RepeatersStudio/wiki)
-
-### Github link
-
-[Repeaters Studio's Github](https://github.com/PolGannau/RepeatersStudio/)
 
 
 ## Sources & Bibliography
