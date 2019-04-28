@@ -239,7 +239,7 @@ update_status ModulePlayer2::Update()
 			Bkick = false;
 		}
 	}
-	else if (Bjpunch)
+	/*else if (Bjpunch)
 	{
 		current_animation = &jpunch;
 		if (current_animation->Finished())
@@ -257,7 +257,7 @@ update_status ModulePlayer2::Update()
 			current_animation->Reset();
 			Bjkick = false;
 		}
-	}
+	}*/
 	else if (Bcpunch)
 	{
 		current_animation = &cpunch;
@@ -355,14 +355,14 @@ update_status ModulePlayer2::Update()
 		App->audio->PlaySoundEffect(hadokenfx);
 		//App->particles->AddParticle(App->particles->hadokenParticle, position.x, position.y, COLLIDER_ATTACK, 4);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
+	/*if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
 	{
 		Bjkick = true;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
 	{
 		Bjpunch = true;
-	}
+	}*/
 	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
 	{
 		Bckick = true;
