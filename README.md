@@ -74,6 +74,14 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **0.5(Delivery):** Added colliders to combos. Added Jump to players and gameplay capabilities.
 
+## Found Errors in current version
+
+* P2 Kick collider hovers in air until kick is used.
+
+* Life Bars don't reset. P1 Lifebar animation is wrong.
+
+* Particles not working. Searching for solve.
+
 
 ## To be Implemented
 
