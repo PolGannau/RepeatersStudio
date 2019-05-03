@@ -37,6 +37,7 @@ bool ModuleUi::CleanUp()
 {
 	LOG("Unloading Ui");
 
+	App->textures->Unload(hud);
 
 	return true;
 }
@@ -66,7 +67,6 @@ update_status ModuleUi::Update()
 		lifebar1_rect2.w = 149;
 		lifebar2_rect2.w = 149;
 	}
-
 
 	return UPDATE_CONTINUE;
 }
