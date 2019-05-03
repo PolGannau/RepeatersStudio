@@ -141,6 +141,7 @@
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleRyuStage.cpp" />
     <ClCompile Include="ModuleSceneIntro.cpp" />
+    <ClCompile Include="ModuleStageHonda.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWin.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleRyuStage.h" />
     <ClInclude Include="ModuleSceneIntro.h" />
+    <ClInclude Include="ModuleStageHonda.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWin.h" />
     <ClInclude Include="ModuleWindow.h" />

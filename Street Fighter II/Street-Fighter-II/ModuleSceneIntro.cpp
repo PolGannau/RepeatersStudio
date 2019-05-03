@@ -11,6 +11,7 @@
 #include "ModuleAudio.h"
 #include "ModuleLose.h"
 #include "ModuleWin.h"
+#include "ModuleStageHonda.h"
 
 
 ModuleSceneIntro::ModuleSceneIntro()
@@ -30,6 +31,7 @@ bool ModuleSceneIntro::Start()
 	App->ryu_stage->Disable();
 	App->module_lose->Disable();
 	App->module_win->Disable();
+	App->honda_stage->Disable();
 
 	intro_mus = App->audio->LoadMusic("Assets/Audio/Soundtrack/02 The World Warrior.ogg");
 	App->audio->PlayMusic(intro_mus);
@@ -59,6 +61,9 @@ update_status ModuleSceneIntro::Update()
 		App->fade->FadeToBlack(this, (Module*)App->ryu_stage);
 		//App->audio->FadeMusic(600);
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN && App->fade->IsFading() == false)
+		App->fade->FadeToBlack(this, App->honda_stage);
 
 	return UPDATE_CONTINUE;
 }
