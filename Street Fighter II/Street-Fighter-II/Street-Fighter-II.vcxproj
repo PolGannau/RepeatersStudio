@@ -143,6 +143,7 @@
     <ClCompile Include="ModuleSceneIntro.cpp" />
     <ClCompile Include="ModuleStageHonda.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
+    <ClCompile Include="ModuleUi.cpp" />
     <ClCompile Include="ModuleWin.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="ModuleSceneIntro.h" />
     <ClInclude Include="ModuleStageHonda.h" />
     <ClInclude Include="ModuleTextures.h" />
+    <ClInclude Include="ModuleUi.h" />
     <ClInclude Include="ModuleWin.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="p2Point.h" />
