@@ -12,6 +12,7 @@
 #include "ModuleLose.h"
 #include "ModuleWin.h"
 #include "ModuleStageHonda.h"
+#include "ModuleUi.h"
 
 
 ModuleSceneIntro::ModuleSceneIntro()
@@ -31,6 +32,7 @@ bool ModuleSceneIntro::Start()
 	App->ryu_stage->Disable();
 	App->module_lose->Disable();
 	App->module_win->Disable();
+	App->module_ui->Disable();
 	App->honda_stage->Disable();
 
 	intro_mus = App->audio->LoadMusic("Assets/Audio/Soundtrack/02 The World Warrior.ogg");

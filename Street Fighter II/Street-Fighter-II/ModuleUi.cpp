@@ -5,6 +5,8 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
+#include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 
 
 ModuleUi::ModuleUi()
