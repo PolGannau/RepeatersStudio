@@ -48,7 +48,7 @@ update_status ModuleStageHonda::Update()
 
 
 	App->render->Blit(stage_texture, 0, wall.h - 50, &floor);
-	App->render->Blit(stage_texture, -50, 0, &wall);
+	App->render->Blit(stage_texture, 0, 0, &wall);
 	App->render->Blit(stage_texture, 0, 0, &roof);	
 
 
