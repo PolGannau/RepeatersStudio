@@ -13,6 +13,7 @@
 #include "ModuleInput.h"
 #include "ModuleLose.h"
 #include "ModuleAudio.h"
+#include "ModuleUi.h"
 
 ModuleWin::ModuleWin()
 {}
@@ -30,6 +31,7 @@ bool ModuleWin::Start()
 	App->player->Disable();
 	App->player2->Disable();
 	App->ryu_stage->Disable();
+	App->module_ui->Disable();
 
 	//We create a rect to put the winner texture in it.
 	texture_winner = App->textures->Load("Assets/Images/Ui/winscreen.png");

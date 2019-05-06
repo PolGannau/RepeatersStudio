@@ -3,6 +3,10 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ModuleUi.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleWin.h"
+#include "ModuleLose.h"
 
 
 ModuleStageHonda::ModuleStageHonda()
@@ -15,6 +19,8 @@ ModuleStageHonda::~ModuleStageHonda()
 bool ModuleStageHonda::Start()
 {
 	LOG("Loading Honda Stage");
+
+	App->module_ui->Enable();
 
 	stage_texture = App->textures->Load("Assets/Images/Stages/honda/hondastage.png");
 
@@ -45,7 +51,10 @@ update_status ModuleStageHonda::Update()
 		App->render->camera.x += 1;
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_DOWN)
 		App->render->camera.x -= 1;
-
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
+		App->fade->FadeToBlack(this, App->module_win);
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
+		App->fade->FadeToBlack(this, App->module_lose);
 
 	App->render->Blit(stage_texture, 0, wall.h - 50, &floor);
 	App->render->Blit(stage_texture, 0, 0, &wall);

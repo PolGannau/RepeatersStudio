@@ -11,6 +11,7 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModuleWin.h"
+#include "ModuleUi.h"
 
 
 ModuleLose::ModuleLose()
@@ -29,6 +30,7 @@ bool ModuleLose::Start()
 	App->player2->Disable();
 	App->player->Disable();
 	App->ryu_stage->Disable();
+	App->module_ui->Disable();
 
 	//load the images and create textures
 	texture_loser = App->textures->Load("Assets/Images/Ui/losescreen.png");

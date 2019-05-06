@@ -8,6 +8,9 @@ struct SDL_Texture;
 class ModuleUi :public Module
 {
 public:
+	ModuleUi();
+	~ModuleUi();
+
 	bool Start();
 	update_status Update();
 	bool CleanUp();

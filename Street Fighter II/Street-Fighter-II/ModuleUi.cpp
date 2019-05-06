@@ -12,7 +12,7 @@
 ModuleUi::ModuleUi()
 {}
 
-ModuleUi::ModuleUi()
+ModuleUi::~ModuleUi()
 {}
 
 bool ModuleUi::Start()
@@ -27,7 +27,7 @@ bool ModuleUi::Start()
 	ko_white = { 34,37,26,22 };
 	ko_red = { 1,36,27,24 };
 
-	pos_bar = 149;
+	pos_bar = lifebar1_rect2.w = lifebar2_rect2.w = 149;
 
 
 	return true;
