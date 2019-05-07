@@ -12,6 +12,7 @@
 #include "ModuleLose.h"
 #include "ModuleWin.h"
 #include "ModuleParticles.h"
+#include "ModuleUi.h"
 
 
 ModuleRyuStage::ModuleRyuStage()
@@ -37,6 +38,7 @@ bool ModuleRyuStage::Start()
 	App->player->Enable();
 	App->player2->Enable();
 	App->collision->Enable();
+	App->module_ui->Enable();
 
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
 	App->audio->PlayMusic(ryu_stage_music);

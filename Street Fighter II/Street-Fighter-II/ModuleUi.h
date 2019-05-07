@@ -24,6 +24,7 @@ public:
 	SDL_Rect lifebar2_rect2;
 	SDL_Rect ko_red;
 	SDL_Rect ko_white;
+	SDL_Rect round_win;
 
 	int pos_bar;
 	int aux1;

@@ -26,6 +26,7 @@ bool ModuleUi::Start()
 	lifebar2_rect1 = { 0,18,153,17 };
 	ko_white = { 34,37,26,22 };
 	ko_red = { 1,36,27,24 };
+	round_win = { 66,36,17,20 };
 
 	pos_bar = lifebar1_rect2.w = lifebar2_rect2.w = 149;
 
@@ -46,23 +47,24 @@ update_status ModuleUi::Update()
 {
 	//decresion of life
 	aux1 = lifebar1_rect2.w;
-	aux2 = lifebar2_rect2.w;
 	lifebar1_rect2.w = 149 * App->player->life / 100;
 	lifebar2_rect2.w = 149 * App->player2->life / 100;
 	lifebar1_rect2.x = lifebar1_rect2.x + aux1 - lifebar1_rect2.w;
-	lifebar2_rect2.x = lifebar2_rect2.x + aux2 - lifebar2_rect2.w;
 
 	//blit the health bars
 	//red ones
 	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
-	App->render->Blit(hud, 27 + lifebar1_rect1.w + ko_red.w, 10 , &lifebar2_rect1, NULL);
+	App->render->Blit(hud, 23 + lifebar1_rect1.w + ko_red.w, 10 , &lifebar2_rect1, NULL);
 	//orange ones
 	App->render->Blit(hud, 29, 12, &lifebar1_rect2, NULL);
-	App->render->Blit(hud, 29 + lifebar1_rect1.w + ko_red.w , 12, &lifebar2_rect2, NULL);
+	App->render->Blit(hud, 25 + lifebar1_rect1.w + ko_red.w , 12, &lifebar2_rect2, NULL);
 
 	//blit the K.O
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
+
+	//round wins
+	
 
 	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
 	{
