@@ -54,9 +54,9 @@ update_status ModuleUi::Update()
 
 	//blit the health bars
 	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
-	App->render->Blit(hud, SCREEN_WIDTH - lifebar1_rect2.w - ko_red.w - lifebar1_rect2.w - 30, 12, &lifebar1_rect2, NULL);
-	App->render->Blit(hud, SCREEN_WIDTH - lifebar2_rect1.w - 28, 10, &lifebar2_rect1, NULL);
+	App->render->Blit(hud, 27 + lifebar1_rect1.w + ko_red.w, 10 , &lifebar2_rect1, NULL);
 	App->render->Blit(hud, SCREEN_WIDTH - pos_bar - 30, 12, &lifebar2_rect2, NULL);
+	App->render->Blit(hud, SCREEN_WIDTH - lifebar1_rect2.w - ko_red.w - lifebar1_rect2.w - 30, 12, &lifebar1_rect2, NULL);
 
 	//blit the K.O
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
