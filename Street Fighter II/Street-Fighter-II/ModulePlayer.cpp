@@ -33,7 +33,7 @@ ModulePlayer::ModulePlayer()
 	idleCrouch.speed = 0.1f;
 
 	// walk forward animation (arcade sprite sheet)
-	forward.PushBack({ 454, 624, 124, 89 });
+	//forward.PushBack({ 454, 624, 124, 89 });
 	forward.PushBack({ 1014, 715, 99, 92 });
 	forward.PushBack({ 1024, 624, 100, 90 });
 	forward.PushBack({ 1154, 536, 100, 88 });
@@ -44,12 +44,14 @@ ModulePlayer::ModulePlayer()
 	forward.speed = 0.175f;
 
 	// walk backwards animation
-	backward.PushBack({ 264, 646, 57, 89 });
-	backward.PushBack({ 468, 558, 60, 87 });
-	backward.PushBack({ 641, 646, 58, 90 });
-	backward.PushBack({ 0, 736, 57, 90 });
-	backward.PushBack({ 395, 736, 58, 90 });
-	backward.PushBack({ 0, 827, 58, 91 });
+	//backward.PushBack({ 454, 624, 124, 89 });
+	backward.PushBack({ 204, 715, 108, 91 });
+	backward.PushBack({ 499, 715, 107, 91 });
+	backward.PushBack({ 1014, 715, 99, 92 });
+	backward.PushBack({ 1024, 624, 100, 90 });
+	backward.PushBack({ 1154, 536, 100, 88 });
+	backward.PushBack({ 1024, 624, 100, 90 });
+	backward.PushBack({ 1014, 715, 99, 92 });
 	backward.speed = 0.175f;
 
 	// punch animation
