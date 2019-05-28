@@ -29,8 +29,8 @@ ModulePlayer2::ModulePlayer2()
 	idle.speed = 0.285f;
 
 	//idle crouch aniamtion
-	idlec.PushBack({ 66,111,61,61 });
-	idlec.speed = 0.1f;
+	idleCrouch.PushBack({ 66,111,61,61 });
+	idleCrouch.speed = 0.1f;
 
 	// walk forward animation (arcade sprite sheet)
 	forward.PushBack({ 547, 474, 52, 83 });

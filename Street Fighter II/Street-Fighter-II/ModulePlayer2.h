@@ -28,7 +28,7 @@ public:
 	uint score = 0;
 	Animation* current_animation = nullptr;
 	Animation idle;
-	Animation idlec;
+	Animation idleCrouch;
 	Animation forward;
 	Animation backward;
 	Animation crouching;

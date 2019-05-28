@@ -19,18 +19,18 @@ ModulePlayer::ModulePlayer()
 	position.y = 220;
 
 	// idle animation (arcade sprite sheet)
-	idle.PushBack({ 68, 646, 60, 89 });
-	idle.PushBack({ 118, 736, 59, 90 });
-	idle.PushBack({ 424, 827, 58, 92 });
-	idle.PushBack({ 147, 919, 55, 93 });
-	idle.PushBack({ 424, 827, 58, 92 });
-	idle.PushBack({ 118, 736, 59, 90 });
+	idle.PushBack({ 0, 809, 101, 94 });//101
+	idle.PushBack({ 1653, 624, 107, 91 });//107
+	idle.PushBack({ 522, 536, 115, 87 });//115
+	idle.PushBack({ 1653, 624, 107, 91 });//107
+	//idle.PushBack({ 0, 809, 101, 94 });
+	//idle.PushBack({ 118, 736, 59, 90 });
 	//idle.PushBack({ 366, 12, 60, 92 });
-	idle.speed = 0.285f;
+	idle.speed = 0.15f;
 
 	//idle crouch aniamtion
-	idlec.PushBack({ 66,111,61,61 });
-	idlec.speed = 0.1f;
+	idleCrouch.PushBack({ 1818,67,94,70 });
+	idleCrouch.speed = 0.1f;
 
 	// walk forward animation (arcade sprite sheet)
 	forward.PushBack({ 547, 474, 52, 83 });
@@ -206,7 +206,7 @@ bool ModulePlayer::Start()
 	coll_legs = App->collision->AddCollider({ position.x,position.y,52,30 }, COLLIDER_PLAYER_BODY, this);
 	coll_attack = App->collision->AddCollider({ -100,20,28,20 }, COLLIDER_ATTACK, this);
 
-	graphics = App->textures->Load("../Game/Assets/Images/Characters/RyuSprite.png");
+	graphics = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite.png");
 	return ret;
 }
 
