@@ -65,33 +65,33 @@ ModulePlayer2::ModulePlayer2()
 	punch.speed = 1.0f;
 
 	//crouching punch animation
-	cpunch.PushBack({ 390,111,69,61 });//prep
-	cpunch.PushBack({ 390,111,69,61 });//prep
-	cpunch.PushBack({ 459,111,95,61 });//hit
-	cpunch.PushBack({ 459,111,95,61 });//hit
-	cpunch.PushBack({ 459,111,95,61 });//hit
-	cpunch.PushBack({ 459,111,95,61 });//hit
-	cpunch.PushBack({ 390,111,69,61 });//recover
-	cpunch.PushBack({ 390,111,69,61 });//recover
-	cpunch.PushBack({ 390,111,69,61 });//recover
-	cpunch.PushBack({ 390,111,69,61 });//recover
-	cpunch.PushBack({ 66,111,61,61 });//idle
-	cpunch.speed = 0.1f;
+	crouchPunch.PushBack({ 390,111,69,61 });//prep
+	crouchPunch.PushBack({ 390,111,69,61 });//prep
+	crouchPunch.PushBack({ 459,111,95,61 });//hit
+	crouchPunch.PushBack({ 459,111,95,61 });//hit
+	crouchPunch.PushBack({ 459,111,95,61 });//hit
+	crouchPunch.PushBack({ 459,111,95,61 });//hit
+	crouchPunch.PushBack({ 390,111,69,61 });//recover
+	crouchPunch.PushBack({ 390,111,69,61 });//recover
+	crouchPunch.PushBack({ 390,111,69,61 });//recover
+	crouchPunch.PushBack({ 390,111,69,61 });//recover
+	crouchPunch.PushBack({ 66,111,61,61 });//idle
+	crouchPunch.speed = 0.1f;
 
 	//air punch
-	jpunch.PushBack({ 906,174,52,69 });//prep
-	jpunch.PushBack({ 906,174,52,69 });//prep
-	jpunch.PushBack({ 486,243,81,71 });//hit, repeat until ground
-	jpunch.speed = 0.1f;
+	jumpPunch.PushBack({ 906,174,52,69 });//prep
+	jumpPunch.PushBack({ 906,174,52,69 });//prep
+	jumpPunch.PushBack({ 486,243,81,71 });//hit, repeat until ground
+	jumpPunch.speed = 0.1f;
 
 	//air kick
-	jkick.PushBack({ 871,243, 59,76 });//prep
-	jkick.PushBack({ 871,243, 59,76 });//prep
-	jkick.PushBack({ 757, 243,55,73 });//prep2
-	jkick.PushBack({ 757, 243,55,73 });//prep2
-	jkick.PushBack({ 757, 243,55,73 });//prep2
-	jkick.PushBack({ 772, 174,77,67 });//hit, repeat until ground
-	jkick.speed = 0.1f;
+	jumpKick.PushBack({ 871,243, 59,76 });//prep
+	jumpKick.PushBack({ 871,243, 59,76 });//prep
+	jumpKick.PushBack({ 757, 243,55,73 });//prep2
+	jumpKick.PushBack({ 757, 243,55,73 });//prep2
+	jumpKick.PushBack({ 757, 243,55,73 });//prep2
+	jumpKick.PushBack({ 772, 174,77,67 });//hit, repeat until ground
+	jumpKick.speed = 0.1f;
 
 	// kick animation
 	kick.PushBack({ 131, 827, 64, 91 });//idle
@@ -116,47 +116,47 @@ ModulePlayer2::ModulePlayer2()
 	kick.speed = 1.0f;
 
 	//crouching kick animation
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 335,174,112,64 });//hit
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 447,174,70,64 });//prep
-	ckick.PushBack({ 66,111,61,61 });//idle
-	ckick.speed = 0.1f;
+	crouchKick.PushBack({ 447,174,70,64 });//prep
+	crouchKick.PushBack({ 447,174,70,64 });//prep
+	crouchKick.PushBack({ 335,174,112,64 });//hit
+	crouchKick.PushBack({ 335,174,112,64 });//hit
+	crouchKick.PushBack({ 335,174,112,64 });//hit
+	crouchKick.PushBack({ 335,174,112,64 });//hit
+	crouchKick.PushBack({ 447,174,70,64 });//prep
+	crouchKick.PushBack({ 447,174,70,64 });//prep
+	crouchKick.PushBack({ 447,174,70,64 });//prep
+	crouchKick.PushBack({ 447,174,70,64 });//prep
+	crouchKick.PushBack({ 66,111,61,61 });//idle
+	crouchKick.speed = 0.1f;
 
 	// neutral jump animation
-	njump.PushBack({ 844, 1108, 56, 104 });
-	njump.PushBack({ 542, 646, 50, 89 });
-	njump.PushBack({ 827, 319, 54, 77 });
-	njump.PushBack({ 315, 243, 48, 70 });
-	njump.PushBack({ 592, 646, 48, 89 });
-	njump.PushBack({ 252, 1212, 55, 109 });
-	njump.speed = 0.1f;
+	jump.PushBack({ 844, 1108, 56, 104 });
+	jump.PushBack({ 542, 646, 50, 89 });
+	jump.PushBack({ 827, 319, 54, 77 });
+	jump.PushBack({ 315, 243, 48, 70 });
+	jump.PushBack({ 592, 646, 48, 89 });
+	jump.PushBack({ 252, 1212, 55, 109 });
+	jump.speed = 0.1f;
 
 	//forward jump animation
-	fjump.PushBack({ 789, 1108, 55, 103 });
-	fjump.PushBack({ 883, 396, 61, 78 });
-	fjump.PushBack({ 387, 0, 104, 42 });
-	fjump.PushBack({ 208, 474, 53, 82 });
-	fjump.PushBack({ 610, 0, 122, 44 });
-	fjump.PushBack({ 396, 558, 71, 87 });
-	fjump.PushBack({ 197, 1212, 55, 109 });
-	fjump.speed = 0.15f;
+	forwardJump.PushBack({ 789, 1108, 55, 103 });
+	forwardJump.PushBack({ 883, 396, 61, 78 });
+	forwardJump.PushBack({ 387, 0, 104, 42 });
+	forwardJump.PushBack({ 208, 474, 53, 82 });
+	forwardJump.PushBack({ 610, 0, 122, 44 });
+	forwardJump.PushBack({ 396, 558, 71, 87 });
+	forwardJump.PushBack({ 197, 1212, 55, 109 });
+	forwardJump.speed = 0.15f;
 
 	//backwards jump animation
-	bjump.PushBack({ 197, 1212, 55, 109 });
-	bjump.PushBack({ 396, 558, 71, 87 });
-	bjump.PushBack({ 610, 0, 122, 44 });
-	bjump.PushBack({ 208, 474, 53, 82 });
-	bjump.PushBack({ 387, 0, 104, 42 });
-	bjump.PushBack({ 883, 396, 61, 78 });
-	bjump.PushBack({ 789, 1108, 55, 103 });
-	bjump.speed = 0.15f;
+	backwardsJump.PushBack({ 197, 1212, 55, 109 });
+	backwardsJump.PushBack({ 396, 558, 71, 87 });
+	backwardsJump.PushBack({ 610, 0, 122, 44 });
+	backwardsJump.PushBack({ 208, 474, 53, 82 });
+	backwardsJump.PushBack({ 387, 0, 104, 42 });
+	backwardsJump.PushBack({ 883, 396, 61, 78 });
+	backwardsJump.PushBack({ 789, 1108, 55, 103 });
+	backwardsJump.speed = 0.15f;
 
 	//crouch animation
 	crouching.PushBack({ 811,474,53,83 });
@@ -248,42 +248,42 @@ update_status ModulePlayer2::Update()
 			Bkick = false;
 		}
 	}
-	/*else if (Bjpunch)
+	/*else if (backJumpPunch)
 	{
-		current_animation = &jpunch;
+		current_animation = &jumpPunch;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bjpunch = false;
+			backJumpPunch = false;
 
 		}
 	}
-	else if (Bjkick)
+	else if (backJumpKick)
 	{
-		current_animation = &jkick;
+		current_animation = &jumpKick;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bjkick = false;
+			backJumpKick = false;
 		}
 	}*/
-	else if (Bcpunch)
+	else if (BcrouchPunch)
 	{
-		current_animation = &cpunch;
+		current_animation = &crouchPunch;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bcpunch = false;
+			BcrouchPunch = false;
 
 		}
 	}
-	else if (Bckick)
+	else if (BcrouchKick)
 	{
-		current_animation = &ckick;
+		current_animation = &crouchKick;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bckick = false;
+			BcrouchKick = false;
 		}
 	}
 	else if (Bhadoken)
@@ -295,31 +295,31 @@ update_status ModulePlayer2::Update()
 			Bhadoken = false;
 		}
 	}
-	else if (Bnjump)
+	else if (Bjump)
 	{
-		current_animation = &njump;
+		current_animation = &jump;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bnjump = false;
+			Bjump = false;
 		}
 	}
-	else if (Bfjump)
+	else if (BforwardJump)
 	{
-		current_animation = &fjump;
+		current_animation = &forwardJump;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bfjump = false;
+			BforwardJump = false;
 		}
 	}
-	else if (Bbjump)
+	else if (BbackJump)
 	{
-		current_animation = &bjump;
+		current_animation = &backwardsJump;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
-			Bbjump = false;
+			BbackJump = false;
 		}
 	}
 	else
@@ -341,15 +341,15 @@ update_status ModulePlayer2::Update()
 		}
 		if (App->input->keyboard[SDL_SCANCODE_UP] == 1)
 		{
-			Bnjump = true;
+			Bjump = true;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_KP_8] == 1)
 		{
-			Bfjump = true;
+			BforwardJump = true;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_KP_7] == 1)
 		{
-			Bbjump = true;
+			BbackJump = true;
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN)
@@ -368,19 +368,19 @@ update_status ModulePlayer2::Update()
 	}
 	/*if (App->input->keyboard[SDL_SCANCODE_KP_1] == KEY_DOWN)
 	{
-		Bjkick = true;
+		backJumpKick = true;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_KP_2] == KEY_DOWN)
 	{
-		Bjpunch = true;
+		backJumpPunch = true;
 	}*/
 	if (App->input->keyboard[SDL_SCANCODE_KP_3] == KEY_DOWN)
 	{
-		Bckick = true;
+		BcrouchKick = true;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_KP_0] == KEY_DOWN)
 	{
-		Bcpunch = true;
+		BcrouchPunch = true;
 	}
 
 	// Draw everything --------------------------------------
@@ -441,7 +441,7 @@ void ModulePlayer2::SetCharacterAndPaint(SDL_Rect r)
 			coll_attack->rect.x = position.x - 4;
 			coll_attack->rect.y = position.y - r.h + 2;
 		}
-		else if (current_animation = &njump)
+		else if (current_animation = &jump)
 		{
 			coll_head->rect.x = position.x + 14;
 			coll_head->rect.y = position.y - r.h + 8;
@@ -495,7 +495,7 @@ void ModulePlayer2::SetCharacterAndPaint(SDL_Rect r)
 			coll_attack->rect.x = position.x + 86;
 			coll_attack->rect.y = position.y - r.h + 2;
 		}
-		else if (current_animation = &njump)
+		else if (current_animation = &jump)
 		{
 			coll_head->rect.x = position.x + 17;
 			coll_head->rect.y = position.y - r.h + 8;

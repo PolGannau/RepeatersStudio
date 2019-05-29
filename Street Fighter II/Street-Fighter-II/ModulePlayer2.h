@@ -33,16 +33,16 @@ public:
 	Animation backward;
 	Animation crouching;
 	Animation standing;
-	Animation njump;
-	//Animation njumpdown;
-	Animation fjump;
-	Animation bjump;
+	Animation jump;
+	//Animation jumpdown;
+	Animation forwardJump;
+	Animation backwardsJump;
 	Animation punch;
-	Animation cpunch;
-	Animation jpunch;
+	Animation crouchPunch;
+	Animation jumpPunch;
 	Animation kick;
-	Animation ckick;
-	Animation jkick;
+	Animation crouchKick;
+	Animation jumpKick;
 	Animation hadokenRyu;
 	Animation shoryuken;
 	Animation tatsumaki;
@@ -54,15 +54,15 @@ public:
 	Collider* coll_attack = nullptr;
 	bool destroyed = false;
 	bool Bpunch = false;
-	bool Bcpunch = false;
+	bool BcrouchPunch = false;
 	bool Bkick = false;
-	bool Bjpunch = false;
-	bool Bjkick = false;
-	bool Bckick = false;
+	bool backJumpPunch = false;
+	bool backJumpKick = false;
+	bool BcrouchKick = false;
 	bool Bhadoken = false;
-	bool Bnjump = false;
-	bool Bfjump = false;
-	bool Bbjump = false;
+	bool Bjump = false;
+	bool BforwardJump = false;
+	bool BbackJump = false;
 	bool Bcrouch = false;
 	bool Bstand = false;
 
@@ -71,7 +71,7 @@ public:
 	/*Mix_Chunk* kickfx = nullptr;
 	Mix_Chunk* punchfx = nullptr;*/
 	Mix_Chunk* hadokenfx = nullptr;
-	//bool Bnjumpdown = false;
+	//bool backJumpdown = false;
 };
 
 #endif
