@@ -27,25 +27,79 @@ public:
 	char score_text[10];
 	uint score = 0;
 	Animation* current_animation = nullptr;
+	
+	//standing
 	Animation idle;
-	Animation idleCrouch;
+	Animation turn;
 	Animation forward;
 	Animation backward;
+	///normal
+	Animation kick;
+	Animation lightKick;
+	Animation mediumKick;
+	Animation heavyKick;
+	Animation punch;
+	Animation lightPunch;
+	Animation mediumPunch;
+	Animation heavyPunch;
+	///close
+	Animation closeLightKick;
+	Animation closeMediumKick;
+	Animation closeHeavyKick;
+	Animation closeLightPunch;
+	Animation closeMediumPunch;
+	Animation closeHeavyPunch;
+
+	//crouching
+	Animation idleCrouch;
 	Animation crouching;
 	Animation standing;
+	Animation crouchKick;
+	Animation crouchLightKick;
+	Animation crouchMediumKick;
+	Animation crouchHeavyKick;
+	Animation crouchPunch;
+	Animation crouchLightPunch;
+	Animation crouchMediumPunch;
+	Animation crouchHeavyPunch;
+
+	//jumping
 	Animation jump;
 	//Animation jumpdown;
 	Animation forwardJump;
 	Animation backwardsJump;
-	Animation punch;
-	Animation crouchPunch;
-	Animation jumpPunch;
-	Animation kick;
-	Animation crouchKick;
 	Animation jumpKick;
-	Animation hadokenRyu;
-	Animation shoryuken;
+	Animation jumpLightKick;
+	Animation jumpMediumKick;
+	Animation jumpHeavyKick;
+	Animation jumpDiagonalLightKick;
+	Animation jumpDiagonalMediumKick;
+	Animation jumpDiagonalHeavyKick;
+	Animation jumpPunch;
+	Animation jumpLightPunch;
+	Animation jumpMediumPunch;
+	Animation jumpHeavyPunch;
+	Animation jumpDiagonalLightPunch;
+	Animation jumpDiagonalMediumPunch;
+	Animation jumpDiagonalHeavyPunch;
+	
+	//grabs
+	Animation hold;
+	Animation throwing;
+
+	//victory
+	Animation victory;
+
+	//special
+	Animation SumoHeadbutt;
+	Animation HundredSlaps;
 	Animation tatsumaki;
+
+	//hurt
+	Animation standingHurt;
+	Animation standingGutHurt;
+	Animation crouchHurt;
+	Animation dizzy;
 
 	iPoint position;
 	Collider* coll_head = nullptr;
