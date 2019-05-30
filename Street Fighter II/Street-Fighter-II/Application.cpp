@@ -16,7 +16,7 @@
 #include "ModuleLose.h"
 //#include "ModuleParticles.h"
 //#include "ModuleEnemies.h"
-//#include "ModuleFonts.h"
+#include "ModuleFonts.h"
 
 Application::Application()
 {
@@ -25,7 +25,7 @@ Application::Application()
 	modules[i++] = render = new ModuleRender();
 	modules[i++] = input = new ModuleInput();
 	modules[i++] = textures = new ModuleTextures();
-	//modules[i++] = fonts = new ModuleFonts();
+	modules[i++] = fonts = new ModuleFonts();
 	modules[i++] = scene_intro = new ModuleSceneIntro();
 	modules[i++] = ryu_stage = new ModuleRyuStage();
 	modules[i++] = honda_stage = new ModuleStageHonda();
