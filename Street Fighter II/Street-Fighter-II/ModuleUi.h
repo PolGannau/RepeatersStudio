@@ -3,6 +3,8 @@
 
 #include "Module.h"
 
+#define KO_TIMER 750
+
 struct SDL_Texture;
 
 class ModuleUi :public Module
@@ -28,5 +30,8 @@ public:
 
 	int pos_bar;
 	int aux = 0;
+	unsigned int current_time, last_time = 0;
+
+
 };
 #endif // !__MODULEUI_H__

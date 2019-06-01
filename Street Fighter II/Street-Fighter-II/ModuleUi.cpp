@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
+#include "../SDL/include/SDL_timer.h"
 
 
 ModuleUi::ModuleUi()
@@ -64,13 +65,19 @@ update_status ModuleUi::Update()
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
 
 	//round wins
-	
-
+	current_time = SDL_GetTicks();
+	if((current_time-last_time)>= KO_TIMER)
+	{
+		last_time = current_time;
+	}
+	if (App->player->life <= 25 || App->player2->life <= 25 && (current_time - last_time) < KO_TIMER/2)
+	{
+			App->render->Blit(hud, 178,7,&ko_red,NULL);
+	}
 	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
 	{
 		lifebar1_rect2.w = 149;
 		lifebar2_rect2.w = 149;
 	}
-
 	return UPDATE_CONTINUE;
 }

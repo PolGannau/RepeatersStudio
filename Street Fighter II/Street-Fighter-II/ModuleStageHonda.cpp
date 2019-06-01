@@ -33,6 +33,10 @@ bool ModuleStageHonda::Start()
 	roof = { 0,359,765,48 };
 	pool_top = { 568,104,336,20 };
 	pool_wall = { 568,128,336,32 };
+	win_guy_small = { 32,0,64,104 };
+	win_guy_big = { 96,0,95,104 };
+	sun_yellow = { 191,0,225,104 };
+	sun_red = { 416,0,223,104 };
 
 
 	return true;
