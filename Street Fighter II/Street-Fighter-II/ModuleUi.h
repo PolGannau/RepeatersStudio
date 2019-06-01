@@ -27,7 +27,6 @@ public:
 	SDL_Rect round_win;
 
 	int pos_bar;
-	int aux1;
-	int aux2;
+	int aux = 0;
 };
 #endif // !__MODULEUI_H__

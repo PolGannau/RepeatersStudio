@@ -45,11 +45,11 @@ bool ModuleUi::CleanUp()
 
 update_status ModuleUi::Update()
 {
-	//decresion of life
-	aux1 = lifebar1_rect2.w;
-	lifebar1_rect2.w = 149 * App->player->life / 100;
+	//decresion of lifebar player 2
 	lifebar2_rect2.w = 149 * App->player2->life / 100;
-	lifebar1_rect2.x = lifebar1_rect2.x + aux1 - lifebar1_rect2.w;
+	//decresion of lifebar player 1
+	lifebar1_rect2.w = 149 * App->player->life / 100;
+	lifebar1_rect2.x = ko_red.x - lifebar1_rect2.w;
 
 	//blit the health bars
 	//red ones

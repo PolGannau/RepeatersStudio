@@ -184,12 +184,12 @@ ModulePlayer::ModulePlayer()
 	shoryuken.speed = 0.1f;*/
 
 	//hadoken animation
-	hadokenRyu.PushBack({ 321,736,74,90 });
+	/*hadokenRyu.PushBack({ 321,736,74,90 });
 	hadokenRyu.PushBack({ 864,474,85, 84 });
 	hadokenRyu.PushBack({ 314,474,90,83 });
 	hadokenRyu.PushBack({ 190,396,106,77 });
 	hadokenRyu.PushBack({ 190,396,106,77 });
-	hadokenRyu.speed = 0.2f;
+	hadokenRyu.speed = 0.2f;*/
 
 }
 
@@ -286,7 +286,7 @@ update_status ModulePlayer::Update()
 			BcrouchKick = false;
 		}
 	}
-	else if (Bhadoken)
+	/*else if (Bhadoken)
 	{
 		current_animation = &hadokenRyu;
 		if (current_animation->Finished())
@@ -294,7 +294,7 @@ update_status ModulePlayer::Update()
 			current_animation->Reset();
 			Bhadoken = false;
 		}
-	}
+	}*/
 	else if (Bjump)
 	{
 		current_animation = &jump;
@@ -394,7 +394,7 @@ update_status ModulePlayer::Update()
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->callback == App->player2&&c1->type == COLLIDER_ATTACK || c2->callback == App->player2&&c2->type == COLLIDER_ATTACK)
-		life -= 0.2F;
+		life -= 0.1F;
 }
 
 void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
