@@ -60,9 +60,11 @@ update_status ModuleStageHonda::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(this, App->module_lose);
 
-	App->render->Blit(stage_texture, 0, wall.h - 50, &floor);
-	App->render->Blit(stage_texture, 0, 0, &wall);
-	App->render->Blit(stage_texture, 0, 0, &roof);	
+	App->render->Blit(stage_texture, 0, wall.h - 35, &floor);
+	App->render->Blit(stage_texture, 0, -10, &wall);
+	App->render->Blit(stage_texture, 0, -10, &roof);
+	App->render->Blit(stage_texture, 190, wall.h - 49, &pool_wall);
+	App->render->Blit(stage_texture, 190, wall.h - 69, &pool_top);
 
 
 	return UPDATE_CONTINUE;
