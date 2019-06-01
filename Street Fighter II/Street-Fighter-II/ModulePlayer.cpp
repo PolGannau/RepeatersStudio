@@ -19,40 +19,42 @@ ModulePlayer::ModulePlayer()
 	position.y = 220;
 
 	// idle animation (arcade sprite sheet)
-	idle.PushBack({ 0, 809, 101, 94 });//101
-	idle.PushBack({ 1653, 624, 107, 91 });//107
-	idle.PushBack({ 522, 536, 115, 87 });//115
-	idle.PushBack({ 1653, 624, 107, 91 });//107
+	idle.PushBack({ 745, 1187, 101, 94 });//101
+	idle.PushBack({ 782, 1004, 107, 91 });//107
+	idle.PushBack({ 701, 740, 115, 87 });//115
+	idle.PushBack({ 782, 1004, 107, 91 });//107
 	//idle.PushBack({ 0, 809, 101, 94 });
 	//idle.PushBack({ 118, 736, 59, 90 });
 	//idle.PushBack({ 366, 12, 60, 92 });
-	idle.speed = 0.15f;
+	idle.speed = 0.13f;
 
 	//idle crouch aniamtion
-	idleCrouch.PushBack({ 1818,67,94,70 });
+	idleCrouch.PushBack({ 532,196,94,70 });
 	idleCrouch.speed = 0.1f;
 
 	// walk forward animation (arcade sprite sheet)
-	//forward.PushBack({ 454, 624, 124, 89 });
-	forward.PushBack({ 1014, 715, 99, 92 });
-	forward.PushBack({ 1024, 624, 100, 90 });
-	forward.PushBack({ 1154, 536, 100, 88 });
-	forward.PushBack({ 1024, 624, 100, 90 });
-	forward.PushBack({ 1014, 715, 99, 92 });
-	forward.PushBack({ 499, 715, 107, 91 });
-	forward.PushBack({ 204, 715, 108, 91 });
-	forward.speed = 0.175f;
+	//forward.PushBack({ 637, 915, 124, 89 });
+	forward.PushBack({ 0, 1187, 99, 92 });
+	forward.PushBack({ 585, 1004, 100, 90 });
+	forward.PushBack({ 224, 827, 100, 88 });
+	forward.PushBack({ 485, 1004, 100, 90 });
+	forward.PushBack({ 199, 1187, 99, 92 });
+	forward.PushBack({ 375, 1095, 107, 91 });
+	forward.PushBack({ 80, 1095, 108, 91 });
+	//forward.PushBack({ 637, 915, 124, 89 });
+	forward.speed = 0.13f;
 
 	// walk backwards animation
 	//backward.PushBack({ 454, 624, 124, 89 });
-	backward.PushBack({ 204, 715, 108, 91 });
-	backward.PushBack({ 499, 715, 107, 91 });
-	backward.PushBack({ 1014, 715, 99, 92 });
-	backward.PushBack({ 1024, 624, 100, 90 });
-	backward.PushBack({ 1154, 536, 100, 88 });
-	backward.PushBack({ 1024, 624, 100, 90 });
-	backward.PushBack({ 1014, 715, 99, 92 });
-	backward.speed = 0.175f;
+	//backward.PushBack({ 637, 915, 124, 89 });
+	backward.PushBack({ 80, 1095, 108, 91 });
+	backward.PushBack({ 375, 1095, 107, 91 });
+	backward.PushBack({ 199, 1187, 99, 92 });
+	backward.PushBack({ 485, 1004, 100, 90 });
+	backward.PushBack({ 224, 827, 100, 88 });
+	backward.PushBack({ 585, 1004, 100, 90 });
+	backward.PushBack({ 0, 1187, 99, 92 });
+	backward.speed = 0.13f;
 
 	// punch animation
 	punch.PushBack({ 131, 827, 64, 91 });//idle

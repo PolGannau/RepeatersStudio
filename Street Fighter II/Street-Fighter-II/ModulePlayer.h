@@ -89,17 +89,18 @@ public:
 
 	//victory
 	Animation victory;
+	Animation victory2;
 
 	//special
 	Animation SumoHeadbutt;
 	Animation HundredSlaps;
-	Animation tatsumaki;
+	Animation DoubleKnee;
 
 	//hurt
-	Animation standingHurt;
-	Animation standingGutHurt;
-	Animation crouchHurt;
-	Animation dizzy;
+	Animation standingHit;
+	Animation standingGutHit;
+	Animation crouchHit;
+	Animation stunned;
 
 	iPoint position;
 	Collider* coll_head = nullptr;
