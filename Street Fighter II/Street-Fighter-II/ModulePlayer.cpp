@@ -57,18 +57,16 @@ ModulePlayer::ModulePlayer()
 	backward.speed = 0.13f;
 
 	// punch animation
-	punch.PushBack({ 131, 827, 64, 91 });//idle
-	punch.PushBack({ 131, 827, 64, 91 });//idle
-	punch.PushBack({ 861, 736, 92, 91 });//punch
-	punch.PushBack({ 861, 736, 92, 91 });//punch
-	punch.PushBack({ 861, 736, 92, 91 });//punch
-	punch.PushBack({ 861, 736, 92, 91 });//punch
-	punch.PushBack({ 131, 827, 64, 91 });//idle
-	punch.PushBack({ 131, 827, 64, 91 });//idle
-	punch.PushBack({ 131, 827, 64, 91 });//idle
-	punch.PushBack({ 131, 827, 64, 91 });//idle
-	punch.PushBack({ 68, 646, 60, 89 });//recovery frame
-	punch.speed = 1.0f;
+	lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
+	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
+	lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+	lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
+	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
+	lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	lightPunch.speed = 0.35f;
 
 	//crouching punch animation
 	crouchPunch.PushBack({ 390,111,69,61 });//prep
@@ -233,7 +231,7 @@ update_status ModulePlayer::Update()
 
 	if (Bpunch)
 	{
-		current_animation = &punch;
+		current_animation = &lightPunch;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
