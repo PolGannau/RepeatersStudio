@@ -356,7 +356,7 @@ update_status ModulePlayer2::Update()
 	{
 		Bpunch = true;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN || App->input->keyboard[SDL_SCANCODE_C] == KEY_DOWN)
 	{
 		Bkick = true;
 	}

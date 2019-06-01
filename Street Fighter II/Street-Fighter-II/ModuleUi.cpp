@@ -48,6 +48,7 @@ update_status ModuleUi::Update()
 {
 	//decresion of lifebar player 2
 	lifebar2_rect2.w = 149 * App->player2->life / 100;
+
 	//decresion of lifebar player 1
 	lifebar1_rect2.w = 149 * App->player->life / 100;
 	lifebar1_rect2.x = ko_red.x - lifebar1_rect2.w;
@@ -64,20 +65,23 @@ update_status ModuleUi::Update()
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
 
-	//round wins
 	current_time = SDL_GetTicks();
-	if((current_time-last_time)>= KO_TIMER)
+	if ((current_time - last_time) >= KO_TIMER)
 	{
 		last_time = current_time;
 	}
-	if (App->player->life <= 25 || App->player2->life <= 25 && (current_time - last_time) < KO_TIMER/2)
+	if ((App->player->life <= 25 || App->player2->life <= 25) && (current_time - last_time) < KO_TIMER / 2)
 	{
-			App->render->Blit(hud, 178,7,&ko_red,NULL);
+		App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
 	{
 		lifebar1_rect2.w = 149;
 		lifebar2_rect2.w = 149;
 	}
+
+	//round wins
+	
+	
 	return UPDATE_CONTINUE;
 }
