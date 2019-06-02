@@ -2,6 +2,7 @@
 #define __MODULESTAGEHONDA_H__
 
 #include "Module.h"
+#include "Animation.h"
 
 struct SDL_Texture;
 
@@ -31,6 +32,7 @@ public:
 	SDL_Rect sun_red;
 	SDL_Rect sun_yellow;
 
-
+	Animation boy;
+	Animation sun;
 };
 #endif // !__MODULESTAGEHONDA_H__

@@ -72,7 +72,7 @@ update_status ModuleUi::Update()
 	{
 		last_time = current_time;
 	}
-	if ((App->player->life <= 25 || App->player2->life <= 25) && (current_time - last_time) < KO_TIMER / 2)
+	if ((App->player->life <= 25 || App->player2->life <= 25) && (current_time - last_time) < KO_TIMER / 4)
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	}
