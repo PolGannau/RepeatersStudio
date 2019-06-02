@@ -49,6 +49,7 @@ bool ModuleSceneIntro::CleanUp()
 
 	App->textures->Unload(background);
 	App->audio->UnloadMusic(intro_mus);
+	App->module_ui->Enable();
 
 	return true;
 }

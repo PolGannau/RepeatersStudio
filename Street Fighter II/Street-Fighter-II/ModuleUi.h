@@ -31,6 +31,7 @@ public:
 	int pos_bar;
 	int aux = 0;
 	unsigned int current_time, last_time = 0;
+	int i, j = 0;
 
 
 };

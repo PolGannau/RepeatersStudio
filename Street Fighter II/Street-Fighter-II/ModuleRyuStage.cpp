@@ -38,7 +38,6 @@ bool ModuleRyuStage::Start()
 	App->player->Enable();
 	App->player2->Enable();
 	App->collision->Enable();
-	App->module_ui->Enable();
 
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
 	App->audio->PlayMusic(ryu_stage_music);
@@ -85,16 +84,5 @@ update_status ModuleRyuStage::Update()
 	App->render->Blit(background_texture, 0, 0, &roof_brown, 1.3F);
 	App->render->Blit(background_texture, 0, 0, &floor, 2.5F);
 	App->render->Blit(background_texture, 50, 100, &sign, 2.5F);
-
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
-		//App->fade->FadeToBlack(App->ryu_stage, App->module_lose);
-		App->fade->FadeToBlack(this, (Module*)App->module_lose);
-	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
-		//App->fade->FadeToBlack(App->ryu_stage, App->module_win);
-		App->fade->FadeToBlack(this, (Module*)App->module_win);
-	if (App->player->life <= 0)
-		App->fade->FadeToBlack(this, App->module_lose);
-	if (App->player2->life <= 0)
-		App->fade->FadeToBlack(this, App->module_win);
 	return UPDATE_CONTINUE;
 }

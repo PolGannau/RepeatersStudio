@@ -5,6 +5,7 @@
 #include "ModuleInput.h"
 #include "ModuleUi.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollision.h"
 #include "ModuleWin.h"
 #include "ModuleLose.h"
 #include "ModulePlayer.h"
@@ -22,9 +23,10 @@ bool ModuleStageHonda::Start()
 {
 	LOG("Loading Honda Stage");
 
-	App->module_ui->Enable();
 	App->player->Enable();
 	App->player2->Enable();
+	App->collision->Enable();
+
 
 	stage_texture = App->textures->Load("Assets/Images/Stages/honda/hondastage.png");
 

@@ -6,7 +6,10 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
+#include "ModuleFadeToBlack.h"
 #include "ModulePlayer2.h"
+#include "ModuleWin.h"
+#include "ModuleLose.h"
 #include "../SDL/include/SDL_timer.h"
 
 
@@ -29,7 +32,7 @@ bool ModuleUi::Start()
 	ko_red = { 1,36,27,24 };
 	round_win = { 66,36,17,20 };
 
-	pos_bar = lifebar1_rect2.w = lifebar2_rect2.w = 149;
+	pos_bar = 149;
 
 
 	return true;
@@ -51,14 +54,13 @@ update_status ModuleUi::Update()
 
 	//decresion of lifebar player 1
 	lifebar1_rect2.w = 149 * App->player->life / 100;
-	lifebar1_rect2.x = ko_red.x - lifebar1_rect2.w;
 
 	//blit the health bars
 	//red ones
 	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
 	App->render->Blit(hud, 23 + lifebar1_rect1.w + ko_red.w, 10 , &lifebar2_rect1, NULL);
 	//orange ones
-	App->render->Blit(hud, 29, 12, &lifebar1_rect2, NULL);
+	App->render->Blit(hud, 178 - lifebar1_rect2.w, 12, &lifebar1_rect2, NULL);
 	App->render->Blit(hud, 25 + lifebar1_rect1.w + ko_red.w , 12, &lifebar2_rect2, NULL);
 
 	//blit the K.O
@@ -74,14 +76,26 @@ update_status ModuleUi::Update()
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
-	{
-		lifebar1_rect2.w = 149;
-		lifebar2_rect2.w = 149;
-	}
 
 	//round wins
-	
-	
+	if (App->player->life <= 0)
+	{
+		i = i + 1;
+		App->render->Blit(hud, SCREEN_WIDTH-17, 10, &round_win, NULL);
+	}
+	if (App->player2->life <= 0)
+	{
+		j = j + 1;
+		App->render->Blit(hud, 0, 10, &round_win, NULL);
+	}
+	if (i == 2)
+	{
+		App->fade->FadeToBlack(App->honda_stage, App->module_lose);
+	}
+	if (j == 2)
+	{
+		App->fade->FadeToBlack(App->honda_stage, App->module_win);
+	}
+			
 	return UPDATE_CONTINUE;
 }
