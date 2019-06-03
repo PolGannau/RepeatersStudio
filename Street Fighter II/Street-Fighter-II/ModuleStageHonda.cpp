@@ -49,6 +49,7 @@ bool ModuleStageHonda::Start()
 	mirrors = { 511,208,114,130 };
 	floor_tape = { 686,407,82,16 };
 
+	App->render->camera.x = 7;
 
 	return true;
 }
@@ -67,6 +68,7 @@ bool ModuleStageHonda::CleanUp()
 //Blit all and update the stage
 update_status ModuleStageHonda::Update()
 {
+	//input
 	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_REPEAT)
 		App->render->camera.x += 5;
 	    App->render->limit.x += 5;
@@ -78,6 +80,19 @@ update_status ModuleStageHonda::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(this, App->module_lose);
 
+	//Camera Limits
+	if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
+	{
+		App->render->camera.x += 1;
+		App->render->limit.x += 1;
+	}
+	if (App->player->position.x < App->render->limit.x + 220 && App->player2->position.x < App->render->limit.x + 220 && App->render->limit.x > 0)
+	{
+		App->render->camera.x -= 1;
+		App->render->limit.x -= 1;
+	}
+
+	//blit the map
 	App->render->Blit(stage_texture, -71, wall.h - 35, &floor);
 	App->render->Blit(stage_texture, 0, -10, &wall);
 	App->render->Blit(stage_texture, 680, 164, &floor_tape);
@@ -91,6 +106,7 @@ update_status ModuleStageHonda::Update()
 	App->render->Blit(stage_texture, 190, wall.h - 49, &pool_wall);
 	App->render->Blit(stage_texture, 190, wall.h - 69, &pool_top);
 	App->render->Blit(light_texture, 90, 0, &light);
+	App->render->Blit(light_texture, 550, 0, &light);
 
 	
 
