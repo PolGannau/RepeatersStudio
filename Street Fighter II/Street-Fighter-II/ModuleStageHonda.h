@@ -38,5 +38,7 @@ public:
 
 	Animation boy;
 	Animation sun;
+
+	Mix_Music* stahe_honda_music;
 };
 #endif // !__MODULESTAGEHONDA_H__
