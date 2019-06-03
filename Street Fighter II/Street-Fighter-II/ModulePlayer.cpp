@@ -56,17 +56,69 @@ ModulePlayer::ModulePlayer()
 	backward.PushBack({ 0, 1187, 99, 92 });
 	backward.speed = 0.13f;
 
-	// punch animation
+	// punch animations
 	lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
 	lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
 	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
 	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
 	lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
 	lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+	lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+	lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
 	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
 	lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
 	lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
-	lightPunch.speed = 0.35f;
+	lightPunch.speed = 1.0f;
+
+	mediumPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	mediumPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	mediumPunch.PushBack({ 687, 827, 96, 88 });//prep
+	mediumPunch.PushBack({ 687, 827, 96, 88 });//prep
+	mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2
+	mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2
+	mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
+	mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
+	mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
+	mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
+	mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2 recover
+	mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2 recover
+	mediumPunch.PushBack({ 687, 827, 96, 88 });//prep recover
+	mediumPunch.PushBack({ 687, 827, 96, 88 });//prep recover
+	mediumPunch.PushBack({ 782, 1004, 107, 91 });//idle recover
+	mediumPunch.speed = 1.0f;
+
+	heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
+	heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
+	heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
+	heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+	heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+	heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+	heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+	heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+	heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+	heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
+	heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
+	heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+	heavyPunch.speed = 1.0f;
 
 	//crouching punch animation
 	crouchPunch.PushBack({ 390,111,69,61 });//prep
@@ -232,7 +284,7 @@ update_status ModulePlayer::Update()
 
 	if (Bpunch)
 	{
-		current_animation = &lightPunch;
+		current_animation = &heavyPunch;
 		if (current_animation->Finished())
 		{
 			current_animation->Reset();
