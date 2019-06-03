@@ -18,6 +18,7 @@ public:
 
 public:
 	SDL_Texture* stage_texture;
+	SDL_Texture* light_texture;
 
 	SDL_Rect wall;
 	SDL_Rect floor;
@@ -31,6 +32,9 @@ public:
 	SDL_Rect win_guy_big;
 	SDL_Rect sun_red;
 	SDL_Rect sun_yellow;
+	SDL_Rect light;
+	SDL_Rect mirrors;
+	SDL_Rect floor_tape;
 
 	Animation boy;
 	Animation sun;

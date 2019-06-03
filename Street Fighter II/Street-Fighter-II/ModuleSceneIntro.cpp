@@ -61,12 +61,12 @@ update_status ModuleSceneIntro::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->ryu_stage);
+		App->fade->FadeToBlack(this, (Module*)App->honda_stage);
 		//App->audio->FadeMusic(600);
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN && App->fade->IsFading() == false)
-		App->fade->FadeToBlack(this, App->honda_stage);
+		App->fade->FadeToBlack(this, App->ryu_stage);
 
 	return UPDATE_CONTINUE;
 }
