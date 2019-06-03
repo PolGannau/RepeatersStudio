@@ -38,12 +38,16 @@ bool ModuleStageHonda::Start()
 
 
 	stage_texture = App->textures->Load("Assets/Images/Stages/honda/hondastage.png");
+	light_texture = App->textures->Load("Assets/Images/Stages/Stages.png");
 
 	floor = { 0,407,848,64 };
 	wall = { 0,160,671,199 };
 	roof = { 0,359,765,48 };
 	pool_top = { 568,104,336,20 };
 	pool_wall = { 568,128,336,32 };
+	light = { 1980,1016,60,108 };
+	mirrors = { 511,208,114,130 };
+	floor_tape = { 686,407,82,16 };
 
 
 	return true;
@@ -55,6 +59,7 @@ bool ModuleStageHonda::CleanUp()
 	LOG("Unloading Honda Stage");
 
 	App->textures->Unload(stage_texture);
+	App->textures->Unload(light_texture);
 
 	return true;
 }
@@ -73,8 +78,10 @@ update_status ModuleStageHonda::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(this, App->module_lose);
 
-	App->render->Blit(stage_texture, 0, wall.h - 35, &floor);
+	App->render->Blit(stage_texture, -71, wall.h - 35, &floor);
 	App->render->Blit(stage_texture, 0, -10, &wall);
+	App->render->Blit(stage_texture, 680, 164, &floor_tape);
+	App->render->Blit(stage_texture, 623, roof.h - 10 , &mirrors);
 	App->render->Blit(stage_texture, 0, -10, &roof);
 	if (App->player->life <= 50 || App->player2->life <= 50)
 	{
@@ -83,6 +90,7 @@ update_status ModuleStageHonda::Update()
 	}
 	App->render->Blit(stage_texture, 190, wall.h - 49, &pool_wall);
 	App->render->Blit(stage_texture, 190, wall.h - 69, &pool_top);
+	App->render->Blit(light_texture, 90, 0, &light);
 
 	
 
