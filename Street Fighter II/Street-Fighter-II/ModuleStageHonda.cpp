@@ -11,6 +11,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "Animation.h"
+#include "ModuleAudio.h"
 
 
 ModuleStageHonda::ModuleStageHonda()
@@ -35,6 +36,9 @@ bool ModuleStageHonda::Start()
 	App->player->Enable();
 	App->player2->Enable();
 	App->collision->Enable();
+
+	stahe_honda_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/06 E. Honda.ogg");
+	App->audio->PlayMusic(stahe_honda_music);
 
 
 	stage_texture = App->textures->Load("Assets/Images/Stages/honda/hondastage.png");
@@ -61,6 +65,7 @@ bool ModuleStageHonda::CleanUp()
 
 	App->textures->Unload(stage_texture);
 	App->textures->Unload(light_texture);
+	App->audio->UnloadMusic(stahe_honda_music);
 
 	return true;
 }
