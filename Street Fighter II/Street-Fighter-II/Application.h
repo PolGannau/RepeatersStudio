@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 15
+#define NUM_MODULES 16
 
 class ModuleWindow;
 class ModuleInput;
@@ -34,6 +34,7 @@ public:
 	ModuleRender* render;
 	ModuleInput* input;
 	ModuleTextures* textures;
+	ModuleFonts* fonts;
 	ModuleRyuStage* ryu_stage;
 	ModuleStageHonda* honda_stage;
 	ModuleSceneIntro* scene_intro;
@@ -44,7 +45,6 @@ public:
 	ModuleFadeToBlack* fade;
 	ModuleParticles* particles;
 	ModuleEnemies* enemies;
-	ModuleFonts* fonts;
 	ModuleAudio* audio;
 	ModuleWin* module_win;
 	ModuleLose* module_lose;

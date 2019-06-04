@@ -10,6 +10,7 @@
 #include "ModulePlayer2.h"
 #include "ModuleWin.h"
 #include "ModuleLose.h"
+#include "ModuleFonts.h"
 #include "../SDL/include/SDL_timer.h"
 
 
@@ -23,6 +24,8 @@ bool ModuleUi::Start()
 {
 	LOG("Loading Ui");
 	hud = App->textures->Load("Assets/Images/Ui/Lifebar_assets.png");
+	timer_font = App->fonts->Load("Assets/Images/Ui/FontsCaps2.png","ABCDEFGHIJKLMNOPQRSTUVWXYZ.?1234567890!", 1);
+	start_time = SDL_GetTicks()*1000;
 
 	lifebar1_rect2 = { 2,2,149,13 };
 	lifebar2_rect2 = { 2,2,149,13 };
@@ -43,6 +46,7 @@ bool ModuleUi::CleanUp()
 	LOG("Unloading Ui");
 
 	App->textures->Unload(hud);
+	App->fonts->UnLoad(timer_font);
 
 	return true;
 }
@@ -66,8 +70,12 @@ update_status ModuleUi::Update()
 	//blit the K.O
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
-
+	   
 	current_time = SDL_GetTicks();
+	
+	timer_font = (current_time * 1000) - start_time;
+	App->fonts->BlitText(178, 15, timer_font, timer_numbers);
+
 	if ((current_time - last_time) >= KO_TIMER)
 	{
 		last_time = current_time;

@@ -32,7 +32,12 @@ public:
 	int aux = 0;
 	unsigned int current_time, last_time = 0;
 	int i, j = 0;
-
+	//
+	int start_time = 0;
+	//int current_timer = 0;
+	int timer_font = 0;
+	char timer_numbers[10];
+	//
 
 };
 #endif // !__MODULEUI_H__

@@ -36,4 +36,4 @@ private:
 };
 
 
-#endif // __ModuleFonts_H__
+#endif // __ModuleFonts_H__#pragma once
