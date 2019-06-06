@@ -97,25 +97,9 @@ update_status ModuleUi::Update()
 	}
 
 	//round wins
-	if (App->player->life <= 0)
-	{
-		i = i + 1;
-		App->render->Blit(hud, SCREEN_WIDTH-17, 10, &round_win, NULL);
-		App->fade->FadeToBlack(App->honda_stage,App->honda_stage);
-	}
-	if (App->player2->life <= 0)
-	{
-		j = j + 1;
-		App->render->Blit(hud, 0, 10, &round_win, NULL);
-	}
-	if (i == 2)
-	{
-		App->fade->FadeToBlack(App->honda_stage, App->module_lose);
-	}
-	if (j == 2)
-	{
-		App->fade->FadeToBlack(App->honda_stage, App->module_win);
-	}
-			
+	/*if (i == 1)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
+	if (j == 1)App->render->Blit(hud, 0, 10, &round_win, NULL);*/
+
+
 	return UPDATE_CONTINUE;
 }

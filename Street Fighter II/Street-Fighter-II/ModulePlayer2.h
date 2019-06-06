@@ -65,6 +65,8 @@ public:
 	bool BbackJump = false;
 	bool Bcrouch = false;
 	bool Bstand = false;
+	bool round_won = false;
+	bool game_won = false;
 
 	float life;
 

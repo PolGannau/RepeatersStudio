@@ -120,6 +120,8 @@ public:
 	bool BbackJump = false;
 	bool Bcrouch = false;
 	bool Bstand = false;
+	bool round_won = false;
+	bool game_won = false;
 
 	//float gravity = 2;
 	//int jumpheight = 120;
