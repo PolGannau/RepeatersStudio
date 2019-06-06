@@ -97,9 +97,28 @@ update_status ModuleUi::Update()
 	}
 
 	//round wins
-	/*if (i == 1)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
-	if (j == 1)App->render->Blit(hud, 0, 10, &round_win, NULL);*/
+	//player2 round win
+	if (App->player->life <= 0 && !App->honda_stage->control)
+	{
+		if (App->player2->round_won)App->player2->game_won = true;
+		App->player2->round_won = true;
+		if (App->player2->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_lose);
+		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
+		App->honda_stage->control = false;
+	}
+	if (App->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
 
+	//player1 round win
+	if (App->player2->life <= 0 && !App->honda_stage->control)
+	{
+		if (App->player->round_won)App->player->game_won = true;
+		App->player->round_won = true;
+		if (App->player->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_win);
+		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
+		App->honda_stage->control = false;
+	}
+	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
+		
 
 	return UPDATE_CONTINUE;
 }

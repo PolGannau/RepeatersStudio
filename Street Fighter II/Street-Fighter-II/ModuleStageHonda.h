@@ -35,6 +35,7 @@ public:
 	SDL_Rect light;
 	SDL_Rect mirrors;
 	SDL_Rect floor_tape;
+	bool control;
 
 	Animation boy;
 	Animation sun;

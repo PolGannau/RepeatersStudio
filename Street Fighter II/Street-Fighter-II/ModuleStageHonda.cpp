@@ -55,6 +55,8 @@ bool ModuleStageHonda::Start()
 
 	App->render->camera.x = 7;
 
+	control = false;
+
 	return true;
 }
 
