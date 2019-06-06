@@ -31,7 +31,7 @@ public:
 		if (enabled == false)
 		{
 			enabled = true;
-			Start();
+			this->Start();
 		}
 	}
 
@@ -40,7 +40,7 @@ public:
 		if (enabled == true)
 		{
 			enabled = false;
-			CleanUp();
+			this->CleanUp();
 		}
 	}
 

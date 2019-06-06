@@ -101,6 +101,7 @@ update_status ModuleUi::Update()
 	{
 		i = i + 1;
 		App->render->Blit(hud, SCREEN_WIDTH-17, 10, &round_win, NULL);
+		App->fade->FadeToBlack(App->honda_stage,App->honda_stage);
 	}
 	if (App->player2->life <= 0)
 	{

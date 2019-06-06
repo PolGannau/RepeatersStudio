@@ -217,6 +217,10 @@ bool ModulePlayer2::CleanUp()
 	LOG("Unloading player");
 	App->audio->UnloadSoundEffects(hadokenfx);
 	App->textures->Unload(graphics);
+	if (coll_attack != nullptr)coll_attack->to_delete = true;
+	if (coll_body != nullptr)coll_body->to_delete = true;
+	if (coll_head != nullptr)coll_head->to_delete = true;
+	if (coll_legs != nullptr)coll_legs->to_delete = true;
 
 	return true;
 }

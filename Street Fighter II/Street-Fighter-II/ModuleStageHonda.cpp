@@ -66,6 +66,8 @@ bool ModuleStageHonda::CleanUp()
 	App->textures->Unload(stage_texture);
 	App->textures->Unload(light_texture);
 	App->audio->UnloadMusic(stahe_honda_music);
+	App->player->Disable();
+	App->player2->Disable();
 
 	return true;
 }
