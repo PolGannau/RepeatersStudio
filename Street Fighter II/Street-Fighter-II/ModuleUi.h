@@ -39,5 +39,10 @@ public:
 	char timer_numbers[10];
 	//
 
+	//
+	int score_font = 0;
+	char players[10];
+	//
+
 };
 #endif // !__MODULEUI_H__
