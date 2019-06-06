@@ -38,10 +38,14 @@ public:
 	int timer_font = 0;
 	char timer_numbers[10];
 	//
-
-	//
 	int score_font = 0;
-	char players[10];
+	int p1_score = 0;
+	int p2_score = 0;
+	int high_score = 0;
+	char player_score[10];
+	//
+	int char_font = 0;
+	//char char_name[10];
 	//
 
 };
