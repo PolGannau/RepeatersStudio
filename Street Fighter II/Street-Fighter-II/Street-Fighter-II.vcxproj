@@ -136,11 +136,12 @@
     <ClCompile Include="ModuleCollision.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
+    <ClCompile Include="ModuleHonda.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleLose.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
-    <ClCompile Include="ModulePlayer2.cpp" />
+    <ClCompile Include="ModulePlayersManager.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleRyuStage.cpp" />
     <ClCompile Include="ModuleSceneIntro.cpp" />
@@ -160,11 +161,12 @@
     <ClInclude Include="ModuleCollision.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleFonts.h" />
+    <ClInclude Include="ModuleHonda.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleLose.h" />
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
-    <ClInclude Include="ModulePlayer2.h" />
+    <ClInclude Include="ModulePlayersManager.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleRyuStage.h" />
     <ClInclude Include="ModuleSceneIntro.h" />
