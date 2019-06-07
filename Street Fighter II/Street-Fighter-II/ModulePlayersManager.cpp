@@ -13,17 +13,23 @@ bool ModulePlayersManager::Start()
 {
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite.png");
 	player = CreatePlayer(PLAYER_NUMBER::NUMBER_ONE);
-	player2 = CreatePlayer(PLAYER_NUMBER::NUMBER_TWO);
+	//player2 = CreatePlayer(PLAYER_NUMBER::NUMBER_TWO);
 
 	return true;
 }
 
 bool ModulePlayersManager::CleanUp()
 {
-	LOG("Unloading Player...");
-	player->Disable();
-	LOG("Unloading Player2...");
-	player2->Disable();
+	if (player != nullptr)
+	{
+		LOG("Unloading Player...");
+		player->Disable();
+	}
+	if (player2 != nullptr)
+	{
+		LOG("Unloading Player2...");
+		player2->Disable();
+	}
 	player = player2 = nullptr;
 	LOG("Unloading Character Spritesheet...");
 	App->textures->Unload(graphics);
@@ -42,7 +48,7 @@ ModuleHonda* ModulePlayersManager::CreatePlayer(PLAYER_NUMBER num)
 
 update_status ModulePlayersManager::Update()
 {
-
+	player->Update();
 
 	return update_status::UPDATE_CONTINUE;
 }

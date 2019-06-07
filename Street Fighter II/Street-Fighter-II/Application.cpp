@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRyuStage.h"
 #include "ModuleStageHonda.h"
+#include "ModulePlayersManager.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
@@ -29,6 +30,7 @@ Application::Application()
 	modules[i++] = honda_stage = new ModuleStageHonda();
 	//modules[i++] = enemies = new ModuleEnemies();
 	//modules[i++] = particles = new ModuleParticles();
+	modules[i++] = manager = new ModulePlayersManager();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = module_ui = new ModuleUi();
 	modules[i++] = fade = new ModuleFadeToBlack();
