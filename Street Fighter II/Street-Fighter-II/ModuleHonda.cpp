@@ -6,6 +6,7 @@
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleHonda.h"
+#include "ModulePlayersManager.h"
 //#include "ModuleFonts.h"
 #include "ModuleAudio.h"
 
@@ -1230,6 +1231,9 @@ ModuleHonda::~ModuleHonda() {};
 
 bool ModuleHonda::Start()
 {
+	position.x = 100;
+	position.y = 212;
+	current_animation = &idle;
 	return true;
 }
 
@@ -1241,6 +1245,8 @@ bool ModuleHonda::CleanUp()
 
 update_status ModuleHonda::Update()
 {
+	auxiliar = current_animation->GetCurrentFrame();
+	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar);
 	return update_status::UPDATE_CONTINUE;
 }
 

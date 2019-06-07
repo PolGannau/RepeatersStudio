@@ -80,6 +80,9 @@ public:
 	char			score_text[10];
 	uint			score = 0;
 
+	// Auxiliar Rect
+	SDL_Rect		auxiliar;
+
 	// Current Animation Control
 	Animation*		current_animation = nullptr;
 	PLAYER_NUMBER	player_num;

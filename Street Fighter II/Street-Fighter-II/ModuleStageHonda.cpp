@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleCollision.h"
 #include "ModuleWin.h"
+#include "ModulePlayersManager.h"
 #include "ModuleLose.h"
 //#include "ModulePlayer.h"
 //#include "ModulePlayer2.h"
@@ -33,6 +34,7 @@ bool ModuleStageHonda::Start()
 	/*App->player->Enable();
 	App->player2->Enable();*/
 	App->collision->Enable();
+	App->manager->Enable();
 
 	stahe_honda_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/06 E. Honda.ogg");
 	App->audio->PlayMusic(stahe_honda_music);
@@ -67,6 +69,7 @@ bool ModuleStageHonda::CleanUp()
 	App->textures->Unload(stage_texture);
 	App->textures->Unload(light_texture);
 	App->audio->UnloadMusic(stahe_honda_music);
+	App->manager->Disable();
 	/*App->player->Disable();
 	App->player2->Disable();*/
 
