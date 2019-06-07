@@ -61,46 +61,12 @@ update_status ModulePlayersManager::Update()
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
 	}
-	if ((player->position.y > 212) && player->state == JUMPING)
-	{
-		player->state = ON_FLOOR;
-		player->position.y = 212;
-	}
-	switch (player->state)
-	{
-	case ON_FLOOR:
-		player->position.y = 212;
-		player->current_animation = &player->idle;
-		break;
-	case JUMPING:
-		player->current_animation = &player->neutralJump;
-		player->vspeed += player->acceleration;
-		player->position.y += player->vspeed;
-		break;
-	}
 
-	/// PLAYER 2 INPUT CONTROL AND LOGIC ---------------------------------------------------
+	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN && player2->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
-	}
-	if ((player2->position.y > 212) && player2->state == JUMPING)
-	{
-		player2->state = ON_FLOOR;
-		player2->position.y = 212;
-	}
-	switch (player2->state)
-	{
-	case ON_FLOOR:
-		player2->position.y = 212;
-		player2->current_animation = &player2->idle;
-		break;
-	case JUMPING:
-		player2->current_animation = &player2->neutralJump;
-		player2->vspeed += player2->acceleration;
-		player2->position.y += player2->vspeed;
-		break;
 	}
 
 	player->Update();

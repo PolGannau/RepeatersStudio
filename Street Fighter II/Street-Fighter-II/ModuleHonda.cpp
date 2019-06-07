@@ -1251,6 +1251,23 @@ bool ModuleHonda::CleanUp()
 
 update_status ModuleHonda::Update()
 {
+	if ((position.y > 212) && state == JUMPING)
+	{
+		state = ON_FLOOR;
+		position.y = 212;
+	}
+	switch (state)
+	{
+	case ON_FLOOR:
+		position.y = 212;
+		current_animation = &idle;
+		break;
+	case JUMPING:
+		current_animation = &neutralJump;
+		vspeed += acceleration;
+		position.y += vspeed;
+		break;
+	}
 	auxiliar = current_animation->GetCurrentFrame();
 	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar);
 	return update_status::UPDATE_CONTINUE;
