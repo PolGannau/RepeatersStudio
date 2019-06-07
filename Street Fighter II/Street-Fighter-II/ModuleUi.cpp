@@ -84,8 +84,8 @@ update_status ModuleUi::Update()
 	App->fonts->BlitText(30, 26, char_font, "E.HONDA");
 	App->fonts->BlitText(270, 26, char_font, "E.HONDA");
 
-	//timer_font = (current_time * 1000) - start_time;
-	//App->fonts->BlitText(178, 15, timer_font, timer_numbers);
+	//timer_numbers = 100 - (current_time / 1000);
+	App->fonts->BlitText(178, 30, timer_font, timer_numbers);
 
 	if ((current_time - last_time) >= KO_TIMER)
 	{

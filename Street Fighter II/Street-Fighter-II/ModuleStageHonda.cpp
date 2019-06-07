@@ -114,12 +114,12 @@ update_status ModuleStageHonda::Update()
 	{
 		last_time = current_time;
 	}
-	if (App->player->life <= 50 || App->player2->life <= 50)
+	if (App->player->life <= 0 || App->player2->life <= 0)
 	{
 		App->render->Blit(stage_texture, 190, roof.h - 2, &(sun.GetCurrentFrame()));
 		App->render->Blit(stage_texture, 447, roof.h - 2, &boy_small);
 	}
-	if ((App->player->life <= 50 || App->player2->life <= 50) && (current_time - last_time) < BOY_TIMER / 2)
+	if ((App->player->life <= 0 || App->player2->life <= 0) && (current_time - last_time) < BOY_TIMER / 2)
 	{
 		App->render->Blit(stage_texture, 416, roof.h - 2, &boy_big);
 	}
