@@ -88,6 +88,7 @@ neutralJump.PushBack({ 410, 1281, 97, 94 });
 neutralJump.PushBack({ 655, 1694, 77, 130 });
 neutralJump.PushBack({ 782, 1004, 107, 91 });//idle
 neutralJump.speed = 0.13f;
+neutralJump.loop = false;
 
 forwardJump.PushBack({ 782, 1004, 107, 91 });//idle
 forwardJump.PushBack({ 824, 1694, 119, 142 });
@@ -1249,7 +1250,6 @@ bool ModuleHonda::CleanUp()
 
 update_status ModuleHonda::Update()
 {
-	auxiliar = current_animation->GetCurrentFrame();
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && state == ON_FLOOR)
 	{
@@ -1265,13 +1265,15 @@ update_status ModuleHonda::Update()
 	{
 	case ON_FLOOR:
 		position.y = 212;
+		current_animation = &idle;
 		break;
 	case JUMPING:
+		current_animation = &neutralJump;
 		vspeed += acceleration;
 		position.y += vspeed;
 		break;
 	}
-
+	auxiliar = current_animation->GetCurrentFrame();
 	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar);
 	return update_status::UPDATE_CONTINUE;
 }
