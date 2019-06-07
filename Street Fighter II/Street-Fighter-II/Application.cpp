@@ -7,8 +7,6 @@
 #include "ModuleStageHonda.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleCollision.h"
-#include "ModulePlayer.h"
-#include "ModulePlayer2.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleAudio.h"
 #include "ModuleWin.h"
@@ -30,8 +28,6 @@ Application::Application()
 	modules[i++] = ryu_stage = new ModuleRyuStage();
 	modules[i++] = honda_stage = new ModuleStageHonda();
 	//modules[i++] = enemies = new ModuleEnemies();
-	modules[i++] = player = new ModulePlayer();
-	modules[i++] = player2 = new ModulePlayer2();
 	//modules[i++] = particles = new ModuleParticles();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = module_ui = new ModuleUi();
@@ -53,7 +49,6 @@ bool Application::Init()
 
 	// Deactivate modules here ----
 	//scene_space->Disable();
-	player->Disable();
 	//collision->Disable();
 	//enemies->Disable();
 	// ----------------------------

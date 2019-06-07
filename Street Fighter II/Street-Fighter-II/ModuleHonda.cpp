@@ -1,7 +1,6 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
-#include "ModuleInput.h"
 #include "ModuleParticles.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
@@ -15,27 +14,23 @@
 
 ModuleHonda::ModuleHonda()
 {
-
 }
 
-ModuleHonda::~ModuleHonda()
-{
-
-}
+ModuleHonda::~ModuleHonda() {};
 
 bool ModuleHonda::Start()
 {
-
+	return true;
 }
 
 bool ModuleHonda::CleanUp()
 {
-	return false;
+	return true;
 }
 
 update_status ModuleHonda::Update()
 {
-	return update_status();
+	return update_status::UPDATE_CONTINUE;
 }
 
 void ModuleHonda::OnCollision(Collider * c1, Collider * c2)

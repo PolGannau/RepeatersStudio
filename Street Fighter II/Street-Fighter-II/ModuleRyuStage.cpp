@@ -3,7 +3,6 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
-#include "ModulePlayer2.h"
 #include "ModuleCollision.h"
 #include "ModuleRyuStage.h"
 #include "ModuleAudio.h"
@@ -35,8 +34,6 @@ bool ModuleRyuStage::Start()
 	temple_mini = { 764,478,104,57 };
 	sign = { 984,281,35,103 };
 
-	App->player->Enable();
-	App->player2->Enable();
 	App->collision->Enable();
 
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
@@ -54,7 +51,7 @@ bool ModuleRyuStage::CleanUp()
 
 	App->textures->Unload(background_texture);
 	App->collision->Disable();
-	App->player->Disable();
+	/*App->player->Disable();*/
 	App->audio->UnloadMusic(ryu_stage_music);
 	App->render->camera.x = 0;
 
@@ -65,7 +62,7 @@ bool ModuleRyuStage::CleanUp()
 update_status ModuleRyuStage::Update()
 {
 	//camera
-	if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 100 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 100 && App->render->limit.x + App->render->limit.w < 475)
+	/*if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 100 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 100 && App->render->limit.x + App->render->limit.w < 475)
 	{
 		App->render->camera.x += 1;
 		App->render->limit.x += 1;
@@ -74,7 +71,7 @@ update_status ModuleRyuStage::Update()
 	{
 		App->render->camera.x -= 1;
 		App->render->limit.x -= 1;
-	}
+	}*/
 
 	
 	

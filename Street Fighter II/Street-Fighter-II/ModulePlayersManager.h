@@ -2,6 +2,7 @@
 #define __MODULE_PLAYERSMANAGER_H__
 
 #include "Module.h"
+#include "ModuleHonda.h"
 
 struct SDL_Texture;
 
@@ -16,11 +17,14 @@ public:
 	update_status Update();
 	bool CleanUp();
 
+	ModuleHonda* CreatePlayer();
 public:
-
 	//As this is a manager it handles all the players textures
-	SDL_Textures*		graphics = nullptr;
+	SDL_Texture*		graphics = nullptr;
 
+	//Player 1 & Player 2 pointers
+	ModuleHonda*		player;
+	ModuleHonda*		player2;
 };
 
 #endif // !__MODULE_PLAYERSMANAGER_H__

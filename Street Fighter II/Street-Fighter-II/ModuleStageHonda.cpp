@@ -8,8 +8,8 @@
 #include "ModuleCollision.h"
 #include "ModuleWin.h"
 #include "ModuleLose.h"
-#include "ModulePlayer.h"
-#include "ModulePlayer2.h"
+//#include "ModulePlayer.h"
+//#include "ModulePlayer2.h"
 #include "Animation.h"
 #include "ModuleAudio.h"
 #include "../SDL/include/SDL_timer.h"
@@ -30,8 +30,8 @@ bool ModuleStageHonda::Start()
 {
 	LOG("Loading Honda Stage");
 
-	App->player->Enable();
-	App->player2->Enable();
+	/*App->player->Enable();
+	App->player2->Enable();*/
 	App->collision->Enable();
 
 	stahe_honda_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/06 E. Honda.ogg");
@@ -67,8 +67,8 @@ bool ModuleStageHonda::CleanUp()
 	App->textures->Unload(stage_texture);
 	App->textures->Unload(light_texture);
 	App->audio->UnloadMusic(stahe_honda_music);
-	App->player->Disable();
-	App->player2->Disable();
+	/*App->player->Disable();
+	App->player2->Disable();*/
 
 	return true;
 }
@@ -89,7 +89,7 @@ update_status ModuleStageHonda::Update()
 		App->fade->FadeToBlack(this, App->module_lose);
 
 	//Camera Limits
-	if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
+	/*if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
 	{
 		App->render->camera.x += 1;
 		App->render->limit.x += 1;
@@ -98,7 +98,7 @@ update_status ModuleStageHonda::Update()
 	{
 		App->render->camera.x -= 1;
 		App->render->limit.x -= 1;
-	}
+	}*/
 
 	//blit the map
 	App->render->Blit(stage_texture, -71, wall.h - 35, &floor);
@@ -114,7 +114,7 @@ update_status ModuleStageHonda::Update()
 	{
 		last_time = current_time;
 	}
-	if (App->player->life <= 0 || App->player2->life <= 0)
+	/*if (App->player->life <= 0 || App->player2->life <= 0)
 	{
 		App->render->Blit(stage_texture, 190, roof.h - 2, &(sun.GetCurrentFrame()));
 		App->render->Blit(stage_texture, 447, roof.h - 2, &boy_small);
@@ -122,7 +122,7 @@ update_status ModuleStageHonda::Update()
 	if ((App->player->life <= 0 || App->player2->life <= 0) && (current_time - last_time) < BOY_TIMER / 2)
 	{
 		App->render->Blit(stage_texture, 416, roof.h - 2, &boy_big);
-	}
+	}*/
 
 	App->render->Blit(stage_texture, 190, wall.h - 49, &pool_wall);
 	App->render->Blit(stage_texture, 190, wall.h - 69, &pool_top);

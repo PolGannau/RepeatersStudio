@@ -1,7 +1,6 @@
 #include "ModuleLose.h"
 #include "Application.h"
 #include "ModulePlayer.h"
-#include "ModulePlayer2.h"
 #include "ModuleRyuStage.h"
 #include "ModuleSceneIntro.h"
 #include "Globals.h"
@@ -27,8 +26,8 @@ bool ModuleLose::Start()
 	loose_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/14 Continue.ogg");
 	App->audio->PlayMusic(loose_music);
 	//disable the player and stage
-	App->player2->Disable();
-	App->player->Disable();
+	//App->player2->Disable();
+	//App->player->Disable();
 	App->ryu_stage->Disable();
 	App->module_ui->Disable();
 

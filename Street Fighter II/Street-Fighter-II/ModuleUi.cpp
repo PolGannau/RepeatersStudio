@@ -7,7 +7,6 @@
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
-#include "ModulePlayer2.h"
 #include "ModuleWin.h"
 #include "ModuleLose.h"
 #include "ModuleFonts.h"
@@ -59,10 +58,10 @@ bool ModuleUi::CleanUp()
 update_status ModuleUi::Update()
 {
 	//decresion of lifebar player 2
-	lifebar2_rect2.w = 149 * App->player2->life / 100;
+	//lifebar2_rect2.w = 149 * App->player2->life / 100;
 
-	//decresion of lifebar player 1
-	lifebar1_rect2.w = 149 * App->player->life / 100;
+	////decresion of lifebar player 1
+	//lifebar1_rect2.w = 149 * App->player->life / 100;
 
 	//blit the health bars
 	//red ones
@@ -91,14 +90,14 @@ update_status ModuleUi::Update()
 	{
 		last_time = current_time;
 	}
-	if ((App->player->life <= 25 || App->player2->life <= 25) && (current_time - last_time) < KO_TIMER / 4)
+	/*if ((App->player->life <= 25 || App->player2->life <= 25) && (current_time - last_time) < KO_TIMER / 4)
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
-	}
+	}*/
 
 	//round wins
 	//player2 round win
-	if (App->player->life <= 0 && !App->honda_stage->control)
+	/*if (App->player->life <= 0 && !App->honda_stage->control)
 	{
 		if (App->player2->round_won)App->player2->game_won = true;
 		App->player2->round_won = true;
@@ -106,10 +105,10 @@ update_status ModuleUi::Update()
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
-	if (App->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
+	if (App->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);*/
 
 	//player1 round win
-	if (App->player2->life <= 0 && !App->honda_stage->control)
+	/*if (App->player2->life <= 0 && !App->honda_stage->control)
 	{
 		if (App->player->round_won)App->player->game_won = true;
 		App->player->round_won = true;
@@ -117,7 +116,7 @@ update_status ModuleUi::Update()
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
-	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
+	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);*/
 		
 
 	return UPDATE_CONTINUE;

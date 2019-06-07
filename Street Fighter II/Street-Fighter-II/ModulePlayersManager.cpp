@@ -20,6 +20,11 @@ bool ModulePlayersManager::CleanUp()
 	return true;
 }
 
+ModuleHonda * ModulePlayersManager::CreatePlayer()
+{
+	return nullptr;
+}
+
 update_status ModulePlayersManager::Update()
 {
 

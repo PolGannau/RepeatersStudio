@@ -8,7 +8,6 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 //#include "ModuleFonts.h"
-#include "ModulePlayer2.h"
 #include "ModuleAudio.h"
 
 #include<stdio.h>
@@ -1372,14 +1371,10 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && position.x + 60 < App->render->limit.x + App->render->limit.w)
 		{
-			if (App->player2->position.x <= position.x)current_animation = &backward;
-			if (App->player2->position.x > position.x)current_animation = &forward;
 			position.x += speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT && position.x > App->render->limit.x + 1)
 		{
-			if (App->player2->position.x <= position.x)current_animation = &forward;
-			if (App->player2->position.x > position.x)current_animation = &backward;
 			position.x -= speed;
 		}
 		if (App->input->keyboard[SDL_SCANCODE_W] == 1)
@@ -1436,13 +1431,13 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1->callback == App->player2&&c1->type == COLLIDER_ATTACK || c2->callback == App->player2&&c2->type == COLLIDER_ATTACK)
-		life -= 0.15F;
+	/*if (c1->callback == App->player2&&c1->type == COLLIDER_ATTACK || c2->callback == App->player2&&c2->type == COLLIDER_ATTACK)
+		life -= 0.15F;*/
 }
 
 void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
 {
-	if (App->player2->position.x <= position.x)
+	/*if (App->player2->position.x <= position.x)
 	{
 		App->render->Blit(graphics, position.x, position.y - r.h, &r, 1.0F, true, true);
 		if (current_animation == &idle)
@@ -1554,5 +1549,5 @@ void ModulePlayer::SetCharacterAndPaint(SDL_Rect r)
 			coll_legs->rect.x = position.x - 10;
 			coll_legs->rect.y = position.y - r.h + 60;
 		}
-	}
+	}*/
 }
