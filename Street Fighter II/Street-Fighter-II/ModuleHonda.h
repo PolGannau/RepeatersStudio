@@ -14,7 +14,7 @@ enum class PLAYER_NUMBER
 	MAX
 };
 
-enum class TYPE_ACTION
+enum TYPE_ACTION
 {
 	NO_ACTION = 0,
 	LIGHT_KICK,
@@ -28,20 +28,18 @@ enum class TYPE_ACTION
 	HUG,
 	SUMO_HEAD_BUTT,
 	HUNDRED_SLAPS,
-	DOUBLE_KNEE,
-	MAX
+	DOUBLE_KNEE
 };
 
-enum class MOVEMENT_CHARACTER
+enum MOVEMENT_CHARACTER
 {
-	IDLE = 0,
+	NO_MOVE = 0,
 	FORWARD,
 	BACKWARD,
-	IDLE_CROUCHING,
-	MAX
+	IDLE_CROUCHING
 };
 
-enum class STATE_CHARACTER
+enum STATE_CHARACTER
 {
 	ON_FLOOR = 0,
 	IDLE,
@@ -50,7 +48,6 @@ enum class STATE_CHARACTER
 	STANDING_TO_CROUCHING,
 	CROUCHING_TO_STANDING,
 	JUMPING,
-	FALLING,
 	VICTORY,
 	SECOND_VICTORY,
 	HIT,
@@ -58,8 +55,7 @@ enum class STATE_CHARACTER
 	STUNNED,
 	KNOCK_DOWN,
 	KO,
-	RECOVER,
-	MAX
+	RECOVER
 };
 
 // This class controls how Honda works
@@ -80,8 +76,18 @@ public:
 	char			score_text[10];
 	uint			score = 0;
 
+	// Jumping Variables
+	float			vspeed;
+	float			acceleration = 0.8F;
+	float			VerticalSpeed = -12.0F;
+
 	// Auxiliar Rect
 	SDL_Rect		auxiliar;
+
+	// Logic Variables
+	TYPE_ACTION				action;
+	MOVEMENT_CHARACTER		movement;
+	STATE_CHARACTER			state;
 
 	// Current Animation Control
 	Animation*		current_animation = nullptr;

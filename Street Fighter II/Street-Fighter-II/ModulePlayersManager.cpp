@@ -1,6 +1,7 @@
 #include "ModulePlayersManager.h"
 #include "ModuleHonda.h"
 #include "Application.h"
+#include "ModuleInput.h"
 #include "ModuleTextures.h"
 
 ModulePlayersManager::ModulePlayersManager()
@@ -14,6 +15,7 @@ bool ModulePlayersManager::Start()
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite.png");
 	player = CreatePlayer(PLAYER_NUMBER::NUMBER_ONE);
 	player2 = CreatePlayer(PLAYER_NUMBER::NUMBER_TWO);
+	player->vspeed = 0;
 
 	return true;
 }
@@ -52,6 +54,7 @@ ModuleHonda* ModulePlayersManager::CreatePlayer(PLAYER_NUMBER num)
 
 update_status ModulePlayersManager::Update()
 {
+	
 	player->Update();
 
 	return update_status::UPDATE_CONTINUE;
