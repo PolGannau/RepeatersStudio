@@ -58,14 +58,13 @@ enum class STATE_CHARACTER
 class ModuleHonda : public Module
 {
 public:
-	ModulePlayer();
-	~ModulePlayer();
+	ModuleHonda();
+	~ModuleHonda();
 
 	bool Start();
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
-	void SetCharacterAndPaint(SDL_Rect r);
 
 public:
 	// Scores
