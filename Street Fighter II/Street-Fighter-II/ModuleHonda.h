@@ -68,64 +68,62 @@ public:
 	/// HONDA ANIMATIONS
 	//standing
 	Animation idle;
-	Animation turn;
+	Animation turnLeft;
+	Animation turnRight;
 	Animation forward;
 	Animation backward;
 
-	//normal
-	Animation kick;
 	Animation lightKick;
 	Animation mediumKick;
 	Animation heavyKick;
-	Animation punch;
+
 	Animation lightPunch;
 	Animation mediumPunch;
 	Animation heavyPunch;
-
 	//close
 	Animation closeLightKick;
 	Animation closeMediumKick;
 	Animation closeHeavyKick;
-	Animation closeLightPunch;
-	Animation closeMediumPunch;
-	Animation closeHeavyPunch;
 
 	//crouching
 	Animation idleCrouch;
-	Animation crouching;
-	Animation standing;
-	Animation crouchKick;
+	Animation crouchTurn;
+	Animation crouching;//standing to crouch
+	Animation standing;//crouch to standing
+
 	Animation crouchLightKick;
 	Animation crouchMediumKick;
 	Animation crouchHeavyKick;
-	Animation crouchPunch;
+	
 	Animation crouchLightPunch;
 	Animation crouchMediumPunch;
 	Animation crouchHeavyPunch;
 
 	//jumping
 	Animation jump;
-	//Animation jumpdown;
+
+	Animation neutralJump;//jump with no directions
 	Animation forwardJump;
-	Animation backwardsJump;
-	Animation jumpKick;
+	Animation backwardJump;
+
 	Animation jumpLightKick;
 	Animation jumpMediumKick;
 	Animation jumpHeavyKick;
 	Animation jumpDiagonalLightKick;
 	Animation jumpDiagonalMediumKick;
 	Animation jumpDiagonalHeavyKick;
-	Animation jumpPunch;
+
 	Animation jumpLightPunch;
 	Animation jumpMediumPunch;
 	Animation jumpHeavyPunch;
-	Animation jumpDiagonalLightPunch;
-	Animation jumpDiagonalMediumPunch;
-	Animation jumpDiagonalHeavyPunch;
+	Animation jumpDiagonalLightPunch;//same as jump LightPunch
+	Animation jumpDiagonalMediumPunch;//same as jump MediumPunch
+	Animation jumpDiagonalHeavyPunch;//same as jump HeavyPunch
 
 	//grabs
-	Animation hold;
-	Animation throwing;
+	Animation throwing;//throws enemy
+	Animation knees;//grabs and kicks the enemy
+	Animation hug;//crush enemy
 
 	//victory
 	Animation victory;
@@ -133,14 +131,23 @@ public:
 
 	//special
 	Animation SumoHeadbutt;
+	//Animation LightSumoHeadbutt;
+	//Animation MediumSumoHeadbutt;
+	//Animation HeavySumoHeadbutt;
 	Animation HundredSlaps;
+	//Animation LightHundredSlaps;
+	//Animation MediumHundredSlaps;
+	//Animation HeavyHundredSlaps;
 	Animation DoubleKnee;
 
 	//hurt
-	Animation standingHit;
-	Animation standingGutHit;
-	Animation crouchHit;
-	Animation stunned;
+	Animation Hit;//gets hit
+	Animation GutHit;//gets hit hard
+	Animation crouchHit;//gets hit while crouched
+	Animation stunned;//
+	Animation knockdown;//falling
+	Animation KO;//
+	Animation recover;//honda gets up from the ground
 	/// END HONDA ANIMATIONS
 };
 
