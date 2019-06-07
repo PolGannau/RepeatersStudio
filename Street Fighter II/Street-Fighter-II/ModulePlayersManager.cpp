@@ -55,6 +55,9 @@ ModuleHonda* ModulePlayersManager::CreatePlayer(PLAYER_NUMBER num)
 
 update_status ModulePlayersManager::Update()
 {
+	if (player->position.x < player2->position.x)player2->flip = true;
+	else player->flip = true;
+
 	/// PLAYER INPUT CONTROL AND LOGIC ---------------------------------------------------
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && player->state == ON_FLOOR)
 	{
@@ -69,8 +72,8 @@ update_status ModulePlayersManager::Update()
 		player2->vspeed += player2->VerticalSpeed;
 	}
 
-	player->Update();
 	player2->Update();
+	player->Update();
 
 	return update_status::UPDATE_CONTINUE;
 }

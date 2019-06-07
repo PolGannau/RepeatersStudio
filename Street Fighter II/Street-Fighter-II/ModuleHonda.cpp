@@ -1236,6 +1236,7 @@ bool ModuleHonda::Start()
 	if(player_num == PLAYER_NUMBER::NUMBER_ONE)position.x = 100;
 	else position.x = 200;
 	position.y = 212;
+	flip = false;
 	action = NO_ACTION;
 	movement = NO_MOVE;
 	state = ON_FLOOR;
@@ -1269,7 +1270,7 @@ update_status ModuleHonda::Update()
 		break;
 	}
 	auxiliar = current_animation->GetCurrentFrame();
-	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar);
+	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
 	return update_status::UPDATE_CONTINUE;
 }
 

@@ -91,6 +91,7 @@ public:
 
 	// Current Animation Control
 	Animation*		current_animation = nullptr;
+	bool			flip;
 	PLAYER_NUMBER	player_num;
 
 	// Position
