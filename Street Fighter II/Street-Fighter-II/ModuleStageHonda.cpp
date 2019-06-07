@@ -12,14 +12,11 @@
 #include "ModulePlayer2.h"
 #include "Animation.h"
 #include "ModuleAudio.h"
+#include "../SDL/include/SDL_timer.h"
 
 
 ModuleStageHonda::ModuleStageHonda()
 {
-	boy.PushBack({ 32,0,64,104 });
-	boy.PushBack({ 97,0,95,104 });
-	boy.speed = 0.01F;
-
 	sun.PushBack({ 191,0,225,104 });
 	sun.PushBack({ 415,0,223,104 });
 	sun.speed = 0.2F;
@@ -52,6 +49,8 @@ bool ModuleStageHonda::Start()
 	light = { 1980,1016,60,108 };
 	mirrors = { 511,208,114,130 };
 	floor_tape = { 686,407,82,16 };
+	boy_small = { 32,0,64,104 };
+	boy_big = { 97,0,95,104 };
 
 	App->render->camera.x = 7;
 
@@ -109,10 +108,20 @@ update_status ModuleStageHonda::Update()
 	App->render->Blit(stage_texture, 0, -10, &roof);
 
 	//animations 
+	current_time = SDL_GetTicks();
+
+	if ((current_time - last_time) >= BOY_TIMER)
+	{
+		last_time = current_time;
+	}
 	if (App->player->life <= 50 || App->player2->life <= 50)
 	{
 		App->render->Blit(stage_texture, 190, roof.h - 2, &(sun.GetCurrentFrame()));
-		App->render->Blit(stage_texture, 511 - boy.GetCurrentFrame().w, roof.h - 2, &(boy.GetCurrentFrame()));
+		App->render->Blit(stage_texture, 447, roof.h - 2, &boy_small);
+	}
+	if ((App->player->life <= 50 || App->player2->life <= 50) && (current_time - last_time) < BOY_TIMER / 2)
+	{
+		App->render->Blit(stage_texture, 416, roof.h - 2, &boy_big);
 	}
 
 	App->render->Blit(stage_texture, 190, wall.h - 49, &pool_wall);

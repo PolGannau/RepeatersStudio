@@ -4,6 +4,8 @@
 #include "Module.h"
 #include "Animation.h"
 
+#define BOY_TIMER 700
+
 struct SDL_Texture;
 
 class ModuleStageHonda :public Module
@@ -35,9 +37,14 @@ public:
 	SDL_Rect light;
 	SDL_Rect mirrors;
 	SDL_Rect floor_tape;
+	SDL_Rect boy_small;
+	SDL_Rect boy_big;
+
 	bool control;
 
-	Animation boy;
+	unsigned int current_time = 0;
+	unsigned int last_time = 0;
+
 	Animation sun;
 
 	Mix_Music* stahe_honda_music;
