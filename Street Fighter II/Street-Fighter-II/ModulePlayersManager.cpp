@@ -40,7 +40,11 @@ bool ModulePlayersManager::CleanUp()
 ModuleHonda* ModulePlayersManager::CreatePlayer(PLAYER_NUMBER num)
 {
 	ModuleHonda* user = new ModuleHonda(num);
-	if (user != nullptr)return user;
+	if (user != nullptr)
+	{
+		user->Start();
+		return user;
+	}
 	if (num == PLAYER_NUMBER::NUMBER_ONE)LOG("Error Loading Player 1...");
 	if (num == PLAYER_NUMBER::NUMBER_TWO)LOG("Error Loading Player 2...");
 	update_status::UPDATE_ERROR;
