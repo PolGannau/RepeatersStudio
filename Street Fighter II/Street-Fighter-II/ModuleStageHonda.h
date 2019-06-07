@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 
-#define BOY_TIMER 700
+#define BOY_TIMER 750
 
 struct SDL_Texture;
 
