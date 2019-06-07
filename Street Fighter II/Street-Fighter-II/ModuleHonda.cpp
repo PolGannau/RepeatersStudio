@@ -12,7 +12,7 @@
 
 #include<stdio.h>
 
-ModuleHonda::ModuleHonda()
+ModuleHonda::ModuleHonda(PLAYER_NUMBER num)
 {
 }
 

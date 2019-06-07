@@ -17,7 +17,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 
-	ModuleHonda* CreatePlayer();
+	ModuleHonda* CreatePlayer(PLAYER_NUMBER);
 public:
 	//As this is a manager it handles all the players textures
 	SDL_Texture*		graphics = nullptr;

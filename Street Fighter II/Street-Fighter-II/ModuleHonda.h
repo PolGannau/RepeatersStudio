@@ -6,6 +6,14 @@
 #include "p2Point.h"
 struct Collider;
 
+enum class PLAYER_NUMBER
+{
+	NO_NUMBER,
+	NUMBER_ONE,
+	NUMBER_TWO,
+	MAX
+};
+
 enum class TYPE_ACTION
 {
 	NO_ACTION = 0,
@@ -58,7 +66,7 @@ enum class STATE_CHARACTER
 class ModuleHonda : public Module
 {
 public:
-	ModuleHonda();
+	ModuleHonda(PLAYER_NUMBER);
 	~ModuleHonda();
 
 	bool Start();
@@ -68,15 +76,16 @@ public:
 
 public:
 	// Scores
-	int			font_score = -1;
-	char		score_text[10];
-	uint		score = 0;
+	int				font_score = -1;
+	char			score_text[10];
+	uint			score = 0;
 
 	// Current Animation Control
-	Animation*	current_animation = nullptr;
+	Animation*		current_animation = nullptr;
+	PLAYER_NUMBER	player_num;
 
 	// Position
-	iPoint position;
+	iPoint			position;
 
 	// Character Colliders
 	Collider* coll_head = nullptr;
