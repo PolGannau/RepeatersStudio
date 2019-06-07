@@ -130,8 +130,6 @@ public:
 	Animation crouchHeavyPunch;
 
 	//jumping
-	Animation jump;
-
 	Animation neutralJump;//jump with no directions
 	Animation forwardJump;
 	Animation backwardJump;
@@ -160,14 +158,14 @@ public:
 	Animation victory2;
 
 	//special
-	Animation SumoHeadbutt;
-	//Animation LightSumoHeadbutt;
-	//Animation MediumSumoHeadbutt;
-	//Animation HeavySumoHeadbutt;
-	Animation HundredSlaps;
-	//Animation LightHundredSlaps;
-	//Animation MediumHundredSlaps;
-	//Animation HeavyHundredSlaps;
+	Animation LightSumoHeadbutt;
+	Animation MediumSumoHeadbutt;
+	Animation HeavySumoHeadbutt;
+
+	Animation LightHundredSlaps;
+	Animation MediumHundredSlaps;
+	Animation HeavyHundredSlaps;
+
 	Animation DoubleKnee;
 
 	//hurt
