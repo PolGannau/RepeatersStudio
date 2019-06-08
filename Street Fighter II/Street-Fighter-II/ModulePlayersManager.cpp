@@ -76,6 +76,9 @@ update_status ModulePlayersManager::Update()
 		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
+	//CROUCH
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR)player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
+	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_UP && player->state == CROUCHING)player->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
 	player2->movement = NO_MOVE;

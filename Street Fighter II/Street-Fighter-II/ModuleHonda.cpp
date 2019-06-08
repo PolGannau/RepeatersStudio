@@ -1266,18 +1266,6 @@ update_status ModuleHonda::Update()
 		state = ON_FLOOR;
 		position.y = 212;
 	}
-	switch (state)
-	{
-	case ON_FLOOR:
-		position.y = 212;
-		current_animation = &idle;
-		break;
-	case JUMPING:
-		current_animation = &neutralJump;
-		vspeed += acceleration;
-		position.y += vspeed;
-		break;
-	}
 	switch (movement)
 	{
 	case NO_MOVE:
@@ -1292,6 +1280,29 @@ update_status ModuleHonda::Update()
 		if (flip)current_animation = &backward;
 		else current_animation = &forward;
 		position.x += 1;
+		break;
+	}
+	switch (state)
+	{
+	case ON_FLOOR:
+		position.y = 212;
+		current_animation = &idle;
+		break;
+	case JUMPING:
+		current_animation = &neutralJump;
+		vspeed += acceleration;
+		position.y += vspeed;
+		break;
+	case STANDING_TO_CROUCHING:
+		if (current_animation != &idleCrouch && current_animation != &crouching)current_animation = &crouching;
+		if (current_animation->Finished())state = CROUCHING;
+		break;
+	case CROUCHING:
+		current_animation = &idleCrouch;
+		break;
+	case CROUCHING_TO_STANDING:
+		current_animation = &standing;
+		if (current_animation->Finished())state = ON_FLOOR;
 		break;
 	}
 	auxiliar = current_animation->GetCurrentFrame();
