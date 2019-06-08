@@ -25,6 +25,8 @@ public:
 	uint fx = 0;
 	Mix_Music* intro_mus = nullptr;
 
+	int capcom_font = 0;
+	int repeaters_font = 0;
 };
 
 #endif // __MODULESCENEINTRO_H__

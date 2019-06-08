@@ -12,6 +12,7 @@
 #include "ModuleWin.h"
 #include "ModuleStageHonda.h"
 #include "ModuleUi.h"
+#include "ModuleFonts.h"
 
 
 ModuleSceneIntro::ModuleSceneIntro()
@@ -109,6 +110,7 @@ ModuleSceneIntro::ModuleSceneIntro()
 	intro.PushBack({ 0,4050,384,224 });
 	intro.speed = 1.0f;
 	intro.loop = false;
+	
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
@@ -131,7 +133,8 @@ bool ModuleSceneIntro::Start()
 	intro_mus = App->audio->LoadMusic("Assets/Audio/Soundtrack/02 The World Warrior.ogg");
 	App->audio->PlayMusic(intro_mus);
 	//App->render->camera.x = App->render->camera.y = 0;
-
+	capcom_font = App->fonts->Load("Assets/Images/Ui/Fonts/FontCapcom.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~'!@©$%^&*()-_+=[]{}| :;¨º<>,./?", 1);
+	repeaters_font = App->fonts->Load("Assets/Images/Ui/Fonts/Font_sys.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789Ý&!¨#$%()*+,-./:;<=>?@[]^ '{}~abcdefghijklmnopqrstuvwxyz", 1);
 	return true;
 }
 
@@ -157,9 +160,13 @@ update_status ModuleSceneIntro::Update()
 		App->fade->FadeToBlack(this, (Module*)App->honda_stage);
 		//App->audio->FadeMusic(600);
 	}
-
+	
+	App->fonts->BlitText(130, 200, capcom_font, "©CAPCOM CO..LTD.");
+	App->fonts->BlitText(37, 210, repeaters_font, "Fbonbef'Pspkfdu'Bz'Tif'Rfqfbufst'Suvejp");
 	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN && App->fade->IsFading() == false)
 		App->fade->FadeToBlack(this, App->ryu_stage);
 
 	return UPDATE_CONTINUE;
 }
+
+//Fanmade Project By The Repeaters Studio
