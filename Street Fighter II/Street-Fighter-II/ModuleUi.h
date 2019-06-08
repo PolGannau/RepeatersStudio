@@ -2,6 +2,7 @@
 #define __MODULEUI_H__
 
 #include "Module.h"
+#include <string>
 
 #define KO_TIMER 750
 
@@ -16,6 +17,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	void Puntuation();
 
 public:
 	SDL_Texture* hud = nullptr;
@@ -35,10 +37,8 @@ public:
 	int	j = 0;
 	//
 	int score_font = 0;
-	int p1_score = 0;
-	int p2_score = 0;
-	int high_score = 0;
-	char player_score[10];
+	char* p1score;
+	char* p2score;
 	//
 	int char_font = 0;
 	//

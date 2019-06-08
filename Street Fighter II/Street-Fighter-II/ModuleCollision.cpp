@@ -1,7 +1,9 @@
+
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
+#include "ModuleFonts.h"
 
 ModuleCollision::ModuleCollision()
 {
@@ -136,7 +138,7 @@ void ModuleCollision::DebugDraw()
 bool ModuleCollision::CleanUp()
 {
 	LOG("Freeing all colliders");
-
+	
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 	{
 		if (colliders[i] != nullptr)

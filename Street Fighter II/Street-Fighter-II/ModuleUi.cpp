@@ -41,7 +41,7 @@ bool ModuleUi::Start()
 	round_win = { 66,36,17,20 };
 
 	pos_bar = 149;
-		
+	
 	return true;
 }
 
@@ -67,32 +67,28 @@ update_status ModuleUi::Update()
 
 	//blit the health bars
 	//red ones
-	App->render->Blit(hud, 27, 10, &lifebar1_rect1, NULL);
-	App->render->Blit(hud, 23 + lifebar1_rect1.w + ko_red.w, 10 , &lifebar2_rect1, NULL);
+	App->render->Blit(hud, 27, 12, &lifebar1_rect1, NULL);
+	App->render->Blit(hud, 23 + lifebar1_rect1.w + ko_red.w, 12 , &lifebar2_rect1, NULL);
 	//orange ones
-	App->render->Blit(hud, 178 - lifebar1_rect2.w, 12, &lifebar1_rect2, NULL);
-	App->render->Blit(hud, 25 + lifebar1_rect1.w + ko_red.w , 12, &lifebar2_rect2, NULL);
+	App->render->Blit(hud, 178 - lifebar1_rect2.w, 14, &lifebar1_rect2, NULL);
+	App->render->Blit(hud, 25 + lifebar1_rect1.w + ko_red.w , 14, &lifebar2_rect2, NULL);
 
 	//blit the K.O
-	App->render->Blit(hud, 178, 7, &ko_red, NULL);
-	App->render->Blit(hud, 179, 8, &ko_white, NULL);
+	App->render->Blit(hud, 178, 9, &ko_red, NULL);
+	App->render->Blit(hud, 179, 10, &ko_white, NULL);
 	   
 
 	App->fonts->BlitText(2, 0, score_font, "1P");
 	App->fonts->BlitText(150, 0, score_font, "HI");
 	App->fonts->BlitText(280, 0, score_font, "2P");
-	App->fonts->BlitText(30, 26, char_font, "E.HONDA");
-	App->fonts->BlitText(270, 26, char_font, "E.HONDA");
-
-	
-	//App->fonts->BlitText(178, 32, timer_font, timer_numbers);
-
-
+	App->fonts->BlitText(30, 30, char_font, "E.HONDA");
+	App->fonts->BlitText(270, 30, char_font, "E.HONDA");
+	   	 
 	if ((current_time - last_time) >= KO_TIMER)
 	{
 		last_time = current_time;
 	}
-	/*if ((App->player->life <= 25 || App->player2->life <= 25) && (current_time - last_time) < KO_TIMER / 4)
+	/*if ((App->manager->player->hp <= 25 || App->manager->player2->hp <= 25) && (current_time - last_time) < KO_TIMER / 4)
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	}*/
@@ -121,6 +117,20 @@ update_status ModuleUi::Update()
 	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
 	
 	*/
-
+	Puntuation();
+	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
+	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
+	//App->fonts->BlitText
 	return UPDATE_CONTINUE;
+}
+
+void ModuleUi::Puntuation() {
+	std::string p1score_str = std::to_string(App->manager->p1puntuation);
+	std::string p2score_str = std::to_string(App->manager->p2puntuation);
+
+	p1score = new char[p1score_str.length() + 1];
+	strcpy_s(p1score, p1score_str.length() + 1, p1score_str.c_str());
+
+	p2score = new char[p2score_str.length() + 1];
+	strcpy_s(p2score, p2score_str.length() + 1, p2score_str.c_str());
 }
