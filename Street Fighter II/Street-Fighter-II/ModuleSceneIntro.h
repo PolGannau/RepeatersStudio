@@ -2,6 +2,7 @@
 #define __MODULESCENEINTRO_H__
 
 #include "Module.h"
+#include "Animation.h"
 
 struct SDL_Texture;
 
@@ -17,7 +18,10 @@ public:
 
 public:
 
+	Animation intro;
+
 	SDL_Texture* background = nullptr;
+	SDL_Texture* intro_image = nullptr;
 	uint fx = 0;
 	Mix_Music* intro_mus = nullptr;
 
