@@ -132,10 +132,10 @@ mediumPunch.PushBack({ 687, 827, 96, 88 });//prep  2
 mediumPunch.PushBack({ 687, 827, 96, 88 });//prep
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2  1
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2
-mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg  4
-mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
-mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
-mediumPunch.PushBack({ 264, 740, 145, 85 });//dmg
+mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg  4
+mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg
+mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg
+mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2 recover  2
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2 recover
 mediumPunch.PushBack({ 687, 827, 96, 88 });//prep recover  2
