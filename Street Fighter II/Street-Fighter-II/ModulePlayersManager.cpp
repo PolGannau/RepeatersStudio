@@ -80,9 +80,17 @@ update_status ModulePlayersManager::Update()
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR)player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_UP && player->state == CROUCHING)player->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
 	//LIGHT KICK
-	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN && player->action == NO_ACTION)
 	{
 		player->action = LIGHT_KICK;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN && player->action == NO_ACTION)
+	{
+		player->action = MEDIUM_KICK;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN && player->action == NO_ACTION)
+	{
+		player->action = HEAVY_KICK;
 	}
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
