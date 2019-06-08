@@ -57,6 +57,7 @@ update_status ModulePlayersManager::Update()
 {
 
 	/// PLAYER INPUT CONTROL AND LOGIC ---------------------------------------------------
+	player->movement = NO_MOVE;
 	//JUMP
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN && player->state == ON_FLOOR)
 	{
@@ -64,21 +65,20 @@ update_status ModulePlayersManager::Update()
 		player->vspeed += player->VerticalSpeed;
 	}
 	//BACKWARD
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_DOWN && player->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT && player->state == ON_FLOOR)
 	{
 		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::BACKWARD;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 	//FORWARD
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_DOWN && player->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && player->state == ON_FLOOR)
 	{
 		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
+	player2->movement = NO_MOVE;
 	//JUMP
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player2->state == ON_FLOOR)
 	{
@@ -86,19 +86,17 @@ update_status ModulePlayersManager::Update()
 		player2->vspeed += player2->VerticalSpeed;
 	}
 	//BACKWARD
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_DOWN && player2->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT && player2->state == ON_FLOOR)
 	{
 		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 	//FORWARD
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_DOWN && player2->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT && player2->state == ON_FLOOR)
 	{
 		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 
 	if (player->position.x < player2->position.x)
 	{
