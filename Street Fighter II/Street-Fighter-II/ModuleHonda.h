@@ -81,6 +81,9 @@ public:
 	float			acceleration = 0.8F;
 	float			VerticalSpeed = -14.0F;
 
+	//hp
+	int hp = 100;
+
 	// Auxiliar Rect
 	SDL_Rect		auxiliar;
 

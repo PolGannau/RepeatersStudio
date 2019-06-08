@@ -13,6 +13,7 @@
 //#include "ModulePlayer2.h"
 #include "Animation.h"
 #include "ModuleAudio.h"
+#include "ModuleTimer.h"
 #include "../SDL/include/SDL_timer.h"
 
 

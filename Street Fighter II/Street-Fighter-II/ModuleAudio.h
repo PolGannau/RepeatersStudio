@@ -26,6 +26,7 @@ public:
 
 	void UnloadMusic(Mix_Music* music);
 	void UnloadSoundEffects(Mix_Chunk* effect);
+
 public:
 
 	Mix_Music * songs[MAX_MUSIC];

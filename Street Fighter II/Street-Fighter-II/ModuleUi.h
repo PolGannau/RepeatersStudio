@@ -34,15 +34,6 @@ public:
 	int i = 0;
 	int	j = 0;
 	//
-	//int current_timer = 0;
-	int timer_font = 0;
-	int start_time = 0;
-	int current_time_timer = 0;
-	int timer_value = 0;
-	int aux_value = 0;
-	int aux_timer = 0;
-	char timer_numbers[2];
-	//
 	int score_font = 0;
 	int p1_score = 0;
 	int p2_score = 0;

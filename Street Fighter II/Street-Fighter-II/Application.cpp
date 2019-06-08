@@ -16,6 +16,8 @@
 //#include "ModuleParticles.h"
 //#include "ModuleEnemies.h"
 #include "ModuleFonts.h"
+#include "ModuleTimer.h"
+
 
 Application::Application()
 {
@@ -37,6 +39,7 @@ Application::Application()
 	modules[i++] = audio = new ModuleAudio();
 	modules[i++] = module_win = new ModuleWin();
 	modules[i++] = module_lose = new ModuleLose();
+	modules[i++] = timer = new ModuleTimer();
 }
 
 Application::~Application()

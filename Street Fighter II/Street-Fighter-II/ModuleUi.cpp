@@ -10,6 +10,8 @@
 #include "ModuleWin.h"
 #include "ModuleLose.h"
 #include "ModuleFonts.h"
+#include "ModuleTimer.h"
+#include "ModulePlayersManager.h"
 #include "../SDL/include/SDL_timer.h"
 
 
@@ -25,8 +27,7 @@ bool ModuleUi::Start()
 	hud = App->textures->Load("Assets/Images/Ui/Lifebar_assets.png");
 	
 	
-	timer_font = App->fonts->Load("Assets/Images/Ui/Fonts/timervalues.png","0123456789<> ", 1);
-	start_time = SDL_GetTicks()*1000;
+	//timer_font = App->fonts->Load("Assets/Images/Ui/Fonts/timervalues.png","0123456789<> ", 1);
 	score_font = App->fonts->Load("Assets/Images/Ui/Fonts/FontPScore.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~'!@#$%^&*()-_+=[]{}| :;¨º<>,./?", 1);
 	char_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
 
@@ -49,7 +50,7 @@ bool ModuleUi::CleanUp()
 	LOG("Unloading Ui");
 	
 	App->textures->Unload(hud);
-	App->fonts->UnLoad(timer_font);
+	//App->fonts->UnLoad(timer_font);
 	App->fonts->UnLoad(score_font);
 	App->fonts->UnLoad(char_font);
 
@@ -61,7 +62,7 @@ update_status ModuleUi::Update()
 	//decresion of lifebar player 2
 	//lifebar2_rect2.w = 149 * App->player2->life / 100;
 
-	////decresion of lifebar player 1
+	//decresion of lifebar player 1
 	//lifebar1_rect2.w = 149 * App->player->life / 100;
 
 	//blit the health bars
@@ -83,17 +84,8 @@ update_status ModuleUi::Update()
 	App->fonts->BlitText(30, 26, char_font, "E.HONDA");
 	App->fonts->BlitText(270, 26, char_font, "E.HONDA");
 
-	current_time = SDL_GetTicks();
-	current_time = current_time - start_time;
-	timer_value = 100 - (current_time * 1000);
-	aux_value = timer_value;
-
-	for (int i = 0; i > 2; i++) {
-		aux_timer = aux_value % 10;
-		aux_value = aux_value / 10;
-		timer_numbers[i] = (char)aux_timer;
-	}
-	App->fonts->BlitText(178, 32, timer_font, timer_numbers);
+	
+	//App->fonts->BlitText(178, 32, timer_font, timer_numbers);
 
 
 	if ((current_time - last_time) >= KO_TIMER)
@@ -107,7 +99,7 @@ update_status ModuleUi::Update()
 
 	//round wins
 	//player2 round win
-	/*if (App->player->life <= 0 && !App->honda_stage->control)
+	/*if (App->manager->player->life <= 0 && !App->honda_stage->control)
 	{
 		if (App->player2->round_won)App->player2->game_won = true;
 		App->player2->round_won = true;
@@ -115,10 +107,10 @@ update_status ModuleUi::Update()
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
-	if (App->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);*/
+	if (App->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
 
 	//player1 round win
-	/*if (App->player2->life <= 0 && !App->honda_stage->control)
+	if (App->player2->life <= 0 && !App->honda_stage->control)
 	{
 		if (App->player->round_won)App->player->game_won = true;
 		App->player->round_won = true;
@@ -126,8 +118,9 @@ update_status ModuleUi::Update()
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
-	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);*/
-		
+	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
+	
+	*/
 
 	return UPDATE_CONTINUE;
 }
