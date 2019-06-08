@@ -186,6 +186,9 @@ public:
 	Animation knockdown;//falling
 	Animation KO;//
 	Animation recover;//honda gets up from the ground
+
+	Animation block;
+	Animation crouchblock;
 	/// END HONDA ANIMATIONS
 };
 

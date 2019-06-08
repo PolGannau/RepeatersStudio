@@ -1227,6 +1227,15 @@ victory2.PushBack({ 0, 740, 147, 85 });
 victory2.PushBack({ 147, 740, 147, 85 });
 victory2.PushBack({ 439, 740, 147, 85 });
 victory2.speed = 0.13f;
+
+block.PushBack({ 614,1378,98,99 });
+block.PushBack({ 104,1583,104,105 });//blocking
+block.speed = 0.13f;
+
+crouchblock.PushBack({ 519,416,106,77 });
+crouchblock.PushBack({ 627,493,95,80 });//blocking
+block.speed = 0.13f;
+
 }
 
 ModuleHonda::~ModuleHonda() {};
