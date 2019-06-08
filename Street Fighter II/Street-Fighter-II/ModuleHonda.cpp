@@ -1283,6 +1283,9 @@ update_status ModuleHonda::Update()
 			if (action == LIGHT_KICK)current_animation = &lightKick;
 			else if (action == MEDIUM_KICK)current_animation = &mediumKick;
 			else if (action == HEAVY_KICK)current_animation = &heavyKick;
+			else if (action == LIGHT_PUNCH)current_animation = &lightPunch;
+			else if (action == MEDIUM_PUNCH)current_animation = &mediumPunch;
+			else if (action == HEAVY_PUNCH)current_animation = &heavyPunch;
 		}
 		break;
 	case STANDING_TO_CROUCHING:

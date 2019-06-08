@@ -94,9 +94,23 @@ update_status ModulePlayersManager::Update()
 	{
 		player->action = HEAVY_KICK;
 	}
+	//LIGHT PUNCH
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_DOWN && player->action == NO_ACTION)
+	{
+		player->action = LIGHT_PUNCH;
+	}
+	//MEDIUM PUNCH
+	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_DOWN && player->action == NO_ACTION)
+	{
+		player->action = MEDIUM_PUNCH;
+	}
+	//HEAVY PUNCH
+	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN && player->action == NO_ACTION)
+	{
+		player->action = HEAVY_PUNCH;
+	}
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
-	player2->movement = NO_MOVE;
 	//JUMP
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player2->state == ON_FLOOR)
 	{
@@ -134,6 +148,21 @@ update_status ModulePlayersManager::Update()
 	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN && player2->action == NO_ACTION)
 	{
 		player2->action = HEAVY_KICK;
+	}
+	//LIGHT PUNCH
+	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN && player2->action == NO_ACTION)
+	{
+		player2->action = LIGHT_PUNCH;
+	}
+	//MEDIUM PUNCH
+	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN && player2->action == NO_ACTION)
+	{
+		player2->action = MEDIUM_PUNCH;
+	}
+	//HEAVY PUNCH
+	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN && player2->action == NO_ACTION)
+	{
+		player2->action = HEAVY_PUNCH;
 	}
 
 	if (player->position.x < player2->position.x)
