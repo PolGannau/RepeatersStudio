@@ -36,7 +36,7 @@ bool ModuleWin::Start()
 	portraits = App->textures->Load("Assets/Images/Ui/characterselect-endscreen.png");
 	win_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
 	portrait_loose = { 301, 225, 72, 96 };
-	portrait_win = { 594, 225, 72, 96 };
+	portrait_win = { 959, 386, 72, 96 };
 
 	return true;
 }
@@ -53,8 +53,8 @@ update_status ModuleWin::Update()
 	App->render->Blit(portraits, 50, 30, &portrait_loose, NULL);
 	App->render->Blit(portraits, 250, 30, &portrait_win, NULL);
 
-	App->fonts->BlitText(50, 150, win_font, "CAN'T YOU DO BETTER THAN");
-	App->fonts->BlitText(50, 165, win_font, "THAT?");
+	App->fonts->BlitText(40, 150, win_font, "CAN'T YOU DO BETTER THAN");
+	App->fonts->BlitText(40, 165, win_font, "THAT?");
 
 	//to exit the scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
