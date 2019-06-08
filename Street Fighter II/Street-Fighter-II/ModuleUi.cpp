@@ -60,10 +60,10 @@ bool ModuleUi::CleanUp()
 update_status ModuleUi::Update()
 {
 	//decresion of lifebar player 2
-	//lifebar2_rect2.w = 149 * App->player2->life / 100;
+	lifebar2_rect2.w = 149 * App->manager->player2->hp / 100;
 
 	//decresion of lifebar player 1
-	//lifebar1_rect2.w = 149 * App->player->life / 100;
+	lifebar1_rect2.w = 149 * App->manager->player->hp / 100;
 
 	//blit the health bars
 	//red ones
@@ -88,35 +88,35 @@ update_status ModuleUi::Update()
 	{
 		last_time = current_time;
 	}
-	/*if ((App->manager->player->hp <= 25 || App->manager->player2->hp <= 25) && (current_time - last_time) < KO_TIMER / 4)
+	if ((App->manager->player->hp <= 25 || App->manager->player2->hp <= 25) && (current_time - last_time) < KO_TIMER / 4)
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
-	}*/
+	}
 
 	//round wins
 	//player2 round win
-	/*if (App->manager->player->life <= 0 && !App->honda_stage->control)
+	if (App->manager->player->hp <= 0 && !App->honda_stage->control)
 	{
-		if (App->player2->round_won)App->player2->game_won = true;
-		App->player2->round_won = true;
-		if (App->player2->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_lose);
+		if (App->manager->player2->round_won)App->manager->player2->game_won = true;
+		App->manager->player2->round_won = true;
+		if (App->manager->player2->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_lose);
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
-	if (App->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
+	if (App->manager->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
 
 	//player1 round win
-	if (App->player2->life <= 0 && !App->honda_stage->control)
+	if (App->manager->player2->hp <= 0 && !App->honda_stage->control)
 	{
-		if (App->player->round_won)App->player->game_won = true;
-		App->player->round_won = true;
-		if (App->player->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_win);
+		if (App->manager->player->round_won)App->manager->player->game_won = true;
+		App->manager->player->round_won = true;
+		if (App->manager->player->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_win);
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
-	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
+	if (App->manager->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
 	
-	*/
+	
 	Puntuation();
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
