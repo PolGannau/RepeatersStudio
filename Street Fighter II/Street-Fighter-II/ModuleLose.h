@@ -17,12 +17,15 @@ public:
 
 public:
 
+	SDL_Texture* portraits = nullptr;
+
 	SDL_Texture* texture_winner = nullptr;
 	SDL_Texture* texture_loser = nullptr;
 	SDL_Texture* texture_text = nullptr;
 	SDL_Rect text_rect;
 	Mix_Music* loose_music = nullptr;
-
+	SDL_Rect portrait_win;
+	SDL_Rect portrait_loose;
 	int loose_font = 0;
 };
 #endif // !__MODULELOSE_H__

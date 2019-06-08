@@ -32,7 +32,9 @@ bool ModuleWin::Start()
 	App->module_ui->Disable();
 
 	//We create a rect to put the winner texture in it.
-	texture_winner = App->textures->Load("Assets/Images/Ui/winscreen.png");
+	//texture_winner = App->textures->Load("Assets/Images/Ui/winscreen.png");
+
+	win_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
 
 	return true;
 }
@@ -45,8 +47,10 @@ update_status ModuleWin::Update()
 	}
 
 	//blit the images of the fighters (winner and loser)
-	App->render->Blit(texture_winner, 0, 0, NULL);
+	//App->render->Blit(texture_winner, 0, 0, NULL);
 
+	App->fonts->BlitText(80, 150, win_font, "IS THAT THE BEST");
+	App->fonts->BlitText(80, 170, win_font, "YOU CAN DO?");
 
 	//to exit the scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)

@@ -31,11 +31,17 @@ bool ModuleLose::Start()
 	//App->player->Disable();
 	App->ryu_stage->Disable();
 	App->module_ui->Disable();
+	//App->honnda_stage->Disable();
 
 	//load the images and create textures
-	texture_loser = App->textures->Load("Assets/Images/Ui/losescreen.png");
+	//texture_loser = App->textures->Load("Assets/Images/Ui/losescreen.png");
+	portraits = App->textures->Load("Assets/Images/Ui/UiSprites-1.png");
 	//Load font
 	loose_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
+
+	portrait_loose = {526,775,265,337};
+	portrait_win = {261,775,265,337};
+
 	return true;
 }
 
@@ -45,6 +51,9 @@ update_status ModuleLose::Update()
 		LOG("Could not update lose scene");
 	
 	//App->render->Blit(texture_loser, 0, 0, NULL);
+
+	App->render->Blit(portraits, 15, 20, &portrait_loose, NULL);
+	App->render->Blit(portraits, 15, 20, &portrait_win, NULL);
 
 	App->fonts->BlitText(10,150,loose_font,"IT'S ONLY NATURAL FOR A SUMO TO");
 	App->fonts->BlitText(10,170,loose_font,"BECOME THE WORLD'S STRONGEST!");
@@ -65,5 +74,6 @@ bool ModuleLose::CleanUp()
 	App->textures->Unload(texture_winner);
 	App->textures->Unload(texture_text);
 	App->audio->UnloadMusic(loose_music);
+	App->fonts->UnLoad(loose_font);
 	return true;
 }
