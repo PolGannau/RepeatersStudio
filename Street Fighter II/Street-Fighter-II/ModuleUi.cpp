@@ -84,18 +84,18 @@ update_status ModuleUi::Update()
 	App->fonts->BlitText(30, 30, char_font, "E.HONDA");
 	App->fonts->BlitText(270, 30, char_font, "E.HONDA");
 	   	 
-	if ((current_time - last_time) >= KO_TIMER)
+	/*if ((current_time - last_time) >= KO_TIMER)
 	{
 		last_time = current_time;
 	}
-	/*if ((App->manager->player->hp <= 25 || App->manager->player2->hp <= 25) && (current_time - last_time) < KO_TIMER / 4)
+	if ((App->manager->player->hp <= 25 || App->manager->player2->hp <= 25) && (current_time - last_time) < KO_TIMER / 4)
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
-	}*/
+	}
 
 	//round wins
 	//player2 round win
-	/*if (App->manager->player->life <= 0 && !App->honda_stage->control)
+	if (App->manager->player->life <= 0 && !App->honda_stage->control)
 	{
 		if (App->player2->round_won)App->player2->game_won = true;
 		App->player2->round_won = true;
@@ -115,8 +115,8 @@ update_status ModuleUi::Update()
 		App->honda_stage->control = false;
 	}
 	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
-	
 	*/
+
 	Puntuation();
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
@@ -125,8 +125,8 @@ update_status ModuleUi::Update()
 }
 
 void ModuleUi::Puntuation() {
-	std::string p1score_str = std::to_string(App->manager->p1puntuation);
-	std::string p2score_str = std::to_string(App->manager->p2puntuation);
+	std::string p1score_str = std::to_string(App->manager->player->score);
+	std::string p2score_str = std::to_string(App->manager->player2->score);
 
 	p1score = new char[p1score_str.length() + 1];
 	strcpy_s(p1score, p1score_str.length() + 1, p1score_str.c_str());

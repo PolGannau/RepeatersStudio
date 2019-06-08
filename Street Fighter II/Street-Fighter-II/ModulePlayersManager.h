@@ -25,9 +25,7 @@ public:
 	//Player 1 & Player 2 pointers
 	ModuleHonda*		player;
 	ModuleHonda*		player2;
-
-	int p1puntuation;
-	int p2puntuation;
+		
 };
 
 #endif // !__MODULE_PLAYERSMANAGER_H__
