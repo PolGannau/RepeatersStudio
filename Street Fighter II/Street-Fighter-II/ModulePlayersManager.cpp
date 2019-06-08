@@ -55,22 +55,38 @@ ModuleHonda* ModulePlayersManager::CreatePlayer(PLAYER_NUMBER num)
 
 update_status ModulePlayersManager::Update()
 {
-	if (player->position.x < player2->position.x)player2->flip = true;
-	else player->flip = true;
 
 	/// PLAYER INPUT CONTROL AND LOGIC ---------------------------------------------------
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && player->state == ON_FLOOR)
+	//JUMP
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN && player->state == ON_FLOOR)
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
 	}
+	//BACKWARD
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_DOWN && player->state == ON_FLOOR)
+	{
+		player->state = STATE_CHARACTER::ON_FLOOR;
+		player->movement = MOVEMENT_CHARACTER::BACKWARD;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
+	//FORWARD
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_DOWN && player->state == ON_FLOOR)
+	{
+		player->state = STATE_CHARACTER::ON_FLOOR;
+		player->movement = MOVEMENT_CHARACTER::FORWARD;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
-	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_DOWN && player2->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player2->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
 	}
+
+	if (player->position.x < player2->position.x)player2->flip = true;
+	else player->flip = true;
 
 	player2->Update();
 	player->Update();

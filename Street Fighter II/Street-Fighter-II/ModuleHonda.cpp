@@ -1269,6 +1269,20 @@ update_status ModuleHonda::Update()
 		position.y += vspeed;
 		break;
 	}
+	switch (movement)
+	{
+	case NO_MOVE:
+		current_animation = &idle;
+		break;
+	case BACKWARD:
+		current_animation = &backward;
+		position.x -= 1;
+		break;
+	case FORWARD:
+		current_animation = &forward;
+		position.x += 1;
+		break;
+	}
 	auxiliar = current_animation->GetCurrentFrame();
 	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
 	return update_status::UPDATE_CONTINUE;
