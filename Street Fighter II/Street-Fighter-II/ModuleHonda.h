@@ -36,22 +36,22 @@ enum MOVEMENT_CHARACTER
 	NO_MOVE = 0,
 	FORWARD,
 	BACKWARD,
-	IDLE_CROUCHING
+	HIT,
+	GUT_HIT,
+	TURN_LEFT,
+	TURN_RIGHT
 };
 
 enum STATE_CHARACTER
 {
 	ON_FLOOR = 0,
 	IDLE,
-	TURN_LEFT,
-	TURN_RIGHT,
 	STANDING_TO_CROUCHING,
+	CROUCHING,
 	CROUCHING_TO_STANDING,
 	JUMPING,
 	VICTORY,
 	SECOND_VICTORY,
-	HIT,
-	GUT_HIT,
 	STUNNED,
 	KNOCK_DOWN,
 	KO,
@@ -79,7 +79,7 @@ public:
 	// Jumping Variables
 	float			vspeed;
 	float			acceleration = 0.8F;
-	float			VerticalSpeed = -12.0F;
+	float			VerticalSpeed = -14.0F;
 
 	// Auxiliar Rect
 	SDL_Rect		auxiliar;
