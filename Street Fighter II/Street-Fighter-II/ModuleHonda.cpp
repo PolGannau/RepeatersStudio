@@ -1311,10 +1311,10 @@ update_status ModuleHonda::Update()
 
 	auxiliar = current_animation->GetCurrentFrame();
 
-	auxPosition.x = position.x + auxiliar.w;
+	if(flip)auxPosition.x = position.x - (auxiliar.w - auxiliar.w/2);
+	else auxPosition.x = position.x - auxiliar.w / 2;
 
-	if(flip)App->render->Blit(App->manager->graphics, position.x - (auxiliar.w - auxiliar.w/2), position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
-	else App->render->Blit(App->manager->graphics, position.x - auxiliar.w/2, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+	App->render->Blit(App->manager->graphics, auxPosition.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
 	return update_status::UPDATE_CONTINUE;
 }
 

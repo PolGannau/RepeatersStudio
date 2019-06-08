@@ -93,16 +93,16 @@ update_status ModuleStageHonda::Update()
 		App->fade->FadeToBlack(this, App->module_lose);
 
 	//Camera Limits
-	/*if (App->player->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->player2->position.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
+	if (App->manager->player->auxPosition.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->manager->player2->auxPosition.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
 	{
 		App->render->camera.x += 1;
 		App->render->limit.x += 1;
 	}
-	if (App->player->position.x < App->render->limit.x + 220 && App->player2->position.x < App->render->limit.x + 220 && App->render->limit.x > 0)
+	if (App->manager->player->auxPosition.x < App->render->limit.x + 220 && App->manager->player2->auxPosition.x < App->render->limit.x + 220 && App->render->limit.x > 0)
 	{
 		App->render->camera.x -= 1;
 		App->render->limit.x -= 1;
-	}*/
+	}
 
 	//blit the map
 	App->render->Blit(stage_texture, -71, wall.h - 35, &floor);
