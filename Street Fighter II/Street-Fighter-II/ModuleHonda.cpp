@@ -1324,10 +1324,23 @@ update_status ModuleHonda::Update()
 		}
 		break;
 	case STANDING_TO_CROUCHING:
+		if (movement == IDLE && action == NO_ACTION)current_animation = &crouching;
+		if (current_animation->Finished())
+		{
+			state=CROUCHING;
+			current_animation->Reset();
+		}
 		break;
 	case CROUCHING:
+		if (movement == IDLE && action == NO_ACTION)current_animation = &idleCrouch;
 		break;
 	case CROUCHING_TO_STANDING:
+		if (movement == IDLE && action == NO_ACTION)current_animation = &standing;
+		if (current_animation->Finished())
+		{
+			state = ON_FLOOR;
+			current_animation->Reset();
+		}
 		break;
 	case JUMPING:
 		break;
