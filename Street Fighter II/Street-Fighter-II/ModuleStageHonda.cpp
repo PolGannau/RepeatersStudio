@@ -9,10 +9,9 @@
 #include "ModuleWin.h"
 #include "ModulePlayersManager.h"
 #include "ModuleLose.h"
-//#include "ModulePlayer.h"
-//#include "ModulePlayer2.h"
 #include "Animation.h"
 #include "ModuleAudio.h"
+#include "ModuleHonda.h"
 #include "ModuleTimer.h"
 #include "../SDL/include/SDL_timer.h"
 
@@ -32,8 +31,6 @@ bool ModuleStageHonda::Start()
 {
 	LOG("Loading Honda Stage");
 
-	/*App->player->Enable();
-	App->player2->Enable();*/
 	App->collision->Enable();
 	App->manager->Enable();
 
@@ -71,8 +68,6 @@ bool ModuleStageHonda::CleanUp()
 	App->textures->Unload(light_texture);
 	App->audio->UnloadMusic(stahe_honda_music);
 	App->manager->Disable();
-	/*App->player->Disable();
-	App->player2->Disable();*/
 
 	return true;
 }
@@ -118,15 +113,15 @@ update_status ModuleStageHonda::Update()
 	{
 		last_time = current_time;
 	}
-	/*if (App->player->life <= 0 || App->player2->life <= 0)
+	if (App->manager->player->hp <= 0 || App->manager->player2->hp <= 0)
 	{
 		App->render->Blit(stage_texture, 190, roof.h - 2, &(sun.GetCurrentFrame()));
 		App->render->Blit(stage_texture, 447, roof.h - 2, &boy_small);
 	}
-	if ((App->player->life <= 0 || App->player2->life <= 0) && (current_time - last_time) < BOY_TIMER / 2)
+	if ((App->manager->player->hp <= 0 || App->manager->player2->hp <= 0) && (current_time - last_time) < BOY_TIMER / 2)
 	{
 		App->render->Blit(stage_texture, 416, roof.h - 2, &boy_big);
-	}*/
+	}
 
 	App->render->Blit(stage_texture, 190, wall.h - 49, &pool_wall);
 	App->render->Blit(stage_texture, 190, wall.h - 69, &pool_top);

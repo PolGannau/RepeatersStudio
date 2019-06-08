@@ -122,8 +122,6 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro Scene");
 
 	intro_image = App->textures->Load("Assets/Images/IntroAnimation/introscreen.png");
-	/*App->player->Disable();
-	App->player2->Disable();*/
 	App->ryu_stage->Disable();
 	App->module_lose->Disable();
 	App->module_win->Disable();
