@@ -27,6 +27,8 @@ public:
 
 	uint fx = 0;
 	Mix_Music* music = nullptr;
+
+	int after_game_font = 0;
 };
 
 #endif // !__MODULEWIM_H__

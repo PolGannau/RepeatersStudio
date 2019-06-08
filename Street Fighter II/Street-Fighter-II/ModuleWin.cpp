@@ -13,6 +13,7 @@
 #include "ModuleLose.h"
 #include "ModuleAudio.h"
 #include "ModuleUi.h"
+#include "ModuleFonts.h"
 
 ModuleWin::ModuleWin()
 {}

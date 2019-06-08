@@ -22,5 +22,7 @@ public:
 	SDL_Texture* texture_text = nullptr;
 	SDL_Rect text_rect;
 	Mix_Music* loose_music = nullptr;
+
+	int loose_font = 0;
 };
 #endif // !__MODULELOSE_H__

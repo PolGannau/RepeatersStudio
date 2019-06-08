@@ -11,6 +11,7 @@
 #include "ModuleAudio.h"
 #include "ModuleWin.h"
 #include "ModuleUi.h"
+#include "ModuleFonts.h"
 
 
 ModuleLose::ModuleLose()
@@ -33,7 +34,8 @@ bool ModuleLose::Start()
 
 	//load the images and create textures
 	texture_loser = App->textures->Load("Assets/Images/Ui/losescreen.png");
-
+	//Load font
+	loose_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
 	return true;
 }
 
@@ -42,7 +44,10 @@ update_status ModuleLose::Update()
 	if (update_status::UPDATE_ERROR)
 		LOG("Could not update lose scene");
 	
-	App->render->Blit(texture_loser, 0, 0, NULL);
+	//App->render->Blit(texture_loser, 0, 0, NULL);
+
+	App->fonts->BlitText(10,150,loose_font,"IT'S ONLY NATURAL FOR A SUMO TO");
+	App->fonts->BlitText(10,170,loose_font,"BECOME THE WORLD'S STRONGEST!");
 
 	//to exit the lose scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
