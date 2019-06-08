@@ -65,16 +65,14 @@ update_status ModulePlayersManager::Update()
 		player->vspeed += player->VerticalSpeed;
 	}
 	//BACKWARD
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
+	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
 	{
 		player->movement = MOVEMENT_CHARACTER::BACKWARD;
-		if (player->position.x > App->render->limit.x + 64)player->position.x -= 1;
 	}
 	//FORWARD
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
+	else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
 	{
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
-		if(player->position.x < (App->render->limit.x + player->auxiliar.w + 220))player->position.x += 1;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR)player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
@@ -122,14 +120,12 @@ update_status ModulePlayersManager::Update()
 	{
 		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
-		if(player2->position.x > App->render->limit.x + 64)player2->position.x -= 1;
 	}
 	//FORWARD
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT && player2->state == ON_FLOOR)
 	{
 		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
-		if (player2->position.x < (App->render->limit.x + player2->auxiliar.w + 220))player2->position.x += 1;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && player2->state == ON_FLOOR)player2->state = STATE_CHARACTER::STANDING_TO_CROUCHING;

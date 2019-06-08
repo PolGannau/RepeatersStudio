@@ -68,6 +68,7 @@ forward.PushBack({ 375, 1095, 107, 91 });
 forward.PushBack({ 80, 1095, 108, 91 });
 //forward.PushBack({ 637, 915, 124, 89 });
 forward.speed = 0.13f;
+forward.loop = true;
 
 // walk backwards animation
 //backward.PushBack({ 454, 624, 124, 89 });
@@ -80,6 +81,7 @@ backward.PushBack({ 224, 827, 100, 88 });
 backward.PushBack({ 585, 1004, 100, 90 });
 backward.PushBack({ 0, 1187, 99, 92 });
 backward.speed = 0.13f;
+backward.loop = true;
 
 //jump 
 neutralJump.PushBack({ 782, 1004, 107, 91 });//idle
@@ -1270,6 +1272,8 @@ update_status ModuleHonda::Update()
 		state = ON_FLOOR;
 		position.y = 212;
 	}
+	if (flip && movement == BACKWARD)movement = FORWARD;
+	else if (flip && movement == FORWARD)movement = BACKWARD;
 	
 	switch (state)
 	{
@@ -1288,6 +1292,35 @@ update_status ModuleHonda::Update()
 			else if (action == LIGHT_PUNCH)current_animation = &lightPunch;
 			else if (action == MEDIUM_PUNCH)current_animation = &mediumPunch;
 			else if (action == HEAVY_PUNCH)current_animation = &heavyPunch;
+		}
+		if (movement == TURN_LEFT)
+		{
+			current_animation = &turnLeft;
+			if (current_animation->Finished())
+			{
+				movement = BACKWARD;
+				current_animation->Reset();
+			}
+		}
+		if (movement == BACKWARD)
+		{
+			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 1;
+			else if(position.x < (App->render->limit.x + auxiliar.w + 220) && flip)position.x += 1;
+			current_animation = &backward;
+			if (current_animation->Finished())
+			{
+				movement = IDLE;
+			}
+		}
+		if (movement == FORWARD)
+		{
+			if (position.x < (App->render->limit.x + auxiliar.w + 220) && !flip)position.x += 1;
+			else if (position.x > App->render->limit.x + 64 && flip)position.x -= 1;
+			current_animation = &forward;
+			if (current_animation->Finished())
+			{
+				movement = IDLE;
+			}
 		}
 		break;
 	case STANDING_TO_CROUCHING:
