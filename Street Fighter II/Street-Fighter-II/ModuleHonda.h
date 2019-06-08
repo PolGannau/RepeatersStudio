@@ -105,6 +105,9 @@ public:
 	// Position
 	iPoint			position;
 
+	// Auxiliar Position
+	iPoint			auxPosition;
+
 	// Character Colliders
 	Collider* coll_head = nullptr;
 	Collider* coll_body = nullptr;
@@ -162,9 +165,6 @@ public:
 	Animation jumpLightPunch;
 	Animation jumpMediumPunch;
 	Animation jumpHeavyPunch;
-	Animation jumpDiagonalLightPunch;//same as jump LightPunch
-	Animation jumpDiagonalMediumPunch;//same as jump MediumPunch
-	Animation jumpDiagonalHeavyPunch;//same as jump HeavyPunch
 
 	//grabs
 	Animation throwing;//throws enemy

@@ -69,12 +69,14 @@ update_status ModulePlayersManager::Update()
 	{
 		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::BACKWARD;
+		player->position.x -= 1;
 	}
 	//FORWARD
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && player->state == ON_FLOOR)
 	{
 		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
+		player->position.x += 1;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR)player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
@@ -93,12 +95,14 @@ update_status ModulePlayersManager::Update()
 	{
 		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
+		player2->position.x -= 1;
 	}
 	//FORWARD
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT && player2->state == ON_FLOOR)
 	{
 		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
+		player2->position.x += 1;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && player2->state == ON_FLOOR)player2->state = STATE_CHARACTER::STANDING_TO_CROUCHING;

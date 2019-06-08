@@ -756,7 +756,7 @@ jumpDiagonalMediumKick.PushBack({ 129, 59, 129, 64 });//prep2
 jumpDiagonalMediumKick.PushBack({ 129, 59, 129, 64 });//prep2
 jumpDiagonalMediumKick.PushBack({ 129, 59, 129, 64 });//prep2
 jumpDiagonalMediumKick.PushBack({ 740, 267, 155, 73 });//dmg, until ground
-jumpDiagonalMediumPunch.speed = 1.0f;
+jumpDiagonalMediumKick.speed = 1.0f;
 
 jumpDiagonalHeavyKick.PushBack({ 204, 126, 95, 69 });//prep  3
 jumpDiagonalHeavyKick.PushBack({ 204, 126, 95, 69 });//prep
@@ -1245,6 +1245,7 @@ bool ModuleHonda::Start()
 	if(player_num == PLAYER_NUMBER::NUMBER_ONE)position.x = 100;
 	else position.x = 200;
 	position.y = 212;
+	auxPosition = position;
 	flip = false;
 	action = NO_ACTION;
 	movement = NO_MOVE;
@@ -1266,47 +1267,42 @@ update_status ModuleHonda::Update()
 		state = ON_FLOOR;
 		position.y = 212;
 	}
-	switch (movement)
-	{
-	case NO_MOVE:
-		current_animation = &idle;
-		break;
-	case BACKWARD:
-		if (flip)current_animation = &forward;
-		else current_animation = &backward;
-		position.x -= 1;
-		break;
-	case FORWARD:
-		if (flip)current_animation = &backward;
-		else current_animation = &forward;
-		position.x += 1;
-		break;
-	}
+	
 	switch (state)
 	{
 	case ON_FLOOR:
-		position.y = 212;
-		current_animation = &idle;
-		break;
-	case JUMPING:
-		current_animation = &neutralJump;
-		vspeed += acceleration;
-		position.y += vspeed;
+		if ((movement == IDLE || movement == NO_MOVE) && action == NO_ACTION)current_animation = &idle;
 		break;
 	case STANDING_TO_CROUCHING:
-		if (current_animation != &idleCrouch && current_animation != &crouching)current_animation = &crouching;
-		if (current_animation->Finished())state = CROUCHING;
 		break;
 	case CROUCHING:
-		current_animation = &idleCrouch;
 		break;
 	case CROUCHING_TO_STANDING:
-		current_animation = &standing;
-		if (current_animation->Finished())state = ON_FLOOR;
+		break;
+	case JUMPING:
+		break;
+	case VICTORY:
+		break;
+	case SECOND_VICTORY:
+		break;
+	case STUNNED:
+		break;
+	case KNOCK_DOWN:
+		break;
+	case STATE_CHARACTER::KO:
+		break;
+	case RECOVER:
+		break;
+	default:
 		break;
 	}
+
 	auxiliar = current_animation->GetCurrentFrame();
-	App->render->Blit(App->manager->graphics, position.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+
+	auxPosition.x = position.x + auxiliar.w;
+
+	if(flip)App->render->Blit(App->manager->graphics, position.x - (auxiliar.w - auxiliar.w/2), position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+	else App->render->Blit(App->manager->graphics, position.x - auxiliar.w/2, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
 	return update_status::UPDATE_CONTINUE;
 }
 
