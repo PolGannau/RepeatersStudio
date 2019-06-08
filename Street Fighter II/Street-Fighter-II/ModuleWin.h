@@ -16,6 +16,7 @@ public:
 	bool CleanUp();
 
 public:
+	SDL_Texture* portraits;
 
 	SDL_Texture* texture_text = nullptr;
 	SDL_Texture* texture_winner = nullptr;
@@ -28,6 +29,8 @@ public:
 	uint fx = 0;
 	Mix_Music* music = nullptr;
 
+	SDL_Rect portrait_win;
+	SDL_Rect portrait_loose;
 	int win_font = 0;
 };
 
