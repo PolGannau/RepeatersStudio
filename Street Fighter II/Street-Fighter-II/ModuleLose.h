@@ -2,6 +2,7 @@
 #define __MODULELOSE_H__
 
 #include "Module.h"
+#include "../SDL/include/SDL_render.h"
 
 struct SDL_Texture;
 
@@ -27,5 +28,6 @@ public:
 	SDL_Rect portrait_win;
 	SDL_Rect portrait_loose;
 	int loose_font = 0;
+
 };
 #endif // !__MODULELOSE_H__

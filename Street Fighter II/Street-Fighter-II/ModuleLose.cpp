@@ -40,8 +40,10 @@ bool ModuleLose::Start()
 	loose_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
 	//posar font classica (ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~'!@#$%^&*()-_+=[]{}| :;¨º<>,./?)->endgame font
 
-	portrait_loose = { 886, 386,72, 96 };
+	portrait_loose = { 886, 386, 72, 96 };
 	portrait_win = { 594, 225, 72, 96 };
+
+
 
 	return true;
 }

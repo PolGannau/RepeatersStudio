@@ -32,6 +32,7 @@ public:
 	SDL_Rect portrait_win;
 	SDL_Rect portrait_loose;
 	int win_font = 0;
+	
 };
 
 #endif // !__MODULEWIM_H__
