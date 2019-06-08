@@ -79,14 +79,37 @@ update_status ModulePlayersManager::Update()
 	else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
+	//JUMP
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player2->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
 	}
+	//BACKWARD
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_DOWN && player2->state == ON_FLOOR)
+	{
+		player2->state = STATE_CHARACTER::ON_FLOOR;
+		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
+	//FORWARD
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_DOWN && player2->state == ON_FLOOR)
+	{
+		player2->state = STATE_CHARACTER::ON_FLOOR;
+		player2->movement = MOVEMENT_CHARACTER::FORWARD;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_UP)MOVEMENT_CHARACTER::NO_MOVE;
 
-	if (player->position.x < player2->position.x)player2->flip = true;
-	else player->flip = true;
+	if (player->position.x < player2->position.x)
+	{
+		player->flip = false;
+		player2->flip = true;
+	}
+	if (player2->position.x < player->position.x)
+	{
+		player->flip = true;
+		player2->flip = false;
+	}
 
 	player2->Update();
 	player->Update();
