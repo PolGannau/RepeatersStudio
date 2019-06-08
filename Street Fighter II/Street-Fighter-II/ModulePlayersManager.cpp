@@ -84,10 +84,12 @@ update_status ModulePlayersManager::Update()
 	{
 		player->action = LIGHT_KICK;
 	}
+	//MEDIUM KICK
 	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN && player->action == NO_ACTION)
 	{
 		player->action = MEDIUM_KICK;
 	}
+	//HEAVY KICK
 	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN && player->action == NO_ACTION)
 	{
 		player->action = HEAVY_KICK;
@@ -118,6 +120,21 @@ update_status ModulePlayersManager::Update()
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && player2->state == ON_FLOOR)player2->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_UP && player2->state == CROUCHING)player2->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
+	//LIGHT KICK
+	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN && player2->action == NO_ACTION)
+	{
+		player2->action = LIGHT_KICK;
+	}
+	//MEDIUM KICK
+	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN && player2->action == NO_ACTION)
+	{
+		player2->action = MEDIUM_KICK;
+	}
+	//HEAVY KICK
+	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN && player2->action == NO_ACTION)
+	{
+		player2->action = HEAVY_KICK;
+	}
 
 	if (player->position.x < player2->position.x)
 	{
