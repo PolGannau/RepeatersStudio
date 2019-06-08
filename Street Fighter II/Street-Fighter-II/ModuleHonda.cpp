@@ -25,10 +25,12 @@ idle.PushBack({ 782, 1004, 107, 91 });//107
 //idle.PushBack({ 118, 736, 59, 90 });
 //idle.PushBack({ 366, 12, 60, 92 });
 idle.speed = 0.13f;
+idle.loop = true;
 
 //idle crouch aniamtion
 idleCrouch.PushBack({ 438,196,94,70 });
 idleCrouch.speed = 0.1f;
+idleCrouch.loop = true;
 
 //crouching
 crouching.PushBack({ 782, 1004, 10, 91 });//idle
