@@ -197,6 +197,7 @@ lightKick.PushBack({ 0, 915, 102, 88 });//prep
 lightKick.PushBack({ 0, 915, 102, 88 });//prep
 lightKick.PushBack({ 782, 1004, 107, 91 });//idle  1
 lightKick.speed = 1.0f;
+lightKick.loop = true;
 
 mediumKick.PushBack({ 782, 1004, 107, 91 });//idle  3
 mediumKick.PushBack({ 782, 1004, 107, 91 });//idle
@@ -1248,7 +1249,7 @@ bool ModuleHonda::Start()
 	auxPosition = position;
 	flip = false;
 	action = NO_ACTION;
-	movement = NO_MOVE;
+	movement = IDLE;
 	state = ON_FLOOR;
 	current_animation = &idle;
 	return true;
@@ -1271,7 +1272,18 @@ update_status ModuleHonda::Update()
 	switch (state)
 	{
 	case ON_FLOOR:
-		if ((movement == IDLE || movement == NO_MOVE) && action == NO_ACTION)current_animation = &idle;
+		if ((movement == IDLE && action == NO_ACTION))current_animation = &idle;
+		if (movement == IDLE)
+		{
+			if (current_animation->Finished())
+			{
+				current_animation->Reset();
+				action = NO_ACTION;
+			}
+			if (action == LIGHT_KICK)current_animation = &lightKick;
+			else if (action == MEDIUM_KICK)current_animation = &mediumKick;
+			else if (action == HEAVY_KICK)current_animation = &heavyKick;
+		}
 		break;
 	case STANDING_TO_CROUCHING:
 		break;

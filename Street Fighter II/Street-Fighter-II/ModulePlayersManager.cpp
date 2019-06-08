@@ -57,30 +57,32 @@ update_status ModulePlayersManager::Update()
 {
 
 	/// PLAYER INPUT CONTROL AND LOGIC ---------------------------------------------------
-	player->movement = NO_MOVE;
 	//JUMP
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN && player->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN)
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
 	}
 	//BACKWARD
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT && player->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT)
 	{
-		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::BACKWARD;
 		player->position.x -= 1;
 	}
 	//FORWARD
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT && player->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT)
 	{
-		player->state = STATE_CHARACTER::ON_FLOOR;
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
 		player->position.x += 1;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR)player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_UP && player->state == CROUCHING)player->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
+	//LIGHT KICK
+	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN)
+	{
+		player->action = LIGHT_KICK;
+	}
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
 	player2->movement = NO_MOVE;
