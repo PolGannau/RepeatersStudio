@@ -38,6 +38,7 @@ bool ModuleLose::Start()
 	portraits = App->textures->Load("Assets/Images/Ui/UiSprites-1.png");
 	//Load font
 	loose_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
+	//posar font classica (ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~'!@#$%^&*()-_+=[]{}| :;¨º<>,./?)->endgame font
 
 	portrait_loose = {526,775,265,337};
 	portrait_win = {261,775,265,337};
@@ -52,11 +53,13 @@ update_status ModuleLose::Update()
 	
 	//App->render->Blit(texture_loser, 0, 0, NULL);
 
-	App->render->Blit(portraits, 15, 20, &portrait_loose, NULL);
-	App->render->Blit(portraits, 15, 20, &portrait_win, NULL);
+	//Printing portraits
+	//App->render->Blit(portraits, 15, 20, &portrait_loose, NULL);
+	//App->render->Blit(portraits, 15, 20, &portrait_win, NULL);
 
-	App->fonts->BlitText(10,150,loose_font,"IT'S ONLY NATURAL FOR A SUMO TO");
-	App->fonts->BlitText(10,170,loose_font,"BECOME THE WORLD'S STRONGEST!");
+	App->fonts->BlitText(50,155,loose_font,"IT'S NATURAL FOR A SUMO");
+	App->fonts->BlitText(50,168,loose_font,"WRESTLER TO BECOME THE");
+	App->fonts->BlitText(50, 181, loose_font, "WORLD'S STRONGEST!");
 
 	//to exit the lose scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)

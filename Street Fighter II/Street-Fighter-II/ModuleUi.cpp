@@ -24,10 +24,12 @@ bool ModuleUi::Start()
 	LOG("Loading Ui");
 	hud = App->textures->Load("Assets/Images/Ui/Lifebar_assets.png");
 	
-	timer_font = App->fonts->Load("Assets/Images/Ui/FontsCaps2.png","ABCDEFGHIJKLMNOPQRSTUVWXYZ.?1234567890!", 1);
+	
+	timer_font = App->fonts->Load("Assets/Images/Ui/Fonts/timervalues.png","0123456789<> ", 1);
 	//start_time = SDL_GetTicks()*1000;
 	score_font = App->fonts->Load("Assets/Images/Ui/Fonts/FontPScore.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~'!@#$%^&*()-_+=[]{}| :;¨º<>,./?", 1);
 	char_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
+
 
 	lifebar1_rect2 = { 2,2,149,13 };
 	lifebar2_rect2 = { 2,2,149,13 };
@@ -38,7 +40,6 @@ bool ModuleUi::Start()
 	round_win = { 66,36,17,20 };
 
 	pos_bar = 149;
-
 
 	return true;
 }
@@ -75,16 +76,19 @@ update_status ModuleUi::Update()
 	App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	App->render->Blit(hud, 179, 8, &ko_white, NULL);
 	   
-	current_time = SDL_GetTicks();
-	
+	//current_time = SDL_GetTicks();
+		
 	App->fonts->BlitText(2, 0, score_font, "1P");
 	App->fonts->BlitText(150, 0, score_font, "HI");
 	App->fonts->BlitText(280, 0, score_font, "2P");
 	App->fonts->BlitText(30, 26, char_font, "E.HONDA");
 	App->fonts->BlitText(270, 26, char_font, "E.HONDA");
 
-	//timer_numbers = 100 - (current_time / 1000);
-	App->fonts->BlitText(178, 30, timer_font, timer_numbers);
+
+	//timer_value = 100 - (current_time * 1000);
+	//timer_value = timer_value + '0';
+	//timer_numbers = timer_value;
+	App->fonts->BlitText(178, 32, timer_font, "99");
 
 	if ((current_time - last_time) >= KO_TIMER)
 	{

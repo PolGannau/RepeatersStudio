@@ -36,7 +36,10 @@ public:
 	//
 	//int current_timer = 0;
 	int timer_font = 0;
-	char timer_numbers[3];
+	int start_time = 0;
+	int current_time_timer = 0;
+	uint timer_value = 0;
+	char timer_numbers[10];
 	//
 	int score_font = 0;
 	int p1_score = 0;
@@ -45,7 +48,6 @@ public:
 	char player_score[10];
 	//
 	int char_font = 0;
-	//char char_name[10];
 	//
 
 };

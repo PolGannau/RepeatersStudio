@@ -49,8 +49,8 @@ update_status ModuleWin::Update()
 	//blit the images of the fighters (winner and loser)
 	//App->render->Blit(texture_winner, 0, 0, NULL);
 
-	App->fonts->BlitText(80, 150, win_font, "IS THAT THE BEST");
-	App->fonts->BlitText(80, 170, win_font, "YOU CAN DO?");
+	App->fonts->BlitText(60, 150, win_font, "CAN'T YOU DO BETTER THAN");
+	App->fonts->BlitText(60, 165, win_font, "THAT?");
 
 	//to exit the scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
