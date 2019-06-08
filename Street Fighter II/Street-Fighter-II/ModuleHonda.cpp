@@ -1275,11 +1275,13 @@ update_status ModuleHonda::Update()
 		current_animation = &idle;
 		break;
 	case BACKWARD:
-		current_animation = &backward;
+		if (flip)current_animation = &forward;
+		else current_animation = &backward;
 		position.x -= 1;
 		break;
 	case FORWARD:
-		current_animation = &forward;
+		if (flip)current_animation = &backward;
+		else current_animation = &forward;
 		position.x += 1;
 		break;
 	}
