@@ -39,9 +39,11 @@ public:
 	int score_font = 0;
 	char* p1score;
 	char* p2score;
+	char* hscore;
 	//
 	int char_font = 0;
 	//
+	char* timer;
 
 };
 #endif // !__MODULEUI_H__

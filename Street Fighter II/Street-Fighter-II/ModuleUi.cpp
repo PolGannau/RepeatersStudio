@@ -120,13 +120,26 @@ update_status ModuleUi::Update()
 	Puntuation();
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
-	//App->fonts->BlitText
+	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 260 - strlen(hscore) * 12, 0, score_font, hscore);
 	return UPDATE_CONTINUE;
 }
 
 void ModuleUi::Puntuation() {
 	std::string p1score_str = std::to_string(App->manager->player->score);
 	std::string p2score_str = std::to_string(App->manager->player2->score);
+	int score1 = App->manager->player->score;
+	int score2 = App->manager->player2->score;
+
+	if (score1 > score2) {
+		std::string hscore_str = std::to_string(App->manager->player->score);
+		hscore = new char[hscore_str.length() + 1];
+		strcpy_s(hscore, hscore_str.length() + 1, hscore_str.c_str());
+	}
+	else {
+		std::string hscore_str = std::to_string(App->manager->player2->score);
+		hscore = new char[hscore_str.length() + 1];
+		strcpy_s(hscore, hscore_str.length() + 1, hscore_str.c_str());
+	}
 
 	p1score = new char[p1score_str.length() + 1];
 	strcpy_s(p1score, p1score_str.length() + 1, p1score_str.c_str());

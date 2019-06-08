@@ -105,7 +105,7 @@ public:
 	// Round and Game Win Control
 	bool round_won = false;
 	bool game_won = false;
-
+	
 	// Position
 	iPoint			position;
 
