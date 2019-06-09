@@ -16,7 +16,7 @@ ModulePlayersManager::~ModulePlayersManager()
 bool ModulePlayersManager::Start()
 {
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite.png");
-	
+	graphics2 = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite2.png");
 	nonhit_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/unhit_fist.wav");
 	lightpunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hit short.wav");
 	mediumpunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Mid Punch.wav");
@@ -53,6 +53,7 @@ bool ModulePlayersManager::CleanUp()
 	player = player2 = nullptr;
 	LOG("Unloading Character Spritesheet...");
 	App->textures->Unload(graphics);
+	App->textures->Unload(graphics2);
 
 	App->audio->UnloadSoundEffects(nonhit_sfx);
 	App->audio->UnloadSoundEffects(lightpunch_sfx);

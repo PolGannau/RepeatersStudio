@@ -1475,7 +1475,11 @@ update_status ModuleHonda::Update()
 	if(flip)auxPosition.x = position.x - (auxiliar.w - auxiliar.w/2);
 	else auxPosition.x = position.x - auxiliar.w / 2;
 
-	if(position.y <= 212)App->render->Blit(App->manager->graphics, auxPosition.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+	if (position.y <= 212)
+	{
+		if (player_num == PLAYER_NUMBER::NUMBER_TWO)App->render->Blit(App->manager->graphics2, auxPosition.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+		else App->render->Blit(App->manager->graphics, auxPosition.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+	}
 	return update_status::UPDATE_CONTINUE;
 }
 
