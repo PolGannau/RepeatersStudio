@@ -5,6 +5,7 @@
 #include <string>
 
 #define KO_TIMER 750
+#define TIMER_VALUE 9900
 
 struct SDL_Texture;
 

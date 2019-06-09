@@ -40,7 +40,7 @@ bool ModuleUi::Start()
 
 	pos_bar = 149;
 	
-	start_time = SDL_GetTicks()/1000;
+	start_time = SDL_GetTicks();
 
 	return true;
 }
@@ -58,11 +58,12 @@ bool ModuleUi::CleanUp()
 
 update_status ModuleUi::Update()
 {
+	current_time = SDL_GetTicks();
 	//decresion of lifebar player 2
-	//lifebar2_rect2.w = 149 * App->player2->life / 100;
+	lifebar2_rect2.w = 149 * App->manager->player2->hp / 100;
 
 	//decresion of lifebar player 1
-	//lifebar1_rect2.w = 149 * App->player->life / 100;
+	lifebar1_rect2.w = 149 * App->manager->player->hp / 100;
 
 	//blit the health bars
 	//red ones
@@ -98,6 +99,30 @@ update_status ModuleUi::Update()
 	{
 		App->render->Blit(hud, 178, 7, &ko_red, NULL);
 	}
+
+	//TIME OVER
+	/*if ((current_time - last_time) >= TIMER_VALUE)
+	{
+		if (App->manager->player->hp > App->manager->player2->hp)
+		{
+			if (App->manager->player2->round_won)App->manager->player2->game_won = true;
+			App->manager->player2->round_won = true;
+			if (App->manager->player2->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_lose);
+			App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
+			App->honda_stage->control = false;
+		}
+		if (App->manager->player2->round_won == true)App->render->Blit(hud, SCREEN_WIDTH - 17, 10, &round_win, NULL);
+
+		if (App->manager->player->hp < App->manager->player2->hp)
+		{
+			if (App->manager->player->round_won)App->manager->player->game_won = true;
+			App->manager->player->round_won = true;
+			if (App->manager->player->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_win);
+			App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
+			App->honda_stage->control = false;
+		}
+		if (App->manager->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
+	}*/
 
 	//round wins
 	//player2 round win
