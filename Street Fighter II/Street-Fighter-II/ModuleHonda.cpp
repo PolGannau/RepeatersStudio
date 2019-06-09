@@ -1304,7 +1304,7 @@ update_status ModuleHonda::Update()
 			if (action == LIGHT_KICK)current_animation = &lightKick;
 			else if (action == MEDIUM_KICK)current_animation = &mediumKick;
 			else if (action == HEAVY_KICK)current_animation = &heavyKick;
-			else if (action == LIGHT_PUNCH)current_animation = &lightPunch;
+			if (action == LIGHT_PUNCH)current_animation = &lightPunch;
 			else if (action == MEDIUM_PUNCH)current_animation = &mediumPunch;
 			else if (action == HEAVY_PUNCH)current_animation = &heavyPunch;
 		}
@@ -1405,7 +1405,7 @@ update_status ModuleHonda::Update()
 		{
 			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 2;
 			else if (position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w / 2) && flip)position.x += 2;
-			current_animation = &backwardJump;
+			current_animation = &neutralJump;
 		}
 		if (movement == IDLE && action == NO_ACTION)current_animation = &neutralJump;
 		else if (movement == IDLE && action == LIGHT_KICK)current_animation = &jumpLightKick;
