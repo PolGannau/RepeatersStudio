@@ -59,8 +59,8 @@ bool ModuleStageHonda::Start()
 	App->render->limit.x = 0;
 	App->module_ui->time_fight = 99;
 
-	if (App->manager->player->player_num == PLAYER_NUMBER::NUMBER_ONE)App->manager->player->position.x = 100;
-	else App->manager->player2->position.x = 200;
+	App->manager->player->position.x = 100;
+	App->manager->player2->position.x = 300;
 	App->manager->player2->position.y = App->manager->player->position.y= 212;
 	App->manager->player->hp = 100;
 	App->manager->player2->hp = 100;

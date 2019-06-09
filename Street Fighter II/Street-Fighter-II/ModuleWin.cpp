@@ -60,7 +60,9 @@ update_status ModuleWin::Update()
 	App->fonts->BlitText(50, 185, win_font, "THAT?");
 
 	//to exit the scene Space must be pressed
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_START] == KEY_STATE::KEY_DOWN ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_START] == KEY_STATE::KEY_DOWN)
 		App->fade->FadeToBlack(App->module_win, App->scene_intro);
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(App->module_win, App->module_lose);
