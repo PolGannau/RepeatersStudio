@@ -87,9 +87,9 @@ update_status ModuleUi::Update()
 	TimerBlit();
 
 	Puntuation();
-	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
-	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
-	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 260 - strlen(hscore) * 12, 0, score_font, hscore);
+	App->fonts->BlitText(120 - strlen(p1score) * 12, 0, score_font, p1score);
+	App->fonts->BlitText(380 - strlen(p2score) * 12, 0, score_font, p2score);
+	App->fonts->BlitText(260 - strlen(hscore) * 12, 0, score_font, hscore);
 
 	/*if ((current_time - last_time) >= KO_TIMER)
 	{
@@ -123,10 +123,7 @@ update_status ModuleUi::Update()
 	}
 	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
 	*/
-	Puntuation();
-	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
-	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
-	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 260 - strlen(hscore) * 12, 0, score_font, hscore);
+
 
 	return UPDATE_CONTINUE;
 }

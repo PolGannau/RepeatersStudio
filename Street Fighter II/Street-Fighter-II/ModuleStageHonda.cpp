@@ -88,12 +88,12 @@ update_status ModuleStageHonda::Update()
 	    App->render->limit.x += 5;
 	if (App->input->keyboard[SDL_SCANCODE_N] == KEY_REPEAT)
 		App->render->camera.x -= 5;
-	App->render->limit.x -= 5;
+	App->render->limit.x -= 5;*/
 	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
 		App->fade->FadeToBlack(this, App->module_win);
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(this, App->module_lose);
-		*/
+		
 
 	//Camera Limits
 	if (App->manager->player->auxPosition.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->manager->player2->auxPosition.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
@@ -106,19 +106,7 @@ update_status ModuleStageHonda::Update()
 		App->render->camera.x -= 1;
 		App->render->limit.x -= 1;
 	}
-
 	
-	
-	//timer
-	/*timer_aux = SDL_GetTicks();
-	time1 = ((timer_aux - timer_start)*1000)/10;
-	time2 = ((timer_aux - timer_start)*1000)%10;
-	timer[0] = (char)time1;
-	timer[1] = (char)time2;
-	App->fonts->BlitText(178, 50, timer_font, timer);
-	sprintf_s(timer, 10, "%i", time_fight);
-	App->fonts->BlitText(178, 40, timer_font, timer);*/
-
 
 	//blit the map
 	App->render->Blit(stage_texture, -71, wall.h - 35, &floor);
