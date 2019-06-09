@@ -4,6 +4,8 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
+#include "ModuleAudio.h"
+#include "../SDL_Mixer/include/SDL_mixer.h"
 
 ModulePlayersManager::ModulePlayersManager()
 {}
@@ -14,6 +16,8 @@ ModulePlayersManager::~ModulePlayersManager()
 bool ModulePlayersManager::Start()
 {
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite.png");
+	nonhit_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/unhit_fist.wav");
+
 	player = CreatePlayer(PLAYER_NUMBER::NUMBER_ONE);
 	player2 = CreatePlayer(PLAYER_NUMBER::NUMBER_TWO);
 	player->vspeed = 0;
@@ -39,6 +43,7 @@ bool ModulePlayersManager::CleanUp()
 	player = player2 = nullptr;
 	LOG("Unloading Character Spritesheet...");
 	App->textures->Unload(graphics);
+	App->audio->UnloadSoundEffects(nonhit_sfx);
 
 	return true;
 }
@@ -83,31 +88,37 @@ update_status ModulePlayersManager::Update()
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_A] == KEY_DOWN)
 	{
 		player->action = LIGHT_KICK;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//MEDIUM KICK
 	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_B] == KEY_DOWN)
 	{
 		player->action = MEDIUM_KICK;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//HEAVY KICK
 	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_R1] == KEY_DOWN)
 	{
 		player->action = HEAVY_KICK;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//LIGHT PUNCH
 	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_X] == KEY_DOWN)
 	{
 		player->action = LIGHT_PUNCH;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//MEDIUM PUNCH
 	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_Y] == KEY_DOWN)
 	{
 		player->action = MEDIUM_PUNCH;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//HEAVY PUNCH
 	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_L1] == KEY_DOWN)
 	{
 		player->action = HEAVY_PUNCH;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
@@ -134,31 +145,37 @@ update_status ModulePlayersManager::Update()
 	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_A] == KEY_DOWN)
 	{
 		player2->action = LIGHT_KICK;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//MEDIUM KICK
 	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_B] == KEY_DOWN)
 	{
 		player2->action = MEDIUM_KICK;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//HEAVY KICK
 	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_R1] == KEY_DOWN)
 	{
 		player2->action = HEAVY_KICK;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//LIGHT PUNCH
 	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_X] == KEY_DOWN)
 	{
 		player2->action = LIGHT_PUNCH;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//MEDIUM PUNCH
 	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_Y] == KEY_DOWN)
 	{
 		player2->action = MEDIUM_PUNCH;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 	//HEAVY PUNCH
 	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_L1] == KEY_DOWN)
 	{
 		player2->action = HEAVY_PUNCH;
+		App->audio->PlaySoundEffect(nonhit_sfx);
 	}
 
 	if (player->position.x < player2->position.x)
