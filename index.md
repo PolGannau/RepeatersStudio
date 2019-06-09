@@ -6,6 +6,8 @@ Our group had to replicate the character E.Honda, together with his stage.
 
 ![](https://github.com/PolGannau/RepeatersStudio/blob/master/Wiki%20Documents/Images/RepeatersStudiolittle.png)
 
+![](https://cdn.discordapp.com/attachments/556547182443102260/587354689960673281/unknown.png)
+
 ## Github
  
 Here's a link to our group's github repository, where you can find different releases of our game to see changes over time, as well as assets or source code. There's also a link to our project wiki, a research assignment based on compiling information about Street Fighter II.
