@@ -1345,8 +1345,10 @@ update_status ModuleHonda::Update()
 	case JUMPING:
 		break;
 	case VICTORY:
+		current_animation = &victory;
 		break;
 	case SECOND_VICTORY:
+		current_animation = &victory2;
 		break;
 	case STUNNED:
 		break;

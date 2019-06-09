@@ -118,13 +118,11 @@ update_status ModulePlayersManager::Update()
 	//BACKWARD
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT && player2->state == ON_FLOOR)
 	{
-		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
 	}
 	//FORWARD
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT && player2->state == ON_FLOOR)
 	{
-		player2->state = STATE_CHARACTER::ON_FLOOR;
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
 	//CROUCH
