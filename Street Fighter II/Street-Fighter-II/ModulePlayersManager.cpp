@@ -94,11 +94,13 @@ update_status ModulePlayersManager::Update()
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
+		player->action = NO_ACTION;
 	}
 	else if (SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 && player->state == ON_FLOOR)
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
+		player->action = NO_ACTION;
 	}
 	//BACKWARD
 	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT || 
@@ -106,6 +108,7 @@ update_status ModulePlayersManager::Update()
 		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_LEFT] == KEY_STATE::KEY_REPEAT)
 	{
 		player->movement = MOVEMENT_CHARACTER::BACKWARD;
+		player->action = NO_ACTION;
 	}
 	//FORWARD
 	else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT || 
@@ -113,20 +116,23 @@ update_status ModulePlayersManager::Update()
 		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
+		player->action = NO_ACTION;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR ||
 		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY) > 10000 && player->state == ON_FLOOR ||
 		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_REPEAT && player->state == ON_FLOOR)
-	
+	{
 		player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
-	
+		player->action = NO_ACTION;
+	}
 	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_UP && player->state == CROUCHING ||
 		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY) < 10000 && player->state == CROUCHING ||
 		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_UP && player->state == CROUCHING)
-	
+	{
 		player->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
-	
+		player->action = NO_ACTION;
+	}
 	//LIGHT KICK
 	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN && player->action == NO_ACTION || 
 		App->input->Controller1[SDL_CONTROLLER_BUTTON_A] == KEY_STATE::KEY_DOWN)
@@ -177,11 +183,13 @@ update_status ModulePlayersManager::Update()
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
+		player2->action = NO_ACTION;
 	}
 	else if (SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 && player2->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
+		player2->action = NO_ACTION;
 	}
 	//BACKWARD
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT ||
@@ -189,6 +197,7 @@ update_status ModulePlayersManager::Update()
 		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_LEFT] == KEY_STATE::KEY_REPEAT)
 	{
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
+		player2->action = NO_ACTION;
 	}
 	//FORWARD
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT ||
@@ -196,6 +205,7 @@ update_status ModulePlayersManager::Update()
 		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
+		player2->action = NO_ACTION;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && player2->state == ON_FLOOR ||
@@ -203,12 +213,14 @@ update_status ModulePlayersManager::Update()
 		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_REPEAT && player2->state == ON_FLOOR)
 	{
 		player2->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
+		player2->action = NO_ACTION;
 	}
 	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_UP && player2->state == CROUCHING ||
 		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY) < 10000 && player2->state == CROUCHING ||
 		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_UP && player2->state == CROUCHING)
 	{
 		player2->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
+		player2->action = NO_ACTION;
 	}
 	//LIGHT KICK
 	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN && player2->action == NO_ACTION ||
