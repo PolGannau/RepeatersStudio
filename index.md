@@ -19,7 +19,7 @@ Here's a link to our group's github repository, where you can find different rel
  
  ><link>
  
- * **Link to releases page**
+ * **Link to our latest releases**
  ><https://github.com/PolGannau/RepeatersStudio/releases>
  
  * **Link to project wiki**
