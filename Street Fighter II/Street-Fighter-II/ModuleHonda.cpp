@@ -554,7 +554,9 @@ crouchMediumPunch.speed = 1.0f;
 //crouch heavy punch
 
 crouchHeavyPunch.PushBack({ 438, 196, 94, 70 });//idleCrouch  2
+crouchHeavyPunch.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyPunch.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchHeavyPunch.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyPunch.PushBack({ 109, 340, 123, 74 });//prep  3
 crouchHeavyPunch.PushBack({ 109, 340, 123, 74 });//prep
 crouchHeavyPunch.PushBack({ 109, 340, 123, 74 });//prep
@@ -590,13 +592,17 @@ crouchHeavyPunch.PushBack({ 109, 340, 123, 74 });//prep  3
 crouchHeavyPunch.PushBack({ 109, 340, 123, 74 });//prep
 crouchHeavyPunch.PushBack({ 109, 340, 123, 74 });//prep
 crouchHeavyPunch.PushBack({ 438, 196, 94, 70 });//idleCrouch  1
+crouchHeavyPunch.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyPunch.speed = 1.0f;
 
 //crouch light kick
 
 crouchLightKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  3
+crouchLightKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchLightKick.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchLightKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchLightKick.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchLightKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchLightKick.PushBack({ 232, 340, 108, 74 });//prep 3
 crouchLightKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchLightKick.PushBack({ 232, 340, 108, 74 });//prep
@@ -604,8 +610,11 @@ crouchLightKick.PushBack({ 359, 267, 118, 72 });//kick 3
 crouchLightKick.PushBack({ 359, 267, 118, 72 });//kick
 crouchLightKick.PushBack({ 359, 267, 118, 72 });//kick
 crouchLightKick.PushBack({ 626, 196, 146, 71 });//dmg  3
+crouchLightKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchLightKick.PushBack({ 626, 196, 146, 71 });//dmg
+crouchLightKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchLightKick.PushBack({ 626, 196, 146, 71 });//dmg
+crouchLightKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchLightKick.PushBack({ 359, 267, 118, 72 });//kick 3
 crouchLightKick.PushBack({ 359, 267, 118, 72 });//kick
 crouchLightKick.PushBack({ 359, 267, 118, 72 });//kick
@@ -613,24 +622,37 @@ crouchLightKick.PushBack({ 232, 340, 108, 74 });//prep 3
 crouchLightKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchLightKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchLightKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  1
+crouchLightKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchLightKick.speed = 1.0f;
 
 //crouch medium kick
 crouchMediumKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  3
+crouchMediumKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchMediumKick.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchMediumKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchMediumKick.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchMediumKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchMediumKick.PushBack({ 232, 340, 108, 74 });//prep 3
 crouchMediumKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchMediumKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchMediumKick.PushBack({ 359, 267, 118, 72 });//dmg1 3
+crouchMediumKick.CollPushBack({ 43,0,20,25 }, { 4,25,79,11 }, { 0,36,26,36 }, { 101,10,17,13 });
 crouchMediumKick.PushBack({ 359, 267, 118, 72 });//dmg1
+crouchMediumKick.CollPushBack({ 43,0,20,25 }, { 4,25,79,11 }, { 0,36,26,36 }, { 101,10,17,13 });
 crouchMediumKick.PushBack({ 359, 267, 118, 72 });//dmg1
+crouchMediumKick.CollPushBack({ 43,0,20,25 }, { 4,25,79,11 }, { 0,36,26,36 }, { 101,10,17,13 });
 crouchMediumKick.PushBack({ 626, 196, 146, 71 });//dmg2  6
+crouchMediumKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchMediumKick.PushBack({ 626, 196, 146, 71 });//dmg2
+crouchMediumKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchMediumKick.PushBack({ 626, 196, 146, 71 });//dmg2
+crouchMediumKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchMediumKick.PushBack({ 626, 196, 146, 71 });//dmg2
+crouchMediumKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchMediumKick.PushBack({ 626, 196, 146, 71 });//dmg2
+crouchMediumKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchMediumKick.PushBack({ 626, 196, 146, 71 });//dmg2
+crouchMediumKick.CollPushBack({ 41,2,20,25 }, { 2,27,94,20 }, { 2,47,26,24 }, { 107,0,39,25 });
 crouchMediumKick.PushBack({ 359, 267, 118, 72 });//kick 5
 crouchMediumKick.PushBack({ 359, 267, 118, 72 });//kick
 crouchMediumKick.PushBack({ 359, 267, 118, 72 });//kick
@@ -641,34 +663,52 @@ crouchMediumKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchMediumKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchMediumKick.PushBack({ 232, 340, 108, 74 });//prep
 crouchMediumKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  1
+crouchMediumKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchMediumKick.speed = 1.0f;
 
 // crouch heavy kick
 crouchHeavyKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  3
+crouchHeavyKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyKick.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchHeavyKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyKick.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouchHeavyKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyKick.PushBack({ 0, 340, 109, 74 });//prep  4
 crouchHeavyKick.PushBack({ 0, 340, 109, 74 });//prep
 crouchHeavyKick.PushBack({ 0, 340, 109, 74 });//prep
 crouchHeavyKick.PushBack({ 0, 340, 109, 74 });//prep
 crouchHeavyKick.PushBack({ 625, 416, 140, 77 });//dmg1  6
+crouchHeavyKick.CollPushBack({ 37,0,20,25 }, { 16,25,79,21 }, { 0,46,26,30 }, { 100,53,40,24 });
 crouchHeavyKick.PushBack({ 625, 416, 140, 77 });//dmg1
+crouchHeavyKick.CollPushBack({ 37,0,20,25 }, { 16,25,79,21 }, { 0,46,26,30 }, { 100,53,40,24 });
 crouchHeavyKick.PushBack({ 625, 416, 140, 77 });//dmg1
+crouchHeavyKick.CollPushBack({ 37,0,20,25 }, { 16,25,79,21 }, { 0,46,26,30 }, { 100,53,40,24 });
 crouchHeavyKick.PushBack({ 625, 416, 140, 77 });//dmg1
+crouchHeavyKick.CollPushBack({ 37,0,20,25 }, { 16,25,79,21 }, { 0,46,26,30 }, { 100,53,40,24 });
 crouchHeavyKick.PushBack({ 625, 416, 140, 77 });//dmg1
+crouchHeavyKick.CollPushBack({ 37,0,20,25 }, { 16,25,79,21 }, { 0,46,26,30 }, { 100,53,40,24 });
 crouchHeavyKick.PushBack({ 625, 416, 140, 77 });//dmg1
+crouchHeavyKick.CollPushBack({ 37,0,20,25 }, { 16,25,79,21 }, { 0,46,26,30 }, { 100,53,40,24 });
 crouchHeavyKick.PushBack({ 772, 340, 82, 75 });//spin  4
 crouchHeavyKick.PushBack({ 772, 340, 82, 75 });//spin
 crouchHeavyKick.PushBack({ 772, 340, 82, 75 });//spin
 crouchHeavyKick.PushBack({ 772, 340, 82, 75 });//spin
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2  8
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 299, 126, 109, 69 });//dmg2
+crouchHeavyKick.CollPushBack({ 74,0,23,13 }, { 46,13,51,26 }, { 0,39,97,30 }, { 97,13,12,39 });
 crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover 6
 crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover
 crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover
@@ -676,6 +716,7 @@ crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover
 crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover
 crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover
 crouchHeavyKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  1
+crouchHeavyKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyKick.speed = 1.0f;
 
 ///TREURE COLLIDERS FINS AQUIII
@@ -1588,7 +1629,7 @@ update_status ModuleHonda::Update()
 			else if (action == HEAVY_KICK)current_animation = &crouchHeavyKick;
 			else if (action == LIGHT_PUNCH)current_animation = &crouchLightPunch;
 			else if (action == MEDIUM_PUNCH)current_animation = &crouchMediumPunch;
-			else if (action == HEAVY_PUNCH)current_animation = &crouchHeavyPunch;
+			else if (action == HEAVY_PUNCH)current_animation = &crouchMediumPunch;
 			if (movement == HIT)current_animation = &crouchHit;
 			else if (movement == GUT_HIT)current_animation = &crouchHit;
 			if (action == BLOCK)current_animation = &crouchblock;
