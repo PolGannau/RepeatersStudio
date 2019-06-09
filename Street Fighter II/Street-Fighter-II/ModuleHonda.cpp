@@ -1282,6 +1282,9 @@ update_status ModuleHonda::Update()
 		jumpLightPunch.Reset();
 		jumpMediumPunch.Reset();
 		jumpHeavyPunch.Reset();
+		jumpDiagonalLightKick.Reset();
+		jumpDiagonalMediumKick.Reset();
+		jumpDiagonalHeavyKick.Reset();
 		position.y = 212;
 	}
 	if (flip && movement == BACKWARD)movement = FORWARD;
@@ -1380,13 +1383,19 @@ update_status ModuleHonda::Update()
 	case JUMPING:
 		vspeed += acceleration;
 		position.y += vspeed;
-		if (movement == FORWARD && action == NO_ACTION)
+		if (movement == FORWARD)
 		{
 			if (position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w) && !flip)position.x += 2;
 			else if (position.x > App->render->limit.x + 64 && flip)position.x -= 2;
 			current_animation = &forwardJump;
+			if (action == LIGHT_KICK)current_animation = &jumpDiagonalLightKick;
+			else if (action == MEDIUM_KICK)current_animation = &jumpDiagonalMediumKick;
+			else if (action == HEAVY_KICK)current_animation = &jumpDiagonalHeavyKick;
+			if (action == LIGHT_PUNCH)current_animation = &jumpLightPunch;
+			else if (action == MEDIUM_PUNCH)current_animation = &jumpMediumPunch;
+			else if (action == HEAVY_PUNCH)current_animation = &jumpHeavyPunch;
 		}
-		if (movement == BACKWARD && action == NO_ACTION)
+		if (movement == BACKWARD)
 		{
 			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 2;
 			else if (position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w / 2) && flip)position.x += 2;
