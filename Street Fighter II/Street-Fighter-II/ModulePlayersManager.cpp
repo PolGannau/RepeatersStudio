@@ -34,7 +34,7 @@ bool ModulePlayersManager::Start()
 	player->vspeed = 0;
 	player2->vspeed = 0;
 	player->position.x = 100;
-	player2->position.x = 200;
+	player2->position.x = 300;
 
 	return true;
 }
