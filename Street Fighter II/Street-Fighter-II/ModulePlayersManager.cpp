@@ -16,8 +16,18 @@ ModulePlayersManager::~ModulePlayersManager()
 bool ModulePlayersManager::Start()
 {
 	graphics = App->textures->Load("../Game/Assets/Images/Characters/hondaSprite.png");
+	
 	nonhit_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/unhit_fist.wav");
-
+	lightpunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hit short.wav");
+	mediumpunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Mid Punch.wav");
+	heavypunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard Punch.wav");
+	lightkick_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Kick.wav");
+	mediumkick_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Mid kick.wav");
+	heavykick_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard kick.wav");
+	special_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard Hit.wav");
+	block_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Blocked Punch.wav");
+	laugh_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/Honda/Laugh.wav");
+	
 	player = CreatePlayer(PLAYER_NUMBER::NUMBER_ONE);
 	player2 = CreatePlayer(PLAYER_NUMBER::NUMBER_TWO);
 	player->vspeed = 0;
@@ -43,7 +53,17 @@ bool ModulePlayersManager::CleanUp()
 	player = player2 = nullptr;
 	LOG("Unloading Character Spritesheet...");
 	App->textures->Unload(graphics);
+
 	App->audio->UnloadSoundEffects(nonhit_sfx);
+	App->audio->UnloadSoundEffects(lightpunch_sfx);
+	App->audio->UnloadSoundEffects(mediumpunch_sfx);
+	App->audio->UnloadSoundEffects(heavypunch_sfx);
+	App->audio->UnloadSoundEffects(lightkick_sfx);
+	App->audio->UnloadSoundEffects(mediumkick_sfx);
+	App->audio->UnloadSoundEffects(heavykick_sfx);
+	App->audio->UnloadSoundEffects(special_sfx);
+	App->audio->UnloadSoundEffects(block_sfx);
+	App->audio->UnloadSoundEffects(laugh_sfx);
 
 	return true;
 }

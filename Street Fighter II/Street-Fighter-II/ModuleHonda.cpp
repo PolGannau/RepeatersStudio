@@ -1267,8 +1267,7 @@ bool ModuleHonda::Start()
 	special_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard Hit.wav");
 	block_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Blocked Punch.wav");
 	laugh_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/Honda/Laugh.wav");
-	nonhit_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/unhit_fist.wav");
-
+	
 	return true;
 }
 

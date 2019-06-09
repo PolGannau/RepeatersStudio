@@ -25,6 +25,9 @@ public:
 	//Player 1 & Player 2 pointers
 	ModuleHonda*		player;
 	ModuleHonda*		player2;
+
+	//sfx
+	Mix_Chunk* nonhit_sfx;
 		
 };
 
