@@ -76,18 +76,6 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 public:
-	//Sound Effects
-	Mix_Chunk* lightpunch_sfx;
-	Mix_Chunk* mediumpunch_sfx;
-	Mix_Chunk* heavypunch_sfx;
-	Mix_Chunk* lightkick_sfx;
-	Mix_Chunk* mediumkick_sfx;
-	Mix_Chunk* heavykick_sfx;
-	Mix_Chunk* special_sfx;
-	Mix_Chunk* block_sfx;
-	Mix_Chunk* laugh_sfx;
-	Mix_Chunk* nonhit_sfx;
-	
 	// Scores
 	int				font_score = -1;
 	char			score_text[10];

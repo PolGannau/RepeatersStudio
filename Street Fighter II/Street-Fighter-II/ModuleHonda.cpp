@@ -1258,16 +1258,6 @@ bool ModuleHonda::Start()
 	state = ON_FLOOR;
 	current_animation = &idle;
 
-	lightpunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hit short.wav");
-	mediumpunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Mid Punch.wav");
-	heavypunch_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard Punch.wav");
-	lightkick_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Kick.wav");
-	mediumkick_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Mid kick.wav");
-	heavykick_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard kick.wav");
-	special_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Hard Hit.wav");
-	block_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/GeneralAttacks/Blocked Punch.wav");
-	laugh_sfx = App->audio->LoadEffect("Assets/Audio/Voice&SFX/Honda/Laugh.wav");
-	
 	return true;
 }
 
