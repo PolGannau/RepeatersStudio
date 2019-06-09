@@ -1348,6 +1348,9 @@ update_status ModuleHonda::Update()
 			if (action = KNEES)current_animation = &knees;
 			else if (action = THROW)current_animation = &throwing;
 			else if (action = HUG)current_animation = &hug;
+			if (action = LIGHT_SUMO_HEAD_BUTT)current_animation = &LightSumoHeadbutt;
+			else if (action = MEDIUM_SUMO_HEAD_BUTT)current_animation = &MediumSumoHeadbutt;
+			else if (action = HEAVY_SUMO_HEAD_BUTT)current_animation = &HeavySumoHeadbutt;
 		}
 		break;
 	case STANDING_TO_CROUCHING:
