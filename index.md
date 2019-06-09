@@ -59,6 +59,6 @@ Here's a link to our group's github repository, where you can find different rel
   
 Here's a video showcasing a sample of gameplay our Street Fifhter II Fanmade Project.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/osWXkOtHFQ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wLi1kTGkQi0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
  
