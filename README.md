@@ -21,42 +21,15 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 ## Game Controls
 
-
-**SPACEBAR:** Transition from Intro to Stage and from End screen to Intro.
-
-**ESC:** Exit the program.
-
-
-### Player 1:
-
-
-**W:** Jump
-
-**A:** Move Left
-
-**D:** Move Right
-
-**Y:** Punch
-
-**U:** Kick
-
-**I:** Hadoken
-
-
-### Player 2:
-
-
-**Upward Arrow:** Jump
-
-**Left Arrow:** Move Left
-
-**Right Arrow:** Move Right
-
-**Num. Pad 4:** Punch
-
-**Num. Pad 5:** Kick
-
-**Num. Pad 6:** Hadoken
+* **SPACEBAR:** Transition from Intro to Stage and from End screen to Intro.
+* **ESC:** Exit the program.
+* **Movement:** Left Joystick
+* **Light Punch:** X
+* **Medium Punch:** Y
+* **Heavy Punch:** LB
+* **Light Kick:** A
+* **Medium Kick:** B
+* **Heavy Kick:** RB
 
 
 ### Debug Funcionalities
@@ -66,9 +39,9 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **F2:** Godmode
 
-**F3:** Go from Stage to P1 victory End Screen.
+**F3:** Go from Stage to P1 Victory Screen.
 
-**F4:** Go from Stage to P2 victory End Screen.
+**F4:** Go from Stage to P2 Victory Screen.
 
 
 ## Changes in previous versions
@@ -84,8 +57,9 @@ In this subject we will be replicating the famous arcade game which catapulted t
 **0.5(Delivery):** Added colliders to combos. Added Jump to players and gameplay capabilities.
 
 **0.6:** Added proper rounds to combat, fixed Ui problems like lifebars working uncorrectly or missing elements
-P2 is different color from p1.
+P2 is different color from p1. Map animations added.
 
+**1.0:** Added full controller support, as well as sound effects for every attack and full moveset for E.honda. Score system in place as well as new victory screens and timer. 
 
 ## Team Members
 
