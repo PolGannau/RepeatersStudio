@@ -89,31 +89,36 @@ update_status ModulePlayersManager::Update()
 	/// PLAYER INPUT CONTROL AND LOGIC ---------------------------------------------------
 	//JUMP
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN && player->state == ON_FLOOR || 
-		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY)<-10000)
+		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY)<-1000 ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_UP] == KEY_STATE::KEY_DOWN)
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
 	}
 	//BACKWARD
 	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT || 
-		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTX)<-10000)
+		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTX)<-10000 ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_LEFT] == KEY_STATE::KEY_DOWN)
 	{
 		player->movement = MOVEMENT_CHARACTER::BACKWARD;
 	}
 	//FORWARD
 	else if (App->input->keyboard[SDL_SCANCODE_D] == KEY_REPEAT || 
-		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTX)>10000)
+		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTX)>10000 ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_RIGHT] == KEY_STATE::KEY_DOWN)
 	{
 		player->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR ||
-		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY) > 10000 && player->state == ON_FLOOR)
+		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY) > 10000 && player->state == ON_FLOOR ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_REPEAT && player->state == ON_FLOOR)
 	{
 		player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	}
 	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_UP && player->state == CROUCHING ||
-		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY) < 10000 && player->state == CROUCHING)
+		SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY) < 10000 && player->state == CROUCHING ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_UP && player->state == CROUCHING)
 	{
 		player->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
 	}
@@ -162,32 +167,37 @@ update_status ModulePlayersManager::Update()
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
 	//JUMP
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player->state == ON_FLOOR ||
-		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY)<-10000)
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player2->state == ON_FLOOR ||
+		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY)<-10000 ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_UP] == KEY_STATE::KEY_DOWN)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
 	}
 	//BACKWARD
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT ||
-		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTX)<-10000)
+		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTX)<-10000 ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_LEFT] == KEY_STATE::KEY_DOWN)
 	{
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
 	}
 	//FORWARD
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT ||
-		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTX)>10000)
+		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTX)>10000 ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_RIGHT] == KEY_STATE::KEY_DOWN)
 	{
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
 	//CROUCH
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && player2->state == ON_FLOOR ||
-		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY) > 10000 && player->state == ON_FLOOR) 
+		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY) > 10000 && player2->state == ON_FLOOR ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_REPEAT && player2->state == ON_FLOOR)
 	{
 		player2->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	}
 	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_UP && player2->state == CROUCHING ||
-		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY) < 10000 && player->state == CROUCHING)
+		SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY) < 10000 && player2->state == CROUCHING ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_DPAD_DOWN] == KEY_STATE::KEY_UP && player2->state == CROUCHING)
 	{
 		player2->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
 	}
