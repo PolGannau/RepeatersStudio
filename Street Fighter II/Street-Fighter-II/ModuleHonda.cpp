@@ -34,14 +34,19 @@ idle.loop = true;
 
 //idle crouch aniamtion
 idleCrouch.PushBack({ 438,196,94,70 });
+idleCrouch.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 idleCrouch.speed = 0.1f;
 idleCrouch.loop = true;
 
 //crouching
 crouching.PushBack({ 782, 1004, 107, 91 });//idle
+crouching.CollPushBack({ 55,0,20,26 }, { 20,26,62,22 }, { 8,48,80,35}, { -100,-100,1,1 });
 crouching.PushBack({ 458, 656, 97, 84 });//crouching
+crouching.CollPushBack({ 55,0,20,26 }, { 20,26,62,22 }, { 8,48,80,35 }, { -100,-100,1,1 });
 crouching.PushBack({ 854, 340, 96, 76 });//crouching
+crouching.CollPushBack({ 55,0,20,26 }, { 20,26,62,22 }, { 8,48,80,35 }, { -100,-100,1,1 });
 crouching.PushBack({ 438, 196, 94, 70 });//idleCrouch
+crouching.CollPushBack({ 55,0,20,26 }, { 20,26,62,22 }, { 8,48,80,35 }, { -100,-100,1,1 });
 crouching.speed = 0.75f;
 
 //turn
@@ -516,6 +521,11 @@ crouchHeavyKick.PushBack({ 895, 267, 93, 73 });//recover
 crouchHeavyKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  1
 crouchHeavyKick.speed = 1.0f;
 
+///TREURE COLLIDERS FINS AQUIII
+///--------------------------------------------
+///--------------------------------------------
+///--------------------------------------------
+///--------------------------------------------
 //jump attacks
 jumpLightPunch.PushBack({ 655, 1694, 77, 130 });//jumping  3
 jumpLightPunch.PushBack({ 655, 1694, 77, 130 });//jumping
