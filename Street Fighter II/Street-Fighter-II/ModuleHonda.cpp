@@ -1307,6 +1307,9 @@ update_status ModuleHonda::Update()
 			if (action == LIGHT_PUNCH)current_animation = &lightPunch;
 			else if (action == MEDIUM_PUNCH)current_animation = &mediumPunch;
 			else if (action == HEAVY_PUNCH)current_animation = &heavyPunch;
+			if (action == LIGHT_HUNDRED_SLAPS)current_animation = &LightHundredSlaps;
+			else if (action == MEDIUM_HUNDRED_SLAPS)current_animation = &MediumHundredSlaps;
+			else if (action == HEAVY_HUNDRED_SLAPS)current_aniamtion = &HeavyHundredSlaps;
 		}
 		if (movement == TURN_LEFT)
 		{
@@ -1400,6 +1403,7 @@ update_status ModuleHonda::Update()
 			if (action == LIGHT_PUNCH)current_animation = &jumpLightPunch;
 			else if (action == MEDIUM_PUNCH)current_animation = &jumpMediumPunch;
 			else if (action == HEAVY_PUNCH)current_animation = &jumpHeavyPunch;
+			if (current_animation->Finished() && action != NO_ACTION)action = NO_ACTION;
 		}
 		if (movement == BACKWARD)
 		{
@@ -1414,6 +1418,7 @@ update_status ModuleHonda::Update()
 		else if (movement == IDLE && action == LIGHT_PUNCH)current_animation = &jumpLightPunch;
 		else if (movement == IDLE && action == MEDIUM_PUNCH)current_animation = &jumpMediumPunch;
 		else if (movement == IDLE && action == HEAVY_PUNCH)current_animation = &jumpHeavyPunch;
+		if (current_animation->Finished() && action != NO_ACTION)action = NO_ACTION;
 		break;
 	case VICTORY:
 		current_animation = &victory;
