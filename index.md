@@ -28,16 +28,16 @@ Here's a link to our group's github repository, where you can find different rel
  
 ## Team Members
 
-* Pol Gannau
+* Pol Gannau: Implemented main functions in UI, like lifebars or round system, as well as gameplay capabilities.
 > <https://github.com/PolGannau>
 
-* Marc Rosell
+* Marc Rosell: Main worker in the gameplay aspect, logic, colliders and player manager.
 > <https://github.com/MarcRosellH>
 
-* Jan Adell
+* Jan Adell: Worked on Ui implementing timer and scores, as well as implementing fontwork where needed.
 > <https://github.com/JanAdell>
 
-* Oscar Reguera
+* Oscar Reguera: Worked on animations and controller imput. 
 > <https://github.com/oscarrep>
 
 ![](https://raw.githubusercontent.com/PolGannau/RepeatersStudio/master/Wiki%20Documents/Team%20Photo.jpeg)
