@@ -1481,4 +1481,12 @@ update_status ModuleHonda::Update()
 
 void ModuleHonda::OnCollision(Collider * c1, Collider * c2)
 {
+	App->audio->PlaySoundEffect(App->manager->lightpunch_sfx);
+	App->audio->PlaySoundEffect(App->manager->mediumpunch_sfx);
+	App->audio->PlaySoundEffect(App->manager->heavypunch_sfx);
+	App->audio->PlaySoundEffect(App->manager->lightkick_sfx);
+	App->audio->PlaySoundEffect(App->manager->mediumkick_sfx);
+	App->audio->PlaySoundEffect(App->manager->heavykick_sfx);
+	App->audio->PlaySoundEffect(App->manager->special_sfx);
+	App->audio->PlaySoundEffect(App->manager->block_sfx);
 }
