@@ -62,20 +62,31 @@ crouchTurn.speed = 0.75f;
 
 //standing
 standing.PushBack({ 438, 196, 94, 70 });//idleCrouch
+standing.CollPushBack({ 61,0,20,25 }, { 23,20,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 standing.PushBack({ 854, 340, 96, 76 });//crouching
+standing.CollPushBack({ 61,0,20,25 }, { 23,20,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 standing.PushBack({ 458, 656, 97, 84 });//crouching
+standing.CollPushBack({ 51,0,23,25 }, { 18,25,63,77 }, { 7,102,77,57 }, { -100,-100,1,1 });
 standing.PushBack({ 782, 1004, 107, 91 });//idle
+standing.CollPushBack({ 51,0,23,25 }, { 18,25,63,77 }, { 7,102,77,57 }, { -100,-100,1,1 });
 standing.speed = 0.75f;
 
 // walk forward animation
 //forward.PushBack({ 637, 915, 124, 89 });
 forward.PushBack({ 0, 1187, 99, 92 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 forward.PushBack({ 585, 1004, 100, 90 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 forward.PushBack({ 224, 827, 100, 88 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 forward.PushBack({ 485, 1004, 100, 90 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 forward.PushBack({ 199, 1187, 99, 92 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 forward.PushBack({ 375, 1095, 107, 91 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 forward.PushBack({ 80, 1095, 108, 91 });
+forward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 //forward.PushBack({ 637, 915, 124, 89 });
 forward.speed = 0.13f;
 forward.loop = true;
@@ -84,90 +95,144 @@ forward.loop = true;
 //backward.PushBack({ 454, 624, 124, 89 });
 //backward.PushBack({ 637, 915, 124, 89 });
 backward.PushBack({ 80, 1095, 108, 91 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.PushBack({ 375, 1095, 107, 91 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.PushBack({ 199, 1187, 99, 92 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.PushBack({ 485, 1004, 100, 90 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.PushBack({ 224, 827, 100, 88 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.PushBack({ 585, 1004, 100, 90 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.PushBack({ 0, 1187, 99, 92 });
+backward.CollPushBack({ 50,0,20,25 }, { 14,25,62,23 }, { 7,48,75,35 }, { -100,-100,1,1 });
 backward.speed = 0.13f;
 backward.loop = true;
 
 //jump 
 neutralJump.PushBack({ 782, 1004, 107, 91 });//idle
+neutralJump.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 neutralJump.PushBack({ 655, 1694, 77, 130 });
+neutralJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 neutralJump.PushBack({ 410, 1281, 97, 94 });
+neutralJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 neutralJump.PushBack({ 258, 59, 94, 65 });
+neutralJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 neutralJump.PushBack({ 410, 1281, 97, 94 });
+neutralJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 neutralJump.PushBack({ 655, 1694, 77, 130 });
+neutralJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 neutralJump.PushBack({ 782, 1004, 107, 91 });//idle
+neutralJump.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 neutralJump.speed = 0.13f;
 neutralJump.loop = false;
 
 forwardJump.PushBack({ 782, 1004, 107, 91 });//idle
+forwardJump.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 824, 1694, 119, 142 });
+forwardJump.CollPushBack({ 73,33,19,20 }, { 38,53,46,28 }, { 0,81,92,53 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 664, 340, 108, 75 });
+forwardJump.CollPushBack({ 73,33,19,20 }, { 38,53,46,28 }, { 0,81,92,53 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 155, 493, 81, 79 });
+forwardJump.CollPushBack({ 73,33,19,20 }, { 38,53,46,28 }, { 0,81,92,53 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 783, 827, 109, 88 });
+forwardJump.CollPushBack({ 73,33,19,20 }, { 38,53,46,28 }, { 0,81,92,53 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 0, 1281, 113, 94 });
+forwardJump.CollPushBack({ 73,33,19,20 }, { 38,53,46,28 }, { 0,81,92,53 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 526, 1694, 129, 128 });
+forwardJump.CollPushBack({ 73,33,19,20 }, { 38,53,46,28 }, { 0,81,92,53 }, { -100,-100,1,1 });
 forwardJump.PushBack({ 782, 1004, 107, 91 });//idle
+forwardJump.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 forwardJump.speed = 0.13f;
 
 backwardJump.PushBack({ 782, 1004, 107, 91 });//idle
+backwardJump.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 526, 1694, 129, 128 });
+backwardJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 0, 1281, 113, 94 });
+backwardJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 783, 827, 109, 88 });
+backwardJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 155, 493, 81, 79 });
+backwardJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 664, 340, 108, 75 });
+backwardJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 824, 1694, 119, 142 });
+backwardJump.CollPushBack({ 31,0,19,25 }, { 0,25,77,32 }, { 10,57,45,71 }, { -100,-100,1,1 });
 backwardJump.PushBack({ 782, 1004, 107, 91 });//idle
+backwardJump.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 backwardJump.speed = 0.13f;
 
 // punch animations
 lightPunch.PushBack({ 782, 1004, 107, 91 });//idle  2
+lightPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightPunch.PushBack({ 782, 1004, 107, 91 });//idle
+lightPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightPunch.PushBack({ 0, 1004, 122, 89 });//prep  2
 lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
 lightPunch.PushBack({ 441, 574, 147, 82 });//dmg  4
+lightPunch.CollPushBack({ 66,0,19,25 }, { 9,25,99,8 }, { 0,32,104,40 }, { 125,9,23,18 });
 lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+lightPunch.CollPushBack({ 66,0,19,25 }, { 9,25,99,8 }, { 0,32,104,40 }, { 125,9,23,18 });
 lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+lightPunch.CollPushBack({ 66,0,19,25 }, { 9,25,99,8 }, { 0,32,104,40 }, { 125,9,23,18 });
 lightPunch.PushBack({ 441, 574, 147, 82 });//dmg
+lightPunch.CollPushBack({ 66,0,19,25 }, { 9,25,99,8 }, { 0,32,104,40 }, { 125,9,23,18 });
 lightPunch.PushBack({ 0, 1004, 122, 89 });//prep  2
 lightPunch.PushBack({ 0, 1004, 122, 89 });//prep
 lightPunch.PushBack({ 782, 1004, 107, 91 });//idle  1
+lightPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightPunch.speed = 1.0f;
 
 mediumPunch.PushBack({ 782, 1004, 107, 91 });//idle  2
+mediumPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 mediumPunch.PushBack({ 782, 1004, 107, 91 });//idle
+mediumPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 mediumPunch.PushBack({ 687, 827, 96, 88 });//prep  2
 mediumPunch.PushBack({ 687, 827, 96, 88 });//prep
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2  1
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2
 mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg  4
+mediumPunch.CollPushBack({ 71,0,22,19 }, { 25,19,86,20 }, { 0,39,194,36 }, { 128,7,17,19 });
 mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg
+mediumPunch.CollPushBack({ 71,0,22,19 }, { 25,19,86,20 }, { 0,39,194,36 }, { 128,7,17,19 });
 mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg
+mediumPunch.CollPushBack({ 71,0,22,19 }, { 25,19,86,20 }, { 0,39,194,36 }, { 128,7,17,19 });
 mediumPunch.PushBack({ 294, 740, 145, 85 });//dmg
+mediumPunch.CollPushBack({ 71,0,22,19 }, { 25,19,86,20 }, { 0,39,194,36 }, { 128,7,17,19 });
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2 recover  2
 mediumPunch.PushBack({ 753, 656, 121, 84 });//prep2 recover
 mediumPunch.PushBack({ 687, 827, 96, 88 });//prep recover  2
 mediumPunch.PushBack({ 687, 827, 96, 88 });//prep recover
 mediumPunch.PushBack({ 782, 1004, 107, 91 });//idle recover  2
+mediumPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 mediumPunch.speed = 1.0f;
 
 heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle  3
+heavyPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+heavyPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+heavyPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep  3
 heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
 heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep
 heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1  3
+heavyPunch.CollPushBack({ 62,25,21,23 }, { 21,48,77,24 }, { 0,72,93,37 }, { 75,0,23,18 });
 heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+heavyPunch.CollPushBack({ 62,25,21,23 }, { 21,48,77,24 }, { 0,72,93,37 }, { 75,0,23,18 });
 heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+heavyPunch.CollPushBack({ 62,25,21,23 }, { 21,48,77,24 }, { 0,72,93,37 }, { 75,0,23,18 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2  4
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 204, 915, 117, 88 });//recover  7
 heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
 heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
@@ -176,23 +241,35 @@ heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
 heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
 heavyPunch.PushBack({ 204, 915, 117, 88 });//recover
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2  5
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 324, 1004, 161, 90 });//dmg2
+heavyPunch.CollPushBack({ 71,2,21,27 }, { 13,29,103,13 }, { 0,42,96,39 }, { 137,29,24,12 });
 heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1  3
+heavyPunch.CollPushBack({ 62,25,21,23 }, { 21,48,77,24 }, { 0,72,93,37 }, { 75,0,23,18 });
 heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+heavyPunch.CollPushBack({ 62,25,21,23 }, { 21,48,77,24 }, { 0,72,93,37 }, { 75,0,23,18 });
 heavyPunch.PushBack({ 301, 1694, 109, 118 });//dmg1
+heavyPunch.CollPushBack({ 62,25,21,23 }, { 21,48,77,24 }, { 0,72,93,37 }, { 75,0,23,18 });
 heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep  2
 heavyPunch.PushBack({ 115, 1694, 104, 115 });//prep  1
 heavyPunch.PushBack({ 782, 1004, 107, 91 });//idle
+heavyPunch.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 heavyPunch.speed = 1.0f;
 
 //kick animations
 
 lightKick.PushBack({ 782, 1004, 107, 91 });//idle  3
+lightKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightKick.PushBack({ 782, 1004, 107, 91 });//idle
+lightKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightKick.PushBack({ 782, 1004, 107, 91 });//idle
+lightKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightKick.PushBack({ 0, 915, 102, 88 });//prep  3
 lightKick.PushBack({ 0, 915, 102, 88 });//prep
 lightKick.PushBack({ 0, 915, 102, 88 });//prep
@@ -200,9 +277,13 @@ lightKick.PushBack({ 122, 1004, 78, 89 });//kick  3
 lightKick.PushBack({ 122, 1004, 78, 89 });//kick
 lightKick.PushBack({ 122, 1004, 78, 89 });//kick
 lightKick.PushBack({ 722, 493, 134, 80 });//dmg  4
+lightKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 lightKick.PushBack({ 722, 493, 134, 80 });//dmg
+lightKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 lightKick.PushBack({ 722, 493, 134, 80 });//dmg
+lightKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 lightKick.PushBack({ 722, 493, 134, 80 });//dmg
+lightKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 lightKick.PushBack({ 122, 1004, 78, 89 });//kick  3
 lightKick.PushBack({ 122, 1004, 78, 89 });//kick
 lightKick.PushBack({ 122, 1004, 78, 89 });//kick
@@ -210,12 +291,16 @@ lightKick.PushBack({ 0, 915, 102, 88 });//prep  3
 lightKick.PushBack({ 0, 915, 102, 88 });//prep
 lightKick.PushBack({ 0, 915, 102, 88 });//prep
 lightKick.PushBack({ 782, 1004, 107, 91 });//idle  1
+lightKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 lightKick.speed = 1.0f;
 lightKick.loop = true;
 
 mediumKick.PushBack({ 782, 1004, 107, 91 });//idle  3
+mediumKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 mediumKick.PushBack({ 782, 1004, 107, 91 });//idle
+mediumKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 mediumKick.PushBack({ 782, 1004, 107, 91 });//idle
+mediumKick.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 mediumKick.PushBack({ 0, 915, 102, 88 });//prep  3
 mediumKick.PushBack({ 0, 915, 102, 88 });//prep
 mediumKick.PushBack({ 0, 915, 102, 88 });//prep
@@ -223,9 +308,13 @@ mediumKick.PushBack({ 122, 1004, 78, 89 });//kick  3
 mediumKick.PushBack({ 122, 1004, 78, 89 });//kick
 mediumKick.PushBack({ 122, 1004, 78, 89 });//kick
 mediumKick.PushBack({ 722, 493, 134, 80 });//dmg  4
+mediumKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 mediumKick.PushBack({ 722, 493, 134, 80 });//dmg
+mediumKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 mediumKick.PushBack({ 722, 493, 134, 80 });//dmg
+mediumKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 mediumKick.PushBack({ 722, 493, 134, 80 });//dmg
+mediumKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 mediumKick.PushBack({ 122, 1004, 78, 89 });//kick  5
 mediumKick.PushBack({ 122, 1004, 78, 89 });//kick
 mediumKick.PushBack({ 122, 1004, 78, 89 });//kick
@@ -250,11 +339,17 @@ heavyKick.PushBack({ 122, 1004, 78, 89 });//kick  3
 heavyKick.PushBack({ 122, 1004, 78, 89 });//kick
 heavyKick.PushBack({ 122, 1004, 78, 89 });//kick
 heavyKick.PushBack({ 722, 493, 134, 80 });//dmg  6
+heavyKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 heavyKick.PushBack({ 722, 493, 134, 80 });//dmg
+heavyKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 heavyKick.PushBack({ 722, 493, 134, 80 });//dmg
+heavyKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 heavyKick.PushBack({ 722, 493, 134, 80 });//dmg
+heavyKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 heavyKick.PushBack({ 722, 493, 134, 80 });//dmg
+heavyKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 heavyKick.PushBack({ 722, 493, 134, 80 });//dmg
+heavyKick.CollPushBack({ 19,0,27,15 }, { 8,15,57,32 }, { 0,47,78,32 }, { 85,41,48,28 });
 heavyKick.PushBack({ 122, 1004, 78, 89 });//kick  8
 heavyKick.PushBack({ 122, 1004, 78, 89 });//kick
 heavyKick.PushBack({ 122, 1004, 78, 89 });//kick
@@ -1286,6 +1381,7 @@ bool ModuleHonda::Start()
 		coll_legs = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_TWO, this);
 		coll_attack = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_ATTACK_PLAYER_TWO, this);
 	}
+	hp = 100;
 	
 	return true;
 }
