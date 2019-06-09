@@ -59,7 +59,7 @@ update_status ModulePlayersManager::Update()
 
 	/// PLAYER INPUT CONTROL AND LOGIC ---------------------------------------------------
 	//JUMP
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_DOWN && player->state == ON_FLOOR)
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
@@ -110,7 +110,7 @@ update_status ModulePlayersManager::Update()
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
 	//JUMP
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
