@@ -63,7 +63,7 @@ In this subject we will be replicating the famous arcade game which catapulted t
 **0.6:** Added proper rounds to combat, fixed Ui problems like lifebars working uncorrectly or missing elements
 P2 is different color from p1. Map animations added.
 
-**1.0:** Added full controller support, as well as sound effects for every attack and moveset(some attacks missing) for E.honda. Score system in place as well as new victory screens and timer. 
+**1.0:(Delivery)** Added full controller support, as well as sound effects for every attack and moveset(some attacks missing) for E.honda. Score system in place as well as new victory screens and timer. 
 
 ## Team Members
 
