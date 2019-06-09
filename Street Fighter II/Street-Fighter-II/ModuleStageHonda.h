@@ -17,6 +17,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	void GetTime();
 
 public:
 	SDL_Texture* stage_texture;
@@ -48,5 +49,15 @@ public:
 	Animation sun;
 
 	Mix_Music* stahe_honda_music;
+
+	//
+	int timer_font = 0;
+	char* timer;
+	unsigned int timer_start;
+	unsigned int timer_aux;
+	int timer_delay;
+	int time1;
+	int time2;
+	uint time_fight = 99;
 };
 #endif // !__MODULESTAGEHONDA_H__

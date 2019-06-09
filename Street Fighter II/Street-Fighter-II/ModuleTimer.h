@@ -4,35 +4,20 @@
 #include "Module.h"
 
 
-class ModuleTimer : public Module 
+class ModuleTimer : public Module
 {
-private:
-
-	static ModuleTimer* instancevalue;
-
-	unsigned int startticks;
-	unsigned int elapsedticks;
-
-	float deltatimevalue;
-	float timescalevalue;
-
 public:
-	//ModuleTimer(float DeltaTime, float TimeScale);
 
 	ModuleTimer();
 	~ModuleTimer();
 
-	static ModuleTimer* Instance();
-	static void Release();
-
-	void Reset();
-	float DeltaTime();
-
-	void TimeScale(float t);
-	float TimeScale();
-
-	void TimerUpdate();
-
+public:
+	
+	int GetTimer();
+	Uint32 timeout;
+	Uint32 countdown;
+	Uint32 endfight;
+	Uint32 autowin;
 
 };
 

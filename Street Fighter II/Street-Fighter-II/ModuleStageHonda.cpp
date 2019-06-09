@@ -1,3 +1,4 @@
+#include <iostream>
 #include "ModuleStageHonda.h"
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -13,6 +14,7 @@
 #include "ModuleAudio.h"
 #include "ModuleHonda.h"
 #include "ModuleTimer.h"
+#include "ModuleFonts.h"
 #include "../SDL/include/SDL_timer.h"
 
 
@@ -40,6 +42,7 @@ bool ModuleStageHonda::Start()
 
 	stage_texture = App->textures->Load("Assets/Images/Stages/honda/hondastage.png");
 	light_texture = App->textures->Load("Assets/Images/Stages/Stages.png");
+	timer_font = App->fonts->Load("Assets/Images/Ui/Fonts/timervalues.png", "0123456789<> ", 1);
 
 	floor = { 0,407,848,64 };
 	wall = { 0,160,671,199 };
@@ -53,9 +56,12 @@ bool ModuleStageHonda::Start()
 	boy_big = { 97,0,95,104 };
 
 	App->render->camera.x = 7;
+	
+	timer_start = SDL_GetTicks();
+	//App->timer->timeout = SDL_GetTicks() + 99000; //99 Secs
 
 	control = false;
-
+		
 	return true;
 }
 
@@ -68,6 +74,7 @@ bool ModuleStageHonda::CleanUp()
 	App->textures->Unload(light_texture);
 	App->audio->UnloadMusic(stahe_honda_music);
 	App->manager->Disable();
+	App->fonts->UnLoad(timer_font);
 
 	return true;
 }
@@ -75,8 +82,8 @@ bool ModuleStageHonda::CleanUp()
 //Blit all and update the stage
 update_status ModuleStageHonda::Update()
 {
-	//input
-	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_REPEAT)
+	//input->camera movement, to maybe be implemented in godmode or left out completely
+	/*if (App->input->keyboard[SDL_SCANCODE_M] == KEY_REPEAT)
 		App->render->camera.x += 5;
 	    App->render->limit.x += 5;
 	if (App->input->keyboard[SDL_SCANCODE_N] == KEY_REPEAT)
@@ -86,6 +93,7 @@ update_status ModuleStageHonda::Update()
 		App->fade->FadeToBlack(this, App->module_win);
 	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)
 		App->fade->FadeToBlack(this, App->module_lose);
+		*/
 
 	//Camera Limits
 	if (App->manager->player->auxPosition.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->manager->player2->auxPosition.x > App->render->limit.x + SCREEN_WIDTH - 220 && App->render->limit.x + App->render->limit.w < 700)
@@ -98,6 +106,19 @@ update_status ModuleStageHonda::Update()
 		App->render->camera.x -= 1;
 		App->render->limit.x -= 1;
 	}
+
+	
+	
+	//timer
+	/*timer_aux = SDL_GetTicks();
+	time1 = ((timer_aux - timer_start)*1000)/10;
+	time2 = ((timer_aux - timer_start)*1000)%10;
+	timer[0] = (char)time1;
+	timer[1] = (char)time2;
+	App->fonts->BlitText(178, 50, timer_font, timer);
+	sprintf_s(timer, 10, "%i", time_fight);
+	App->fonts->BlitText(178, 40, timer_font, timer);*/
+
 
 	//blit the map
 	App->render->Blit(stage_texture, -71, wall.h - 35, &floor);
@@ -132,3 +153,5 @@ update_status ModuleStageHonda::Update()
 
 	return UPDATE_CONTINUE;
 }
+
+

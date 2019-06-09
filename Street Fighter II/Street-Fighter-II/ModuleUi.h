@@ -18,6 +18,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void Puntuation();
+	void TimerBlit();
 
 public:
 	SDL_Texture* hud = nullptr;
@@ -43,7 +44,10 @@ public:
 	//
 	int char_font = 0;
 	//
-	char* timer;
-
+	int timer_font = 0;
+	char timer[10];
+	uint time_fight = 99;
+	uint start_time;
+	uint time_deviation;
 };
 #endif // !__MODULEUI_H__

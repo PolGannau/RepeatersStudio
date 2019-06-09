@@ -27,10 +27,9 @@ bool ModuleUi::Start()
 	hud = App->textures->Load("Assets/Images/Ui/Lifebar_assets.png");
 	
 	
-	//timer_font = App->fonts->Load("Assets/Images/Ui/Fonts/timervalues.png","0123456789<> ", 1);
 	score_font = App->fonts->Load("Assets/Images/Ui/Fonts/FontPScore.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~'!@#$%^&*()-_+=[]{}| :;¨º<>,./?", 1);
 	char_font = App->fonts->Load("Assets/Images/Ui/Fonts/CharName.png", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~·!@#$%^&*()-+=[]{}|:;ç'<>,./? ", 1);
-
+	timer_font = App->fonts->Load("Assets/Images/Ui/Fonts/timervalues.png", "0123456789<> ", 1);
 
 	lifebar1_rect2 = { 2,2,149,13 };
 	lifebar2_rect2 = { 2,2,149,13 };
@@ -42,6 +41,8 @@ bool ModuleUi::Start()
 
 	pos_bar = 149;
 	
+	start_time = SDL_GetTicks()/1000;
+
 	return true;
 }
 
@@ -50,10 +51,9 @@ bool ModuleUi::CleanUp()
 	LOG("Unloading Ui");
 	
 	App->textures->Unload(hud);
-	//App->fonts->UnLoad(timer_font);
 	App->fonts->UnLoad(score_font);
 	App->fonts->UnLoad(char_font);
-
+	App->fonts->UnLoad(timer_font);
 	return true;
 }
 
@@ -84,6 +84,13 @@ update_status ModuleUi::Update()
 	App->fonts->BlitText(30, 30, char_font, "E.HONDA");
 	App->fonts->BlitText(270, 30, char_font, "E.HONDA");
 	   	 
+	TimerBlit();
+
+	Puntuation();
+	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
+	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
+	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 260 - strlen(hscore) * 12, 0, score_font, hscore);
+
 	/*if ((current_time - last_time) >= KO_TIMER)
 	{
 		last_time = current_time;
@@ -116,11 +123,11 @@ update_status ModuleUi::Update()
 	}
 	if (App->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
 	*/
-
 	Puntuation();
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 120 - strlen(p1score) * 12, 0, score_font, p1score);
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 380 - strlen(p2score) * 12, 0, score_font, p2score);
 	App->fonts->BlitText(-App->render->camera.x / SCREEN_SIZE + 260 - strlen(hscore) * 12, 0, score_font, hscore);
+
 	return UPDATE_CONTINUE;
 }
 
@@ -147,3 +154,16 @@ void ModuleUi::Puntuation() {
 	p2score = new char[p2score_str.length() + 1];
 	strcpy_s(p2score, p2score_str.length() + 1, p2score_str.c_str());
 }
+
+void ModuleUi::TimerBlit() {
+
+	if (start_time <= SDL_GetTicks() - 1000 && time_fight > 0) {
+		--time_fight;
+		start_time = SDL_GetTicks();
+	}
+	sprintf_s(timer, 10, "%7d", time_fight);
+	App->fonts->BlitText(99, 35, timer_font, timer);
+
+	
+}
+
