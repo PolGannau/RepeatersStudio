@@ -84,7 +84,7 @@ public:
 	// Jumping Variables
 	float			vspeed;
 	float			acceleration = 0.8F;
-	float			VerticalSpeed = -14.0F;
+	float			VerticalSpeed = -12.0F;
 
 	//hp
 	int hp = 100;

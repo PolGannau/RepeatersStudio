@@ -1270,6 +1270,11 @@ update_status ModuleHonda::Update()
 	if ((position.y > 212) && state == JUMPING)
 	{
 		state = ON_FLOOR;
+		movement = IDLE;
+		vspeed = 0;
+		neutralJump.Reset();
+		forwardJump.Reset();
+		backwardJump.Reset();
 		position.y = 212;
 	}
 	if (flip && movement == BACKWARD)movement = FORWARD;
@@ -1314,7 +1319,7 @@ update_status ModuleHonda::Update()
 		if (movement == BACKWARD)
 		{
 			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 1;
-			else if(position.x < (App->render->limit.x + auxiliar.w + 220) && flip)position.x += 1;
+			else if(position.x < (App->render->limit.w - auxiliar.w/2) && flip)position.x += 1;
 			current_animation = &backward;
 			if (current_animation->Finished())
 			{
@@ -1323,7 +1328,7 @@ update_status ModuleHonda::Update()
 		}
 		if (movement == FORWARD)
 		{
-			if (position.x < (App->render->limit.x + auxiliar.w + 220) && !flip)position.x += 1;
+			if (position.x < (App->render->limit.w - auxiliar.w) && !flip)position.x += 1;
 			else if (position.x > App->render->limit.x + 64 && flip)position.x -= 1;
 			current_animation = &forward;
 			if (current_animation->Finished())
@@ -1366,6 +1371,21 @@ update_status ModuleHonda::Update()
 		}
 		break;
 	case JUMPING:
+		vspeed += acceleration;
+		position.y += vspeed;
+		if (movement == FORWARD && action == NO_ACTION)
+		{
+			if(flip && position.x > App->render->limit.x)position.x -= 2;
+			else if (position.x < App->render->limit.w - auxiliar.w/2)position.x += 2;
+			current_animation = &forwardJump;
+		}
+		if (movement == BACKWARD && action == NO_ACTION)
+		{
+			if (flip)position.x += 2;
+			else position.x -= 2;
+			current_animation = &backwardJump;
+		}
+		if (movement == IDLE && action == NO_ACTION)current_animation = &neutralJump;
 		break;
 	case VICTORY:
 		current_animation = &victory;

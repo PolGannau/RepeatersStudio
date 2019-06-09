@@ -4,7 +4,23 @@ In this project we've been tasked to recreate Street Fighter II step by step, fi
  
 Our group had to replicate the character E.Honda, together with his stage.
 
- ## Team Members
+  ## Github
+ 
+Here's a link to our group's github repository, where you can find different releases of our game to see changes over time, as well as assets or source code. There's also a link to our project wiki, a research assignment based on compiling information about Street Fighter II.
+ 
+ * **Project repository**
+ ><https://github.com/PolGannau/RepeatersStudio>
+ 
+ * **Link to releases page**
+ ><https://github.com/PolGannau/RepeatersStudio/releases>
+ 
+ * **Link to latest release**
+
+ * **Link to project wiki**
+ ><https://github.com/PolGannau/RepeatersStudio/wiki>
+ 
+ 
+  ## Team Members
 
 * Pol Gannau
 > https://github.com/PolGannau
@@ -23,15 +39,6 @@ Our group had to replicate the character E.Honda, together with his stage.
 
  **Game Controls**
 
-
- **Github**
- 
-Here's a link to our group's github repository, where you can find different releases of our game to see changes over time, as well as assets or source code. There's also a link to our project wiki, a research assignment based on compiling information about Street Fighter II.
- 
- * <https://github.com/PolGannau/RepeatersStudio>
- * <https://github.com/PolGannau/RepeatersStudio/releases>
- 
- 
   **Gameplay**
   
 Here's a video showcasing a sample of gameplay our Street Fifhter II Fanmade Project.
