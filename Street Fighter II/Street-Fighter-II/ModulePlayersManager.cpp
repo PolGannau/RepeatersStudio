@@ -98,7 +98,7 @@ update_status ModulePlayersManager::Update()
 	else if (SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 && player->state == ON_FLOOR)
 	{
 		player->state = JUMPING;
-		player->vspeed += player->VerticalSpeed/5;
+		player->vspeed += player->VerticalSpeed;
 	}
 	//BACKWARD
 	else if (App->input->keyboard[SDL_SCANCODE_A] == KEY_REPEAT || 
@@ -181,7 +181,7 @@ update_status ModulePlayersManager::Update()
 	else if (SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 && player2->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
-		player2->vspeed += player2->VerticalSpeed / 5;
+		player2->vspeed += player2->VerticalSpeed;
 	}
 	//BACKWARD
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT ||
