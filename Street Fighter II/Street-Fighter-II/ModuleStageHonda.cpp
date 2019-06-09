@@ -22,7 +22,8 @@ ModuleStageHonda::ModuleStageHonda()
 {
 	sun.PushBack({ 191,0,225,104 });
 	sun.PushBack({ 415,0,223,104 });
-	sun.speed = 0.1F;
+	sun.loop = true;
+	sun.speed = 0.2F;
 }
 
 ModuleStageHonda::~ModuleStageHonda()
