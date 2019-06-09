@@ -4,7 +4,7 @@ In this project we've been tasked to recreate Street Fighter II step by step, fi
  
 Our group had to replicate the character E.Honda, together with his stage.
 
-  ## Github
+## Github
  
 Here's a link to our group's github repository, where you can find different releases of our game to see changes over time, as well as assets or source code. There's also a link to our project wiki, a research assignment based on compiling information about Street Fighter II.
  
@@ -20,7 +20,7 @@ Here's a link to our group's github repository, where you can find different rel
  ><https://github.com/PolGannau/RepeatersStudio/wiki>
  
  
-  ## Team Members
+## Team Members
 
 * Pol Gannau
 > https://github.com/PolGannau
