@@ -16,8 +16,6 @@ Here's a link to our group's github repository, where you can find different rel
  * **Link to releases page**
  ><https://github.com/PolGannau/RepeatersStudio/releases>
  
- * **Link to latest release**
-
  * **Link to project wiki**
  ><https://github.com/PolGannau/RepeatersStudio/wiki>
  
@@ -40,6 +38,8 @@ Here's a link to our group's github repository, where you can find different rel
 
 
  **Game Controls**
+
+
 
   **Gameplay**
   
