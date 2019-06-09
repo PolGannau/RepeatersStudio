@@ -6,7 +6,6 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
-#include "ModulePlayer.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleRyuStage.h"
 #include "ModuleInput.h"

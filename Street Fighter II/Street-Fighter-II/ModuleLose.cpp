@@ -1,6 +1,5 @@
 #include "ModuleLose.h"
 #include "Application.h"
-#include "ModulePlayer.h"
 #include "ModuleRyuStage.h"
 #include "ModuleSceneIntro.h"
 #include "Globals.h"

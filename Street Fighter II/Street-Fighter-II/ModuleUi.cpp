@@ -5,7 +5,6 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
-#include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleWin.h"
 #include "ModuleLose.h"

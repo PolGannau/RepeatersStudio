@@ -2,7 +2,6 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
-#include "ModulePlayer.h"
 #include "ModuleCollision.h"
 #include "ModuleRyuStage.h"
 #include "ModuleAudio.h"

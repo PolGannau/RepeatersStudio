@@ -90,7 +90,7 @@ public:
 	int hp = 100;
 
 	// Close Attacks Control Varaible
-	uint			CloseDistance = 30;
+	uint			CloseDistance = 40;
 	uint			Players_Distance;
 
 	// Auxiliar Rect

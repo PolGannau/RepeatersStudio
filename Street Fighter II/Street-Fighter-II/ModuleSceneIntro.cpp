@@ -3,7 +3,6 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
-#include "ModulePlayer.h"
 #include "ModuleRyuStage.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneIntro.h"
