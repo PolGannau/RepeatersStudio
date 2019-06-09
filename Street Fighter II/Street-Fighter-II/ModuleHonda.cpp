@@ -33,7 +33,7 @@ idleCrouch.speed = 0.1f;
 idleCrouch.loop = true;
 
 //crouching
-crouching.PushBack({ 782, 1004, 10, 91 });//idle
+crouching.PushBack({ 782, 1004, 107, 91 });//idle
 crouching.PushBack({ 458, 656, 97, 84 });//crouching
 crouching.PushBack({ 854, 340, 96, 76 });//crouching
 crouching.PushBack({ 438, 196, 94, 70 });//idleCrouch
@@ -54,7 +54,7 @@ crouchTurn.speed = 0.75f;
 standing.PushBack({ 438, 196, 94, 70 });//idleCrouch
 standing.PushBack({ 854, 340, 96, 76 });//crouching
 standing.PushBack({ 458, 656, 97, 84 });//crouching
-standing.PushBack({ 782, 1004, 10, 91 });//idle
+standing.PushBack({ 782, 1004, 107, 91 });//idle
 standing.speed = 0.75f;
 
 // walk forward animation
@@ -1271,10 +1271,17 @@ update_status ModuleHonda::Update()
 	{
 		state = ON_FLOOR;
 		movement = IDLE;
+		action = NO_ACTION;
 		vspeed = 0;
 		neutralJump.Reset();
 		forwardJump.Reset();
 		backwardJump.Reset();
+		jumpLightKick.Reset();
+		jumpMediumKick.Reset();
+		jumpHeavyKick.Reset();
+		jumpLightPunch.Reset();
+		jumpMediumPunch.Reset();
+		jumpHeavyPunch.Reset();
 		position.y = 212;
 	}
 	if (flip && movement == BACKWARD)movement = FORWARD;
@@ -1375,17 +1382,23 @@ update_status ModuleHonda::Update()
 		position.y += vspeed;
 		if (movement == FORWARD && action == NO_ACTION)
 		{
-			if(flip && position.x > App->render->limit.x)position.x -= 2;
-			else if (position.x < App->render->limit.w - auxiliar.w/2)position.x += 2;
+			if (position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w) && !flip)position.x += 2;
+			else if (position.x > App->render->limit.x + 64 && flip)position.x -= 2;
 			current_animation = &forwardJump;
 		}
 		if (movement == BACKWARD && action == NO_ACTION)
 		{
-			if (flip)position.x += 2;
-			else position.x -= 2;
+			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 2;
+			else if (position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w / 2) && flip)position.x += 2;
 			current_animation = &backwardJump;
 		}
 		if (movement == IDLE && action == NO_ACTION)current_animation = &neutralJump;
+		else if (movement == IDLE && action == LIGHT_KICK)current_animation = &jumpLightKick;
+		else if (movement == IDLE && action == MEDIUM_KICK)current_animation = &jumpMediumKick;
+		else if (movement == IDLE && action == HEAVY_KICK)current_animation = &jumpHeavyKick;
+		else if (movement == IDLE && action == LIGHT_PUNCH)current_animation = &jumpLightPunch;
+		else if (movement == IDLE && action == MEDIUM_PUNCH)current_animation = &jumpMediumPunch;
+		else if (movement == IDLE && action == HEAVY_PUNCH)current_animation = &jumpHeavyPunch;
 		break;
 	case VICTORY:
 		current_animation = &victory;
