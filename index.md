@@ -1,6 +1,6 @@
 # Street Fighter II by The Repeaters Studio
 
-![](https://github.com/PolGannau/RepeatersStudio/blob/master/Wiki%20Documents/Images/RepeatersStudiolittle.png)
+![](https://cdn.discordapp.com/attachments/556547182443102260/587359316542095367/RepeatersStudiolittle.png)
 
 In this project we've been tasked to recreate Street Fighter II step by step, first learning the basics about fighting games and then implementing further functionalities as we saw them needed.
  
