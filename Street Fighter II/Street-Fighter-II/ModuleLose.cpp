@@ -55,9 +55,10 @@ update_status ModuleLose::Update()
 	//App->render->Blit(texture_loser, 0, 0, NULL);
 
 	//Printing portraits
-	App->render->Blit(portraits, 250, 30, &portrait_loose, NULL);
-	App->render->Blit(portraits, 50, 30, &portrait_win, NULL);
+	App->render->Blit(portraits, 260, 50, &portrait_loose, NULL);
+	App->render->Blit(portraits, 50, 50, &portrait_win, NULL);
 
+	App->fonts->BlitText(110, 10, loose_font, "PLAYER 2 WINS!");
 	App->fonts->BlitText(50,155,loose_font,"IT'S NATURAL FOR A SUMO");
 	App->fonts->BlitText(50,168,loose_font,"WRESTLER TO BECOME THE");
 	App->fonts->BlitText(50, 181, loose_font, "WORLD'S STRONGEST!");

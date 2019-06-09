@@ -49,11 +49,12 @@ update_status ModuleWin::Update()
 
 	//blit the images of the fighters (winner and loser)
 	//App->render->Blit(texture_winner, 0, 0, NULL);
-	App->render->Blit(portraits, 50, 30, &portrait_loose, NULL);
-	App->render->Blit(portraits, 250, 30, &portrait_win, NULL);
+	App->render->Blit(portraits, 50, 50, &portrait_loose, NULL);
+	App->render->Blit(portraits, 260, 50, &portrait_win, NULL);
 
-	App->fonts->BlitText(40, 150, win_font, "CAN'T YOU DO BETTER THAN");
-	App->fonts->BlitText(40, 165, win_font, "THAT?");
+	App->fonts->BlitText(110, 10, win_font, "PLAYER 1 WINS!");
+	App->fonts->BlitText(50, 170, win_font, "CAN'T YOU DO BETTER THAN");
+	App->fonts->BlitText(50, 185, win_font, "THAT?");
 
 	//to exit the scene Space must be pressed
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
