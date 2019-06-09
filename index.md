@@ -28,11 +28,11 @@ Here's a link to our group's github repository, where you can find different rel
 * Marc Rosell
 > <https://github.com/MarcRosellH>
 
-* Oscar Reguera
-> <https://github.com/oscarrep>
-
 * Jan Adell
 > <https://github.com/JanAdell>
+
+* Oscar Reguera
+> <https://github.com/oscarrep>
 
 ![](https://raw.githubusercontent.com/PolGannau/RepeatersStudio/master/Wiki%20Documents/Team%20Photo.jpeg)
 
