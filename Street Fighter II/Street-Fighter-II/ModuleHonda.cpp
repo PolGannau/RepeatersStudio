@@ -1422,12 +1422,16 @@ update_status ModuleHonda::Update()
 		current_animation = &victory2;
 		break;
 	case STUNNED:
+		current_animation = &stunned;
 		break;
 	case KNOCK_DOWN:
+		current_animation = &knockdown;
 		break;
-	case STATE_CHARACTER::KO:
+	case STATE_CHARACTER::KNOCK_OUT:
+		current_animation = &KO;
 		break;
 	case RECOVER:
+		current_animation = &recover;
 		break;
 	default:
 		break;
