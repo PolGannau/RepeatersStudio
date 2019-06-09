@@ -45,7 +45,13 @@ Here's a link to our group's github repository, where you can find different rel
 
  **Game Controls**
 
-
+* **Movement:** Left Joystick
+* **Light Punch:** X
+* **Medium Punch:** Y
+* **Heavy Punch:** LB
+* **Light Kick:** A
+* **Medium Kick:** B
+* **Heavy Kick:** RB
 
   **Gameplay**
   
