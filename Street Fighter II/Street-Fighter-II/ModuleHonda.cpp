@@ -19,9 +19,13 @@ ModuleHonda::ModuleHonda(PLAYER_NUMBER num)
 
 // idle animation (arcade sprite sheet)
 idle.PushBack({ 745, 1187, 101, 94 });//101
+idle.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 idle.PushBack({ 782, 1004, 107, 91 });//107
+idle.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 idle.PushBack({ 701, 740, 115, 87 });//115
+idle.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 idle.PushBack({ 782, 1004, 107, 91 });//107
+idle.CollPushBack({ 51,0,23,25 }, { 18,25,63,25 }, { 7,50,77,37 }, { -100,-100,1,1 });
 //idle.PushBack({ 0, 809, 101, 94 });
 //idle.PushBack({ 118, 736, 59, 90 });
 //idle.PushBack({ 366, 12, 60, 92 });
@@ -1257,6 +1261,21 @@ bool ModuleHonda::Start()
 	movement = IDLE;
 	state = ON_FLOOR;
 	current_animation = &idle;
+
+	if (player_num == PLAYER_NUMBER::NUMBER_ONE)
+	{
+		coll_head = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE, this);
+		coll_body = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE, this);
+		coll_legs = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE, this);
+		coll_attack = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_ATTACK_PLAYER_ONE, this);
+	}
+	if (player_num == PLAYER_NUMBER::NUMBER_TWO)
+	{
+		coll_head = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_TWO, this);
+		coll_body = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_TWO, this);
+		coll_legs = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_TWO, this);
+		coll_attack = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_ATTACK_PLAYER_TWO, this);
+	}
 	
 	return true;
 }
@@ -1474,6 +1493,38 @@ update_status ModuleHonda::Update()
 
 	if(flip)auxPosition.x = position.x - (auxiliar.w - auxiliar.w/2);
 	else auxPosition.x = position.x - auxiliar.w / 2;
+
+	coll_aux = current_animation->GetCurrentColliders();
+	if (!flip)
+	{
+		coll_head->rect = coll_aux.head;
+		coll_head->rect.x = auxPosition.x + coll_aux.head.x;
+		coll_head->rect.y = position.y + coll_aux.head.y - auxiliar.h;
+		coll_body->rect = coll_aux.body;
+		coll_body->rect.x = auxPosition.x + coll_aux.body.x;
+		coll_body->rect.y = position.y + coll_aux.body.y - auxiliar.h;
+		coll_legs->rect = coll_aux.legs;
+		coll_legs->rect.x = auxPosition.x + coll_aux.legs.x;
+		coll_legs->rect.y = position.y + coll_aux.legs.y - auxiliar.h;
+		coll_attack->rect = coll_aux.attack;
+		coll_attack->rect.x = auxPosition.x + coll_aux.attack.x;
+		coll_attack->rect.y = position.y + coll_aux.attack.y - auxiliar.h;
+	}
+	if (flip)
+	{
+		coll_head->rect = coll_aux.head;
+		coll_head->rect.x = auxPosition.x + (auxiliar.w - (coll_aux.head.x + coll_aux.head.w));
+		coll_head->rect.y = position.y + coll_aux.head.y - auxiliar.h;
+		coll_body->rect = coll_aux.body;
+		coll_body->rect.x = auxPosition.x + (auxiliar.w - (coll_aux.body.x + coll_aux.body.w));
+		coll_body->rect.y = position.y + coll_aux.body.y - auxiliar.h;
+		coll_legs->rect = coll_aux.legs;
+		coll_legs->rect.x = auxPosition.x + (auxiliar.w - (coll_aux.legs.x + coll_aux.legs.w));
+		coll_legs->rect.y = position.y + coll_aux.legs.y - auxiliar.h;
+		coll_attack->rect = coll_aux.attack;
+		coll_attack->rect.x = auxPosition.x + (auxiliar.w - (coll_aux.attack.x + coll_aux.attack.w));
+		coll_attack->rect.y = position.y + coll_aux.attack.y - auxiliar.h;
+	}
 
 	if (position.y <= 212)
 	{

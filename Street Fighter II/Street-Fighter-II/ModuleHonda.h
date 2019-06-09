@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Animation.h"
+#include "ModuleCollision.h"
 #include "p2Point.h"
 struct Collider;
 
@@ -86,6 +87,15 @@ public:
 	float			vspeed;
 	float			acceleration = 0.8F;
 	float			VerticalSpeed = -12.0F;
+
+	// Colliders
+	Collider* head_coll = nullptr;
+	Collider* body_coll = nullptr;
+	Collider* legs_coll = nullptr;
+	Collider* attack_coll = nullptr;
+
+	// Control Colliders
+	CollidersPosition coll_aux;
 
 	//hp
 	int hp = 100;

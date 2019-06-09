@@ -21,13 +21,12 @@ public:
 public:
 	//As this is a manager it handles all the players textures
 	SDL_Texture*		graphics = nullptr;
-
+	SDL_Texture*		graphics2 = nullptr;
 
 	//Player 1 & Player 2 pointers
 	ModuleHonda*		player;
 	ModuleHonda*		player2;
-	//
-	SDL_Texture*		graphics2 = nullptr;
+
 	//sfx
 	//Sound Effects
 	Mix_Chunk* lightpunch_sfx;
