@@ -633,10 +633,10 @@ jumpHeavyPunch.speed = 1.0f;
 jumpLightKick.PushBack({ 204, 126, 95, 69 });//prep  3
 jumpLightKick.PushBack({ 204, 126, 95, 69 });//prep
 jumpLightKick.PushBack({ 204, 126, 95, 69 });//prep
-jumpLightKick.PushBack({ 204, 126, 103, 76 });//kick  4
-jumpLightKick.PushBack({ 204, 126, 103, 76 });//kick
-jumpLightKick.PushBack({ 204, 126, 103, 76 });//kick
-jumpLightKick.PushBack({ 204, 126, 103, 76 });//kick
+jumpLightKick.PushBack({ 416, 416, 103, 76 });//kick  4
+jumpLightKick.PushBack({ 416, 416, 103, 76 });//kick
+jumpLightKick.PushBack({ 416, 416, 103, 76 });//kick
+jumpLightKick.PushBack({ 416, 416, 103, 76 });//kick
 jumpLightKick.PushBack({ 479, 493, 148, 80 });//dmg  30
 jumpLightKick.PushBack({ 479, 493, 148, 80 });//dmg
 jumpLightKick.PushBack({ 479, 493, 148, 80 });//dmg
@@ -677,10 +677,10 @@ jumpLightKick.speed = 1.0f;
 jumpMediumKick.PushBack({ 204, 126, 95, 69 });//prep  3
 jumpMediumKick.PushBack({ 204, 126, 95, 69 });//prep
 jumpMediumKick.PushBack({ 204, 126, 95, 69 });//prep
-jumpMediumKick.PushBack({ 204, 126, 103, 76 });//kick  4
-jumpMediumKick.PushBack({ 204, 126, 103, 76 });//kick
-jumpMediumKick.PushBack({ 204, 126, 103, 76 });//kick
-jumpMediumKick.PushBack({ 204, 126, 103, 76 });//kick
+jumpMediumKick.PushBack({ 416, 416, 103, 76 });//kick  4
+jumpMediumKick.PushBack({ 416, 416, 103, 76 });//kick
+jumpMediumKick.PushBack({ 416, 416, 103, 76 });//kick
+jumpMediumKick.PushBack({ 416, 416, 103, 76 });//kick
 jumpMediumKick.PushBack({ 479, 493, 148, 80 });//dmg  12
 jumpMediumKick.PushBack({ 479, 493, 148, 80 });//dmg
 jumpMediumKick.PushBack({ 479, 493, 148, 80 });//dmg
@@ -714,10 +714,10 @@ jumpMediumKick.speed = 1.0f;
 
 jumpHeavyKick.PushBack({ 204, 126, 95, 69 });//prep  2
 jumpHeavyKick.PushBack({ 204, 126, 95, 69 });//prep
-jumpHeavyKick.PushBack({ 204, 126, 103, 76 });//kick  4
-jumpHeavyKick.PushBack({ 204, 126, 103, 76 });//kick
-jumpHeavyKick.PushBack({ 204, 126, 103, 76 });//kick
-jumpHeavyKick.PushBack({ 204, 126, 103, 76 });//kick
+jumpHeavyKick.PushBack({ 416, 416, 103, 76 });//kick  4
+jumpHeavyKick.PushBack({ 416, 416, 103, 76 });//kick
+jumpHeavyKick.PushBack({ 416, 416, 103, 76 });//kick
+jumpHeavyKick.PushBack({ 416, 416, 103, 76 });//kick
 jumpHeavyKick.PushBack({ 479, 493, 148, 80 });//dmg  6
 jumpHeavyKick.PushBack({ 479, 493, 148, 80 });//dmg
 jumpHeavyKick.PushBack({ 479, 493, 148, 80 });//dmg
@@ -1432,7 +1432,7 @@ update_status ModuleHonda::Update()
 	if(flip)auxPosition.x = position.x - (auxiliar.w - auxiliar.w/2);
 	else auxPosition.x = position.x - auxiliar.w / 2;
 
-	App->render->Blit(App->manager->graphics, auxPosition.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
+	if(position.y <= 212)App->render->Blit(App->manager->graphics, auxPosition.x, position.y - auxiliar.h, &auxiliar, 1.0F, true, flip);
 	return update_status::UPDATE_CONTINUE;
 }
 
