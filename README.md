@@ -10,6 +10,15 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 [Repeaters Studio's Github](https://github.com/PolGannau/RepeatersStudio/)
 
+### Project Website
+
+[Repeaters Studio's Website](https://polgannau.github.io/RepeatersStudio/)
+
+### Project Wiki
+
+[Repeaters Studio's Wiki](https://github.com/PolGannau/RepeatersStudio/wiki)
+
+
 ## Game Controls
 
 
@@ -77,6 +86,7 @@ In this subject we will be replicating the famous arcade game which catapulted t
 **0.6:** Added proper rounds to combat, fixed Ui problems like lifebars working uncorrectly or missing elements
 P2 is different color from p1.
 
+
 ## Team Members
 
 * Pol Gannau
@@ -91,13 +101,6 @@ P2 is different color from p1.
 * Jan Adell
 >https://github.com/JanAdell
 
-### Project Website
-
-[Repeaters Studio's Website](https://polgannau.github.io/RepeatersStudio/)
-
-### Project Wiki
-
-[Repeaters Studio's Wiki](https://github.com/PolGannau/RepeatersStudio/wiki)
 
 
 ## Sources & Bibliography
