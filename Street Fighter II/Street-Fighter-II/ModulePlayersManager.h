@@ -22,6 +22,7 @@ public:
 	//As this is a manager it handles all the players textures
 	SDL_Texture*		graphics = nullptr;
 
+
 	//Player 1 & Player 2 pointers
 	ModuleHonda*		player;
 	ModuleHonda*		player2;

@@ -152,7 +152,9 @@ update_status ModuleSceneIntro::Update()
 {
 	App->render->Blit(intro_image, 0, 0, &intro.GetCurrentFrame(),1,false);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false || App->input->controller[BUTTON_START] == KEY_DOWN || App->input->controller2[BUTTON_START] == KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false ||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_START] == KEY_STATE::KEY_DOWN ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_START] == KEY_STATE::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->honda_stage);
 		//App->audio->FadeMusic(600);
@@ -160,7 +162,9 @@ update_status ModuleSceneIntro::Update()
 	
 	App->fonts->BlitText(130, 200, capcom_font, "©CAPCOM CO..LTD.");
 	App->fonts->BlitText(37, 210, repeaters_font, "Fbonbef'Pspkfdu'Bz'Tif'Rfqfbufst'Suvejp");
-	/*if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN && App->fade->IsFading() == false || App->input->controller[BUTTON_BACK] == KEY_DOWN)
+	/*if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN && App->fade->IsFading() == false||
+		App->input->Controller1[SDL_CONTROLLER_BUTTON_BACK] == KEY_STATE::KEY_DOWN ||
+		App->input->Controller2[SDL_CONTROLLER_BUTTON_BACK] == KEY_STATE::KEY_DOWN)
 		App->fade->FadeToBlack(this, App->ryu_stage);*/
 
 	return UPDATE_CONTINUE;

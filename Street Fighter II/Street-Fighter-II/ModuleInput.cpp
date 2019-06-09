@@ -7,6 +7,30 @@ ModuleInput::ModuleInput() : Module()
 {
 	for (uint i = 0; i < MAX_KEYS; ++i)
 		keyboard[i] = KEY_IDLE;
+
+	for (uint i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+		Controller1[i] = KEY_IDLE;
+
+	for (uint i = 0; i <SDL_CONTROLLER_BUTTON_MAX; ++i)
+		Controller2[i] = KEY_IDLE;
+
+	int i = 0;
+	stringbutton[0] = SDL_CONTROLLER_BUTTON_A; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_B; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_X; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_Y; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_BACK; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_GUIDE; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_START; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_LEFTSTICK; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_RIGHTSTICK; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_LEFTSHOULDER; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_RIGHTSHOULDER; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_DPAD_UP; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_DPAD_DOWN; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_DPAD_LEFT; ++i;
+	stringbutton[0 + i] = SDL_CONTROLLER_BUTTON_DPAD_RIGHT; ++i;
+
 }
 
 // Destructor
@@ -33,25 +57,6 @@ bool ModuleInput::Init()
 	if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		LOG("GamePad controller could not initialize! SDL_Error: %s\n", SDL_GetError());
-	}
-
-
-	int maxJoys = SDL_NumJoysticks();
-
-
-	for (int i = 0; i < maxJoys; ++i)
-
-	{
-		if (i >= MAX_GAMEPADS) break;
-
-		if (SDL_IsGameController(i))
-		{
-			gamepad[i] = SDL_GameControllerOpen(i);
-		}
-		if (SDL_IsGameController(i))
-		{
-			gamepad2[i] = SDL_GameControllerOpen(i);
-		}
 	}
 
 	return ret;
@@ -81,142 +86,81 @@ update_status ModuleInput::PreUpdate()
 				keyboard[i] = KEY_IDLE;
 		}
 	}
-	SDL_PollEvent(&Events);
-
-	if (keyboard[SDL_SCANCODE_ESCAPE] || Events.type == SDL_QUIT)
-		return update_status::UPDATE_STOP;
-
-	if (keyboard[SDL_QUIT]) {
-		return update_status::UPDATE_STOP;
-	}
-
-	// Controller
-
-	for (int i = 0; i < MAX_GAMEPADS; ++i)
+	//Controller 1 ---------------------------------------------------------------------------------
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
 	{
-		if (gamepad[i] != nullptr)
+		if (SDL_GameControllerGetButton(controller[0].controller, stringbutton[i]))
 		{
-			controller_state[BUTTON_A] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_A);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_B] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_B);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_X] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_X);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_Y] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_Y);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_R1] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_RIGHTSHOULDER);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_L1] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_LEFTSHOULDER);
-		}
-		/*if (gamepad[i]!=nullptr)
-		{
-			controller_state[BUTTON_DPAD_DOWN] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_DPAD_DOWN);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_DPAD_UP] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_DPAD_UP);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_DPAD_LEFT] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_DPAD_LEFT);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_DPAD_RIGHT] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
-		}*/
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_START] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_START);
-		}
-		if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_BACK] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_BACK);
-		}
-		/*if (gamepad2[i] != nullptr)
-		{
-		controller_state[BUTTON_A] = SDL_GameControllerGetButton(gamepad2[i], SDL_CONTROLLER_BUTTON_A);
-		}*/
-	}
-
-	for (int i = 0; i < MAX_BUTTONS; ++i)
-	{
-		if (controller_state[i] == 1) {
-			if (controller[i] == KEY_IDLE)
-				controller[i] = KEY_DOWN;
+			if (Controller1[i] == KEY_IDLE)
+				Controller1[i] = KEY_DOWN;
 			else
-				controller[i] = KEY_REPEAT;
+				Controller1[i] = KEY_REPEAT;
 		}
 		else
 		{
-			if (controller[i] == KEY_REPEAT || controller[i] == KEY_DOWN)
-				controller[i] = KEY_UP;
+			if (Controller1[i] == KEY_REPEAT || Controller1[i] == KEY_DOWN)
+				Controller1[i] = KEY_UP;
 			else
-				controller[i] = KEY_IDLE;
+				Controller1[i] = KEY_IDLE;
 		}
 	}
 
-	if (Events.type == SDL_CONTROLLERDEVICEADDED)
+	//Controller 2----------------------------------------------------------------------------
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
 	{
-		if (Events.cdevice.which > MAX_GAMEPADS - 1)
+		if (SDL_GameControllerGetButton(controller[1].controller, stringbutton[i]))
 		{
-			LOG("Maximum number of gamepads reached, you cannot connect more...");
-
+			if (Controller2[i] == KEY_IDLE)
+				Controller2[i] = KEY_DOWN;
+			else
+				Controller2[i] = KEY_REPEAT;
 		}
-
-		else if (SDL_IsGameController(Events.cdevice.which))
+		else
 		{
-			gamepad[Events.cdevice.which] = SDL_GameControllerOpen(Events.cdevice.which);
-			LOG("Controller added: %d", Events.cdevice.which);
+			if (Controller2[i] == KEY_REPEAT || Controller2[i] == KEY_DOWN)
+				Controller2[i] = KEY_UP;
+			else
+				Controller2[i] = KEY_IDLE;
 		}
-
 	}
 
+	SDL_PollEvent(&event);
 
-	// Controller inputs: Axis
-	for (int i = 0; i < MAX_GAMEPADS; ++i)
+	if (event.type == SDL_CONTROLLERDEVICEADDED)
 	{
-		if (gamepad[i] != nullptr)
+		for (int i = 0; i < MAX_CONTROLLERS; i++)
 		{
-			GamepadDir[i].X = SDL_GameControllerGetAxis(gamepad[i], SDL_CONTROLLER_AXIS_LEFTX);
-			GamepadDir[i].Y = SDL_GameControllerGetAxis(gamepad[i], SDL_CONTROLLER_AXIS_LEFTY);
+			if (controller[i].controller == nullptr && controller[i].joyId == -1)
+			{
+				controller[i].controller = SDL_GameControllerOpen(i);
+				SDL_Joystick* j = SDL_GameControllerGetJoystick(controller[i].controller);
+				controller[i].joyId = SDL_JoystickInstanceID(j);
+				break;
+			}
+
 		}
-		if (gamepad2[i] != nullptr)
+	}
+	if (event.type == SDL_CONTROLLERDEVICEREMOVED)
+	{
+		for (int i = 0; i < MAX_CONTROLLERS; ++i)
 		{
-			GamepadDir[i].X = SDL_GameControllerGetAxis(gamepad2[i], SDL_CONTROLLER_AXIS_LEFTX);
-			GamepadDir[i].Y = SDL_GameControllerGetAxis(gamepad2[i], SDL_CONTROLLER_AXIS_LEFTY);
+			if (controller[i].joyId == event.cdevice.which)
+			{
+				SDL_GameControllerClose(controller[i].controller);
+				controller[i].controller = nullptr;
+				controller[i].joyId = -1;
+
+				LOG("Disconnected gamepad index: %d", i)
+					break;
+			}
 		}
 	}
 
+	if (event.type == SDL_QUIT)
+		return update_status::UPDATE_STOP;
 
-	if (GamepadDir[0].X > GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_RIGHT] == KEY_REPEAT)
-	{
-		keyboard[SDL_SCANCODE_D] = KEY_REPEAT;
-	}
-
-	else if (GamepadDir[0].X < -GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_LEFT] == KEY_REPEAT)
-	{
-		keyboard[SDL_SCANCODE_A] = KEY_REPEAT;
-	}
-
-	if (GamepadDir[0].Y < -GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_DOWN] == KEY_REPEAT)
-	{
-		keyboard[SDL_SCANCODE_W] = KEY_DOWN;
-	}
-
-	else if (GamepadDir[0].Y > GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_UP] == KEY_REPEAT)
-	{
-		keyboard[SDL_SCANCODE_S] = KEY_REPEAT;
-	}
+	if (keyboard[SDL_SCANCODE_ESCAPE])
+		return update_status::UPDATE_STOP;
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -226,5 +170,11 @@ bool ModuleInput::CleanUp()
 {
 	LOG("Quitting SDL input event subsystem");
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
+	for (int i = 0; i < SDL_NumJoysticks(); ++i) {
+		if (SDL_IsGameController(i)) {
+			SDL_GameControllerClose(controller[i].controller);
+
+		}
+	}
 	return true;
 }
