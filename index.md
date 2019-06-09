@@ -55,7 +55,7 @@ Here's a link to our group's github repository, where you can find different rel
 
 * **Heavy Kick:** RB
 
- ## Gameplay
+## Gameplay
   
 Here's a video showcasing a sample of gameplay our Street Fifhter II Fanmade Project.
 
