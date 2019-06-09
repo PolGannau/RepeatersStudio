@@ -1309,7 +1309,7 @@ update_status ModuleHonda::Update()
 			else if (action == HEAVY_PUNCH)current_animation = &heavyPunch;
 			if (action == LIGHT_HUNDRED_SLAPS)current_animation = &LightHundredSlaps;
 			else if (action == MEDIUM_HUNDRED_SLAPS)current_animation = &MediumHundredSlaps;
-			else if (action == HEAVY_HUNDRED_SLAPS)current_aniamtion = &HeavyHundredSlaps;
+			else if (action == HEAVY_HUNDRED_SLAPS)current_animation = &HeavyHundredSlaps;
 		}
 		if (movement == TURN_LEFT)
 		{
