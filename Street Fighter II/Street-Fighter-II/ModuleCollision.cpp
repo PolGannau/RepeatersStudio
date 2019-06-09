@@ -101,8 +101,12 @@ void ModuleCollision::DebugDraw()
 
 	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)
 	{
-		matrix[COLLIDER_PLAYER_BODY][COLLIDER_ATTACK] = !matrix[COLLIDER_PLAYER_BODY][COLLIDER_ATTACK];
-		matrix[COLLIDER_ATTACK][COLLIDER_PLAYER_BODY] = !matrix[COLLIDER_ATTACK][COLLIDER_PLAYER_BODY];
+		matrix[COLLIDER_BODY_PLAYER_ONE][COLLIDER_ATTACK_PLAYER_TWO] = !matrix[COLLIDER_BODY_PLAYER_ONE][COLLIDER_ATTACK_PLAYER_TWO];
+		matrix[COLLIDER_ATTACK_PLAYER_TWO][COLLIDER_BODY_PLAYER_ONE] = !matrix[COLLIDER_ATTACK_PLAYER_TWO][COLLIDER_BODY_PLAYER_ONE];
+		matrix[COLLIDER_BODY_PLAYER_TWO][COLLIDER_ATTACK_PLAYER_ONE] = !matrix[COLLIDER_BODY_PLAYER_TWO][COLLIDER_ATTACK_PLAYER_ONE];
+		matrix[COLLIDER_ATTACK_PLAYER_ONE][COLLIDER_BODY_PLAYER_TWO] = !matrix[COLLIDER_ATTACK_PLAYER_ONE][COLLIDER_BODY_PLAYER_TWO];
+		matrix[COLLIDER_ATTACK_PLAYER_ONE][COLLIDER_ATTACK_PLAYER_TWO] = !matrix[COLLIDER_ATTACK_PLAYER_ONE][COLLIDER_ATTACK_PLAYER_TWO];
+		matrix[COLLIDER_ATTACK_PLAYER_TWO][COLLIDER_ATTACK_PLAYER_ONE] = !matrix[COLLIDER_ATTACK_PLAYER_TWO][COLLIDER_ATTACK_PLAYER_ONE];
 	}
 
 	Uint8 alpha = 80;
@@ -116,18 +120,19 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_NONE: // white
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 			break;
-		case COLLIDER_WALL: // blue
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
-			break;
-		case COLLIDER_PLAYER_BODY: // green
-			if(matrix[COLLIDER_PLAYER_BODY][COLLIDER_ATTACK])App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+		case COLLIDER_BODY_PLAYER_ONE: // green
+			if(matrix[COLLIDER_BODY_PLAYER_ONE][COLLIDER_ATTACK_PLAYER_TWO])App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
 			else App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, 0);
 			break;
-		case COLLIDER_ATTACK: // red
+		case COLLIDER_BODY_PLAYER_TWO: // green
+			if (matrix[COLLIDER_BODY_PLAYER_TWO][COLLIDER_ATTACK_PLAYER_ONE])App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+			else App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, 0);
+			break;
+		case COLLIDER_ATTACK_PLAYER_ONE: // red
 			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
-		case COLLIDER_FLOOR: // blue
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
+		case COLLIDER_ATTACK_PLAYER_TWO: // red
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
 			break;
 		}
 	}

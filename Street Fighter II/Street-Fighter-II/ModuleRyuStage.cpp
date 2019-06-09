@@ -38,8 +38,6 @@ bool ModuleRyuStage::Start()
 	ryu_stage_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/05 Ryu.ogg");
 	App->audio->PlayMusic(ryu_stage_music);
 
-	floor_collider = App->collision->AddCollider({ 0,218,622,10 }, COLLIDER_FLOOR, this);
-
 	return true;
 }
 
