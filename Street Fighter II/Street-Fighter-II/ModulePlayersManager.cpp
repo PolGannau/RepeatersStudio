@@ -80,32 +80,32 @@ update_status ModulePlayersManager::Update()
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_REPEAT && player->state == ON_FLOOR)player->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_UP && player->state == CROUCHING)player->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
 	//LIGHT KICK
-	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN && player->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_A] == KEY_DOWN)
 	{
 		player->action = LIGHT_KICK;
 	}
 	//MEDIUM KICK
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN && player->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_B] == KEY_DOWN)
 	{
 		player->action = MEDIUM_KICK;
 	}
 	//HEAVY KICK
-	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN && player->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_R1] == KEY_DOWN)
 	{
 		player->action = HEAVY_KICK;
 	}
 	//LIGHT PUNCH
-	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_DOWN && player->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_X] == KEY_DOWN)
 	{
 		player->action = LIGHT_PUNCH;
 	}
 	//MEDIUM PUNCH
-	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_DOWN && player->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_Y] == KEY_DOWN)
 	{
 		player->action = MEDIUM_PUNCH;
 	}
 	//HEAVY PUNCH
-	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN && player->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_B] == KEY_DOWN && player->action == NO_ACTION || App->input->controller[BUTTON_L1] == KEY_DOWN)
 	{
 		player->action = HEAVY_PUNCH;
 	}

@@ -110,6 +110,14 @@ update_status ModuleInput::PreUpdate()
 		{
 			controller_state[BUTTON_Y] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_Y);
 		}
+		if (gamepad[i] != nullptr)
+		{
+			controller_state[BUTTON_R1] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_RIGHTSHOULDER);
+		}
+		if (gamepad[i] != nullptr)
+		{
+			controller_state[BUTTON_L1] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_LEFTSHOULDER);
+		}
 		/*if (gamepad[i]!=nullptr)
 		{
 			controller_state[BUTTON_DPAD_DOWN] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_DPAD_DOWN);
@@ -125,10 +133,6 @@ update_status ModuleInput::PreUpdate()
 		if (gamepad[i] != nullptr)
 		{
 			controller_state[BUTTON_DPAD_RIGHT] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_BUTTON_DPAD_RIGHT);
-		}*/
-		/*if (gamepad[i] != nullptr)
-		{
-			controller_state[BUTTON_L1] = SDL_GameControllerGetButton(gamepad[i], SDL_CONTROLLER_AXIS_TRIGGERLEFT);
 		}*/
 		if (gamepad[i] != nullptr)
 		{
@@ -194,23 +198,22 @@ update_status ModuleInput::PreUpdate()
 	}
 
 
-	if (GamepadDir[0].X > GamepadDir[0].deadzone)
+	if (GamepadDir[0].X > GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_RIGHT] == KEY_REPEAT)
 	{
 		keyboard[SDL_SCANCODE_D] = KEY_REPEAT;
 	}
 
-	else if (GamepadDir[0].X < -GamepadDir[0].deadzone)
+	else if (GamepadDir[0].X < -GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_LEFT] == KEY_REPEAT)
 	{
 		keyboard[SDL_SCANCODE_A] = KEY_REPEAT;
 	}
 
-
-	if (GamepadDir[0].Y < -GamepadDir[0].deadzone)
+	if (GamepadDir[0].Y < -GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_DOWN] == KEY_REPEAT)
 	{
 		keyboard[SDL_SCANCODE_W] = KEY_DOWN;
 	}
 
-	else if (GamepadDir[0].Y > GamepadDir[0].deadzone)
+	else if (GamepadDir[0].Y > GamepadDir[0].deadzone || App->input->controller[BUTTON_DPAD_UP] == KEY_REPEAT)
 	{
 		keyboard[SDL_SCANCODE_S] = KEY_REPEAT;
 	}
