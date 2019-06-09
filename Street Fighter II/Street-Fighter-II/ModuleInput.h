@@ -10,7 +10,7 @@
 #define MAX_KEYS 300
 #define MAX_CONTROLLERS 2
 #define MAX_GAMEPADS 2
-#define MAX_BUTTONS 10
+#define MAX_BUTTONS 15
 
 enum KEY_STATE
 {
