@@ -4,7 +4,7 @@ In this project we've been tasked to recreate Street Fighter II step by step, fi
  
 Our group had to replicate the character E.Honda, together with his stage.
 
- ## Team Members
+## Team Members
 
 * Pol Gannau
 > https://github.com/PolGannau
