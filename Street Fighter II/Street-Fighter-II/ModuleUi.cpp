@@ -101,7 +101,7 @@ update_status ModuleUi::Update()
 	}
 
 	//TIME OVER
-	/*if ((current_time - last_time) >= TIMER_VALUE)
+	if (time_fight == (uint) 0)
 	{
 		if (App->manager->player->hp > App->manager->player2->hp)
 		{
@@ -122,7 +122,7 @@ update_status ModuleUi::Update()
 			App->honda_stage->control = false;
 		}
 		if (App->manager->player->round_won == true)App->render->Blit(hud, 0, 10, &round_win, NULL);
-	}*/
+	}
 
 	//round wins
 	//player2 round win
@@ -183,7 +183,5 @@ void ModuleUi::TimerBlit() {
 	}
 	sprintf_s(timer, 10, "%7d", time_fight);
 	App->fonts->BlitText(99, 35, timer_font, timer);
-
-	
 }
 

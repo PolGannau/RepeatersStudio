@@ -80,6 +80,7 @@ ModuleHonda* ModulePlayersManager::CreatePlayer(PLAYER_NUMBER num)
 	}
 	if (num == PLAYER_NUMBER::NUMBER_ONE)LOG("Error Loading Player 1...");
 	if (num == PLAYER_NUMBER::NUMBER_TWO)LOG("Error Loading Player 2...");
+	player->hp = 90;
 	update_status::UPDATE_ERROR;
 }
 
@@ -94,7 +95,7 @@ update_status ModulePlayersManager::Update()
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed;
 	}
-	else if (SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 )
+	else if (SDL_GameControllerGetAxis(App->input->controller[0].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 && player->state == ON_FLOOR)
 	{
 		player->state = JUMPING;
 		player->vspeed += player->VerticalSpeed/5;
@@ -177,7 +178,7 @@ update_status ModulePlayersManager::Update()
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
 	}
-	else if (SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600)
+	else if (SDL_GameControllerGetAxis(App->input->controller[1].controller, SDL_CONTROLLER_AXIS_LEFTY)<-32600 && player2->state == ON_FLOOR)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed / 5;
