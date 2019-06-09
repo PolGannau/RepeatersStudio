@@ -1319,7 +1319,7 @@ update_status ModuleHonda::Update()
 		if (movement == BACKWARD)
 		{
 			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 1;
-			else if(position.x < (App->render->limit.w - auxiliar.w/2) && flip)position.x += 1;
+			else if(position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w/2) && flip)position.x += 1;
 			current_animation = &backward;
 			if (current_animation->Finished())
 			{
@@ -1328,7 +1328,7 @@ update_status ModuleHonda::Update()
 		}
 		if (movement == FORWARD)
 		{
-			if (position.x < (App->render->limit.w - auxiliar.w) && !flip)position.x += 1;
+			if (position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w) && !flip)position.x += 1;
 			else if (position.x > App->render->limit.x + 64 && flip)position.x -= 1;
 			current_animation = &forward;
 			if (current_animation->Finished())
