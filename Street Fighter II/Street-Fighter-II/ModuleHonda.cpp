@@ -1334,10 +1334,11 @@ update_status ModuleHonda::Update()
 			if ((position.x > App->render->limit.x + 64) && !flip)position.x -= 1;
 			else if(position.x < (App->render->limit.x + App->render->limit.w - auxiliar.w/2) && flip)position.x += 1;
 			current_animation = &backward;
-			if (current_animation->Finished())
+			if (current_animation->Finished() && movement != BLOCK)
 			{
 				movement = IDLE;
 			}
+			else if (movement == BLOCK)current_animation = &block;
 		}
 		if (movement == FORWARD)
 		{
@@ -1370,7 +1371,7 @@ update_status ModuleHonda::Update()
 		if (movement == IDLE && action == NO_ACTION)current_animation = &idleCrouch;
 		if (movement == IDLE)
 		{
-			if (current_animation->Finished())
+			if (current_animation->Finished() && action != BLOCK)
 			{
 				current_animation->Reset();
 				action = NO_ACTION;
@@ -1383,6 +1384,7 @@ update_status ModuleHonda::Update()
 			else if (action == HEAVY_PUNCH)current_animation = &crouchHeavyPunch;
 			if (movement == HIT)current_animation = &crouchHit;
 			else if (movement == GUT_HIT)current_animation = &crouchHit;
+			if (action == BLOCK)current_animation = &crouchblock;
 		}
 		break;
 	case CROUCHING_TO_STANDING:
