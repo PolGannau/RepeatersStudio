@@ -719,11 +719,6 @@ crouchHeavyKick.PushBack({ 438, 196, 94, 70 });//idleCrouch  1
 crouchHeavyKick.CollPushBack({ 61,0,20,25 }, { 25,25,57,41 }, { -100,-100,1,1 }, { -100,-100,1,1 });
 crouchHeavyKick.speed = 1.0f;
 
-///TREURE COLLIDERS FINS AQUIII
-///--------------------------------------------
-///--------------------------------------------
-///--------------------------------------------
-///--------------------------------------------
 //jump attacks
 jumpLightPunch.PushBack({ 655, 1694, 77, 130 });//jumping  3
 jumpLightPunch.PushBack({ 655, 1694, 77, 130 });//jumping
@@ -1447,10 +1442,12 @@ victory2.PushBack({ 439, 740, 147, 85 });
 victory2.speed = 0.13f;
 
 block.PushBack({ 614,1378,98,99 });
+block.CollPushBack({ 41,3,21,21 }, { 13,24,53,21 }, { 3,45,37,37 }, { -100,-100,1,1 });
 block.PushBack({ 104,1583,104,105 });//blocking
 block.speed = 0.13f;
 
 crouchblock.PushBack({ 519,416,106,77 });
+crouchblock.CollPushBack({ 51,1,22,23 }, { 23,24,49,23 }, { 3,47,28,30 }, { -100,-100,1,1 });
 crouchblock.PushBack({ 627,493,95,80 });//blocking
 block.speed = 0.13f;
 
