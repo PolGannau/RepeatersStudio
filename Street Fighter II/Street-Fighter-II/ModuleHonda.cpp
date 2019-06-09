@@ -1345,6 +1345,12 @@ update_status ModuleHonda::Update()
 				movement = IDLE;
 			}
 			else if (movement == BLOCK)current_animation = &block;
+			else if (action == DOUBLE_KNEE)
+			{
+				current_animation = &DoubleKnee;
+				if (!flip)position.x += 1;
+				else if (flip)position.x -= 1;
+			}
 		}
 		if (movement == FORWARD)
 		{
@@ -1361,6 +1367,12 @@ update_status ModuleHonda::Update()
 			if (action = LIGHT_SUMO_HEAD_BUTT)current_animation = &LightSumoHeadbutt;
 			else if (action = MEDIUM_SUMO_HEAD_BUTT)current_animation = &MediumSumoHeadbutt;
 			else if (action = HEAVY_SUMO_HEAD_BUTT)current_animation = &HeavySumoHeadbutt;
+			else if (action == DOUBLE_KNEE)
+			{
+				current_animation = &DoubleKnee;
+				if (!flip)position.x -= 1;
+				else if (flip)position.x += 1;
+			}
 		}
 		if (movement == HIT)current_animation = &Hit;
 		else if (movement == GUT_HIT)current_animation = &GutHit;
