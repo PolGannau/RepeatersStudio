@@ -14,11 +14,7 @@ Here's a link to our group's github repository, where you can find different rel
  
  * **Project repository**
  ><https://github.com/PolGannau/RepeatersStudio>
- 
- * **Download Current Version Release**
- 
- ><link>
- 
+  
  * **Link to our latest releases**
  ><https://github.com/PolGannau/RepeatersStudio/releases>
  
