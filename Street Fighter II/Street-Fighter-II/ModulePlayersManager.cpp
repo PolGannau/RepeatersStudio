@@ -110,18 +110,18 @@ update_status ModulePlayersManager::Update()
 
 	/// PLAYER 2 INPUT CONTROL AND LOGIC -------------------------------------------------
 	//JUMP
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN && player2->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_DOWN)
 	{
 		player2->state = JUMPING;
 		player2->vspeed += player2->VerticalSpeed;
 	}
 	//BACKWARD
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT && player2->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 	{
 		player2->movement = MOVEMENT_CHARACTER::BACKWARD;
 	}
 	//FORWARD
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT && player2->state == ON_FLOOR)
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 	{
 		player2->movement = MOVEMENT_CHARACTER::FORWARD;
 	}
