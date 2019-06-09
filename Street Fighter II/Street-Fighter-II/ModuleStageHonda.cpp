@@ -56,6 +56,7 @@ bool ModuleStageHonda::Start()
 	boy_big = { 97,0,95,104 };
 
 	App->render->camera.x = 7;
+	App->render->limit.x = 0;
 	
 	timer_start = SDL_GetTicks();
 	//App->timer->timeout = SDL_GetTicks() + 99000; //99 Secs

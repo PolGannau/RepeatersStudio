@@ -18,6 +18,8 @@ bool ModulePlayersManager::Start()
 	player2 = CreatePlayer(PLAYER_NUMBER::NUMBER_TWO);
 	player->vspeed = 0;
 	player2->vspeed = 0;
+	player->position.x = 100;
+	player2->position.x = 200;
 
 	return true;
 }
