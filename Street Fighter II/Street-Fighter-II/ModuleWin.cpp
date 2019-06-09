@@ -8,11 +8,13 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleRyuStage.h"
+#include "ModuleStageHonda.h"
 #include "ModuleInput.h"
 #include "ModuleLose.h"
 #include "ModuleAudio.h"
 #include "ModuleUi.h"
 #include "ModuleFonts.h"
+#include "ModulePlayersManager.h"
 
 ModuleWin::ModuleWin()
 {}
@@ -27,7 +29,8 @@ bool ModuleWin::Start()
 	music = App->audio->LoadMusic("Assets/Audio/Soundtrack/14 Continue.ogg");
 	App->audio->PlayMusic(music);
 	//Disable player and stage
-	App->ryu_stage->Disable();
+	App->honda_stage->Disable();
+	App->manager->Disable();
 	App->module_ui->Disable();
 
 	//We create a rect to put the winner texture in it.

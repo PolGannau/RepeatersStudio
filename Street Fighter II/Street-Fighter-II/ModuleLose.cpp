@@ -5,10 +5,12 @@
 #include "Globals.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleInput.h"
+#include "ModuleStageHonda.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModuleWin.h"
+#include "ModulePlayersManager.h"
 #include "ModuleUi.h"
 #include "ModuleFonts.h"
 
@@ -28,7 +30,8 @@ bool ModuleLose::Start()
 	//disable the player and stage
 	//App->player2->Disable();
 	//App->player->Disable();
-	App->ryu_stage->Disable();
+	App->honda_stage->Disable();
+	App->manager->Disable();
 	App->module_ui->Disable();
 	//App->honnda_stage->Disable();
 

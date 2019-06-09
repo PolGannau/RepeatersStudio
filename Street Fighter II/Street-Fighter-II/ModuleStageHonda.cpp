@@ -34,7 +34,7 @@ bool ModuleStageHonda::Start()
 	LOG("Loading Honda Stage");
 
 	App->collision->Enable();
-	App->manager->Enable();
+	if(!App->manager->IsEnabled()) App->manager->Enable();
 
 	stahe_honda_music = App->audio->LoadMusic("Assets/Audio/Soundtrack/06 E. Honda.ogg");
 	App->audio->PlayMusic(stahe_honda_music);
@@ -58,6 +58,12 @@ bool ModuleStageHonda::Start()
 	App->render->camera.x = 7;
 	App->render->limit.x = 0;
 	App->module_ui->time_fight = 99;
+
+	if (App->manager->player->player_num == PLAYER_NUMBER::NUMBER_ONE)App->manager->player->position.x = 100;
+	else App->manager->player2->position.x = 200;
+	App->manager->player2->position.y = App->manager->player->position.y= 212;
+	App->manager->player->hp = 100;
+	App->manager->player2->hp = 100;
 	
 	timer_start = SDL_GetTicks();
 	//App->timer->timeout = SDL_GetTicks() + 99000; //99 Secs
@@ -75,7 +81,6 @@ bool ModuleStageHonda::CleanUp()
 	App->textures->Unload(stage_texture);
 	App->textures->Unload(light_texture);
 	App->audio->UnloadMusic(stahe_honda_music);
-	App->manager->Disable();
 	App->fonts->UnLoad(timer_font);
 
 	return true;

@@ -130,7 +130,10 @@ update_status ModuleUi::Update()
 	{
 		if (App->manager->player2->round_won)App->manager->player2->game_won = true;
 		App->manager->player2->round_won = true;
-		if (App->manager->player2->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_lose);
+		if (App->manager->player2->game_won == true) { 
+			//App->manager->Disable();
+			App->fade->FadeToBlack(App->honda_stage, App->module_lose); 
+		}
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}
@@ -141,7 +144,11 @@ update_status ModuleUi::Update()
 	{
 		if (App->manager->player->round_won)App->manager->player->game_won = true;
 		App->manager->player->round_won = true;
-		if (App->manager->player->game_won == true)App->fade->FadeToBlack(App->honda_stage, App->module_win);
+		if (App->manager->player->game_won == true)
+		{
+			//App->manager->Disable();
+			App->fade->FadeToBlack(App->honda_stage, App->module_win);
+		}
 		App->fade->FadeToBlack(App->honda_stage, App->honda_stage);
 		App->honda_stage->control = false;
 	}

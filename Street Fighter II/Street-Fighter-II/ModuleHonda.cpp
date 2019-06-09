@@ -1742,7 +1742,7 @@ update_status ModuleHonda::Update()
 
 void ModuleHonda::OnCollision(Collider * c1, Collider * c2)
 {
-	if (c1->type == COLLIDER_BODY_PLAYER_ONE && c2->type == COLLIDER_ATTACK_PLAYER_TWO)
+	/*if (c1->type == COLLIDER_BODY_PLAYER_ONE && c2->type == COLLIDER_ATTACK_PLAYER_TWO)
 	{
 		App->audio->PlaySoundEffect(App->manager->lightpunch_sfx);
 		App->audio->PlaySoundEffect(App->manager->mediumpunch_sfx);
@@ -1752,15 +1752,17 @@ void ModuleHonda::OnCollision(Collider * c1, Collider * c2)
 		App->audio->PlaySoundEffect(App->manager->heavykick_sfx);
 		App->audio->PlaySoundEffect(App->manager->special_sfx);
 		App->audio->PlaySoundEffect(App->manager->block_sfx);
-
-		App->manager->player->score += 500;
-		App->manager->player2->score += 500;
-
-		App->manager->player->score += 1000;
-		App->manager->player2->score += 1000;
-	}
+	}*/
 	if (c1->type == COLLIDER_BODY_PLAYER_TWO && c2->type == COLLIDER_ATTACK_PLAYER_ONE)
 	{
 		App->manager->player2->hp -= 1;
+		App->manager->player->score += 500;
+		App->audio->PlaySoundEffect(App->manager->mediumpunch_sfx);
+	}
+	if (c1->type == COLLIDER_BODY_PLAYER_ONE && c2->type == COLLIDER_ATTACK_PLAYER_TWO)
+	{
+		App->manager->player->hp -= 1;
+		App->manager->player2->score += 500;
+		App->audio->PlaySoundEffect(App->manager->mediumpunch_sfx);
 	}
 }
