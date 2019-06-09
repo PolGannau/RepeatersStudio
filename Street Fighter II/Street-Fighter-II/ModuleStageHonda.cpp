@@ -22,7 +22,7 @@ ModuleStageHonda::ModuleStageHonda()
 {
 	sun.PushBack({ 191,0,225,104 });
 	sun.PushBack({ 415,0,223,104 });
-	sun.speed = 0.2F;
+	sun.speed = 0.1F;
 }
 
 ModuleStageHonda::~ModuleStageHonda()
@@ -129,12 +129,12 @@ update_status ModuleStageHonda::Update()
 	{
 		last_time = current_time;
 	}
-	if (App->manager->player->hp <= 0 || App->manager->player2->hp <= 0)
+	if (App->manager->player->hp <= 25 || App->manager->player2->hp <= 25)
 	{
 		App->render->Blit(stage_texture, 190, roof.h - 2, &(sun.GetCurrentFrame()));
 		App->render->Blit(stage_texture, 447, roof.h - 2, &boy_small);
 	}
-	if ((App->manager->player->hp <= 0 || App->manager->player2->hp <= 0) && (current_time - last_time) < BOY_TIMER / 2)
+	if ((App->manager->player->hp <= 25 || App->manager->player2->hp <= 25) && (current_time - last_time) < BOY_TIMER / 2)
 	{
 		App->render->Blit(stage_texture, 416, roof.h - 2, &boy_big);
 	}
