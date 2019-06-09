@@ -1287,6 +1287,9 @@ update_status ModuleHonda::Update()
 		jumpDiagonalHeavyKick.Reset();
 		position.y = 212;
 	}
+	if (App->manager->player->position.x < App->manager->player2->position.x)Players_Distance = App->manager->player2->position.x - App->manager->player->position.x;
+	else if (App->manager->player->position.x > App->manager->player2->position.x)Players_Distance = App->manager->player->position.x - App->manager->player2->position.x;
+
 	if (flip && movement == BACKWARD)movement = FORWARD;
 	else if (flip && movement == FORWARD)movement = BACKWARD;
 	
@@ -1310,6 +1313,9 @@ update_status ModuleHonda::Update()
 			if (action == LIGHT_HUNDRED_SLAPS)current_animation = &LightHundredSlaps;
 			else if (action == MEDIUM_HUNDRED_SLAPS)current_animation = &MediumHundredSlaps;
 			else if (action == HEAVY_HUNDRED_SLAPS)current_animation = &HeavyHundredSlaps;
+			if (action == LIGHT_KICK && Players_Distance <= CloseDistance)current_animation = &closeLightKick;
+			else if (action == MEDIUM_KICK && Players_Distance <= CloseDistance)current_animation = &closeMediumKick;
+			else if (action == HEAVY_KICK && Players_Distance <= CloseDistance)current_animation = &closeHeavyKick;
 		}
 		if (movement == TURN_LEFT)
 		{

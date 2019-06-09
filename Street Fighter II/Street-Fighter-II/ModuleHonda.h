@@ -89,6 +89,10 @@ public:
 	//hp
 	int hp = 100;
 
+	// Close Attacks Control Varaible
+	uint			CloseDistance = 30;
+	uint			Players_Distance;
+
 	// Auxiliar Rect
 	SDL_Rect		auxiliar;
 
