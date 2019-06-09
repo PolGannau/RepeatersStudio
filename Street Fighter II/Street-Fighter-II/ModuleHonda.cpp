@@ -1345,6 +1345,9 @@ update_status ModuleHonda::Update()
 			{
 				movement = IDLE;
 			}
+			if (action = KNEES)current_animation = &knees;
+			else if (action = THROW)current_animation = &throwing;
+			else if (action = HUG)current_animation = &hug;
 		}
 		break;
 	case STANDING_TO_CROUCHING:
