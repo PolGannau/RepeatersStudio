@@ -131,32 +131,32 @@ update_status ModulePlayersManager::Update()
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && player2->state == ON_FLOOR)player2->state = STATE_CHARACTER::STANDING_TO_CROUCHING;
 	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_UP && player2->state == CROUCHING)player2->state = STATE_CHARACTER::CROUCHING_TO_STANDING;
 	//LIGHT KICK
-	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN && player2->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_KP_7] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_A] == KEY_DOWN)
 	{
 		player2->action = LIGHT_KICK;
 	}
 	//MEDIUM KICK
-	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN && player2->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_KP_8] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_B] == KEY_DOWN)
 	{
 		player2->action = MEDIUM_KICK;
 	}
 	//HEAVY KICK
-	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN && player2->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_KP_9] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_R1] == KEY_DOWN)
 	{
 		player2->action = HEAVY_KICK;
 	}
 	//LIGHT PUNCH
-	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN && player2->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_KP_4] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_X] == KEY_DOWN)
 	{
 		player2->action = LIGHT_PUNCH;
 	}
 	//MEDIUM PUNCH
-	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN && player2->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_KP_5] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_Y] == KEY_DOWN)
 	{
 		player2->action = MEDIUM_PUNCH;
 	}
 	//HEAVY PUNCH
-	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN && player2->action == NO_ACTION)
+	if (App->input->keyboard[SDL_SCANCODE_KP_6] == KEY_DOWN && player2->action == NO_ACTION || App->input->controller2[BUTTON_L1] == KEY_DOWN)
 	{
 		player2->action = HEAVY_PUNCH;
 	}
