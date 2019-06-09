@@ -23,16 +23,16 @@ Here's a link to our group's github repository, where you can find different rel
 ## Team Members
 
 * Pol Gannau
-> https://github.com/PolGannau
+> <https://github.com/PolGannau>
 
 * Marc Rosell
->https://github.com/MarcRosellH
+> <https://github.com/MarcRosellH>
 
 * Oscar Reguera
->https://github.com/oscarrep
+> <https://github.com/oscarrep>
 
 * Jan Adell
->https://github.com/JanAdell
+> <https://github.com/JanAdell>
 
 ![](https://raw.githubusercontent.com/PolGannau/RepeatersStudio/master/Wiki%20Documents/Team%20Photo.jpeg)
 
