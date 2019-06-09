@@ -1472,7 +1472,7 @@ bool ModuleHonda::Start()
 
 	if (player_num == PLAYER_NUMBER::NUMBER_ONE)
 	{
-		coll_head = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE, this);
+		coll_head = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE,this);
 		coll_body = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE, this);
 		coll_legs = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_BODY_PLAYER_ONE, this);
 		coll_attack = App->collision->AddCollider({ 0,0,0,0 }, COLLIDER_ATTACK_PLAYER_ONE, this);
@@ -1761,5 +1761,9 @@ void ModuleHonda::OnCollision(Collider * c1, Collider * c2)
 
 		App->manager->player->score += 1000;
 		App->manager->player2->score += 1000;
+	}
+	if (c1->type == COLLIDER_BODY_PLAYER_TWO && c2->type == COLLIDER_ATTACK_PLAYER_ONE)
+	{
+		App->manager->player2->hp -= 1;
 	}
 }
