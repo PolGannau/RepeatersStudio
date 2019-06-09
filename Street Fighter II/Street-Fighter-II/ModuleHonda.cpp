@@ -1536,18 +1536,21 @@ update_status ModuleHonda::Update()
 
 void ModuleHonda::OnCollision(Collider * c1, Collider * c2)
 {
-	App->audio->PlaySoundEffect(App->manager->lightpunch_sfx);
-	App->audio->PlaySoundEffect(App->manager->mediumpunch_sfx);
-	App->audio->PlaySoundEffect(App->manager->heavypunch_sfx);
-	App->audio->PlaySoundEffect(App->manager->lightkick_sfx);
-	App->audio->PlaySoundEffect(App->manager->mediumkick_sfx);
-	App->audio->PlaySoundEffect(App->manager->heavykick_sfx);
-	App->audio->PlaySoundEffect(App->manager->special_sfx);
-	App->audio->PlaySoundEffect(App->manager->block_sfx);
+	if (c1->type == COLLIDER_BODY_PLAYER_ONE && c2->type == COLLIDER_ATTACK_PLAYER_TWO)
+	{
+		App->audio->PlaySoundEffect(App->manager->lightpunch_sfx);
+		App->audio->PlaySoundEffect(App->manager->mediumpunch_sfx);
+		App->audio->PlaySoundEffect(App->manager->heavypunch_sfx);
+		App->audio->PlaySoundEffect(App->manager->lightkick_sfx);
+		App->audio->PlaySoundEffect(App->manager->mediumkick_sfx);
+		App->audio->PlaySoundEffect(App->manager->heavykick_sfx);
+		App->audio->PlaySoundEffect(App->manager->special_sfx);
+		App->audio->PlaySoundEffect(App->manager->block_sfx);
 
-	App->manager->player->score += 500;
-	App->manager->player2->score += 500;
+		App->manager->player->score += 500;
+		App->manager->player2->score += 500;
 
-	App->manager->player->score += 1000;
-	App->manager->player2->score += 1000;
+		App->manager->player->score += 1000;
+		App->manager->player2->score += 1000;
+	}
 }
