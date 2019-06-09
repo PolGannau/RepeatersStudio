@@ -1489,4 +1489,10 @@ void ModuleHonda::OnCollision(Collider * c1, Collider * c2)
 	App->audio->PlaySoundEffect(App->manager->heavykick_sfx);
 	App->audio->PlaySoundEffect(App->manager->special_sfx);
 	App->audio->PlaySoundEffect(App->manager->block_sfx);
+
+	App->manager->player->score += 500;
+	App->manager->player2->score += 500;
+
+	App->manager->player->score += 1000;
+	App->manager->player2->score += 1000;
 }
