@@ -1355,6 +1355,8 @@ update_status ModuleHonda::Update()
 			else if (action = MEDIUM_SUMO_HEAD_BUTT)current_animation = &MediumSumoHeadbutt;
 			else if (action = HEAVY_SUMO_HEAD_BUTT)current_animation = &HeavySumoHeadbutt;
 		}
+		if (movement == HIT)current_animation = &Hit;
+		else if (movement == GUT_HIT)current_animation = &GutHit;
 		break;
 	case STANDING_TO_CROUCHING:
 		if (movement == IDLE && action == NO_ACTION)current_animation = &crouching;
@@ -1379,6 +1381,8 @@ update_status ModuleHonda::Update()
 			else if (action == LIGHT_PUNCH)current_animation = &crouchLightPunch;
 			else if (action == MEDIUM_PUNCH)current_animation = &crouchMediumPunch;
 			else if (action == HEAVY_PUNCH)current_animation = &crouchHeavyPunch;
+			if (movement == HIT)current_animation = &crouchHit;
+			else if (movement == GUT_HIT)current_animation = &crouchHit;
 		}
 		break;
 	case CROUCHING_TO_STANDING:
@@ -1419,6 +1423,8 @@ update_status ModuleHonda::Update()
 		else if (movement == IDLE && action == MEDIUM_PUNCH)current_animation = &jumpMediumPunch;
 		else if (movement == IDLE && action == HEAVY_PUNCH)current_animation = &jumpHeavyPunch;
 		if (current_animation->Finished() && action != NO_ACTION)action = NO_ACTION;
+		if (movement == HIT)current_animation = &Hit;
+		else if (movement == GUT_HIT)current_animation = &GutHit;
 		break;
 	case VICTORY:
 		current_animation = &victory;
