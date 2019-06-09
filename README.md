@@ -74,26 +74,8 @@ In this subject we will be replicating the famous arcade game which catapulted t
 
 **0.5(Delivery):** Added colliders to combos. Added Jump to players and gameplay capabilities.
 
-## Found Errors in current version
-
-* P2 Kick collider hovers in air until kick is used.
-
-* Life Bars don't reset. P1 Lifebar animation is wrong.
-
-* Particles not working. Searching for solve.
-
-
-## To be Implemented
-
-* Intro Scene animation.
-
-* Player to be able to perform light, medium and heavy kicks and punches, as well as combos.
-
-* Timer during fights.
-
-* UI manager.
-
-* Starting menu and character selection menu.
+**0.6:** Added proper rounds to combat, fixed Ui problems like lifebars working uncorrectly or missing elements
+P2 is different color from p1.
 
 ## Team Members
 
